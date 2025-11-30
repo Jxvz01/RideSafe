@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Login — RideSafe AI</title>
+<link rel="stylesheet" href="css/styles.css">
+<style>
+.auth-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;position:relative;z-index:1}
+.auth-box{width:100%;max-width:420px}
+.auth-logo{display:flex;align-items:center;gap:10px;margin-bottom:40px;justify-content:center}
+.auth-logo .logo-icon{width:40px;height:40px;border-radius:12px;background:rgba(0,212,255,.12);border:1px solid rgba(0,212,255,.2);display:flex;align-items:center;justify-content:center}
+.auth-card{background:rgba(6,11,26,.85);border:1px solid var(--border);border-radius:24px;padding:40px;backdrop-filter:blur(24px);box-shadow:0 20px 80px rgba(0,0,0,.5)}
+.auth-title{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;margin-bottom:6px}
+.auth-sub{font-size:.85rem;color:var(--txt2);margin-bottom:32px}
+.auth-form{display:flex;flex-direction:column;gap:14px}
+.auth-label{font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--txt3);margin-bottom:6px;display:block}
+.auth-btn{margin-top:8px}
+.auth-divider{display:flex;align-items:center;gap:12px;margin:8px 0}
+.auth-divider::before,.auth-divider::after{content:'';flex:1;height:1px;background:var(--border)}
+.auth-divider span{font-size:.75rem;color:var(--txt3)}
+.auth-switch{text-align:center;font-size:.82rem;color:var(--txt2);margin-top:20px}
+.auth-switch a{color:var(--blue);font-weight:600}
+.portal-links{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.portal-link{display:flex;align-items:center;gap:14px;padding:14px 16px;background:var(--glass);border:1px solid var(--border);border-radius:14px;cursor:pointer;transition:var(--t)}
+.portal-link:hover{background:var(--glass-h);border-color:var(--border-b);transform:translateX(4px)}
+.portal-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.portal-name{font-weight:600;font-size:.88rem}
+.portal-desc{font-size:.72rem;color:var(--txt3);margin-top:2px}
+.tab-row{display:flex;gap:4px;background:rgba(255,255,255,.04);border-radius:12px;padding:4px;margin-bottom:28px}
+.tab-btn{flex:1;padding:9px;border:none;background:none;color:var(--txt2);font-family:var(--font);font-size:.82rem;font-weight:600;border-radius:9px;cursor:pointer;transition:var(--t)}
+.tab-btn.active{background:rgba(0,212,255,.12);color:var(--blue);border:1px solid rgba(0,212,255,.2)}
+</style>
+</head>
+<body>
+<div class="bg-grid"></div>
+<div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
+
+<div class="auth-wrap">
+  <div class="auth-box">
+    <!-- Logo -->
+    <div class="auth-logo">
+      <div class="logo-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.5C16.5 22.15 20 17.25 20 12V6l-8-4z" fill="url(#alg)"/><defs><linearGradient id="alg" x1="4" y1="2" x2="20" y2="22"><stop stop-color="#00d4ff"/><stop offset="1" stop-color="#00ff88"/></linearGradient></defs></svg></div>
+      <span style="font-weight:800;font-size:1.2rem;letter-spacing:-.02em">RideSafe <span class="grad-blue">AI</span></span>
+    </div>
+
+    <!-- PORTAL SELECTOR CARD -->
+    <div class="auth-card" id="portalSelect">
+      <div class="auth-title">Select Portal</div>
+      <div class="auth-sub">Choose your access level to continue</div>
+      <div class="portal-links">
+        <a class="portal-link" onclick="showLogin('admin')">
+          <div class="portal-icon" style="background:rgba(0,212,255,.12)">🛡️</div>
+          <div><div class="portal-name">Fleet Admin</div><div class="portal-desc">Monitor riders, manage alerts, view analytics</div></div>
+          <svg style="margin-left:auto;color:var(--txt3)" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a class="portal-link" onclick="showLogin('dev')">
+          <div class="portal-icon" style="background:rgba(0,255,136,.12)">⚙️</div>
+          <div><div class="portal-name">Developer Console</div><div class="portal-desc">Device registry, API logs, webhook testing</div></div>
+          <svg style="margin-left:auto;color:var(--txt3)" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div style="text-align:center;margin-top:24px"><a href="index.html" style="font-size:.82rem;color:var(--txt2)">← Back to Homepage</a></div>
+    </div>
+
+    <!-- ADMIN LOGIN CARD -->
+    <div class="auth-card" id="adminLogin" style="display:none">
+      <div class="auth-title">Admin Login</div>
+      <div class="auth-sub" style="display:flex;align-items:center;gap:8px"><span class="badge badge-blue">Fleet Admin</span> Access Zepto Fleet Dashboard</div>
+      <div class="auth-form">
+        <div>
+          <label class="auth-label">Email</label>
+          <input type="email" class="input" placeholder="admin@fleet.com" value="admin@zepto.com">
+        </div>
+        <div>
+          <label class="auth-label">Password</label>
+          <input type="password" class="input" placeholder="••••••••" value="••••••••">
+        </div>
+        <button class="btn btn-primary auth-btn" onclick="loginAdmin()">Sign In to Dashboard</button>
+      </div>
+      <div class="auth-switch"><a href="#" onclick="showPortal()">← Back</a> · <a href="#">Forgot password?</a></div>
+    </div>
+
+    <!-- DEV LOGIN CARD -->
+    <div class="auth-card" id="devLogin" style="display:none">
+      <div class="auth-title" style="color:var(--green)">Developer Login</div>
+      <div class="auth-sub" style="display:flex;align-items:center;gap:8px"><span class="badge badge-green">Root Access</span> System Console</div>
+      <div class="auth-form">
+        <div>
+          <label class="auth-label" style="color:var(--txt3)">Dev Email</label>
+          <input type="email" class="input" style="border-color:rgba(0,255,136,.15);font-family:var(--mono)" placeholder="dev@ridesafe.ai" value="dev@ridesafe.ai">
+        </div>
+        <div>
+          <label class="auth-label" style="color:var(--txt3)">API Key / Password</label>
+          <input type="password" class="input" style="border-color:rgba(0,255,136,.15);font-family:var(--mono)" placeholder="sk_dev_••••••••" value="sk_dev_••••••••">
+        </div>
+        <button class="btn btn-green auth-btn" onclick="loginDev()">Access Dev Console</button>
+      </div>
+      <div class="auth-switch"><a href="#" onclick="showPortal()" style="color:var(--green)">← Back</a></div>
+    </div>
+  </div>
+</div>
+
+<script>
+function showLogin(type) {
+  document.getElementById('portalSelect').style.display = 'none';
+  document.getElementById('adminLogin').style.display = type === 'admin' ? 'block' : 'none';
+  document.getElementById('devLogin').style.display = type === 'dev' ? 'block' : 'none';
+}
+function showPortal() {
+  document.getElementById('portalSelect').style.display = 'block';
+  document.getElementById('adminLogin').style.display = 'none';
+  document.getElementById('devLogin').style.display = 'none';
+}
+function loginAdmin() {
+  localStorage.setItem('ridesafe_session', JSON.stringify({name: 'Admin Manager', role: 'Zepto Fleet', initials: 'AM'}));
+  window.location = 'dashboard-admin.html';
+}
+function loginDev() {
+  localStorage.setItem('ridesafe_session', JSON.stringify({name: 'Dev Admin', role: 'System Root', initials: 'DV'}));
+  window.location = 'dashboard-dev.html';
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Developer Console — RideSafe AI</title>
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/devdash.css">
+</head>
+<body>
+<div class="bg-grid"></div>
+<div class="orb orb1"></div><div class="orb orb2"></div>
+<div class="mob-overlay" id="mobOverlay"></div>
+<div class="toast-container" id="toastContainer"></div>
+
+<div class="layout">
+<!-- DEV SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <div class="sb-logo">
+    <div class="logo-icon" style="background:rgba(0,255,136,.12);border-color:rgba(0,255,136,.2)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+    <div><div style="font-weight:700;font-size:.95rem;letter-spacing:-.01em;color:var(--green)">Dev Console</div><div style="font-size:.65rem;color:var(--txt3);letter-spacing:.05em;text-transform:uppercase">RideSafe AI</div></div>
+  </div>
+  <nav class="sb-nav">
+    <div class="sb-section-label">Operations</div>
+    <a href="#" class="sb-link dev-link active" data-dev="stream" style="color:var(--green)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Console Stream
+      <span class="sb-badge" style="background:rgba(16,185,129,0.08);color:var(--green)">LIVE</span>
+    </a>
+    <div class="sb-section-label">Tools</div>
+    <a href="#" class="sb-link dev-link" data-dev="webhook">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>Sandbox Webhook
+    </a>
+    <div class="sb-section-label">Navigate</div>
+    <a href="dashboard-admin.html" class="sb-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>Admin Dashboard
+    </a>
+    <a href="login.html" class="sb-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>Logout
+    </a>
+  </nav>
+  <div class="sb-footer">
+    <div class="sb-user">
+      <div class="sb-avatar" style="background:linear-gradient(135deg,#7c3aed,#00d4ff)">DV</div>
+      <div><div style="font-size:.82rem;font-weight:600">Dev Admin</div><div style="font-size:.7rem;color:var(--txt3)">System Root · v2.4.1</div></div>
+    </div>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<div class="main-content">
+  <header class="topbar" style="border-bottom-color:rgba(0,255,136,.1)">
+    <button class="btn-icon mob-toggle" id="mobToggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    <div class="topbar-title" id="devPageTitle" style="color:var(--green);font-family:var(--mono);font-size:.85rem">SYS:// SYSTEM_STATUS</div>
+    <div class="topbar-spacer"></div>
+    <div class="dev-status-chips">
+      <div class="dev-chip"><span class="dot dot-green"></span> API Online</div>
+      <div class="dev-chip"><span class="dot dot-green"></span> DB Healthy</div>
+      <div class="dev-chip" style="color:var(--yellow)"><span class="dot dot-yellow"></span> SMS Warn</div>
+    </div>
+    <a href="index.html" class="btn btn-outline btn-sm">← Home</a>
+  </header>
+
+  <div class="page-body" id="devPageBody">
+    <!-- CONSOLE STREAM PAGE -->
+    <div class="page" id="devpage-stream">
+      <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 20px; min-height: calc(100vh - 120px);">
+        <!-- Telemetry Graph -->
+        <div class="card card-p" style="display:flex; flex-direction:column; gap:16px;">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div style="font-family:var(--mono); font-size:0.75rem; letter-spacing:0.05em; color:var(--txt3); text-transform:uppercase;">📡 Live ESP32 Telemetry Oscilloscope</div>
+            <span class="badge badge-green" style="font-size:0.68rem; animation: glow-pulse 2s ease infinite;"><span class="dot dot-green"></span> 60fps link</span>
+          </div>
+          
+          <div class="live-graph" id="liveGraph" style="flex: 1; min-height: 240px; background: rgba(0,0,0,0.15); border: 1px solid var(--border); border-radius: var(--r-md); overflow:hidden;">
+            <!-- Canvas rolling wave is dynamically drawn by js/devdash.js -->
+          </div>
+
+          <!-- Quick Telemetry Readouts -->
+          <div class="stream-values" id="streamValues" style="display:grid; grid-template-columns: repeat(3, 1fr); gap:8px;">
+            <!-- Numeric values -->
+          </div>
+        </div>
+
+        <!-- Unified Log Terminal -->
+        <div class="card card-p" style="display:flex; flex-direction:column; gap:16px;">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div style="font-family:var(--mono); font-size:0.75rem; letter-spacing:0.05em; color:var(--txt3); text-transform:uppercase;">// Unified Operational Terminal Feed</div>
+            <button class="btn btn-outline btn-sm" onclick="clearTerminal()" style="padding:4px 10px; font-size:0.68rem;">Clear</button>
+          </div>
+          <div class="terminal" id="streamTerminal" style="flex:1; min-height: 380px; height: 100%; border: 1px solid var(--border); background: #030509;">
+            <!-- Real-time scroll feed -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SANDBOX WEBHOOK PAGE -->
+    <div class="page hidden" id="devpage-webhook">
+      <div class="dash-section">
+        <div class="dash-section-header">
+          <h3 class="dash-section-title" style="font-family:var(--mono)">// Webhook sandbox payload trigger</h3>
+        </div>
+        <div class="webhook-layout" style="display:grid; grid-template-columns: 1fr 1fr; gap:20px;">
+          <!-- Request Payload Editor -->
+          <div class="card card-p" style="display:flex; flex-direction:column; gap:16px;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <div style="font-family:var(--mono); font-size:0.7rem; color:var(--txt3); text-transform:uppercase;">Request Endpoint & Payload</div>
+              <select class="input" style="width:auto; padding:6px 12px; font-size:.72rem; font-family:var(--mono); background:rgba(255,255,255,0.01); border:1px solid var(--border);">
+                <!-- Populated dynamically -->
+              </select>
+            </div>
+            <textarea class="input" id="webhookPayload" rows="12" style="font-family:var(--mono); font-size:.78rem; resize:vertical; background:rgba(0,0,0,0.1); border:1px solid var(--border);">{
+  "device_id": "RSM-204",
+  "rider_id": "1042",
+  "event": "CRASH_DETECTED",
+  "accel_x": -0.42,
+  "accel_y": 8.91,
+  "accel_z": -2.34,
+  "gyro_x": 142.3,
+  "gyro_y": -89.1,
+  "gyro_z": 22.4,
+  "gps_lat": 19.1136,
+  "gps_lon": 72.8697,
+  "kill_switch": false,
+  "battery": 78,
+  "timestamp": "2025-06-15T14:32:08Z"
+}</textarea>
+            <div style="display:flex; justify-content:flex-end;">
+              <button class="btn btn-primary" onclick="sendWebhook()" style="background:var(--green); color:#05070a; font-weight:700;">Simulate Trigger →</button>
+            </div>
+          </div>
+
+          <!-- Response logger -->
+          <div class="card card-p" style="display:flex; flex-direction:column; gap:16px;">
+            <div style="font-family:var(--mono); font-size:0.7rem; color:var(--txt3); text-transform:uppercase;">Sandboxed API Response</div>
+            <div class="terminal" id="webhookResponse" style="flex:1; min-height:300px; background:#030509; border:1px solid var(--border);">
+              <div class="term-line" style="color:var(--txt3)">// Fire a simulated webhook payload to check API outcomes...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ADD RIDER MODAL -->
+<div class="modal-overlay" id="addRiderModal">
+  <div class="modal">
+    <div class="modal-title">Add Fleet Rider</div>
+    <div class="modal-sub">Register a new delivery rider in the Zepto Fleet registry.</div>
+    <form class="modal-form" id="addRiderForm" onsubmit="event.preventDefault(); saveRider();">
+      <div class="modal-group">
+        <label class="modal-label" for="riderName">Rider Name</label>
+        <input type="text" class="input" id="riderName" placeholder="e.g. Amit Kumar" required>
+      </div>
+      <div class="modal-group">
+        <label class="modal-label" for="riderPhone">Phone Number</label>
+        <input type="tel" class="input" id="riderPhone" placeholder="e.g. 98200XXXXX" required pattern="[0-9]{10}">
+      </div>
+      <div class="modal-group">
+        <label class="modal-label" for="riderEmergency">Emergency Contact</label>
+        <input type="text" class="input" id="riderEmergency" placeholder="e.g. Sunita Kumar (Mother)" required>
+      </div>
+      <div class="modal-group">
+        <label class="modal-label" for="riderShift">Shift Timings</label>
+        <select class="input" id="riderShift" style="background: rgba(255,255,255,.03); color: var(--txt); border: 1px solid var(--border); border-radius: var(--r-md); padding: 13px 18px;">
+          <option value="09:00–21:00">Day Shift (09:00 – 21:00)</option>
+          <option value="10:00–22:00">Late Day Shift (10:00 – 22:00)</option>
+          <option value="08:00–20:00">Early Shift (08:00 – 20:00)</option>
+          <option value="21:00–09:00">Night Shift (21:00 – 09:00)</option>
+        </select>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-outline btn-sm" onclick="closeModal('addRiderModal')">Cancel</button>
+        <button type="submit" class="btn btn-primary btn-sm">Add Rider</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- REGISTER DEVICE MODAL -->
+<div class="modal-overlay" id="registerDeviceModal">
+  <div class="modal">
+    <div class="modal-title" style="color:var(--green)">Register IoT Device</div>
+    <div class="modal-sub">Provision and link a RideSafe hardware module to an active rider.</div>
+    <form class="modal-form" id="registerDeviceForm" onsubmit="event.preventDefault(); saveDevice();">
+      <div class="modal-group">
+        <label class="modal-label" for="devId">Device Hardware ID</label>
+        <input type="text" class="input" id="devId" placeholder="e.g. RSM-215" style="border-color:rgba(0,255,136,.15); font-family:var(--mono);" required>
+      </div>
+      <div class="modal-group">
+        <label class="modal-label" for="devRider">Assign to Rider</label>
+        <select class="input" id="devRider" style="background: rgba(255,255,255,.03); color: var(--txt); border: 1px solid var(--border); border-radius: var(--r-md); padding: 13px 18px;" required>
+          <!-- Will be dynamically populated -->
+        </select>
+      </div>
+      <div class="modal-group">
+        <label class="modal-label" for="devFw">Firmware Version</label>
+        <input type="text" class="input" id="devFw" value="v2.4.1" style="font-family:var(--mono);" required>
+      </div>
+      <div class="modal-group">
+        <label class="modal-label" for="devBatt">Initial Battery %</label>
+        <input type="number" class="input" id="devBatt" value="100" min="0" max="100" style="font-family:var(--mono);" required>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-outline btn-sm" onclick="closeModal('registerDeviceModal')">Cancel</button>
+        <button type="submit" class="btn btn-green btn-sm">Provision</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="js/devdash.js"></script>
+</body>
+</html>

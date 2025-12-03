@@ -323,3 +323,5 @@ button { cursor: pointer; font-family: var(--font); }
 }
 
 /* iteration check: docs(topbar): audit G-Force peak decay thresholds */
+
+/* iteration check: chore(topbar): validate monochromatic gray palettes */

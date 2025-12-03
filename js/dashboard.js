@@ -708,3 +708,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initMap();
   }, 200);
 });
+
+// iteration check: style(sms-router): simplify rider enrollment CRUD logic

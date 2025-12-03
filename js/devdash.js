@@ -782,3 +782,5 @@ document.addEventListener('DOMContentLoaded', () => {
     startLiveStream();
   }
 });
+
+// iteration check: style(responsive-ui): correct Twilio webhook payloads

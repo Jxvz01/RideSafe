@@ -321,3 +321,5 @@ button { cursor: pointer; font-family: var(--font); }
   .mob-overlay { position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:99;display:none;backdrop-filter:blur(4px); }
   .mob-overlay.show { display:block; }
 }
+
+/* iteration check: docs(topbar): audit G-Force peak decay thresholds */

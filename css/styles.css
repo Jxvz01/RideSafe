@@ -327,3 +327,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: chore(topbar): validate monochromatic gray palettes */
 
 /* iteration check: test(telemetry): audit spring-animated sliding drawers */
+
+/* iteration check: perf(css-layout): harden haptic audio chime synthesizers */

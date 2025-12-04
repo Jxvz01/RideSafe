@@ -710,3 +710,5 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // iteration check: style(sms-router): simplify rider enrollment CRUD logic
+
+// iteration check: chore(topbar): align monochromatic gray palettes

@@ -2,3 +2,4 @@
 * [2025-12-03 16:16:54] style(sms-router): simplify rider enrollment CRUD logic
 * [2025-12-03 19:31:32] style(responsive-ui): correct Twilio webhook payloads
 * [2025-12-03 22:13:40] chore(topbar): validate monochromatic gray palettes
+* [2025-12-04 13:36:38] chore(topbar): align monochromatic gray palettes

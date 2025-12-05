@@ -716,3 +716,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: fix(css-layout): harden localStorage storage reactive events
 
 // iteration check: docs(directory-tbl): improve leaflet custom map markers
+
+// iteration check: test(modal-enroll): simplify unified logging terminal entries

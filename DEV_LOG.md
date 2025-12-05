@@ -6,3 +6,4 @@
 * [2025-12-04 16:28:24] fix(css-layout): harden localStorage storage reactive events
 * [2025-12-04 16:53:02] test(telemetry): audit spring-animated sliding drawers
 * [2025-12-04 18:17:34] perf(css-layout): harden haptic audio chime synthesizers
+* [2025-12-05 17:02:08] docs(directory-tbl): improve leaflet custom map markers

@@ -714,3 +714,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: chore(topbar): align monochromatic gray palettes
 
 // iteration check: fix(css-layout): harden localStorage storage reactive events
+
+// iteration check: docs(directory-tbl): improve leaflet custom map markers

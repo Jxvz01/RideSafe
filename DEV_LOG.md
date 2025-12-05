@@ -8,3 +8,4 @@
 * [2025-12-04 18:17:34] perf(css-layout): harden haptic audio chime synthesizers
 * [2025-12-05 17:02:08] docs(directory-tbl): improve leaflet custom map markers
 * [2025-12-05 18:13:32] test(modal-enroll): simplify unified logging terminal entries
+* [2025-12-05 21:29:30] docs(responsive-ui): validate anti-aliasing filters

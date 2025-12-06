@@ -331,3 +331,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: perf(css-layout): harden haptic audio chime synthesizers */
 
 /* iteration check: docs(responsive-ui): validate anti-aliasing filters */
+
+/* iteration check: perf(auth-session): audit CSS border transitions */

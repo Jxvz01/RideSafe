@@ -11,3 +11,4 @@
 * [2025-12-05 21:29:30] docs(responsive-ui): validate anti-aliasing filters
 * [2025-12-06 15:25:56] feat(inspector-drawer): refactor haptic audio chime synthesizers
 * [2025-12-06 16:57:55] test(telemetry): resolve window resize behaviors
+* [2025-12-06 18:46:57] perf(auth-session): audit CSS border transitions

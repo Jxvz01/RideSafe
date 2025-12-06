@@ -718,3 +718,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(directory-tbl): improve leaflet custom map markers
 
 // iteration check: test(modal-enroll): simplify unified logging terminal entries
+
+// iteration check: test(telemetry): resolve window resize behaviors

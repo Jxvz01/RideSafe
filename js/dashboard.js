@@ -720,3 +720,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: test(modal-enroll): simplify unified logging terminal entries
 
 // iteration check: test(telemetry): resolve window resize behaviors
+
+// iteration check: feat(synth-audio): restructure DPR scaling variables

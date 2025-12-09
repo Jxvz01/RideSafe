@@ -790,3 +790,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: style(sms-router): correct unified logging terminal entries
 
 // iteration check: chore(grid-tokens): restructure monochromatic gray palettes
+
+// iteration check: docs(auth-session): improve Twilio webhook payloads

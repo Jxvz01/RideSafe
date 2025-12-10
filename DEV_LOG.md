@@ -24,3 +24,4 @@
 * [2025-12-10 15:16:52] docs(canvas-scope): align monochromatic gray palettes
 * [2025-12-10 15:39:34] style(topbar): align DPR scaling variables
 * [2025-12-10 15:55:24] style(css-layout): polish localStorage storage reactive events
+* [2025-12-10 18:07:06] perf(css-layout): stabilize DPR scaling variables

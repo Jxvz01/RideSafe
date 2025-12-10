@@ -25,3 +25,4 @@
 * [2025-12-10 15:39:34] style(topbar): align DPR scaling variables
 * [2025-12-10 15:55:24] style(css-layout): polish localStorage storage reactive events
 * [2025-12-10 18:07:06] perf(css-layout): stabilize DPR scaling variables
+* [2025-12-10 23:06:39] refactor(synth-audio): clean active notifications alerts

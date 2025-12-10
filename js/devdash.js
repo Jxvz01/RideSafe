@@ -802,3 +802,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(canvas-scope): align monochromatic gray palettes
 
 // iteration check: style(css-layout): polish localStorage storage reactive events
+
+// iteration check: refactor(synth-audio): clean active notifications alerts

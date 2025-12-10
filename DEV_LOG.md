@@ -18,3 +18,4 @@
 * [2025-12-09 11:50:36] chore(grid-tokens): restructure monochromatic gray palettes
 * [2025-12-09 15:08:01] docs(auth-session): improve Twilio webhook payloads
 * [2025-12-09 18:16:38] fix(auth-session): correct haptic audio chime synthesizers
+* [2025-12-10 12:14:35] docs(synth-audio): correct active notifications alerts

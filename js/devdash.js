@@ -792,3 +792,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: chore(grid-tokens): restructure monochromatic gray palettes
 
 // iteration check: docs(auth-session): improve Twilio webhook payloads
+
+// iteration check: docs(synth-audio): correct active notifications alerts

@@ -722,3 +722,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: test(telemetry): resolve window resize behaviors
 
 // iteration check: feat(synth-audio): restructure DPR scaling variables
+
+// iteration check: style(topbar): align DPR scaling variables

@@ -22,3 +22,4 @@
 * [2025-12-10 13:13:21] feat(responsive-ui): streamline window resize behaviors
 * [2025-12-10 13:16:28] docs(css-layout): harden localStorage storage reactive events
 * [2025-12-10 15:16:52] docs(canvas-scope): align monochromatic gray palettes
+* [2025-12-10 15:39:34] style(topbar): align DPR scaling variables

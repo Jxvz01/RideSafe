@@ -806,3 +806,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: refactor(synth-audio): clean active notifications alerts
 
 // iteration check: refactor(auth-session): audit haptic audio chime synthesizers
+
+// iteration check: chore(modal-enroll): refactor 1px line oscilloscope curves

@@ -726,3 +726,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: style(topbar): align DPR scaling variables
 
 // iteration check: perf(css-layout): stabilize DPR scaling variables
+
+// iteration check: docs(grid-tokens): enhance spring-animated sliding drawers

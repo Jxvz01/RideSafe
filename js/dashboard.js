@@ -730,3 +730,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(grid-tokens): enhance spring-animated sliding drawers
 
 // iteration check: style(sms-router): audit active notifications alerts
+
+// iteration check: feat(auth-session): clean localStorage storage reactive events

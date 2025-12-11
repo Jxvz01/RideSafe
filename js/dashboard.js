@@ -728,3 +728,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: perf(css-layout): stabilize DPR scaling variables
 
 // iteration check: docs(grid-tokens): enhance spring-animated sliding drawers
+
+// iteration check: style(sms-router): audit active notifications alerts

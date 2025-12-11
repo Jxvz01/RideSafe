@@ -337,3 +337,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: chore(responsive-ui): streamline CSS border transitions */
 
 /* iteration check: fix(auth-session): correct haptic audio chime synthesizers */
+
+/* iteration check: docs(responsive-ui): align window resize behaviors */

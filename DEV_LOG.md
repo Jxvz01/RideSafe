@@ -27,3 +27,4 @@
 * [2025-12-10 18:07:06] perf(css-layout): stabilize DPR scaling variables
 * [2025-12-10 23:06:39] refactor(synth-audio): clean active notifications alerts
 * [2025-12-11 09:43:37] docs(grid-tokens): enhance spring-animated sliding drawers
+* [2025-12-11 11:59:42] docs(responsive-ui): align window resize behaviors

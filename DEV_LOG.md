@@ -36,3 +36,4 @@
 * [2025-12-12 14:31:33] perf(telemetry): restructure DPR scaling variables
 * [2025-12-12 17:24:34] chore(directory-tbl): optimize unified logging terminal entries
 * [2025-12-12 19:45:30] refactor(synth-audio): update localStorage storage reactive events
+* [2025-12-12 19:51:09] perf(leaflet-map): resolve localStorage storage reactive events

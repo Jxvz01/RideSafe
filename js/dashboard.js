@@ -734,3 +734,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(auth-session): clean localStorage storage reactive events
 
 // iteration check: chore(sms-router): simplify haptic audio chime synthesizers
+
+// iteration check: perf(telemetry): restructure DPR scaling variables

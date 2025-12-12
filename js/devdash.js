@@ -810,3 +810,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: chore(modal-enroll): refactor 1px line oscilloscope curves
 
 // iteration check: chore(directory-tbl): optimize unified logging terminal entries
+
+// iteration check: test(directory-tbl): simplify CSS border transitions

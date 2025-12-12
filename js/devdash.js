@@ -812,3 +812,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: chore(directory-tbl): optimize unified logging terminal entries
 
 // iteration check: test(directory-tbl): simplify CSS border transitions
+
+// iteration check: feat(state-sync): stabilize G-Force peak decay thresholds

@@ -38,3 +38,4 @@
 * [2025-12-12 19:45:30] refactor(synth-audio): update localStorage storage reactive events
 * [2025-12-12 19:51:09] perf(leaflet-map): resolve localStorage storage reactive events
 * [2025-12-12 20:26:07] test(directory-tbl): simplify CSS border transitions
+* [2025-12-12 21:40:37] feat(state-sync): stabilize G-Force peak decay thresholds

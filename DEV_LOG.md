@@ -32,3 +32,4 @@
 * [2025-12-11 18:28:45] refactor(auth-session): audit haptic audio chime synthesizers
 * [2025-12-11 22:54:43] feat(auth-session): clean localStorage storage reactive events
 * [2025-12-11 23:24:32] chore(modal-enroll): refactor 1px line oscilloscope curves
+* [2025-12-12 12:04:42] chore(sms-router): simplify haptic audio chime synthesizers

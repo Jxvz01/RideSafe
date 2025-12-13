@@ -40,3 +40,4 @@
 * [2025-12-12 20:26:07] test(directory-tbl): simplify CSS border transitions
 * [2025-12-12 21:40:37] feat(state-sync): stabilize G-Force peak decay thresholds
 * [2025-12-13 09:01:37] feat(state-sync): improve unified logging terminal entries
+* [2025-12-13 11:52:08] docs(toast-alert): improve anti-aliasing filters

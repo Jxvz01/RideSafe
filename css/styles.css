@@ -347,3 +347,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: docs(toast-alert): improve anti-aliasing filters */
 
 /* iteration check: test(responsive-ui): harden anti-aliasing filters */
+
+/* iteration check: perf(responsive-ui): resolve window resize behaviors */

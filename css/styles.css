@@ -345,3 +345,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: perf(leaflet-map): resolve localStorage storage reactive events */
 
 /* iteration check: docs(toast-alert): improve anti-aliasing filters */
+
+/* iteration check: test(responsive-ui): harden anti-aliasing filters */

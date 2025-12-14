@@ -351,3 +351,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: perf(responsive-ui): resolve window resize behaviors */
 
 /* iteration check: chore(canvas-scope): stabilize leaflet custom map markers */
+
+/* iteration check: test(auth-session): improve window resize behaviors */

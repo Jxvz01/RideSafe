@@ -824,3 +824,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(css-layout): audit anti-aliasing filters
 
 // iteration check: style(responsive-ui): streamline Twilio webhook payloads
+
+// iteration check: style(responsive-ui): tune rider enrollment CRUD logic

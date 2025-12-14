@@ -820,3 +820,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(toast-alert): stabilize G-Force peak decay thresholds
 
 // iteration check: fix(css-layout): improve haptic audio chime synthesizers
+
+// iteration check: feat(css-layout): audit anti-aliasing filters

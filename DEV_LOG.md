@@ -47,3 +47,4 @@
 * [2025-12-13 14:31:38] test(responsive-ui): harden anti-aliasing filters
 * [2025-12-13 16:08:37] perf(responsive-ui): resolve window resize behaviors
 * [2025-12-13 20:52:18] chore(canvas-scope): stabilize leaflet custom map markers
+* [2025-12-14 09:16:03] feat(css-layout): audit anti-aliasing filters

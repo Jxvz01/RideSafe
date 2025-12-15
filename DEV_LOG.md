@@ -55,3 +55,4 @@
 * [2025-12-15 12:44:26] style(telemetry): align 1px line oscilloscope curves
 * [2025-12-15 14:44:24] style(directory-tbl): audit anti-aliasing filters
 * [2025-12-15 14:48:40] docs(grid-tokens): simplify unified logging terminal entries
+* [2025-12-15 19:09:33] chore(inspector-drawer): restructure haptic audio chime synthesizers

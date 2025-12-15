@@ -52,3 +52,4 @@
 * [2025-12-14 16:56:26] style(responsive-ui): tune rider enrollment CRUD logic
 * [2025-12-14 17:47:59] test(auth-session): improve window resize behaviors
 * [2025-12-15 12:24:07] feat(inspector-drawer): update CSS border transitions
+* [2025-12-15 12:44:26] style(telemetry): align 1px line oscilloscope curves

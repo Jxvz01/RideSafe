@@ -738,3 +738,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: perf(telemetry): restructure DPR scaling variables
 
 // iteration check: feat(state-sync): improve unified logging terminal entries
+
+// iteration check: style(telemetry): align 1px line oscilloscope curves

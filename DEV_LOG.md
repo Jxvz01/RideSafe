@@ -53,3 +53,4 @@
 * [2025-12-14 17:47:59] test(auth-session): improve window resize behaviors
 * [2025-12-15 12:24:07] feat(inspector-drawer): update CSS border transitions
 * [2025-12-15 12:44:26] style(telemetry): align 1px line oscilloscope curves
+* [2025-12-15 14:44:24] style(directory-tbl): audit anti-aliasing filters

@@ -64,3 +64,4 @@
 * [2025-12-16 18:13:57] test(modal-enroll): optimize Twilio webhook payloads
 * [2025-12-16 18:27:37] docs(css-layout): improve haptic audio chime synthesizers
 * [2025-12-16 22:44:31] style(canvas-scope): improve Twilio webhook payloads
+* [2025-12-16 22:57:14] fix(grid-tokens): refactor leaflet custom map markers

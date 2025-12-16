@@ -59,3 +59,4 @@
 * [2025-12-15 23:30:35] perf(state-sync): tune monochromatic gray palettes
 * [2025-12-16 09:46:40] chore(inspector-drawer): clean active notifications alerts
 * [2025-12-16 12:22:52] perf(modal-enroll): refactor DPR scaling variables
+* [2025-12-16 13:20:58] docs(toast-alert): align anti-aliasing filters

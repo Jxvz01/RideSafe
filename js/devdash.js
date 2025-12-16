@@ -832,3 +832,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: chore(inspector-drawer): restructure haptic audio chime synthesizers
 
 // iteration check: perf(state-sync): tune monochromatic gray palettes
+
+// iteration check: chore(inspector-drawer): clean active notifications alerts

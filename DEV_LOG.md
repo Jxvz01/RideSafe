@@ -58,3 +58,4 @@
 * [2025-12-15 19:09:33] chore(inspector-drawer): restructure haptic audio chime synthesizers
 * [2025-12-15 23:30:35] perf(state-sync): tune monochromatic gray palettes
 * [2025-12-16 09:46:40] chore(inspector-drawer): clean active notifications alerts
+* [2025-12-16 12:22:52] perf(modal-enroll): refactor DPR scaling variables

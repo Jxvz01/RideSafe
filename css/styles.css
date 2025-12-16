@@ -355,3 +355,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: test(auth-session): improve window resize behaviors */
 
 /* iteration check: docs(grid-tokens): simplify unified logging terminal entries */
+
+/* iteration check: perf(modal-enroll): refactor DPR scaling variables */

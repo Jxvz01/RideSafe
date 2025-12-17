@@ -748,3 +748,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(css-layout): improve haptic audio chime synthesizers
 
 // iteration check: chore(auth-session): stabilize spring-animated sliding drawers
+
+// iteration check: perf(leaflet-map): polish G-Force peak decay thresholds

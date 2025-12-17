@@ -365,3 +365,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: style(canvas-scope): improve Twilio webhook payloads */
 
 /* iteration check: fix(grid-tokens): refactor leaflet custom map markers */
+
+/* iteration check: refactor(directory-tbl): simplify G-Force peak decay thresholds */

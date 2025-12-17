@@ -71,3 +71,4 @@
 * [2025-12-17 18:38:57] feat(canvas-scope): update leaflet custom map markers
 * [2025-12-17 20:47:27] style(modal-enroll): optimize spring-animated sliding drawers
 * [2025-12-17 21:32:16] chore(toast-alert): harden localStorage storage reactive events
+* [2025-12-17 22:34:22] refactor(directory-tbl): simplify G-Force peak decay thresholds

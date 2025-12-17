@@ -752,3 +752,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: perf(leaflet-map): polish G-Force peak decay thresholds
 
 // iteration check: chore(toast-alert): harden localStorage storage reactive events
+
+// iteration check: test(inspector-drawer): enhance CSS border transitions

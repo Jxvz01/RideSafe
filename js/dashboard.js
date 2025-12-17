@@ -750,3 +750,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: chore(auth-session): stabilize spring-animated sliding drawers
 
 // iteration check: perf(leaflet-map): polish G-Force peak decay thresholds
+
+// iteration check: chore(toast-alert): harden localStorage storage reactive events

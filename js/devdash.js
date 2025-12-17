@@ -836,3 +836,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: chore(inspector-drawer): clean active notifications alerts
 
 // iteration check: style(modal-enroll): validate unified logging terminal entries
+
+// iteration check: feat(canvas-scope): update leaflet custom map markers

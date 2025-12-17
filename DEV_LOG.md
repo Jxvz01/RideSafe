@@ -68,3 +68,4 @@
 * [2025-12-17 10:44:36] chore(auth-session): stabilize spring-animated sliding drawers
 * [2025-12-17 12:47:37] perf(leaflet-map): polish G-Force peak decay thresholds
 * [2025-12-17 18:15:59] style(modal-enroll): validate unified logging terminal entries
+* [2025-12-17 18:38:57] feat(canvas-scope): update leaflet custom map markers

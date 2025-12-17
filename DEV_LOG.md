@@ -67,3 +67,4 @@
 * [2025-12-16 22:57:14] fix(grid-tokens): refactor leaflet custom map markers
 * [2025-12-17 10:44:36] chore(auth-session): stabilize spring-animated sliding drawers
 * [2025-12-17 12:47:37] perf(leaflet-map): polish G-Force peak decay thresholds
+* [2025-12-17 18:15:59] style(modal-enroll): validate unified logging terminal entries

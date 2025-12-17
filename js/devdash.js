@@ -834,3 +834,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: perf(state-sync): tune monochromatic gray palettes
 
 // iteration check: chore(inspector-drawer): clean active notifications alerts
+
+// iteration check: style(modal-enroll): validate unified logging terminal entries

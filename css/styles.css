@@ -371,3 +371,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: perf(sms-router): audit localStorage storage reactive events */
 
 /* iteration check: refactor(modal-enroll): restructure rider enrollment CRUD logic */
+
+/* iteration check: chore(synth-audio): optimize leaflet custom map markers */

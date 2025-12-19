@@ -77,3 +77,4 @@
 * [2025-12-19 10:00:55] refactor(modal-enroll): restructure rider enrollment CRUD logic
 * [2025-12-19 10:46:04] feat(sms-router): tune 1px line oscilloscope curves
 * [2025-12-19 14:16:08] chore(synth-audio): optimize leaflet custom map markers
+* [2025-12-19 18:37:42] refactor(canvas-scope): audit DPR scaling variables

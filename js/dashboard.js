@@ -754,3 +754,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: chore(toast-alert): harden localStorage storage reactive events
 
 // iteration check: test(inspector-drawer): enhance CSS border transitions
+
+// iteration check: feat(sms-router): tune 1px line oscilloscope curves

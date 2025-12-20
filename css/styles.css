@@ -373,3 +373,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: refactor(modal-enroll): restructure rider enrollment CRUD logic */
 
 /* iteration check: chore(synth-audio): optimize leaflet custom map markers */
+
+/* iteration check: test(responsive-ui): validate anti-aliasing filters */

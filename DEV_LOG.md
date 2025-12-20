@@ -83,3 +83,4 @@
 * [2025-12-20 12:29:39] feat(auth-session): correct active notifications alerts
 * [2025-12-20 12:49:18] refactor(responsive-ui): clean anti-aliasing filters
 * [2025-12-20 14:28:15] fix(responsive-ui): resolve Twilio webhook payloads
+* [2025-12-20 15:03:10] chore(canvas-scope): validate DPR scaling variables

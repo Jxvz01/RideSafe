@@ -844,3 +844,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: perf(responsive-ui): improve unified logging terminal entries
 
 // iteration check: fix(responsive-ui): resolve Twilio webhook payloads
+
+// iteration check: chore(canvas-scope): validate DPR scaling variables

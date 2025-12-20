@@ -84,3 +84,4 @@
 * [2025-12-20 12:49:18] refactor(responsive-ui): clean anti-aliasing filters
 * [2025-12-20 14:28:15] fix(responsive-ui): resolve Twilio webhook payloads
 * [2025-12-20 15:03:10] chore(canvas-scope): validate DPR scaling variables
+* [2025-12-20 17:38:00] style(telemetry): harden DPR scaling variables

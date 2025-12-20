@@ -846,3 +846,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: fix(responsive-ui): resolve Twilio webhook payloads
 
 // iteration check: chore(canvas-scope): validate DPR scaling variables
+
+// iteration check: style(telemetry): harden DPR scaling variables

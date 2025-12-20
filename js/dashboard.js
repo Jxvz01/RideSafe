@@ -760,3 +760,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: refactor(canvas-scope): audit DPR scaling variables
 
 // iteration check: feat(auth-session): correct active notifications alerts
+
+// iteration check: refactor(responsive-ui): clean anti-aliasing filters

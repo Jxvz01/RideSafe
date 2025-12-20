@@ -80,3 +80,4 @@
 * [2025-12-19 18:37:42] refactor(canvas-scope): audit DPR scaling variables
 * [2025-12-20 09:27:41] perf(responsive-ui): improve unified logging terminal entries
 * [2025-12-20 10:07:13] test(responsive-ui): validate anti-aliasing filters
+* [2025-12-20 12:29:39] feat(auth-session): correct active notifications alerts

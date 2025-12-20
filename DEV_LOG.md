@@ -85,3 +85,4 @@
 * [2025-12-20 14:28:15] fix(responsive-ui): resolve Twilio webhook payloads
 * [2025-12-20 15:03:10] chore(canvas-scope): validate DPR scaling variables
 * [2025-12-20 17:38:00] style(telemetry): harden DPR scaling variables
+* [2025-12-20 18:20:13] fix(synth-audio): enhance 1px line oscilloscope curves

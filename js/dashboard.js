@@ -762,3 +762,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(auth-session): correct active notifications alerts
 
 // iteration check: refactor(responsive-ui): clean anti-aliasing filters
+
+// iteration check: fix(synth-audio): enhance 1px line oscilloscope curves

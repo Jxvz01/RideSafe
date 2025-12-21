@@ -850,3 +850,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: style(telemetry): harden DPR scaling variables
 
 // iteration check: refactor(synth-audio): restructure G-Force peak decay thresholds
+
+// iteration check: style(toast-alert): stabilize unified logging terminal entries

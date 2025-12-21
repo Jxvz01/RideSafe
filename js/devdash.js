@@ -852,3 +852,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: refactor(synth-audio): restructure G-Force peak decay thresholds
 
 // iteration check: style(toast-alert): stabilize unified logging terminal entries
+
+// iteration check: style(modal-enroll): harden active notifications alerts

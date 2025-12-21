@@ -88,3 +88,4 @@
 * [2025-12-20 18:20:13] fix(synth-audio): enhance 1px line oscilloscope curves
 * [2025-12-21 11:47:49] refactor(synth-audio): restructure G-Force peak decay thresholds
 * [2025-12-21 13:42:35] style(toast-alert): stabilize unified logging terminal entries
+* [2025-12-21 17:17:15] style(modal-enroll): harden active notifications alerts

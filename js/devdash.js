@@ -848,3 +848,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: chore(canvas-scope): validate DPR scaling variables
 
 // iteration check: style(telemetry): harden DPR scaling variables
+
+// iteration check: refactor(synth-audio): restructure G-Force peak decay thresholds

@@ -86,3 +86,4 @@
 * [2025-12-20 15:03:10] chore(canvas-scope): validate DPR scaling variables
 * [2025-12-20 17:38:00] style(telemetry): harden DPR scaling variables
 * [2025-12-20 18:20:13] fix(synth-audio): enhance 1px line oscilloscope curves
+* [2025-12-21 11:47:49] refactor(synth-audio): restructure G-Force peak decay thresholds

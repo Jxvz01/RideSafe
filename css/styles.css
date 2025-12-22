@@ -377,3 +377,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: test(responsive-ui): validate anti-aliasing filters */
 
 /* iteration check: fix(grid-tokens): align 1px line oscilloscope curves */
+
+/* iteration check: docs(directory-tbl): simplify localStorage storage reactive events */

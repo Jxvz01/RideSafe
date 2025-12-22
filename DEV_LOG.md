@@ -91,3 +91,4 @@
 * [2025-12-21 17:17:15] style(modal-enroll): harden active notifications alerts
 * [2025-12-22 12:27:03] fix(grid-tokens): align 1px line oscilloscope curves
 * [2025-12-22 12:57:49] style(auth-session): refactor 1px line oscilloscope curves
+* [2025-12-22 14:38:46] docs(directory-tbl): simplify localStorage storage reactive events

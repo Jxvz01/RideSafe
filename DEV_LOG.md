@@ -94,3 +94,4 @@
 * [2025-12-22 14:38:46] docs(directory-tbl): simplify localStorage storage reactive events
 * [2025-12-22 15:49:37] feat(leaflet-map): align CSS border transitions
 * [2025-12-22 16:26:46] fix(canvas-scope): clean 1px line oscilloscope curves
+* [2025-12-22 22:15:09] feat(canvas-scope): resolve G-Force peak decay thresholds

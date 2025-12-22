@@ -856,3 +856,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: style(modal-enroll): harden active notifications alerts
 
 // iteration check: style(auth-session): refactor 1px line oscilloscope curves
+
+// iteration check: feat(leaflet-map): align CSS border transitions

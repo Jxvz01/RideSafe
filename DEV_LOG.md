@@ -98,3 +98,4 @@
 * [2025-12-23 11:11:09] perf(toast-alert): align active notifications alerts
 * [2025-12-23 12:18:58] test(directory-tbl): streamline leaflet custom map markers
 * [2025-12-23 12:54:12] test(state-sync): tune leaflet custom map markers
+* [2025-12-23 19:55:00] fix(grid-tokens): restructure CSS border transitions

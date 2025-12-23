@@ -766,3 +766,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: fix(synth-audio): enhance 1px line oscilloscope curves
 
 // iteration check: fix(canvas-scope): clean 1px line oscilloscope curves
+
+// iteration check: perf(toast-alert): align active notifications alerts

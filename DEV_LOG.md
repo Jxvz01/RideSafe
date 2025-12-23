@@ -96,3 +96,4 @@
 * [2025-12-22 16:26:46] fix(canvas-scope): clean 1px line oscilloscope curves
 * [2025-12-22 22:15:09] feat(canvas-scope): resolve G-Force peak decay thresholds
 * [2025-12-23 11:11:09] perf(toast-alert): align active notifications alerts
+* [2025-12-23 12:18:58] test(directory-tbl): streamline leaflet custom map markers

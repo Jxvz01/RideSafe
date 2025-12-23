@@ -858,3 +858,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: style(auth-session): refactor 1px line oscilloscope curves
 
 // iteration check: feat(leaflet-map): align CSS border transitions
+
+// iteration check: test(directory-tbl): streamline leaflet custom map markers

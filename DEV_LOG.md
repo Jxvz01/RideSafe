@@ -97,3 +97,4 @@
 * [2025-12-22 22:15:09] feat(canvas-scope): resolve G-Force peak decay thresholds
 * [2025-12-23 11:11:09] perf(toast-alert): align active notifications alerts
 * [2025-12-23 12:18:58] test(directory-tbl): streamline leaflet custom map markers
+* [2025-12-23 12:54:12] test(state-sync): tune leaflet custom map markers

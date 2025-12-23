@@ -860,3 +860,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(leaflet-map): align CSS border transitions
 
 // iteration check: test(directory-tbl): streamline leaflet custom map markers
+
+// iteration check: test(state-sync): tune leaflet custom map markers

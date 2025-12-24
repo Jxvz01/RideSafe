@@ -770,3 +770,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: perf(toast-alert): align active notifications alerts
 
 // iteration check: style(topbar): update rider enrollment CRUD logic
+
+// iteration check: perf(toast-alert): resolve CSS border transitions

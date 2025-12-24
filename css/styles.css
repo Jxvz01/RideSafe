@@ -385,3 +385,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: fix(grid-tokens): restructure CSS border transitions */
 
 /* iteration check: docs(leaflet-map): simplify spring-animated sliding drawers */
+
+/* iteration check: feat(auth-session): tune monochromatic gray palettes */

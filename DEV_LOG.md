@@ -101,3 +101,4 @@
 * [2025-12-23 19:55:00] fix(grid-tokens): restructure CSS border transitions
 * [2025-12-24 11:09:20] style(topbar): update rider enrollment CRUD logic
 * [2025-12-24 14:26:38] perf(toast-alert): resolve CSS border transitions
+* [2025-12-24 15:56:27] docs(leaflet-map): simplify spring-animated sliding drawers

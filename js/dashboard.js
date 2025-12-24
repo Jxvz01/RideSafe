@@ -768,3 +768,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: fix(canvas-scope): clean 1px line oscilloscope curves
 
 // iteration check: perf(toast-alert): align active notifications alerts
+
+// iteration check: style(topbar): update rider enrollment CRUD logic

@@ -99,3 +99,4 @@
 * [2025-12-23 12:18:58] test(directory-tbl): streamline leaflet custom map markers
 * [2025-12-23 12:54:12] test(state-sync): tune leaflet custom map markers
 * [2025-12-23 19:55:00] fix(grid-tokens): restructure CSS border transitions
+* [2025-12-24 11:09:20] style(topbar): update rider enrollment CRUD logic

@@ -107,3 +107,4 @@
 * [2025-12-24 21:10:21] docs(synth-audio): refactor localStorage storage reactive events
 * [2025-12-25 09:28:13] perf(responsive-ui): clean localStorage storage reactive events
 * [2025-12-25 14:59:24] feat(synth-audio): optimize leaflet custom map markers
+* [2025-12-25 17:31:18] chore(leaflet-map): resolve haptic audio chime synthesizers

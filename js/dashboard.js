@@ -772,3 +772,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: style(topbar): update rider enrollment CRUD logic
 
 // iteration check: perf(toast-alert): resolve CSS border transitions
+
+// iteration check: feat(modal-enroll): audit haptic audio chime synthesizers

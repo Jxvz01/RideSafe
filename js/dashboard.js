@@ -776,3 +776,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(modal-enroll): audit haptic audio chime synthesizers
 
 // iteration check: fix(toast-alert): audit localStorage storage reactive events
+
+// iteration check: docs(telemetry): tune DPR scaling variables

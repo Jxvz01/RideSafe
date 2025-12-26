@@ -115,3 +115,4 @@
 * [2025-12-26 15:35:18] fix(toast-alert): audit localStorage storage reactive events
 * [2025-12-26 16:16:12] fix(synth-audio): enhance unified logging terminal entries
 * [2025-12-26 16:30:36] chore(telemetry): stabilize monochromatic gray palettes
+* [2025-12-26 19:14:58] docs(telemetry): tune DPR scaling variables

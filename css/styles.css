@@ -391,3 +391,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: docs(synth-audio): refactor localStorage storage reactive events */
 
 /* iteration check: feat(synth-audio): optimize leaflet custom map markers */
+
+/* iteration check: chore(toast-alert): align monochromatic gray palettes */

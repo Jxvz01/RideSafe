@@ -110,3 +110,4 @@
 * [2025-12-25 17:31:18] chore(leaflet-map): resolve haptic audio chime synthesizers
 * [2025-12-25 18:51:28] feat(modal-enroll): audit haptic audio chime synthesizers
 * [2025-12-25 23:31:48] test(sms-router): stabilize localStorage storage reactive events
+* [2025-12-26 10:57:17] chore(toast-alert): align monochromatic gray palettes

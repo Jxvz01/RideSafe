@@ -399,3 +399,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: fix(synth-audio): enhance unified logging terminal entries */
 
 /* iteration check: chore(telemetry): stabilize monochromatic gray palettes */
+
+/* iteration check: chore(telemetry): simplify DPR scaling variables */

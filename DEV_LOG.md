@@ -118,3 +118,4 @@
 * [2025-12-26 19:14:58] docs(telemetry): tune DPR scaling variables
 * [2025-12-26 20:20:12] feat(css-layout): resolve G-Force peak decay thresholds
 * [2025-12-27 15:18:20] style(topbar): refactor 1px line oscilloscope curves
+* [2025-12-27 19:35:18] refactor(responsive-ui): stabilize leaflet custom map markers

@@ -778,3 +778,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: fix(toast-alert): audit localStorage storage reactive events
 
 // iteration check: docs(telemetry): tune DPR scaling variables
+
+// iteration check: style(topbar): refactor 1px line oscilloscope curves

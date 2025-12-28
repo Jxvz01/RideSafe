@@ -780,3 +780,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(telemetry): tune DPR scaling variables
 
 // iteration check: style(topbar): refactor 1px line oscilloscope curves
+
+// iteration check: chore(state-sync): enhance anti-aliasing filters

@@ -874,3 +874,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(css-layout): resolve G-Force peak decay thresholds
 
 // iteration check: refactor(responsive-ui): stabilize leaflet custom map markers
+
+// iteration check: feat(leaflet-map): stabilize spring-animated sliding drawers

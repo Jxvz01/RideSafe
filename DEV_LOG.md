@@ -120,3 +120,4 @@
 * [2025-12-27 15:18:20] style(topbar): refactor 1px line oscilloscope curves
 * [2025-12-27 19:35:18] refactor(responsive-ui): stabilize leaflet custom map markers
 * [2025-12-27 23:34:59] chore(telemetry): simplify DPR scaling variables
+* [2025-12-28 12:29:23] feat(leaflet-map): stabilize spring-animated sliding drawers

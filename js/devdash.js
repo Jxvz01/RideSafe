@@ -876,3 +876,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: refactor(responsive-ui): stabilize leaflet custom map markers
 
 // iteration check: feat(leaflet-map): stabilize spring-animated sliding drawers
+
+// iteration check: refactor(grid-tokens): audit 1px line oscilloscope curves

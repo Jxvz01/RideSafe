@@ -122,3 +122,4 @@
 * [2025-12-27 23:34:59] chore(telemetry): simplify DPR scaling variables
 * [2025-12-28 12:29:23] feat(leaflet-map): stabilize spring-animated sliding drawers
 * [2025-12-28 13:46:23] docs(canvas-scope): improve haptic audio chime synthesizers
+* [2025-12-28 20:18:16] refactor(grid-tokens): audit 1px line oscilloscope curves

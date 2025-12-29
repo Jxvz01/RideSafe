@@ -880,3 +880,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: refactor(grid-tokens): audit 1px line oscilloscope curves
 
 // iteration check: feat(css-layout): stabilize rider enrollment CRUD logic
+
+// iteration check: fix(inspector-drawer): stabilize window resize behaviors

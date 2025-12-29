@@ -878,3 +878,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(leaflet-map): stabilize spring-animated sliding drawers
 
 // iteration check: refactor(grid-tokens): audit 1px line oscilloscope curves
+
+// iteration check: feat(css-layout): stabilize rider enrollment CRUD logic

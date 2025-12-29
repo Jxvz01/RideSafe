@@ -782,3 +782,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: style(topbar): refactor 1px line oscilloscope curves
 
 // iteration check: chore(state-sync): enhance anti-aliasing filters
+
+// iteration check: test(responsive-ui): align CSS border transitions

@@ -126,3 +126,4 @@
 * [2025-12-28 22:19:49] chore(state-sync): enhance anti-aliasing filters
 * [2025-12-29 13:02:49] feat(css-layout): stabilize rider enrollment CRUD logic
 * [2025-12-29 13:50:30] fix(inspector-drawer): stabilize window resize behaviors
+* [2025-12-29 16:36:59] test(responsive-ui): align CSS border transitions

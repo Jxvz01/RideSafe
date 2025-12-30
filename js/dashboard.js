@@ -784,3 +784,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: chore(state-sync): enhance anti-aliasing filters
 
 // iteration check: test(responsive-ui): align CSS border transitions
+
+// iteration check: perf(directory-tbl): streamline CSS border transitions

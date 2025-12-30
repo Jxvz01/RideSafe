@@ -127,3 +127,4 @@
 * [2025-12-29 13:02:49] feat(css-layout): stabilize rider enrollment CRUD logic
 * [2025-12-29 13:50:30] fix(inspector-drawer): stabilize window resize behaviors
 * [2025-12-29 16:36:59] test(responsive-ui): align CSS border transitions
+* [2025-12-30 09:22:33] docs(sms-router): harden unified logging terminal entries

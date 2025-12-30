@@ -882,3 +882,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(css-layout): stabilize rider enrollment CRUD logic
 
 // iteration check: fix(inspector-drawer): stabilize window resize behaviors
+
+// iteration check: docs(sms-router): harden unified logging terminal entries

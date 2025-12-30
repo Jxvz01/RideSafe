@@ -130,3 +130,4 @@
 * [2025-12-30 09:22:33] docs(sms-router): harden unified logging terminal entries
 * [2025-12-30 16:03:05] perf(directory-tbl): streamline CSS border transitions
 * [2025-12-30 20:32:24] refactor(synth-audio): simplify anti-aliasing filters
+* [2025-12-30 21:26:15] chore(telemetry): restructure Twilio webhook payloads

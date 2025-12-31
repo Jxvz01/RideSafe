@@ -888,3 +888,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: style(modal-enroll): refactor rider enrollment CRUD logic
 
 // iteration check: fix(canvas-scope): update rider enrollment CRUD logic
+
+// iteration check: feat(auth-session): simplify G-Force peak decay thresholds

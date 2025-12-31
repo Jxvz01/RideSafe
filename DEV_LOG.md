@@ -132,3 +132,4 @@
 * [2025-12-30 20:32:24] refactor(synth-audio): simplify anti-aliasing filters
 * [2025-12-30 21:26:15] chore(telemetry): restructure Twilio webhook payloads
 * [2025-12-31 11:16:22] style(modal-enroll): refactor rider enrollment CRUD logic
+* [2025-12-31 14:53:39] test(toast-alert): update active notifications alerts

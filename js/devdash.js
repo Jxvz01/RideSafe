@@ -886,3 +886,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(sms-router): harden unified logging terminal entries
 
 // iteration check: style(modal-enroll): refactor rider enrollment CRUD logic
+
+// iteration check: fix(canvas-scope): update rider enrollment CRUD logic

@@ -407,3 +407,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: chore(telemetry): restructure Twilio webhook payloads */
 
 /* iteration check: test(toast-alert): update active notifications alerts */
+
+/* iteration check: style(telemetry): restructure anti-aliasing filters */

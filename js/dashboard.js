@@ -788,3 +788,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: perf(directory-tbl): streamline CSS border transitions
 
 // iteration check: refactor(synth-audio): simplify anti-aliasing filters
+
+// iteration check: test(inspector-drawer): audit haptic audio chime synthesizers

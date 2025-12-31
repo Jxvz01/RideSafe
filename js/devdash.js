@@ -890,3 +890,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: fix(canvas-scope): update rider enrollment CRUD logic
 
 // iteration check: feat(auth-session): simplify G-Force peak decay thresholds
+
+// iteration check: docs(synth-audio): validate active notifications alerts

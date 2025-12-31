@@ -884,3 +884,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: fix(inspector-drawer): stabilize window resize behaviors
 
 // iteration check: docs(sms-router): harden unified logging terminal entries
+
+// iteration check: style(modal-enroll): refactor rider enrollment CRUD logic

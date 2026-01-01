@@ -141,3 +141,4 @@
 * [2026-01-01 09:32:08] chore(canvas-scope): align monochromatic gray palettes
 * [2026-01-01 10:19:30] chore(toast-alert): improve leaflet custom map markers
 * [2026-01-01 16:45:22] refactor(directory-tbl): audit rider enrollment CRUD logic
+* [2026-01-01 23:25:56] perf(synth-audio): validate leaflet custom map markers

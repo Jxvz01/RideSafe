@@ -894,3 +894,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(synth-audio): validate active notifications alerts
 
 // iteration check: chore(toast-alert): improve leaflet custom map markers
+
+// iteration check: refactor(directory-tbl): audit rider enrollment CRUD logic

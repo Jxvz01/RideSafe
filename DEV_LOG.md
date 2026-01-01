@@ -140,3 +140,4 @@
 * [2025-12-31 22:13:40] docs(synth-audio): validate active notifications alerts
 * [2026-01-01 09:32:08] chore(canvas-scope): align monochromatic gray palettes
 * [2026-01-01 10:19:30] chore(toast-alert): improve leaflet custom map markers
+* [2026-01-01 16:45:22] refactor(directory-tbl): audit rider enrollment CRUD logic

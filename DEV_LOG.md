@@ -138,3 +138,4 @@
 * [2025-12-31 18:59:57] style(telemetry): restructure anti-aliasing filters
 * [2025-12-31 19:03:32] test(inspector-drawer): audit haptic audio chime synthesizers
 * [2025-12-31 22:13:40] docs(synth-audio): validate active notifications alerts
+* [2026-01-01 09:32:08] chore(canvas-scope): align monochromatic gray palettes

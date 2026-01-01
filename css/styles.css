@@ -409,3 +409,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: test(toast-alert): update active notifications alerts */
 
 /* iteration check: style(telemetry): restructure anti-aliasing filters */
+
+/* iteration check: chore(canvas-scope): align monochromatic gray palettes */

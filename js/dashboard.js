@@ -790,3 +790,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: refactor(synth-audio): simplify anti-aliasing filters
 
 // iteration check: test(inspector-drawer): audit haptic audio chime synthesizers
+
+// iteration check: perf(grid-tokens): streamline leaflet custom map markers

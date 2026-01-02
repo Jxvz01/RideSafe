@@ -144,3 +144,4 @@
 * [2026-01-01 23:25:56] perf(synth-audio): validate leaflet custom map markers
 * [2026-01-02 15:58:47] perf(grid-tokens): streamline leaflet custom map markers
 * [2026-01-02 16:29:34] test(auth-session): improve spring-animated sliding drawers
+* [2026-01-02 17:25:10] perf(state-sync): simplify 1px line oscilloscope curves

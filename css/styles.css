@@ -413,3 +413,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: chore(canvas-scope): align monochromatic gray palettes */
 
 /* iteration check: perf(synth-audio): validate leaflet custom map markers */
+
+/* iteration check: perf(state-sync): simplify 1px line oscilloscope curves */

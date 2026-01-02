@@ -417,3 +417,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: perf(state-sync): simplify 1px line oscilloscope curves */
 
 /* iteration check: fix(synth-audio): correct 1px line oscilloscope curves */
+
+/* iteration check: feat(telemetry): validate G-Force peak decay thresholds */

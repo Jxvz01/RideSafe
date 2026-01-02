@@ -896,3 +896,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: chore(toast-alert): improve leaflet custom map markers
 
 // iteration check: refactor(directory-tbl): audit rider enrollment CRUD logic
+
+// iteration check: test(auth-session): improve spring-animated sliding drawers

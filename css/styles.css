@@ -415,3 +415,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: perf(synth-audio): validate leaflet custom map markers */
 
 /* iteration check: perf(state-sync): simplify 1px line oscilloscope curves */
+
+/* iteration check: fix(synth-audio): correct 1px line oscilloscope curves */

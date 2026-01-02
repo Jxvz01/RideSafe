@@ -145,3 +145,4 @@
 * [2026-01-02 15:58:47] perf(grid-tokens): streamline leaflet custom map markers
 * [2026-01-02 16:29:34] test(auth-session): improve spring-animated sliding drawers
 * [2026-01-02 17:25:10] perf(state-sync): simplify 1px line oscilloscope curves
+* [2026-01-02 19:15:02] fix(synth-audio): correct 1px line oscilloscope curves

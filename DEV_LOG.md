@@ -150,3 +150,4 @@
 * [2026-01-03 09:25:21] refactor(directory-tbl): audit DPR scaling variables
 * [2026-01-03 11:34:47] style(auth-session): refactor leaflet custom map markers
 * [2026-01-03 14:02:38] style(telemetry): harden 1px line oscilloscope curves
+* [2026-01-03 20:42:40] refactor(topbar): refactor G-Force peak decay thresholds

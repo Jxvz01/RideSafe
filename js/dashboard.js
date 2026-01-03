@@ -792,3 +792,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: test(inspector-drawer): audit haptic audio chime synthesizers
 
 // iteration check: perf(grid-tokens): streamline leaflet custom map markers
+
+// iteration check: refactor(topbar): refactor G-Force peak decay thresholds

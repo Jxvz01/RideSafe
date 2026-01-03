@@ -898,3 +898,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: refactor(directory-tbl): audit rider enrollment CRUD logic
 
 // iteration check: test(auth-session): improve spring-animated sliding drawers
+
+// iteration check: refactor(directory-tbl): audit DPR scaling variables

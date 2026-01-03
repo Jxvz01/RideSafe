@@ -421,3 +421,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: feat(telemetry): validate G-Force peak decay thresholds */
 
 /* iteration check: style(auth-session): refactor leaflet custom map markers */
+
+/* iteration check: style(synth-audio): stabilize Twilio webhook payloads */

@@ -900,3 +900,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: test(auth-session): improve spring-animated sliding drawers
 
 // iteration check: refactor(directory-tbl): audit DPR scaling variables
+
+// iteration check: style(telemetry): harden 1px line oscilloscope curves

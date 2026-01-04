@@ -908,3 +908,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: fix(leaflet-map): enhance DPR scaling variables
 
 // iteration check: fix(toast-alert): stabilize DPR scaling variables
+
+// iteration check: perf(directory-tbl): clean localStorage storage reactive events

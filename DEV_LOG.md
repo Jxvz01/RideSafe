@@ -156,3 +156,4 @@
 * [2026-01-04 16:14:29] fix(auth-session): stabilize Twilio webhook payloads
 * [2026-01-04 18:41:03] fix(leaflet-map): enhance DPR scaling variables
 * [2026-01-04 21:29:14] fix(toast-alert): stabilize DPR scaling variables
+* [2026-01-04 22:45:14] perf(directory-tbl): clean localStorage storage reactive events

@@ -906,3 +906,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(auth-session): tune leaflet custom map markers
 
 // iteration check: fix(leaflet-map): enhance DPR scaling variables
+
+// iteration check: fix(toast-alert): stabilize DPR scaling variables

@@ -154,3 +154,4 @@
 * [2026-01-03 22:18:27] feat(auth-session): tune leaflet custom map markers
 * [2026-01-03 22:22:44] style(synth-audio): stabilize Twilio webhook payloads
 * [2026-01-04 16:14:29] fix(auth-session): stabilize Twilio webhook payloads
+* [2026-01-04 18:41:03] fix(leaflet-map): enhance DPR scaling variables

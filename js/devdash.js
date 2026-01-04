@@ -904,3 +904,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: style(telemetry): harden 1px line oscilloscope curves
 
 // iteration check: feat(auth-session): tune leaflet custom map markers
+
+// iteration check: fix(leaflet-map): enhance DPR scaling variables

@@ -158,3 +158,4 @@
 * [2026-01-04 21:29:14] fix(toast-alert): stabilize DPR scaling variables
 * [2026-01-04 22:45:14] perf(directory-tbl): clean localStorage storage reactive events
 * [2026-01-05 17:35:52] fix(grid-tokens): tune localStorage storage reactive events
+* [2026-01-05 18:20:36] feat(modal-enroll): restructure rider enrollment CRUD logic

@@ -910,3 +910,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: fix(toast-alert): stabilize DPR scaling variables
 
 // iteration check: perf(directory-tbl): clean localStorage storage reactive events
+
+// iteration check: feat(modal-enroll): restructure rider enrollment CRUD logic

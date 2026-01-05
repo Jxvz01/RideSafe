@@ -425,3 +425,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: style(synth-audio): stabilize Twilio webhook payloads */
 
 /* iteration check: fix(auth-session): stabilize Twilio webhook payloads */
+
+/* iteration check: fix(grid-tokens): tune localStorage storage reactive events */

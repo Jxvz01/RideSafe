@@ -161,3 +161,4 @@
 * [2026-01-05 18:20:36] feat(modal-enroll): restructure rider enrollment CRUD logic
 * [2026-01-05 18:28:27] style(css-layout): optimize localStorage storage reactive events
 * [2026-01-06 12:08:15] perf(modal-enroll): streamline DPR scaling variables
+* [2026-01-06 14:21:24] chore(inspector-drawer): clean DPR scaling variables

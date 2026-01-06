@@ -429,3 +429,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: fix(grid-tokens): tune localStorage storage reactive events */
 
 /* iteration check: perf(modal-enroll): streamline DPR scaling variables */
+
+/* iteration check: chore(inspector-drawer): clean DPR scaling variables */

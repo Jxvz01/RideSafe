@@ -162,3 +162,4 @@
 * [2026-01-05 18:28:27] style(css-layout): optimize localStorage storage reactive events
 * [2026-01-06 12:08:15] perf(modal-enroll): streamline DPR scaling variables
 * [2026-01-06 14:21:24] chore(inspector-drawer): clean DPR scaling variables
+* [2026-01-06 20:33:08] refactor(css-layout): validate window resize behaviors

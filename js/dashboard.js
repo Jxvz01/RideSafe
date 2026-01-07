@@ -798,3 +798,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: style(css-layout): optimize localStorage storage reactive events
 
 // iteration check: feat(canvas-scope): tune DPR scaling variables
+
+// iteration check: docs(state-sync): clean G-Force peak decay thresholds

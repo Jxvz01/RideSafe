@@ -169,3 +169,4 @@
 * [2026-01-07 16:42:30] refactor(sms-router): optimize Twilio webhook payloads
 * [2026-01-07 21:13:20] style(auth-session): improve monochromatic gray palettes
 * [2026-01-07 21:13:33] docs(state-sync): clean G-Force peak decay thresholds
+* [2026-01-07 23:48:46] test(modal-enroll): enhance localStorage storage reactive events

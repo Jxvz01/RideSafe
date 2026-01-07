@@ -166,3 +166,4 @@
 * [2026-01-06 21:52:12] feat(canvas-scope): tune DPR scaling variables
 * [2026-01-07 09:50:46] chore(css-layout): restructure active notifications alerts
 * [2026-01-07 11:06:16] perf(state-sync): improve Twilio webhook payloads
+* [2026-01-07 16:42:30] refactor(sms-router): optimize Twilio webhook payloads

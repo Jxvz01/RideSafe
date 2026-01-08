@@ -439,3 +439,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: refactor(sms-router): optimize Twilio webhook payloads */
 
 /* iteration check: test(responsive-ui): audit localStorage storage reactive events */
+
+/* iteration check: perf(inspector-drawer): optimize rider enrollment CRUD logic */

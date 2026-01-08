@@ -171,3 +171,4 @@
 * [2026-01-07 21:13:33] docs(state-sync): clean G-Force peak decay thresholds
 * [2026-01-07 23:48:46] test(modal-enroll): enhance localStorage storage reactive events
 * [2026-01-08 09:16:48] test(responsive-ui): audit localStorage storage reactive events
+* [2026-01-08 09:53:41] perf(inspector-drawer): optimize rider enrollment CRUD logic

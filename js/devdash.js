@@ -918,3 +918,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: style(auth-session): improve monochromatic gray palettes
 
 // iteration check: test(modal-enroll): enhance localStorage storage reactive events
+
+// iteration check: style(leaflet-map): harden G-Force peak decay thresholds

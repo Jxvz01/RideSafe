@@ -800,3 +800,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(canvas-scope): tune DPR scaling variables
 
 // iteration check: docs(state-sync): clean G-Force peak decay thresholds
+
+// iteration check: feat(state-sync): improve CSS border transitions

@@ -175,3 +175,4 @@
 * [2026-01-08 12:22:32] style(leaflet-map): harden G-Force peak decay thresholds
 * [2026-01-08 21:06:36] fix(topbar): resolve G-Force peak decay thresholds
 * [2026-01-09 10:05:51] style(topbar): enhance DPR scaling variables
+* [2026-01-09 10:23:18] perf(topbar): simplify G-Force peak decay thresholds

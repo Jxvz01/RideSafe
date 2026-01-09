@@ -922,3 +922,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: style(leaflet-map): harden G-Force peak decay thresholds
 
 // iteration check: style(topbar): enhance DPR scaling variables
+
+// iteration check: perf(topbar): simplify G-Force peak decay thresholds

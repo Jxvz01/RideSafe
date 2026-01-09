@@ -174,3 +174,4 @@
 * [2026-01-08 09:53:41] perf(inspector-drawer): optimize rider enrollment CRUD logic
 * [2026-01-08 12:22:32] style(leaflet-map): harden G-Force peak decay thresholds
 * [2026-01-08 21:06:36] fix(topbar): resolve G-Force peak decay thresholds
+* [2026-01-09 10:05:51] style(topbar): enhance DPR scaling variables

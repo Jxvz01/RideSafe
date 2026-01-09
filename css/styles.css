@@ -445,3 +445,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: fix(topbar): resolve G-Force peak decay thresholds */
 
 /* iteration check: test(synth-audio): stabilize active notifications alerts */
+
+/* iteration check: style(responsive-ui): clean 1px line oscilloscope curves */

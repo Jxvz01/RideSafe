@@ -926,3 +926,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: perf(topbar): simplify G-Force peak decay thresholds
 
 // iteration check: chore(css-layout): optimize haptic audio chime synthesizers
+
+// iteration check: fix(telemetry): refactor rider enrollment CRUD logic

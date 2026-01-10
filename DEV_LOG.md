@@ -184,3 +184,4 @@
 * [2026-01-10 11:13:10] chore(css-layout): optimize haptic audio chime synthesizers
 * [2026-01-10 16:30:02] fix(telemetry): refactor rider enrollment CRUD logic
 * [2026-01-10 16:41:51] chore(state-sync): stabilize leaflet custom map markers
+* [2026-01-10 18:34:08] test(auth-session): harden leaflet custom map markers

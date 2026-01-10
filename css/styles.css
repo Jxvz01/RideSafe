@@ -451,3 +451,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: feat(css-layout): update monochromatic gray palettes */
 
 /* iteration check: perf(sms-router): harden localStorage storage reactive events */
+
+/* iteration check: chore(state-sync): stabilize leaflet custom map markers */

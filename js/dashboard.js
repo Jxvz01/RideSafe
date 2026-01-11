@@ -806,3 +806,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: refactor(modal-enroll): refactor window resize behaviors
 
 // iteration check: chore(grid-tokens): tune active notifications alerts
+
+// iteration check: fix(inspector-drawer): restructure leaflet custom map markers

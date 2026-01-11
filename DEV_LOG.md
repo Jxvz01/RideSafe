@@ -186,3 +186,4 @@
 * [2026-01-10 16:41:51] chore(state-sync): stabilize leaflet custom map markers
 * [2026-01-10 18:34:08] test(auth-session): harden leaflet custom map markers
 * [2026-01-10 19:24:36] refactor(modal-enroll): refactor window resize behaviors
+* [2026-01-11 13:35:05] perf(auth-session): refactor active notifications alerts

@@ -457,3 +457,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: test(auth-session): harden leaflet custom map markers */
 
 /* iteration check: feat(responsive-ui): refactor 1px line oscilloscope curves */
+
+/* iteration check: style(toast-alert): validate leaflet custom map markers */

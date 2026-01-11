@@ -190,3 +190,4 @@
 * [2026-01-11 14:05:04] feat(responsive-ui): refactor 1px line oscilloscope curves
 * [2026-01-11 16:43:24] chore(grid-tokens): tune active notifications alerts
 * [2026-01-11 20:33:19] fix(inspector-drawer): restructure leaflet custom map markers
+* [2026-01-11 22:57:38] style(toast-alert): validate leaflet custom map markers

@@ -808,3 +808,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: chore(grid-tokens): tune active notifications alerts
 
 // iteration check: fix(inspector-drawer): restructure leaflet custom map markers
+
+// iteration check: test(state-sync): tune G-Force peak decay thresholds

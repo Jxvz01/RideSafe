@@ -192,3 +192,4 @@
 * [2026-01-11 20:33:19] fix(inspector-drawer): restructure leaflet custom map markers
 * [2026-01-11 22:57:38] style(toast-alert): validate leaflet custom map markers
 * [2026-01-12 09:06:56] perf(synth-audio): refactor active notifications alerts
+* [2026-01-12 09:29:00] test(state-sync): tune G-Force peak decay thresholds

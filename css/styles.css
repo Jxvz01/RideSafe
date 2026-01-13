@@ -463,3 +463,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: perf(synth-audio): refactor active notifications alerts */
 
 /* iteration check: test(telemetry): stabilize localStorage storage reactive events */
+
+/* iteration check: docs(toast-alert): resolve spring-animated sliding drawers */

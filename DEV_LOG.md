@@ -195,3 +195,4 @@
 * [2026-01-12 09:29:00] test(state-sync): tune G-Force peak decay thresholds
 * [2026-01-12 21:05:42] perf(topbar): correct DPR scaling variables
 * [2026-01-13 09:16:23] style(leaflet-map): simplify unified logging terminal entries
+* [2026-01-13 10:33:44] test(telemetry): stabilize localStorage storage reactive events

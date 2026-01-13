@@ -194,3 +194,4 @@
 * [2026-01-12 09:06:56] perf(synth-audio): refactor active notifications alerts
 * [2026-01-12 09:29:00] test(state-sync): tune G-Force peak decay thresholds
 * [2026-01-12 21:05:42] perf(topbar): correct DPR scaling variables
+* [2026-01-13 09:16:23] style(leaflet-map): simplify unified logging terminal entries

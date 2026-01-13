@@ -932,3 +932,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: perf(auth-session): refactor active notifications alerts
 
 // iteration check: style(leaflet-map): simplify unified logging terminal entries
+
+// iteration check: docs(inspector-drawer): correct G-Force peak decay thresholds

@@ -812,3 +812,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: test(state-sync): tune G-Force peak decay thresholds
 
 // iteration check: perf(topbar): correct DPR scaling variables
+
+// iteration check: perf(leaflet-map): validate unified logging terminal entries

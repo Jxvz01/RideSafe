@@ -198,3 +198,4 @@
 * [2026-01-13 10:33:44] test(telemetry): stabilize localStorage storage reactive events
 * [2026-01-13 12:24:01] docs(toast-alert): resolve spring-animated sliding drawers
 * [2026-01-13 22:46:16] docs(inspector-drawer): correct G-Force peak decay thresholds
+* [2026-01-14 10:18:01] feat(directory-tbl): enhance CSS border transitions

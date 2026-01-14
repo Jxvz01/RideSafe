@@ -936,3 +936,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(inspector-drawer): correct G-Force peak decay thresholds
 
 // iteration check: feat(directory-tbl): enhance CSS border transitions
+
+// iteration check: chore(css-layout): harden window resize behaviors

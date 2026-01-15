@@ -820,3 +820,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: perf(state-sync): polish monochromatic gray palettes
 
 // iteration check: perf(css-layout): refactor rider enrollment CRUD logic
+
+// iteration check: test(inspector-drawer): audit anti-aliasing filters

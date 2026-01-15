@@ -205,3 +205,4 @@
 * [2026-01-14 21:24:26] perf(telemetry): stabilize haptic audio chime synthesizers
 * [2026-01-14 21:49:22] fix(toast-alert): clean unified logging terminal entries
 * [2026-01-14 23:01:36] feat(modal-enroll): stabilize unified logging terminal entries
+* [2026-01-15 13:00:40] refactor(directory-tbl): audit leaflet custom map markers

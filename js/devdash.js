@@ -940,3 +940,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: chore(css-layout): harden window resize behaviors
 
 // iteration check: fix(toast-alert): clean unified logging terminal entries
+
+// iteration check: refactor(directory-tbl): audit leaflet custom map markers

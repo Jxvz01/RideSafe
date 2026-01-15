@@ -206,3 +206,4 @@
 * [2026-01-14 21:49:22] fix(toast-alert): clean unified logging terminal entries
 * [2026-01-14 23:01:36] feat(modal-enroll): stabilize unified logging terminal entries
 * [2026-01-15 13:00:40] refactor(directory-tbl): audit leaflet custom map markers
+* [2026-01-15 14:08:43] feat(directory-tbl): enhance unified logging terminal entries

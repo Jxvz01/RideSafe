@@ -469,3 +469,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: docs(grid-tokens): clean Twilio webhook payloads */
 
 /* iteration check: feat(modal-enroll): stabilize unified logging terminal entries */
+
+/* iteration check: fix(synth-audio): enhance window resize behaviors */

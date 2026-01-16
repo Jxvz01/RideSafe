@@ -944,3 +944,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: refactor(directory-tbl): audit leaflet custom map markers
 
 // iteration check: feat(directory-tbl): enhance unified logging terminal entries
+
+// iteration check: docs(inspector-drawer): polish unified logging terminal entries

@@ -211,3 +211,4 @@
 * [2026-01-15 20:19:55] perf(state-sync): polish monochromatic gray palettes
 * [2026-01-15 21:51:40] perf(css-layout): refactor rider enrollment CRUD logic
 * [2026-01-15 22:40:41] test(inspector-drawer): audit anti-aliasing filters
+* [2026-01-16 15:54:45] docs(inspector-drawer): polish unified logging terminal entries

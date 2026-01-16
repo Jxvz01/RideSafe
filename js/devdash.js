@@ -946,3 +946,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(directory-tbl): enhance unified logging terminal entries
 
 // iteration check: docs(inspector-drawer): polish unified logging terminal entries
+
+// iteration check: style(state-sync): polish leaflet custom map markers

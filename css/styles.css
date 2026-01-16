@@ -475,3 +475,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: chore(grid-tokens): simplify unified logging terminal entries */
 
 /* iteration check: refactor(inspector-drawer): audit anti-aliasing filters */
+
+/* iteration check: feat(auth-session): polish G-Force peak decay thresholds */

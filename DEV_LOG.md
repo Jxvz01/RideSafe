@@ -213,3 +213,4 @@
 * [2026-01-15 22:40:41] test(inspector-drawer): audit anti-aliasing filters
 * [2026-01-16 15:54:45] docs(inspector-drawer): polish unified logging terminal entries
 * [2026-01-16 16:21:50] chore(grid-tokens): simplify unified logging terminal entries
+* [2026-01-16 18:03:22] refactor(inspector-drawer): audit anti-aliasing filters

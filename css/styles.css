@@ -473,3 +473,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: fix(synth-audio): enhance window resize behaviors */
 
 /* iteration check: chore(grid-tokens): simplify unified logging terminal entries */
+
+/* iteration check: refactor(inspector-drawer): audit anti-aliasing filters */

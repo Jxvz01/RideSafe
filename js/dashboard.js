@@ -826,3 +826,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(leaflet-map): refactor localStorage storage reactive events
 
 // iteration check: test(responsive-ui): enhance localStorage storage reactive events
+
+// iteration check: perf(responsive-ui): enhance window resize behaviors

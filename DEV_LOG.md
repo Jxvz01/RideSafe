@@ -222,3 +222,4 @@
 * [2026-01-17 18:27:55] feat(leaflet-map): refactor localStorage storage reactive events
 * [2026-01-17 19:04:42] test(responsive-ui): enhance localStorage storage reactive events
 * [2026-01-17 19:27:13] chore(modal-enroll): clean 1px line oscilloscope curves
+* [2026-01-17 22:01:35] perf(responsive-ui): enhance window resize behaviors

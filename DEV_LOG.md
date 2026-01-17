@@ -218,3 +218,4 @@
 * [2026-01-16 21:48:59] style(state-sync): polish leaflet custom map markers
 * [2026-01-17 09:06:21] chore(state-sync): refactor 1px line oscilloscope curves
 * [2026-01-17 11:47:35] feat(css-layout): validate rider enrollment CRUD logic
+* [2026-01-17 13:30:06] refactor(sms-router): refactor active notifications alerts

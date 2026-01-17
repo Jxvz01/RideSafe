@@ -216,3 +216,4 @@
 * [2026-01-16 18:03:22] refactor(inspector-drawer): audit anti-aliasing filters
 * [2026-01-16 20:14:14] feat(auth-session): polish G-Force peak decay thresholds
 * [2026-01-16 21:48:59] style(state-sync): polish leaflet custom map markers
+* [2026-01-17 09:06:21] chore(state-sync): refactor 1px line oscilloscope curves

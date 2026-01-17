@@ -479,3 +479,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: feat(auth-session): polish G-Force peak decay thresholds */
 
 /* iteration check: chore(state-sync): refactor 1px line oscilloscope curves */
+
+/* iteration check: feat(css-layout): validate rider enrollment CRUD logic */

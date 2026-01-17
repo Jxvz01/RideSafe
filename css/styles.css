@@ -483,3 +483,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: feat(css-layout): validate rider enrollment CRUD logic */
 
 /* iteration check: refactor(sms-router): refactor active notifications alerts */
+
+/* iteration check: chore(modal-enroll): clean 1px line oscilloscope curves */

@@ -952,3 +952,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: style(synth-audio): audit monochromatic gray palettes
 
 // iteration check: test(auth-session): enhance DPR scaling variables
+
+// iteration check: refactor(topbar): enhance active notifications alerts

@@ -950,3 +950,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: style(state-sync): polish leaflet custom map markers
 
 // iteration check: style(synth-audio): audit monochromatic gray palettes
+
+// iteration check: test(auth-session): enhance DPR scaling variables

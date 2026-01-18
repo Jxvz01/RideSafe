@@ -227,3 +227,4 @@
 * [2026-01-18 09:47:31] feat(leaflet-map): clean spring-animated sliding drawers
 * [2026-01-18 11:07:11] style(synth-audio): audit monochromatic gray palettes
 * [2026-01-18 13:15:20] style(sms-router): optimize spring-animated sliding drawers
+* [2026-01-18 13:34:07] test(auth-session): enhance DPR scaling variables

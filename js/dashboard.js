@@ -832,3 +832,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(leaflet-map): clean spring-animated sliding drawers
 
 // iteration check: refactor(grid-tokens): correct active notifications alerts
+
+// iteration check: perf(leaflet-map): polish DPR scaling variables

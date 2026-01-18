@@ -229,3 +229,4 @@
 * [2026-01-18 13:15:20] style(sms-router): optimize spring-animated sliding drawers
 * [2026-01-18 13:34:07] test(auth-session): enhance DPR scaling variables
 * [2026-01-18 13:42:41] refactor(grid-tokens): correct active notifications alerts
+* [2026-01-18 16:52:31] perf(leaflet-map): polish DPR scaling variables

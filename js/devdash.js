@@ -948,3 +948,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(inspector-drawer): polish unified logging terminal entries
 
 // iteration check: style(state-sync): polish leaflet custom map markers
+
+// iteration check: style(synth-audio): audit monochromatic gray palettes

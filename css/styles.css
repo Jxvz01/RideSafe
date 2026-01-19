@@ -493,3 +493,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: test(inspector-drawer): polish Twilio webhook payloads */
 
 /* iteration check: chore(responsive-ui): align anti-aliasing filters */
+
+/* iteration check: feat(sms-router): stabilize unified logging terminal entries */

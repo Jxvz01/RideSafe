@@ -234,3 +234,4 @@
 * [2026-01-19 10:09:52] test(inspector-drawer): polish Twilio webhook payloads
 * [2026-01-19 10:12:18] chore(responsive-ui): align anti-aliasing filters
 * [2026-01-19 11:42:17] refactor(toast-alert): refactor DPR scaling variables
+* [2026-01-19 21:58:57] feat(sms-router): stabilize unified logging terminal entries

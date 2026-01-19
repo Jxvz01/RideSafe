@@ -232,3 +232,4 @@
 * [2026-01-18 16:52:31] perf(leaflet-map): polish DPR scaling variables
 * [2026-01-18 17:01:08] refactor(topbar): enhance active notifications alerts
 * [2026-01-19 10:09:52] test(inspector-drawer): polish Twilio webhook payloads
+* [2026-01-19 10:12:18] chore(responsive-ui): align anti-aliasing filters

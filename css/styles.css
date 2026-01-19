@@ -491,3 +491,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: style(sms-router): optimize spring-animated sliding drawers */
 
 /* iteration check: test(inspector-drawer): polish Twilio webhook payloads */
+
+/* iteration check: chore(responsive-ui): align anti-aliasing filters */

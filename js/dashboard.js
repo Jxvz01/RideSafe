@@ -834,3 +834,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: refactor(grid-tokens): correct active notifications alerts
 
 // iteration check: perf(leaflet-map): polish DPR scaling variables
+
+// iteration check: refactor(toast-alert): refactor DPR scaling variables

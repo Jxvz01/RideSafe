@@ -231,3 +231,4 @@
 * [2026-01-18 13:42:41] refactor(grid-tokens): correct active notifications alerts
 * [2026-01-18 16:52:31] perf(leaflet-map): polish DPR scaling variables
 * [2026-01-18 17:01:08] refactor(topbar): enhance active notifications alerts
+* [2026-01-19 10:09:52] test(inspector-drawer): polish Twilio webhook payloads

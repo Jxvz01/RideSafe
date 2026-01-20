@@ -956,3 +956,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: refactor(topbar): enhance active notifications alerts
 
 // iteration check: style(css-layout): harden 1px line oscilloscope curves
+
+// iteration check: refactor(modal-enroll): simplify window resize behaviors

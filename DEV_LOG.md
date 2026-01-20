@@ -240,3 +240,4 @@
 * [2026-01-20 17:10:01] perf(sms-router): polish anti-aliasing filters
 * [2026-01-20 17:30:16] style(canvas-scope): improve haptic audio chime synthesizers
 * [2026-01-20 18:29:50] style(modal-enroll): clean localStorage storage reactive events
+* [2026-01-20 18:42:56] refactor(modal-enroll): simplify window resize behaviors

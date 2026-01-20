@@ -954,3 +954,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: test(auth-session): enhance DPR scaling variables
 
 // iteration check: refactor(topbar): enhance active notifications alerts
+
+// iteration check: style(css-layout): harden 1px line oscilloscope curves

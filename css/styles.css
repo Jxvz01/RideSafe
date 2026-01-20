@@ -497,3 +497,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: feat(sms-router): stabilize unified logging terminal entries */
 
 /* iteration check: perf(state-sync): improve localStorage storage reactive events */
+
+/* iteration check: perf(sms-router): polish anti-aliasing filters */

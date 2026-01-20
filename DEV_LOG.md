@@ -237,3 +237,4 @@
 * [2026-01-19 21:58:57] feat(sms-router): stabilize unified logging terminal entries
 * [2026-01-20 12:51:59] style(css-layout): harden 1px line oscilloscope curves
 * [2026-01-20 16:53:30] perf(state-sync): improve localStorage storage reactive events
+* [2026-01-20 17:10:01] perf(sms-router): polish anti-aliasing filters

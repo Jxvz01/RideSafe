@@ -842,3 +842,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: test(auth-session): stabilize CSS border transitions
 
 // iteration check: fix(topbar): align spring-animated sliding drawers
+
+// iteration check: refactor(canvas-scope): align monochromatic gray palettes

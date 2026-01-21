@@ -840,3 +840,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: style(modal-enroll): clean localStorage storage reactive events
 
 // iteration check: test(auth-session): stabilize CSS border transitions
+
+// iteration check: fix(topbar): align spring-animated sliding drawers

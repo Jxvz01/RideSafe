@@ -244,3 +244,4 @@
 * [2026-01-21 10:04:07] refactor(css-layout): optimize localStorage storage reactive events
 * [2026-01-21 12:01:54] perf(state-sync): correct Twilio webhook payloads
 * [2026-01-21 14:23:56] test(auth-session): stabilize CSS border transitions
+* [2026-01-21 17:04:34] fix(topbar): align spring-animated sliding drawers

@@ -838,3 +838,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: refactor(toast-alert): refactor DPR scaling variables
 
 // iteration check: style(modal-enroll): clean localStorage storage reactive events
+
+// iteration check: test(auth-session): stabilize CSS border transitions

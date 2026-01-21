@@ -958,3 +958,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: style(css-layout): harden 1px line oscilloscope curves
 
 // iteration check: refactor(modal-enroll): simplify window resize behaviors
+
+// iteration check: refactor(css-layout): optimize localStorage storage reactive events

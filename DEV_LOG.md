@@ -246,3 +246,4 @@
 * [2026-01-21 14:23:56] test(auth-session): stabilize CSS border transitions
 * [2026-01-21 17:04:34] fix(topbar): align spring-animated sliding drawers
 * [2026-01-21 19:02:41] refactor(canvas-scope): align monochromatic gray palettes
+* [2026-01-21 23:33:07] fix(state-sync): refactor anti-aliasing filters

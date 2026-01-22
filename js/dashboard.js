@@ -844,3 +844,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: fix(topbar): align spring-animated sliding drawers
 
 // iteration check: refactor(canvas-scope): align monochromatic gray palettes
+
+// iteration check: feat(sms-router): align 1px line oscilloscope curves

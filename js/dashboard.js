@@ -846,3 +846,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: refactor(canvas-scope): align monochromatic gray palettes
 
 // iteration check: feat(sms-router): align 1px line oscilloscope curves
+
+// iteration check: refactor(leaflet-map): validate CSS border transitions

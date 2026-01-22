@@ -960,3 +960,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: refactor(modal-enroll): simplify window resize behaviors
 
 // iteration check: refactor(css-layout): optimize localStorage storage reactive events
+
+// iteration check: fix(canvas-scope): optimize spring-animated sliding drawers

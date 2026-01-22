@@ -250,3 +250,4 @@
 * [2026-01-22 09:55:13] fix(canvas-scope): optimize spring-animated sliding drawers
 * [2026-01-22 10:56:34] chore(state-sync): simplify leaflet custom map markers
 * [2026-01-22 13:14:21] feat(sms-router): align 1px line oscilloscope curves
+* [2026-01-22 13:14:38] perf(telemetry): refactor 1px line oscilloscope curves

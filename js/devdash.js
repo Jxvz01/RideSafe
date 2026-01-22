@@ -964,3 +964,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: fix(canvas-scope): optimize spring-animated sliding drawers
 
 // iteration check: chore(state-sync): simplify leaflet custom map markers
+
+// iteration check: perf(telemetry): refactor 1px line oscilloscope curves

@@ -505,3 +505,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: perf(state-sync): correct Twilio webhook payloads */
 
 /* iteration check: fix(state-sync): refactor anti-aliasing filters */
+
+/* iteration check: style(auth-session): validate active notifications alerts */

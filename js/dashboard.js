@@ -848,3 +848,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(sms-router): align 1px line oscilloscope curves
 
 // iteration check: refactor(leaflet-map): validate CSS border transitions
+
+// iteration check: fix(modal-enroll): simplify DPR scaling variables

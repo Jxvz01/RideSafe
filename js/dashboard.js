@@ -850,3 +850,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: refactor(leaflet-map): validate CSS border transitions
 
 // iteration check: fix(modal-enroll): simplify DPR scaling variables
+
+// iteration check: test(leaflet-map): streamline 1px line oscilloscope curves

@@ -852,3 +852,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: fix(modal-enroll): simplify DPR scaling variables
 
 // iteration check: test(leaflet-map): streamline 1px line oscilloscope curves
+
+// iteration check: feat(state-sync): restructure spring-animated sliding drawers

@@ -254,3 +254,4 @@
 * [2026-01-22 15:20:54] refactor(leaflet-map): validate CSS border transitions
 * [2026-01-23 09:16:36] fix(modal-enroll): simplify DPR scaling variables
 * [2026-01-23 09:57:59] test(leaflet-map): streamline 1px line oscilloscope curves
+* [2026-01-23 10:33:17] test(auth-session): improve unified logging terminal entries

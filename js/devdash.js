@@ -966,3 +966,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: chore(state-sync): simplify leaflet custom map markers
 
 // iteration check: perf(telemetry): refactor 1px line oscilloscope curves
+
+// iteration check: test(auth-session): improve unified logging terminal entries

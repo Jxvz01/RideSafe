@@ -266,3 +266,4 @@
 * [2026-01-24 19:55:10] docs(modal-enroll): validate localStorage storage reactive events
 * [2026-01-24 20:10:01] fix(modal-enroll): restructure DPR scaling variables
 * [2026-01-24 21:25:28] refactor(leaflet-map): stabilize anti-aliasing filters
+* [2026-01-24 22:01:56] docs(inspector-drawer): correct CSS border transitions

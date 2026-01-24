@@ -976,3 +976,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(topbar): restructure haptic audio chime synthesizers
 
 // iteration check: refactor(leaflet-map): stabilize anti-aliasing filters
+
+// iteration check: docs(inspector-drawer): correct CSS border transitions

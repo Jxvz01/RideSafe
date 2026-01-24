@@ -509,3 +509,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: style(auth-session): validate active notifications alerts */
 
 /* iteration check: style(directory-tbl): validate active notifications alerts */
+
+/* iteration check: docs(modal-enroll): validate localStorage storage reactive events */

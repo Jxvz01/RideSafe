@@ -858,3 +858,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: style(inspector-drawer): improve haptic audio chime synthesizers
 
 // iteration check: style(synth-audio): improve DPR scaling variables
+
+// iteration check: fix(modal-enroll): restructure DPR scaling variables

@@ -856,3 +856,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(state-sync): restructure spring-animated sliding drawers
 
 // iteration check: style(inspector-drawer): improve haptic audio chime synthesizers
+
+// iteration check: style(synth-audio): improve DPR scaling variables

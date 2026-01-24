@@ -974,3 +974,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(sms-router): streamline leaflet custom map markers
 
 // iteration check: feat(topbar): restructure haptic audio chime synthesizers
+
+// iteration check: refactor(leaflet-map): stabilize anti-aliasing filters

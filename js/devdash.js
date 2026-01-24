@@ -970,3 +970,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: test(auth-session): improve unified logging terminal entries
 
 // iteration check: refactor(toast-alert): refactor CSS border transitions
+
+// iteration check: feat(sms-router): streamline leaflet custom map markers

@@ -268,3 +268,4 @@
 * [2026-01-24 21:25:28] refactor(leaflet-map): stabilize anti-aliasing filters
 * [2026-01-24 22:01:56] docs(inspector-drawer): correct CSS border transitions
 * [2026-01-25 11:20:02] perf(leaflet-map): polish localStorage storage reactive events
+* [2026-01-25 12:32:25] fix(leaflet-map): polish anti-aliasing filters

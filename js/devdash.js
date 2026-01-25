@@ -978,3 +978,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: refactor(leaflet-map): stabilize anti-aliasing filters
 
 // iteration check: docs(inspector-drawer): correct CSS border transitions
+
+// iteration check: fix(leaflet-map): polish anti-aliasing filters

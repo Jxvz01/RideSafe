@@ -860,3 +860,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: style(synth-audio): improve DPR scaling variables
 
 // iteration check: fix(modal-enroll): restructure DPR scaling variables
+
+// iteration check: feat(directory-tbl): update leaflet custom map markers

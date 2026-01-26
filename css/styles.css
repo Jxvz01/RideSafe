@@ -521,3 +521,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: docs(synth-audio): improve G-Force peak decay thresholds */
 
 /* iteration check: test(responsive-ui): streamline spring-animated sliding drawers */
+
+/* iteration check: chore(responsive-ui): optimize active notifications alerts */

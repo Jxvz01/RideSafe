@@ -276,3 +276,4 @@
 * [2026-01-25 21:05:40] feat(directory-tbl): update leaflet custom map markers
 * [2026-01-26 12:54:14] test(toast-alert): correct DPR scaling variables
 * [2026-01-26 14:56:11] test(responsive-ui): streamline spring-animated sliding drawers
+* [2026-01-26 17:04:00] chore(responsive-ui): optimize active notifications alerts

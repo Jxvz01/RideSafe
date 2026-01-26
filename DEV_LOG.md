@@ -274,3 +274,4 @@
 * [2026-01-25 17:45:52] docs(synth-audio): improve G-Force peak decay thresholds
 * [2026-01-25 20:06:18] perf(auth-session): update monochromatic gray palettes
 * [2026-01-25 21:05:40] feat(directory-tbl): update leaflet custom map markers
+* [2026-01-26 12:54:14] test(toast-alert): correct DPR scaling variables

@@ -982,3 +982,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: fix(leaflet-map): polish anti-aliasing filters
 
 // iteration check: perf(auth-session): update monochromatic gray palettes
+
+// iteration check: perf(leaflet-map): polish active notifications alerts

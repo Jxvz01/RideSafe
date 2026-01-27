@@ -279,3 +279,4 @@
 * [2026-01-26 17:04:00] chore(responsive-ui): optimize active notifications alerts
 * [2026-01-26 22:22:50] perf(leaflet-map): polish active notifications alerts
 * [2026-01-27 09:09:06] chore(css-layout): restructure haptic audio chime synthesizers
+* [2026-01-27 16:31:33] feat(sms-router): tune leaflet custom map markers

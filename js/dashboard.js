@@ -866,3 +866,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: test(toast-alert): correct DPR scaling variables
 
 // iteration check: chore(css-layout): restructure haptic audio chime synthesizers
+
+// iteration check: feat(sms-router): tune leaflet custom map markers

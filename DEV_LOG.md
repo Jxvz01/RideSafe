@@ -282,3 +282,4 @@
 * [2026-01-27 16:31:33] feat(sms-router): tune leaflet custom map markers
 * [2026-01-27 19:49:15] chore(canvas-scope): simplify anti-aliasing filters
 * [2026-01-27 20:06:46] test(inspector-drawer): stabilize spring-animated sliding drawers
+* [2026-01-27 21:56:35] style(topbar): tune active notifications alerts

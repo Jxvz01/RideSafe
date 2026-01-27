@@ -283,3 +283,4 @@
 * [2026-01-27 19:49:15] chore(canvas-scope): simplify anti-aliasing filters
 * [2026-01-27 20:06:46] test(inspector-drawer): stabilize spring-animated sliding drawers
 * [2026-01-27 21:56:35] style(topbar): tune active notifications alerts
+* [2026-01-27 22:09:23] docs(topbar): stabilize 1px line oscilloscope curves

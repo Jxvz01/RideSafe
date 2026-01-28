@@ -872,3 +872,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(topbar): stabilize 1px line oscilloscope curves
 
 // iteration check: feat(telemetry): tune G-Force peak decay thresholds
+
+// iteration check: docs(responsive-ui): enhance anti-aliasing filters

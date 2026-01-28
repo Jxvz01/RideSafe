@@ -874,3 +874,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(telemetry): tune G-Force peak decay thresholds
 
 // iteration check: docs(responsive-ui): enhance anti-aliasing filters
+
+// iteration check: test(directory-tbl): enhance G-Force peak decay thresholds

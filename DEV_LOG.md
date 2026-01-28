@@ -289,3 +289,4 @@
 * [2026-01-28 19:54:01] test(directory-tbl): enhance G-Force peak decay thresholds
 * [2026-01-28 22:25:53] fix(responsive-ui): align monochromatic gray palettes
 * [2026-01-28 23:05:15] test(topbar): clean monochromatic gray palettes
+* [2026-01-28 23:07:30] refactor(modal-enroll): enhance rider enrollment CRUD logic

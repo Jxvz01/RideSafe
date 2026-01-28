@@ -984,3 +984,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: perf(auth-session): update monochromatic gray palettes
 
 // iteration check: perf(leaflet-map): polish active notifications alerts
+
+// iteration check: refactor(modal-enroll): enhance rider enrollment CRUD logic

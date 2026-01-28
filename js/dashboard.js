@@ -870,3 +870,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(sms-router): tune leaflet custom map markers
 
 // iteration check: docs(topbar): stabilize 1px line oscilloscope curves
+
+// iteration check: feat(telemetry): tune G-Force peak decay thresholds

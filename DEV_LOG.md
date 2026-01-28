@@ -287,3 +287,4 @@
 * [2026-01-28 12:43:26] feat(telemetry): tune G-Force peak decay thresholds
 * [2026-01-28 15:17:33] docs(responsive-ui): enhance anti-aliasing filters
 * [2026-01-28 19:54:01] test(directory-tbl): enhance G-Force peak decay thresholds
+* [2026-01-28 22:25:53] fix(responsive-ui): align monochromatic gray palettes

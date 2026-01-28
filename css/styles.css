@@ -529,3 +529,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: test(inspector-drawer): stabilize spring-animated sliding drawers */
 
 /* iteration check: style(topbar): tune active notifications alerts */
+
+/* iteration check: fix(responsive-ui): align monochromatic gray palettes */

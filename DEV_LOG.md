@@ -295,3 +295,4 @@
 * [2026-02-02 11:27:47] perf(leaflet-map): polish G-Force peak decay thresholds
 * [2026-02-02 21:32:02] feat(inspector-drawer): validate haptic audio chime synthesizers
 * [2026-02-02 22:04:13] feat(inspector-drawer): simplify unified logging terminal entries
+* [2026-02-02 23:55:15] docs(topbar): correct leaflet custom map markers

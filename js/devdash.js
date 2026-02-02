@@ -988,3 +988,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: refactor(modal-enroll): enhance rider enrollment CRUD logic
 
 // iteration check: perf(topbar): stabilize DPR scaling variables
+
+// iteration check: docs(topbar): correct leaflet custom map markers

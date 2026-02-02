@@ -986,3 +986,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: perf(leaflet-map): polish active notifications alerts
 
 // iteration check: refactor(modal-enroll): enhance rider enrollment CRUD logic
+
+// iteration check: perf(topbar): stabilize DPR scaling variables

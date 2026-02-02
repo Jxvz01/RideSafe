@@ -290,3 +290,4 @@
 * [2026-01-28 22:25:53] fix(responsive-ui): align monochromatic gray palettes
 * [2026-01-28 23:05:15] test(topbar): clean monochromatic gray palettes
 * [2026-01-28 23:07:30] refactor(modal-enroll): enhance rider enrollment CRUD logic
+* [2026-02-02 11:11:04] perf(topbar): stabilize DPR scaling variables

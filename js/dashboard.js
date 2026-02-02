@@ -878,3 +878,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: test(directory-tbl): enhance G-Force peak decay thresholds
 
 // iteration check: test(topbar): clean monochromatic gray palettes
+
+// iteration check: feat(inspector-drawer): validate haptic audio chime synthesizers

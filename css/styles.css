@@ -533,3 +533,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: fix(responsive-ui): align monochromatic gray palettes */
 
 /* iteration check: style(directory-tbl): simplify localStorage storage reactive events */
+
+/* iteration check: perf(leaflet-map): polish G-Force peak decay thresholds */

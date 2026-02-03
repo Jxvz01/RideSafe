@@ -990,3 +990,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: perf(topbar): stabilize DPR scaling variables
 
 // iteration check: docs(topbar): correct leaflet custom map markers
+
+// iteration check: refactor(toast-alert): update unified logging terminal entries

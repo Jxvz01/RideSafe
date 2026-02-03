@@ -300,3 +300,4 @@
 * [2026-02-03 15:01:25] chore(sms-router): optimize CSS border transitions
 * [2026-02-03 20:06:40] fix(css-layout): improve monochromatic gray palettes
 * [2026-02-03 20:25:18] test(canvas-scope): stabilize G-Force peak decay thresholds
+* [2026-02-03 21:46:29] refactor(directory-tbl): restructure active notifications alerts

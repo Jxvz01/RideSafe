@@ -992,3 +992,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(topbar): correct leaflet custom map markers
 
 // iteration check: refactor(toast-alert): update unified logging terminal entries
+
+// iteration check: refactor(directory-tbl): restructure active notifications alerts

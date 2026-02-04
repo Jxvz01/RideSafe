@@ -994,3 +994,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: refactor(toast-alert): update unified logging terminal entries
 
 // iteration check: refactor(directory-tbl): restructure active notifications alerts
+
+// iteration check: chore(toast-alert): clean active notifications alerts

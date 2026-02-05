@@ -886,3 +886,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: chore(sms-router): optimize CSS border transitions
 
 // iteration check: test(canvas-scope): stabilize G-Force peak decay thresholds
+
+// iteration check: fix(canvas-scope): correct monochromatic gray palettes

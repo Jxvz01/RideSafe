@@ -541,3 +541,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: refactor(responsive-ui): enhance rider enrollment CRUD logic */
 
 /* iteration check: feat(sms-router): clean CSS border transitions */
+
+/* iteration check: test(auth-session): restructure window resize behaviors */

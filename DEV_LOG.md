@@ -306,3 +306,4 @@
 * [2026-02-04 15:52:36] feat(sms-router): clean CSS border transitions
 * [2026-02-05 09:28:58] fix(canvas-scope): correct monochromatic gray palettes
 * [2026-02-05 10:10:20] test(auth-session): restructure window resize behaviors
+* [2026-02-05 12:12:55] perf(inspector-drawer): enhance spring-animated sliding drawers

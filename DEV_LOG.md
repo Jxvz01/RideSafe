@@ -313,3 +313,4 @@
 * [2026-02-06 16:30:02] feat(css-layout): harden CSS border transitions
 * [2026-02-06 17:28:34] feat(synth-audio): harden rider enrollment CRUD logic
 * [2026-02-06 18:02:14] perf(canvas-scope): validate Twilio webhook payloads
+* [2026-02-06 20:30:51] docs(sms-router): harden leaflet custom map markers

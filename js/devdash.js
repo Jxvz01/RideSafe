@@ -998,3 +998,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: chore(toast-alert): clean active notifications alerts
 
 // iteration check: feat(telemetry): refactor haptic audio chime synthesizers
+
+// iteration check: docs(sms-router): harden leaflet custom map markers

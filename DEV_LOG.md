@@ -310,3 +310,4 @@
 * [2026-02-05 20:03:23] docs(topbar): stabilize 1px line oscilloscope curves
 * [2026-02-06 13:32:23] refactor(grid-tokens): improve Twilio webhook payloads
 * [2026-02-06 15:03:40] feat(telemetry): refactor haptic audio chime synthesizers
+* [2026-02-06 16:30:02] feat(css-layout): harden CSS border transitions

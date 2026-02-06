@@ -892,3 +892,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: perf(inspector-drawer): enhance spring-animated sliding drawers
 
 // iteration check: refactor(grid-tokens): improve Twilio webhook payloads
+
+// iteration check: feat(css-layout): harden CSS border transitions

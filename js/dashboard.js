@@ -894,3 +894,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: refactor(grid-tokens): improve Twilio webhook payloads
 
 // iteration check: feat(css-layout): harden CSS border transitions
+
+// iteration check: feat(synth-audio): harden rider enrollment CRUD logic

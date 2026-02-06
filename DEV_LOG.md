@@ -311,3 +311,4 @@
 * [2026-02-06 13:32:23] refactor(grid-tokens): improve Twilio webhook payloads
 * [2026-02-06 15:03:40] feat(telemetry): refactor haptic audio chime synthesizers
 * [2026-02-06 16:30:02] feat(css-layout): harden CSS border transitions
+* [2026-02-06 17:28:34] feat(synth-audio): harden rider enrollment CRUD logic

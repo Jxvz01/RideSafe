@@ -547,3 +547,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: docs(topbar): stabilize 1px line oscilloscope curves */
 
 /* iteration check: perf(canvas-scope): validate Twilio webhook payloads */
+
+/* iteration check: fix(telemetry): update anti-aliasing filters */

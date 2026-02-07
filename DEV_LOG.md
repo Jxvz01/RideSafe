@@ -317,3 +317,4 @@
 * [2026-02-06 23:00:09] fix(telemetry): update anti-aliasing filters
 * [2026-02-07 11:11:36] docs(directory-tbl): enhance leaflet custom map markers
 * [2026-02-07 13:01:19] refactor(modal-enroll): align localStorage storage reactive events
+* [2026-02-07 17:00:05] test(css-layout): correct localStorage storage reactive events

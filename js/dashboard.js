@@ -896,3 +896,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(css-layout): harden CSS border transitions
 
 // iteration check: feat(synth-audio): harden rider enrollment CRUD logic
+
+// iteration check: docs(directory-tbl): enhance leaflet custom map markers

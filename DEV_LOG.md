@@ -315,3 +315,4 @@
 * [2026-02-06 18:02:14] perf(canvas-scope): validate Twilio webhook payloads
 * [2026-02-06 20:30:51] docs(sms-router): harden leaflet custom map markers
 * [2026-02-06 23:00:09] fix(telemetry): update anti-aliasing filters
+* [2026-02-07 11:11:36] docs(directory-tbl): enhance leaflet custom map markers

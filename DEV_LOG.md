@@ -318,3 +318,4 @@
 * [2026-02-07 11:11:36] docs(directory-tbl): enhance leaflet custom map markers
 * [2026-02-07 13:01:19] refactor(modal-enroll): align localStorage storage reactive events
 * [2026-02-07 17:00:05] test(css-layout): correct localStorage storage reactive events
+* [2026-02-07 23:03:31] fix(leaflet-map): update leaflet custom map markers

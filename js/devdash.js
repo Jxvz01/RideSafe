@@ -1002,3 +1002,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(sms-router): harden leaflet custom map markers
 
 // iteration check: refactor(modal-enroll): align localStorage storage reactive events
+
+// iteration check: fix(leaflet-map): update leaflet custom map markers

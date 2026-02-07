@@ -1000,3 +1000,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(telemetry): refactor haptic audio chime synthesizers
 
 // iteration check: docs(sms-router): harden leaflet custom map markers
+
+// iteration check: refactor(modal-enroll): align localStorage storage reactive events

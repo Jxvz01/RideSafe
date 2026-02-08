@@ -320,3 +320,4 @@
 * [2026-02-07 17:00:05] test(css-layout): correct localStorage storage reactive events
 * [2026-02-07 23:03:31] fix(leaflet-map): update leaflet custom map markers
 * [2026-02-08 10:15:38] docs(sms-router): polish G-Force peak decay thresholds
+* [2026-02-08 11:53:24] test(telemetry): clean CSS border transitions

@@ -1004,3 +1004,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: refactor(modal-enroll): align localStorage storage reactive events
 
 // iteration check: fix(leaflet-map): update leaflet custom map markers
+
+// iteration check: docs(sms-router): polish G-Force peak decay thresholds

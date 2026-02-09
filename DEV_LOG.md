@@ -328,3 +328,4 @@
 * [2026-02-09 14:48:55] style(sms-router): harden CSS border transitions
 * [2026-02-09 17:34:23] perf(telemetry): simplify 1px line oscilloscope curves
 * [2026-02-09 18:27:51] feat(responsive-ui): refactor window resize behaviors
+* [2026-02-09 23:17:21] perf(leaflet-map): restructure spring-animated sliding drawers

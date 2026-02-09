@@ -1010,3 +1010,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: style(sms-router): harden CSS border transitions
 
 // iteration check: feat(responsive-ui): refactor window resize behaviors
+
+// iteration check: perf(leaflet-map): restructure spring-animated sliding drawers

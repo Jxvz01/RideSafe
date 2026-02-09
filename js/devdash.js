@@ -1006,3 +1006,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: fix(leaflet-map): update leaflet custom map markers
 
 // iteration check: docs(sms-router): polish G-Force peak decay thresholds
+
+// iteration check: style(sms-router): harden CSS border transitions

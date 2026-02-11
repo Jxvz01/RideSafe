@@ -330,3 +330,4 @@
 * [2026-02-09 18:27:51] feat(responsive-ui): refactor window resize behaviors
 * [2026-02-09 23:17:21] perf(leaflet-map): restructure spring-animated sliding drawers
 * [2026-02-11 10:31:52] feat(sms-router): tune active notifications alerts
+* [2026-02-11 14:26:22] feat(telemetry): stabilize window resize behaviors

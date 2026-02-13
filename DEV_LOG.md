@@ -334,3 +334,4 @@
 * [2026-02-11 17:05:02] feat(canvas-scope): simplify haptic audio chime synthesizers
 * [2026-02-13 10:00:00] feat(grid-tokens): restructure leaflet custom map markers
 * [2026-02-13 13:54:22] feat(auth-session): harden monochromatic gray palettes
+* [2026-02-13 18:23:25] fix(telemetry): stabilize leaflet custom map markers

@@ -1016,3 +1016,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(sms-router): tune active notifications alerts
 
 // iteration check: feat(auth-session): harden monochromatic gray palettes
+
+// iteration check: chore(toast-alert): tune localStorage storage reactive events

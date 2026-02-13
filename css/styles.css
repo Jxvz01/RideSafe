@@ -563,3 +563,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: feat(grid-tokens): restructure leaflet custom map markers */
 
 /* iteration check: fix(telemetry): stabilize leaflet custom map markers */
+
+/* iteration check: chore(directory-tbl): correct localStorage storage reactive events */

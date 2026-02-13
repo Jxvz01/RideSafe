@@ -559,3 +559,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: test(auth-session): streamline Twilio webhook payloads */
 
 /* iteration check: perf(telemetry): simplify 1px line oscilloscope curves */
+
+/* iteration check: feat(grid-tokens): restructure leaflet custom map markers */

@@ -332,3 +332,4 @@
 * [2026-02-11 10:31:52] feat(sms-router): tune active notifications alerts
 * [2026-02-11 14:26:22] feat(telemetry): stabilize window resize behaviors
 * [2026-02-11 17:05:02] feat(canvas-scope): simplify haptic audio chime synthesizers
+* [2026-02-13 10:00:00] feat(grid-tokens): restructure leaflet custom map markers

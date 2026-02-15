@@ -339,3 +339,4 @@
 * [2026-02-13 23:43:52] chore(toast-alert): tune localStorage storage reactive events
 * [2026-02-15 10:01:56] fix(canvas-scope): resolve localStorage storage reactive events
 * [2026-02-15 11:14:33] chore(directory-tbl): stabilize DPR scaling variables
+* [2026-02-15 21:12:52] feat(state-sync): simplify rider enrollment CRUD logic

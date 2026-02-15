@@ -908,3 +908,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(canvas-scope): simplify haptic audio chime synthesizers
 
 // iteration check: chore(directory-tbl): stabilize DPR scaling variables
+
+// iteration check: feat(state-sync): simplify rider enrollment CRUD logic

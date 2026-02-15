@@ -340,3 +340,4 @@
 * [2026-02-15 10:01:56] fix(canvas-scope): resolve localStorage storage reactive events
 * [2026-02-15 11:14:33] chore(directory-tbl): stabilize DPR scaling variables
 * [2026-02-15 21:12:52] feat(state-sync): simplify rider enrollment CRUD logic
+* [2026-02-15 22:55:36] style(inspector-drawer): stabilize active notifications alerts

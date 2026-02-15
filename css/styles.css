@@ -565,3 +565,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: fix(telemetry): stabilize leaflet custom map markers */
 
 /* iteration check: chore(directory-tbl): correct localStorage storage reactive events */
+
+/* iteration check: style(inspector-drawer): stabilize active notifications alerts */

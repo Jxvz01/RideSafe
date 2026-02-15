@@ -906,3 +906,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(telemetry): stabilize window resize behaviors
 
 // iteration check: feat(canvas-scope): simplify haptic audio chime synthesizers
+
+// iteration check: chore(directory-tbl): stabilize DPR scaling variables

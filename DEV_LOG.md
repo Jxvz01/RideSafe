@@ -338,3 +338,4 @@
 * [2026-02-13 21:31:58] chore(directory-tbl): correct localStorage storage reactive events
 * [2026-02-13 23:43:52] chore(toast-alert): tune localStorage storage reactive events
 * [2026-02-15 10:01:56] fix(canvas-scope): resolve localStorage storage reactive events
+* [2026-02-15 11:14:33] chore(directory-tbl): stabilize DPR scaling variables

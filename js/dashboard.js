@@ -910,3 +910,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: chore(directory-tbl): stabilize DPR scaling variables
 
 // iteration check: feat(state-sync): simplify rider enrollment CRUD logic
+
+// iteration check: feat(auth-session): audit 1px line oscilloscope curves

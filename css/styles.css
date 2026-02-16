@@ -567,3 +567,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: chore(directory-tbl): correct localStorage storage reactive events */
 
 /* iteration check: style(inspector-drawer): stabilize active notifications alerts */
+
+/* iteration check: docs(modal-enroll): align window resize behaviors */

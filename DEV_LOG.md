@@ -342,3 +342,4 @@
 * [2026-02-15 21:12:52] feat(state-sync): simplify rider enrollment CRUD logic
 * [2026-02-15 22:55:36] style(inspector-drawer): stabilize active notifications alerts
 * [2026-02-16 12:36:06] feat(auth-session): audit 1px line oscilloscope curves
+* [2026-02-16 12:51:33] docs(modal-enroll): align window resize behaviors

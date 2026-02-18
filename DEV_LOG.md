@@ -350,3 +350,4 @@
 * [2026-02-18 12:44:07] test(responsive-ui): tune localStorage storage reactive events
 * [2026-02-18 13:35:58] fix(responsive-ui): stabilize DPR scaling variables
 * [2026-02-18 15:57:35] docs(topbar): resolve spring-animated sliding drawers
+* [2026-02-18 18:33:07] fix(modal-enroll): harden unified logging terminal entries

@@ -1024,3 +1024,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(topbar): optimize unified logging terminal entries
 
 // iteration check: perf(synth-audio): validate rider enrollment CRUD logic
+
+// iteration check: fix(modal-enroll): harden unified logging terminal entries

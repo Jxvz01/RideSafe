@@ -351,3 +351,4 @@
 * [2026-02-18 13:35:58] fix(responsive-ui): stabilize DPR scaling variables
 * [2026-02-18 15:57:35] docs(topbar): resolve spring-animated sliding drawers
 * [2026-02-18 18:33:07] fix(modal-enroll): harden unified logging terminal entries
+* [2026-02-18 20:42:07] feat(synth-audio): align active notifications alerts

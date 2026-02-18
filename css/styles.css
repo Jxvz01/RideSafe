@@ -575,3 +575,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: fix(responsive-ui): stabilize DPR scaling variables */
 
 /* iteration check: docs(topbar): resolve spring-animated sliding drawers */
+
+/* iteration check: feat(synth-audio): align active notifications alerts */

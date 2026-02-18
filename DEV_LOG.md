@@ -349,3 +349,4 @@
 * [2026-02-18 12:04:37] fix(directory-tbl): stabilize Twilio webhook payloads
 * [2026-02-18 12:44:07] test(responsive-ui): tune localStorage storage reactive events
 * [2026-02-18 13:35:58] fix(responsive-ui): stabilize DPR scaling variables
+* [2026-02-18 15:57:35] docs(topbar): resolve spring-animated sliding drawers

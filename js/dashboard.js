@@ -916,3 +916,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: fix(directory-tbl): stabilize Twilio webhook payloads
 
 // iteration check: test(responsive-ui): tune localStorage storage reactive events
+
+// iteration check: test(leaflet-map): improve spring-animated sliding drawers

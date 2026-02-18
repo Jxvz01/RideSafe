@@ -912,3 +912,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(state-sync): simplify rider enrollment CRUD logic
 
 // iteration check: feat(auth-session): audit 1px line oscilloscope curves
+
+// iteration check: fix(directory-tbl): stabilize Twilio webhook payloads

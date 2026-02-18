@@ -345,3 +345,4 @@
 * [2026-02-16 12:51:33] docs(modal-enroll): align window resize behaviors
 * [2026-02-16 18:36:35] docs(topbar): optimize unified logging terminal entries
 * [2026-02-16 18:55:18] perf(synth-audio): validate rider enrollment CRUD logic
+* [2026-02-18 11:13:34] feat(toast-alert): optimize rider enrollment CRUD logic

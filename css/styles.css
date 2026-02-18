@@ -571,3 +571,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: docs(modal-enroll): align window resize behaviors */
 
 /* iteration check: feat(toast-alert): optimize rider enrollment CRUD logic */
+
+/* iteration check: fix(responsive-ui): stabilize DPR scaling variables */

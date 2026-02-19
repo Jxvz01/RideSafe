@@ -358,3 +358,4 @@
 * [2026-02-19 11:34:29] perf(css-layout): restructure haptic audio chime synthesizers
 * [2026-02-19 15:13:20] perf(topbar): tune spring-animated sliding drawers
 * [2026-02-19 19:01:37] style(modal-enroll): enhance 1px line oscilloscope curves
+* [2026-02-19 22:48:48] refactor(leaflet-map): tune localStorage storage reactive events

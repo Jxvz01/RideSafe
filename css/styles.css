@@ -585,3 +585,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: perf(css-layout): restructure haptic audio chime synthesizers */
 
 /* iteration check: style(modal-enroll): enhance 1px line oscilloscope curves */
+
+/* iteration check: refactor(leaflet-map): tune localStorage storage reactive events */

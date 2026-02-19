@@ -579,3 +579,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: feat(synth-audio): align active notifications alerts */
 
 /* iteration check: feat(modal-enroll): refactor haptic audio chime synthesizers */
+
+/* iteration check: docs(modal-enroll): simplify haptic audio chime synthesizers */

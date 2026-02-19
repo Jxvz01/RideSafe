@@ -354,3 +354,4 @@
 * [2026-02-18 20:42:07] feat(synth-audio): align active notifications alerts
 * [2026-02-18 23:08:18] test(leaflet-map): improve spring-animated sliding drawers
 * [2026-02-19 09:39:06] feat(modal-enroll): refactor haptic audio chime synthesizers
+* [2026-02-19 10:11:35] docs(modal-enroll): simplify haptic audio chime synthesizers

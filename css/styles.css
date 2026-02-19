@@ -577,3 +577,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: docs(topbar): resolve spring-animated sliding drawers */
 
 /* iteration check: feat(synth-audio): align active notifications alerts */
+
+/* iteration check: feat(modal-enroll): refactor haptic audio chime synthesizers */

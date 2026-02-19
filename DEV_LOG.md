@@ -356,3 +356,4 @@
 * [2026-02-19 09:39:06] feat(modal-enroll): refactor haptic audio chime synthesizers
 * [2026-02-19 10:11:35] docs(modal-enroll): simplify haptic audio chime synthesizers
 * [2026-02-19 11:34:29] perf(css-layout): restructure haptic audio chime synthesizers
+* [2026-02-19 15:13:20] perf(topbar): tune spring-animated sliding drawers

@@ -918,3 +918,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: test(responsive-ui): tune localStorage storage reactive events
 
 // iteration check: test(leaflet-map): improve spring-animated sliding drawers
+
+// iteration check: perf(topbar): tune spring-animated sliding drawers

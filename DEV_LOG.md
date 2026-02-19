@@ -360,3 +360,4 @@
 * [2026-02-19 19:01:37] style(modal-enroll): enhance 1px line oscilloscope curves
 * [2026-02-19 22:48:48] refactor(leaflet-map): tune localStorage storage reactive events
 * [2026-02-19 22:49:16] fix(canvas-scope): streamline unified logging terminal entries
+* [2026-02-19 22:54:48] refactor(sms-router): tune spring-animated sliding drawers

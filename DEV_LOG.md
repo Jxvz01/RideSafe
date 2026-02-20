@@ -365,3 +365,4 @@
 * [2026-02-20 15:10:30] test(telemetry): stabilize CSS border transitions
 * [2026-02-20 18:02:30] test(canvas-scope): resolve anti-aliasing filters
 * [2026-02-20 18:43:30] style(inspector-drawer): optimize localStorage storage reactive events
+* [2026-02-20 23:01:04] docs(telemetry): correct DPR scaling variables

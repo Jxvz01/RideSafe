@@ -1026,3 +1026,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: perf(synth-audio): validate rider enrollment CRUD logic
 
 // iteration check: fix(modal-enroll): harden unified logging terminal entries
+
+// iteration check: test(canvas-scope): resolve anti-aliasing filters

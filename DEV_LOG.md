@@ -362,3 +362,4 @@
 * [2026-02-19 22:49:16] fix(canvas-scope): streamline unified logging terminal entries
 * [2026-02-19 22:54:48] refactor(sms-router): tune spring-animated sliding drawers
 * [2026-02-20 12:27:09] feat(canvas-scope): optimize rider enrollment CRUD logic
+* [2026-02-20 15:10:30] test(telemetry): stabilize CSS border transitions

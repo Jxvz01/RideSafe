@@ -922,3 +922,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: perf(topbar): tune spring-animated sliding drawers
 
 // iteration check: refactor(sms-router): tune spring-animated sliding drawers
+
+// iteration check: test(telemetry): stabilize CSS border transitions

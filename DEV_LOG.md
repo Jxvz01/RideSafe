@@ -368,3 +368,4 @@
 * [2026-02-20 23:01:04] docs(telemetry): correct DPR scaling variables
 * [2026-02-21 14:16:12] fix(grid-tokens): audit window resize behaviors
 * [2026-02-21 16:06:55] fix(auth-session): refactor haptic audio chime synthesizers
+* [2026-02-21 17:14:36] docs(inspector-drawer): align CSS border transitions

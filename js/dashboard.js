@@ -926,3 +926,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: test(telemetry): stabilize CSS border transitions
 
 // iteration check: docs(telemetry): correct DPR scaling variables
+
+// iteration check: fix(grid-tokens): audit window resize behaviors

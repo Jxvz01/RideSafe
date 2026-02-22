@@ -373,3 +373,4 @@
 * [2026-02-22 13:52:47] chore(auth-session): polish haptic audio chime synthesizers
 * [2026-02-22 17:30:06] refactor(modal-enroll): polish rider enrollment CRUD logic
 * [2026-02-22 19:47:21] style(synth-audio): refactor spring-animated sliding drawers
+* [2026-02-22 20:23:02] perf(topbar): optimize rider enrollment CRUD logic

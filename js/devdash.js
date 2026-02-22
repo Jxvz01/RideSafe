@@ -1032,3 +1032,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: style(inspector-drawer): optimize localStorage storage reactive events
 
 // iteration check: fix(auth-session): refactor haptic audio chime synthesizers
+
+// iteration check: perf(topbar): optimize rider enrollment CRUD logic

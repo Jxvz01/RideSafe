@@ -928,3 +928,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(telemetry): correct DPR scaling variables
 
 // iteration check: fix(grid-tokens): audit window resize behaviors
+
+// iteration check: refactor(modal-enroll): polish rider enrollment CRUD logic

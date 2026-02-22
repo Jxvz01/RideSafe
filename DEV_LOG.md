@@ -371,3 +371,4 @@
 * [2026-02-21 17:14:36] docs(inspector-drawer): align CSS border transitions
 * [2026-02-22 12:19:49] chore(inspector-drawer): validate window resize behaviors
 * [2026-02-22 13:52:47] chore(auth-session): polish haptic audio chime synthesizers
+* [2026-02-22 17:30:06] refactor(modal-enroll): polish rider enrollment CRUD logic

@@ -930,3 +930,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: fix(grid-tokens): audit window resize behaviors
 
 // iteration check: refactor(modal-enroll): polish rider enrollment CRUD logic
+
+// iteration check: style(synth-audio): refactor spring-animated sliding drawers

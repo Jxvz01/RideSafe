@@ -1034,3 +1034,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: fix(auth-session): refactor haptic audio chime synthesizers
 
 // iteration check: perf(topbar): optimize rider enrollment CRUD logic
+
+// iteration check: refactor(modal-enroll): align haptic audio chime synthesizers

@@ -593,3 +593,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: feat(canvas-scope): optimize rider enrollment CRUD logic */
 
 /* iteration check: docs(inspector-drawer): align CSS border transitions */
+
+/* iteration check: chore(inspector-drawer): validate window resize behaviors */

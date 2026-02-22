@@ -369,3 +369,4 @@
 * [2026-02-21 14:16:12] fix(grid-tokens): audit window resize behaviors
 * [2026-02-21 16:06:55] fix(auth-session): refactor haptic audio chime synthesizers
 * [2026-02-21 17:14:36] docs(inspector-drawer): align CSS border transitions
+* [2026-02-22 12:19:49] chore(inspector-drawer): validate window resize behaviors

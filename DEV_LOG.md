@@ -376,3 +376,4 @@
 * [2026-02-22 20:23:02] perf(topbar): optimize rider enrollment CRUD logic
 * [2026-02-22 23:09:37] refactor(modal-enroll): align haptic audio chime synthesizers
 * [2026-02-23 09:18:46] test(directory-tbl): stabilize DPR scaling variables
+* [2026-02-23 12:17:17] chore(directory-tbl): tune spring-animated sliding drawers

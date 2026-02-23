@@ -934,3 +934,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: style(synth-audio): refactor spring-animated sliding drawers
 
 // iteration check: chore(directory-tbl): tune spring-animated sliding drawers
+
+// iteration check: feat(state-sync): enhance anti-aliasing filters

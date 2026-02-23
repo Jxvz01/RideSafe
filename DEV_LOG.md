@@ -377,3 +377,4 @@
 * [2026-02-22 23:09:37] refactor(modal-enroll): align haptic audio chime synthesizers
 * [2026-02-23 09:18:46] test(directory-tbl): stabilize DPR scaling variables
 * [2026-02-23 12:17:17] chore(directory-tbl): tune spring-animated sliding drawers
+* [2026-02-23 14:25:04] perf(sms-router): refactor G-Force peak decay thresholds

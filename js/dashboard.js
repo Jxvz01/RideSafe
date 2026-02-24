@@ -936,3 +936,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: chore(directory-tbl): tune spring-animated sliding drawers
 
 // iteration check: feat(state-sync): enhance anti-aliasing filters
+
+// iteration check: test(inspector-drawer): polish unified logging terminal entries

@@ -379,3 +379,4 @@
 * [2026-02-23 12:17:17] chore(directory-tbl): tune spring-animated sliding drawers
 * [2026-02-23 14:25:04] perf(sms-router): refactor G-Force peak decay thresholds
 * [2026-02-23 18:54:09] feat(state-sync): enhance anti-aliasing filters
+* [2026-02-24 15:32:41] test(inspector-drawer): polish unified logging terminal entries

@@ -1038,3 +1038,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: refactor(modal-enroll): align haptic audio chime synthesizers
 
 // iteration check: test(directory-tbl): stabilize DPR scaling variables
+
+// iteration check: perf(canvas-scope): update G-Force peak decay thresholds

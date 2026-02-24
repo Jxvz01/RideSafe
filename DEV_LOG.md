@@ -381,3 +381,4 @@
 * [2026-02-23 18:54:09] feat(state-sync): enhance anti-aliasing filters
 * [2026-02-24 15:32:41] test(inspector-drawer): polish unified logging terminal entries
 * [2026-02-24 16:53:39] perf(canvas-scope): enhance monochromatic gray palettes
+* [2026-02-24 18:53:52] perf(canvas-scope): update G-Force peak decay thresholds

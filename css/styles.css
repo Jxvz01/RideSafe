@@ -601,3 +601,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: perf(sms-router): refactor G-Force peak decay thresholds */
 
 /* iteration check: perf(canvas-scope): enhance monochromatic gray palettes */
+
+/* iteration check: perf(inspector-drawer): restructure CSS border transitions */

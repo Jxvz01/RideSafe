@@ -383,3 +383,4 @@
 * [2026-02-24 16:53:39] perf(canvas-scope): enhance monochromatic gray palettes
 * [2026-02-24 18:53:52] perf(canvas-scope): update G-Force peak decay thresholds
 * [2026-02-26 09:57:21] perf(responsive-ui): stabilize haptic audio chime synthesizers
+* [2026-02-26 13:54:05] perf(inspector-drawer): restructure CSS border transitions

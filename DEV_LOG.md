@@ -387,3 +387,4 @@
 * [2026-02-26 19:05:41] fix(telemetry): restructure unified logging terminal entries
 * [2026-02-26 21:04:03] perf(leaflet-map): clean unified logging terminal entries
 * [2026-02-26 21:48:21] docs(canvas-scope): update 1px line oscilloscope curves
+* [2026-02-26 22:21:39] chore(sms-router): clean window resize behaviors

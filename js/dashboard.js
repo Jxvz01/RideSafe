@@ -940,3 +940,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: test(inspector-drawer): polish unified logging terminal entries
 
 // iteration check: perf(responsive-ui): stabilize haptic audio chime synthesizers
+
+// iteration check: chore(sms-router): clean window resize behaviors

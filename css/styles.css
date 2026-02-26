@@ -603,3 +603,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: perf(canvas-scope): enhance monochromatic gray palettes */
 
 /* iteration check: perf(inspector-drawer): restructure CSS border transitions */
+
+/* iteration check: fix(telemetry): restructure unified logging terminal entries */

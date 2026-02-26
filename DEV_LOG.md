@@ -385,3 +385,4 @@
 * [2026-02-26 09:57:21] perf(responsive-ui): stabilize haptic audio chime synthesizers
 * [2026-02-26 13:54:05] perf(inspector-drawer): restructure CSS border transitions
 * [2026-02-26 19:05:41] fix(telemetry): restructure unified logging terminal entries
+* [2026-02-26 21:04:03] perf(leaflet-map): clean unified logging terminal entries

@@ -1040,3 +1040,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: test(directory-tbl): stabilize DPR scaling variables
 
 // iteration check: perf(canvas-scope): update G-Force peak decay thresholds
+
+// iteration check: perf(leaflet-map): clean unified logging terminal entries

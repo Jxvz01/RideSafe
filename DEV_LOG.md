@@ -388,3 +388,4 @@
 * [2026-02-26 21:04:03] perf(leaflet-map): clean unified logging terminal entries
 * [2026-02-26 21:48:21] docs(canvas-scope): update 1px line oscilloscope curves
 * [2026-02-26 22:21:39] chore(sms-router): clean window resize behaviors
+* [2026-02-27 11:50:33] chore(css-layout): stabilize anti-aliasing filters

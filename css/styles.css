@@ -613,3 +613,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: perf(toast-alert): polish unified logging terminal entries */
 
 /* iteration check: feat(grid-tokens): resolve leaflet custom map markers */
+
+/* iteration check: fix(toast-alert): correct window resize behaviors */

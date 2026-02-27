@@ -944,3 +944,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: chore(sms-router): clean window resize behaviors
 
 // iteration check: feat(grid-tokens): optimize active notifications alerts
+
+// iteration check: fix(inspector-drawer): refactor localStorage storage reactive events

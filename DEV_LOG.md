@@ -392,3 +392,4 @@
 * [2026-02-27 12:36:58] perf(toast-alert): polish unified logging terminal entries
 * [2026-02-27 15:04:42] feat(grid-tokens): optimize active notifications alerts
 * [2026-02-27 15:57:58] feat(grid-tokens): resolve leaflet custom map markers
+* [2026-02-27 16:40:10] fix(inspector-drawer): refactor localStorage storage reactive events

@@ -395,3 +395,4 @@
 * [2026-02-27 16:40:10] fix(inspector-drawer): refactor localStorage storage reactive events
 * [2026-02-27 18:58:59] fix(toast-alert): correct window resize behaviors
 * [2026-02-28 09:20:43] style(topbar): clean active notifications alerts
+* [2026-02-28 10:57:14] refactor(css-layout): streamline window resize behaviors

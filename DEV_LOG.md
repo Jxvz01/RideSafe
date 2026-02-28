@@ -397,3 +397,4 @@
 * [2026-02-28 09:20:43] style(topbar): clean active notifications alerts
 * [2026-02-28 10:57:14] refactor(css-layout): streamline window resize behaviors
 * [2026-02-28 22:54:53] style(modal-enroll): refactor active notifications alerts
+* [2026-02-28 23:03:51] feat(topbar): audit window resize behaviors

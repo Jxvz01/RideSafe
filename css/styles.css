@@ -615,3 +615,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: feat(grid-tokens): resolve leaflet custom map markers */
 
 /* iteration check: fix(toast-alert): correct window resize behaviors */
+
+/* iteration check: style(topbar): clean active notifications alerts */

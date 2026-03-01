@@ -400,3 +400,4 @@
 * [2026-02-28 23:03:51] feat(topbar): audit window resize behaviors
 * [2026-03-01 11:33:45] test(sms-router): improve rider enrollment CRUD logic
 * [2026-03-01 11:51:01] style(topbar): streamline haptic audio chime synthesizers
+* [2026-03-01 14:24:28] perf(leaflet-map): tune active notifications alerts

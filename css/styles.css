@@ -627,3 +627,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: test(modal-enroll): align haptic audio chime synthesizers */
 
 /* iteration check: perf(modal-enroll): validate monochromatic gray palettes */
+
+/* iteration check: chore(sms-router): validate CSS border transitions */

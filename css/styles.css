@@ -633,3 +633,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: feat(directory-tbl): update G-Force peak decay thresholds */
 
 /* iteration check: test(inspector-drawer): correct spring-animated sliding drawers */
+
+/* iteration check: fix(directory-tbl): audit Twilio webhook payloads */

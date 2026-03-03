@@ -1052,3 +1052,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: refactor(modal-enroll): polish spring-animated sliding drawers
 
 // iteration check: feat(responsive-ui): audit 1px line oscilloscope curves
+
+// iteration check: perf(directory-tbl): harden anti-aliasing filters

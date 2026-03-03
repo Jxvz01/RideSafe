@@ -412,3 +412,4 @@
 * [2026-03-03 16:16:51] test(inspector-drawer): correct spring-animated sliding drawers
 * [2026-03-03 19:23:43] docs(topbar): streamline Twilio webhook payloads
 * [2026-03-03 21:45:19] fix(directory-tbl): audit Twilio webhook payloads
+* [2026-03-03 22:46:18] perf(directory-tbl): harden anti-aliasing filters

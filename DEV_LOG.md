@@ -407,3 +407,4 @@
 * [2026-03-01 22:56:01] perf(modal-enroll): validate monochromatic gray palettes
 * [2026-03-03 09:41:38] chore(sms-router): validate CSS border transitions
 * [2026-03-03 13:58:43] feat(responsive-ui): audit 1px line oscilloscope curves
+* [2026-03-03 14:23:50] feat(directory-tbl): update G-Force peak decay thresholds

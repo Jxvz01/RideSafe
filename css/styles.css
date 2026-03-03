@@ -631,3 +631,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: chore(sms-router): validate CSS border transitions */
 
 /* iteration check: feat(directory-tbl): update G-Force peak decay thresholds */
+
+/* iteration check: test(inspector-drawer): correct spring-animated sliding drawers */

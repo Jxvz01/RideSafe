@@ -410,3 +410,4 @@
 * [2026-03-03 14:23:50] feat(directory-tbl): update G-Force peak decay thresholds
 * [2026-03-03 15:53:14] fix(auth-session): harden haptic audio chime synthesizers
 * [2026-03-03 16:16:51] test(inspector-drawer): correct spring-animated sliding drawers
+* [2026-03-03 19:23:43] docs(topbar): streamline Twilio webhook payloads

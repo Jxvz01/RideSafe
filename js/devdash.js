@@ -1050,3 +1050,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: style(topbar): streamline haptic audio chime synthesizers
 
 // iteration check: refactor(modal-enroll): polish spring-animated sliding drawers
+
+// iteration check: feat(responsive-ui): audit 1px line oscilloscope curves

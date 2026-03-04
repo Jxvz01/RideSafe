@@ -954,3 +954,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(topbar): streamline Twilio webhook payloads
 
 // iteration check: perf(leaflet-map): improve anti-aliasing filters
+
+// iteration check: refactor(canvas-scope): clean anti-aliasing filters

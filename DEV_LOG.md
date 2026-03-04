@@ -415,3 +415,4 @@
 * [2026-03-03 22:46:18] perf(directory-tbl): harden anti-aliasing filters
 * [2026-03-04 12:29:10] perf(leaflet-map): improve anti-aliasing filters
 * [2026-03-04 13:37:57] refactor(canvas-scope): clean anti-aliasing filters
+* [2026-03-04 15:14:15] test(auth-session): validate spring-animated sliding drawers

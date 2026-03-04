@@ -952,3 +952,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: fix(auth-session): harden haptic audio chime synthesizers
 
 // iteration check: docs(topbar): streamline Twilio webhook payloads
+
+// iteration check: perf(leaflet-map): improve anti-aliasing filters

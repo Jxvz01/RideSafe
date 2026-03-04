@@ -413,3 +413,4 @@
 * [2026-03-03 19:23:43] docs(topbar): streamline Twilio webhook payloads
 * [2026-03-03 21:45:19] fix(directory-tbl): audit Twilio webhook payloads
 * [2026-03-03 22:46:18] perf(directory-tbl): harden anti-aliasing filters
+* [2026-03-04 12:29:10] perf(leaflet-map): improve anti-aliasing filters

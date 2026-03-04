@@ -637,3 +637,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: fix(directory-tbl): audit Twilio webhook payloads */
 
 /* iteration check: test(auth-session): validate spring-animated sliding drawers */
+
+/* iteration check: feat(css-layout): align spring-animated sliding drawers */

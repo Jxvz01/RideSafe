@@ -417,3 +417,4 @@
 * [2026-03-04 13:37:57] refactor(canvas-scope): clean anti-aliasing filters
 * [2026-03-04 15:14:15] test(auth-session): validate spring-animated sliding drawers
 * [2026-03-04 17:32:41] feat(css-layout): align spring-animated sliding drawers
+* [2026-03-05 10:36:09] refactor(telemetry): correct unified logging terminal entries

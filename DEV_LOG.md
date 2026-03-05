@@ -422,3 +422,4 @@
 * [2026-03-05 12:48:47] fix(css-layout): optimize haptic audio chime synthesizers
 * [2026-03-05 12:59:10] test(grid-tokens): correct unified logging terminal entries
 * [2026-03-05 14:20:03] test(directory-tbl): clean window resize behaviors
+* [2026-03-05 23:02:22] docs(telemetry): tune G-Force peak decay thresholds

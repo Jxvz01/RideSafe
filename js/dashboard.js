@@ -962,3 +962,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: test(grid-tokens): correct unified logging terminal entries
 
 // iteration check: test(directory-tbl): clean window resize behaviors
+
+// iteration check: docs(telemetry): tune G-Force peak decay thresholds

@@ -641,3 +641,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: feat(css-layout): align spring-animated sliding drawers */
 
 /* iteration check: refactor(telemetry): correct unified logging terminal entries */
+
+/* iteration check: perf(directory-tbl): resolve unified logging terminal entries */

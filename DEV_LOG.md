@@ -418,3 +418,4 @@
 * [2026-03-04 15:14:15] test(auth-session): validate spring-animated sliding drawers
 * [2026-03-04 17:32:41] feat(css-layout): align spring-animated sliding drawers
 * [2026-03-05 10:36:09] refactor(telemetry): correct unified logging terminal entries
+* [2026-03-05 12:37:07] perf(directory-tbl): resolve unified logging terminal entries

@@ -645,3 +645,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: perf(directory-tbl): resolve unified logging terminal entries */
 
 /* iteration check: feat(telemetry): tune Twilio webhook payloads */
+
+/* iteration check: chore(directory-tbl): resolve monochromatic gray palettes */

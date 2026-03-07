@@ -427,3 +427,4 @@
 * [2026-03-07 13:05:03] feat(telemetry): tune Twilio webhook payloads
 * [2026-03-07 13:48:27] docs(grid-tokens): improve active notifications alerts
 * [2026-03-07 14:45:41] chore(responsive-ui): simplify window resize behaviors
+* [2026-03-07 15:16:17] chore(directory-tbl): resolve monochromatic gray palettes

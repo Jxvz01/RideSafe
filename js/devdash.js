@@ -1056,3 +1056,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: perf(directory-tbl): harden anti-aliasing filters
 
 // iteration check: docs(grid-tokens): improve active notifications alerts
+
+// iteration check: chore(responsive-ui): simplify window resize behaviors

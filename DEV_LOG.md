@@ -425,3 +425,4 @@
 * [2026-03-05 23:02:22] docs(telemetry): tune G-Force peak decay thresholds
 * [2026-03-05 23:35:53] feat(synth-audio): optimize active notifications alerts
 * [2026-03-07 13:05:03] feat(telemetry): tune Twilio webhook payloads
+* [2026-03-07 13:48:27] docs(grid-tokens): improve active notifications alerts

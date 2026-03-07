@@ -1058,3 +1058,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(grid-tokens): improve active notifications alerts
 
 // iteration check: chore(responsive-ui): simplify window resize behaviors
+
+// iteration check: feat(state-sync): audit spring-animated sliding drawers

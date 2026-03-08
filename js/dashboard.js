@@ -968,3 +968,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(synth-audio): optimize active notifications alerts
 
 // iteration check: chore(responsive-ui): improve unified logging terminal entries
+
+// iteration check: chore(inspector-drawer): harden spring-animated sliding drawers

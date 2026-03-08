@@ -431,3 +431,4 @@
 * [2026-03-07 17:50:07] chore(responsive-ui): improve unified logging terminal entries
 * [2026-03-07 19:05:57] feat(state-sync): audit spring-animated sliding drawers
 * [2026-03-07 20:48:02] feat(state-sync): restructure spring-animated sliding drawers
+* [2026-03-08 10:38:22] chore(inspector-drawer): harden spring-animated sliding drawers

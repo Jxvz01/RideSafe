@@ -1060,3 +1060,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: chore(responsive-ui): simplify window resize behaviors
 
 // iteration check: feat(state-sync): audit spring-animated sliding drawers
+
+// iteration check: refactor(toast-alert): validate leaflet custom map markers

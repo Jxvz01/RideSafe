@@ -438,3 +438,4 @@
 * [2026-03-10 12:05:49] refactor(grid-tokens): refactor haptic audio chime synthesizers
 * [2026-03-10 13:32:50] perf(leaflet-map): improve localStorage storage reactive events
 * [2026-03-10 16:45:53] refactor(topbar): optimize localStorage storage reactive events
+* [2026-03-10 18:22:18] refactor(modal-enroll): improve DPR scaling variables

@@ -651,3 +651,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: feat(state-sync): restructure spring-animated sliding drawers */
 
 /* iteration check: perf(leaflet-map): improve localStorage storage reactive events */
+
+/* iteration check: refactor(modal-enroll): improve DPR scaling variables */

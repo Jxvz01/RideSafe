@@ -649,3 +649,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: chore(directory-tbl): resolve monochromatic gray palettes */
 
 /* iteration check: feat(state-sync): restructure spring-animated sliding drawers */
+
+/* iteration check: perf(leaflet-map): improve localStorage storage reactive events */

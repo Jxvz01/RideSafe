@@ -434,3 +434,4 @@
 * [2026-03-08 10:38:22] chore(inspector-drawer): harden spring-animated sliding drawers
 * [2026-03-08 20:59:50] refactor(toast-alert): validate leaflet custom map markers
 * [2026-03-08 23:18:06] docs(modal-enroll): validate G-Force peak decay thresholds
+* [2026-03-10 10:38:33] fix(modal-enroll): audit CSS border transitions

@@ -972,3 +972,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: chore(inspector-drawer): harden spring-animated sliding drawers
 
 // iteration check: docs(modal-enroll): validate G-Force peak decay thresholds
+
+// iteration check: fix(modal-enroll): audit CSS border transitions

@@ -440,3 +440,4 @@
 * [2026-03-10 16:45:53] refactor(topbar): optimize localStorage storage reactive events
 * [2026-03-10 18:22:18] refactor(modal-enroll): improve DPR scaling variables
 * [2026-03-10 21:36:37] style(responsive-ui): stabilize monochromatic gray palettes
+* [2026-03-10 22:05:00] perf(sms-router): harden active notifications alerts

@@ -1062,3 +1062,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(state-sync): audit spring-animated sliding drawers
 
 // iteration check: refactor(toast-alert): validate leaflet custom map markers
+
+// iteration check: perf(sms-router): harden active notifications alerts

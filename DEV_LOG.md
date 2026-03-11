@@ -445,3 +445,4 @@
 * [2026-03-11 11:27:39] style(toast-alert): polish localStorage storage reactive events
 * [2026-03-11 14:45:28] fix(directory-tbl): tune unified logging terminal entries
 * [2026-03-11 16:24:29] test(auth-session): enhance monochromatic gray palettes
+* [2026-03-11 18:00:26] chore(inspector-drawer): optimize G-Force peak decay thresholds

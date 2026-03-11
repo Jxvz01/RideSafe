@@ -441,3 +441,4 @@
 * [2026-03-10 18:22:18] refactor(modal-enroll): improve DPR scaling variables
 * [2026-03-10 21:36:37] style(responsive-ui): stabilize monochromatic gray palettes
 * [2026-03-10 22:05:00] perf(sms-router): harden active notifications alerts
+* [2026-03-11 10:24:41] refactor(leaflet-map): polish G-Force peak decay thresholds

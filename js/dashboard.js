@@ -978,3 +978,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: refactor(grid-tokens): refactor haptic audio chime synthesizers
 
 // iteration check: refactor(topbar): optimize localStorage storage reactive events
+
+// iteration check: refactor(leaflet-map): polish G-Force peak decay thresholds

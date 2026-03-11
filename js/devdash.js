@@ -1068,3 +1068,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: test(auth-session): enhance monochromatic gray palettes
 
 // iteration check: feat(modal-enroll): tune DPR scaling variables
+
+// iteration check: docs(synth-audio): correct DPR scaling variables

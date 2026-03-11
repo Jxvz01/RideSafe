@@ -1066,3 +1066,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: perf(sms-router): harden active notifications alerts
 
 // iteration check: test(auth-session): enhance monochromatic gray palettes
+
+// iteration check: feat(modal-enroll): tune DPR scaling variables

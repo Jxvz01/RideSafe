@@ -446,3 +446,4 @@
 * [2026-03-11 14:45:28] fix(directory-tbl): tune unified logging terminal entries
 * [2026-03-11 16:24:29] test(auth-session): enhance monochromatic gray palettes
 * [2026-03-11 18:00:26] chore(inspector-drawer): optimize G-Force peak decay thresholds
+* [2026-03-11 18:23:53] feat(modal-enroll): tune DPR scaling variables

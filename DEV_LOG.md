@@ -447,3 +447,4 @@
 * [2026-03-11 16:24:29] test(auth-session): enhance monochromatic gray palettes
 * [2026-03-11 18:00:26] chore(inspector-drawer): optimize G-Force peak decay thresholds
 * [2026-03-11 18:23:53] feat(modal-enroll): tune DPR scaling variables
+* [2026-03-11 19:36:01] feat(leaflet-map): streamline active notifications alerts

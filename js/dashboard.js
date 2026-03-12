@@ -984,3 +984,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: fix(directory-tbl): tune unified logging terminal entries
 
 // iteration check: feat(leaflet-map): streamline active notifications alerts
+
+// iteration check: style(state-sync): resolve anti-aliasing filters

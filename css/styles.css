@@ -661,3 +661,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: chore(inspector-drawer): optimize G-Force peak decay thresholds */
 
 /* iteration check: chore(synth-audio): resolve localStorage storage reactive events */
+
+/* iteration check: docs(grid-tokens): tune spring-animated sliding drawers */

@@ -450,3 +450,4 @@
 * [2026-03-11 19:36:01] feat(leaflet-map): streamline active notifications alerts
 * [2026-03-11 22:25:23] docs(synth-audio): correct DPR scaling variables
 * [2026-03-12 09:19:11] style(state-sync): resolve anti-aliasing filters
+* [2026-03-12 09:41:48] style(telemetry): audit monochromatic gray palettes

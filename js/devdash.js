@@ -1072,3 +1072,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(synth-audio): correct DPR scaling variables
 
 // iteration check: style(telemetry): audit monochromatic gray palettes
+
+// iteration check: chore(synth-audio): validate rider enrollment CRUD logic

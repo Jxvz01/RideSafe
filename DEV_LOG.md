@@ -454,3 +454,4 @@
 * [2026-03-12 15:14:17] chore(synth-audio): validate rider enrollment CRUD logic
 * [2026-03-12 19:46:39] chore(synth-audio): resolve localStorage storage reactive events
 * [2026-03-12 20:07:17] docs(grid-tokens): tune spring-animated sliding drawers
+* [2026-03-12 20:24:08] feat(telemetry): improve Twilio webhook payloads

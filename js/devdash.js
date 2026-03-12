@@ -1074,3 +1074,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: style(telemetry): audit monochromatic gray palettes
 
 // iteration check: chore(synth-audio): validate rider enrollment CRUD logic
+
+// iteration check: feat(telemetry): improve Twilio webhook payloads

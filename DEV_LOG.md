@@ -456,3 +456,4 @@
 * [2026-03-12 20:07:17] docs(grid-tokens): tune spring-animated sliding drawers
 * [2026-03-12 20:24:08] feat(telemetry): improve Twilio webhook payloads
 * [2026-03-12 21:00:35] refactor(css-layout): restructure haptic audio chime synthesizers
+* [2026-03-12 21:42:41] style(telemetry): simplify 1px line oscilloscope curves

@@ -459,3 +459,4 @@
 * [2026-03-12 21:42:41] style(telemetry): simplify 1px line oscilloscope curves
 * [2026-03-13 13:50:29] perf(leaflet-map): enhance active notifications alerts
 * [2026-03-13 14:51:15] test(sms-router): stabilize window resize behaviors
+* [2026-03-13 22:46:24] docs(topbar): simplify anti-aliasing filters

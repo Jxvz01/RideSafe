@@ -988,3 +988,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: style(state-sync): resolve anti-aliasing filters
 
 // iteration check: style(telemetry): simplify 1px line oscilloscope curves
+
+// iteration check: perf(leaflet-map): enhance active notifications alerts

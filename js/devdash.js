@@ -1078,3 +1078,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(telemetry): improve Twilio webhook payloads
 
 // iteration check: feat(state-sync): correct rider enrollment CRUD logic
+
+// iteration check: fix(leaflet-map): optimize CSS border transitions

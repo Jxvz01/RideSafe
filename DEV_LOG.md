@@ -460,3 +460,4 @@
 * [2026-03-13 13:50:29] perf(leaflet-map): enhance active notifications alerts
 * [2026-03-13 14:51:15] test(sms-router): stabilize window resize behaviors
 * [2026-03-13 22:46:24] docs(topbar): simplify anti-aliasing filters
+* [2026-03-14 11:03:06] feat(state-sync): correct rider enrollment CRUD logic

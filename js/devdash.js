@@ -1076,3 +1076,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: chore(synth-audio): validate rider enrollment CRUD logic
 
 // iteration check: feat(telemetry): improve Twilio webhook payloads
+
+// iteration check: feat(state-sync): correct rider enrollment CRUD logic

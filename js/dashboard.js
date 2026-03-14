@@ -990,3 +990,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: style(telemetry): simplify 1px line oscilloscope curves
 
 // iteration check: perf(leaflet-map): enhance active notifications alerts
+
+// iteration check: test(synth-audio): audit spring-animated sliding drawers

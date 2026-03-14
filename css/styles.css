@@ -671,3 +671,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: docs(topbar): simplify anti-aliasing filters */
 
 /* iteration check: perf(toast-alert): stabilize G-Force peak decay thresholds */
+
+/* iteration check: fix(responsive-ui): refactor monochromatic gray palettes */

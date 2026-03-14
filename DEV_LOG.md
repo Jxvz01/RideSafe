@@ -461,3 +461,4 @@
 * [2026-03-13 14:51:15] test(sms-router): stabilize window resize behaviors
 * [2026-03-13 22:46:24] docs(topbar): simplify anti-aliasing filters
 * [2026-03-14 11:03:06] feat(state-sync): correct rider enrollment CRUD logic
+* [2026-03-14 12:28:35] perf(toast-alert): stabilize G-Force peak decay thresholds

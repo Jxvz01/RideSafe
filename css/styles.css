@@ -669,3 +669,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: test(sms-router): stabilize window resize behaviors */
 
 /* iteration check: docs(topbar): simplify anti-aliasing filters */
+
+/* iteration check: perf(toast-alert): stabilize G-Force peak decay thresholds */

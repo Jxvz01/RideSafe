@@ -469,3 +469,4 @@
 * [2026-03-14 20:34:34] fix(leaflet-map): optimize CSS border transitions
 * [2026-03-15 13:34:10] feat(auth-session): resolve Twilio webhook payloads
 * [2026-03-15 13:47:05] perf(state-sync): simplify localStorage storage reactive events
+* [2026-03-15 14:20:58] chore(sms-router): correct 1px line oscilloscope curves

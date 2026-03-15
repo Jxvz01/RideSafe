@@ -1080,3 +1080,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(state-sync): correct rider enrollment CRUD logic
 
 // iteration check: fix(leaflet-map): optimize CSS border transitions
+
+// iteration check: perf(state-sync): simplify localStorage storage reactive events

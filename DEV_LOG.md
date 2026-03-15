@@ -472,3 +472,4 @@
 * [2026-03-15 14:20:58] chore(sms-router): correct 1px line oscilloscope curves
 * [2026-03-15 16:03:08] refactor(css-layout): correct unified logging terminal entries
 * [2026-03-15 16:40:28] docs(directory-tbl): optimize unified logging terminal entries
+* [2026-03-15 17:48:26] chore(canvas-scope): harden rider enrollment CRUD logic

@@ -677,3 +677,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: feat(auth-session): resolve Twilio webhook payloads */
 
 /* iteration check: docs(directory-tbl): optimize unified logging terminal entries */
+
+/* iteration check: chore(canvas-scope): harden rider enrollment CRUD logic */

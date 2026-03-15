@@ -471,3 +471,4 @@
 * [2026-03-15 13:47:05] perf(state-sync): simplify localStorage storage reactive events
 * [2026-03-15 14:20:58] chore(sms-router): correct 1px line oscilloscope curves
 * [2026-03-15 16:03:08] refactor(css-layout): correct unified logging terminal entries
+* [2026-03-15 16:40:28] docs(directory-tbl): optimize unified logging terminal entries

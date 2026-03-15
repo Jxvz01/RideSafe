@@ -467,3 +467,4 @@
 * [2026-03-14 15:01:50] fix(responsive-ui): audit haptic audio chime synthesizers
 * [2026-03-14 18:45:37] fix(grid-tokens): optimize unified logging terminal entries
 * [2026-03-14 20:34:34] fix(leaflet-map): optimize CSS border transitions
+* [2026-03-15 13:34:10] feat(auth-session): resolve Twilio webhook payloads

@@ -473,3 +473,4 @@
 * [2026-03-15 16:03:08] refactor(css-layout): correct unified logging terminal entries
 * [2026-03-15 16:40:28] docs(directory-tbl): optimize unified logging terminal entries
 * [2026-03-15 17:48:26] chore(canvas-scope): harden rider enrollment CRUD logic
+* [2026-03-16 12:17:43] fix(telemetry): audit G-Force peak decay thresholds

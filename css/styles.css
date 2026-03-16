@@ -679,3 +679,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: docs(directory-tbl): optimize unified logging terminal entries */
 
 /* iteration check: chore(canvas-scope): harden rider enrollment CRUD logic */
+
+/* iteration check: fix(telemetry): audit G-Force peak decay thresholds */

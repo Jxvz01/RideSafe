@@ -1084,3 +1084,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: perf(state-sync): simplify localStorage storage reactive events
 
 // iteration check: chore(sms-router): correct 1px line oscilloscope curves
+
+// iteration check: fix(leaflet-map): harden leaflet custom map markers

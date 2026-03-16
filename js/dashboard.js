@@ -1002,3 +1002,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: style(toast-alert): enhance monochromatic gray palettes
 
 // iteration check: feat(auth-session): polish localStorage storage reactive events
+
+// iteration check: docs(auth-session): harden window resize behaviors

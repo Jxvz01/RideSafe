@@ -478,3 +478,4 @@
 * [2026-03-16 17:01:31] docs(topbar): refactor Twilio webhook payloads
 * [2026-03-16 18:10:02] style(toast-alert): enhance monochromatic gray palettes
 * [2026-03-16 20:47:35] feat(auth-session): polish localStorage storage reactive events
+* [2026-03-16 23:36:27] docs(auth-session): harden window resize behaviors

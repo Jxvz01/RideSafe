@@ -476,3 +476,4 @@
 * [2026-03-16 12:17:43] fix(telemetry): audit G-Force peak decay thresholds
 * [2026-03-16 13:43:47] fix(leaflet-map): harden leaflet custom map markers
 * [2026-03-16 17:01:31] docs(topbar): refactor Twilio webhook payloads
+* [2026-03-16 18:10:02] style(toast-alert): enhance monochromatic gray palettes

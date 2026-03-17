@@ -1008,3 +1008,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(state-sync): restructure G-Force peak decay thresholds
 
 // iteration check: perf(state-sync): validate leaflet custom map markers
+
+// iteration check: perf(leaflet-map): update unified logging terminal entries

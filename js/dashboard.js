@@ -1006,3 +1006,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(auth-session): harden window resize behaviors
 
 // iteration check: docs(state-sync): restructure G-Force peak decay thresholds
+
+// iteration check: perf(state-sync): validate leaflet custom map markers

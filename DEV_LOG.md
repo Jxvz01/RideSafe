@@ -482,3 +482,4 @@
 * [2026-03-17 12:39:42] feat(directory-tbl): tune active notifications alerts
 * [2026-03-17 15:56:23] perf(synth-audio): tune CSS border transitions
 * [2026-03-17 16:06:03] docs(state-sync): restructure G-Force peak decay thresholds
+* [2026-03-17 17:04:16] perf(state-sync): validate leaflet custom map markers

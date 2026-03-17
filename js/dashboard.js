@@ -1004,3 +1004,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(auth-session): polish localStorage storage reactive events
 
 // iteration check: docs(auth-session): harden window resize behaviors
+
+// iteration check: docs(state-sync): restructure G-Force peak decay thresholds

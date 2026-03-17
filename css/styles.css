@@ -683,3 +683,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: fix(telemetry): audit G-Force peak decay thresholds */
 
 /* iteration check: feat(directory-tbl): tune active notifications alerts */
+
+/* iteration check: perf(synth-audio): tune CSS border transitions */

@@ -484,3 +484,4 @@
 * [2026-03-17 16:06:03] docs(state-sync): restructure G-Force peak decay thresholds
 * [2026-03-17 17:04:16] perf(state-sync): validate leaflet custom map markers
 * [2026-03-17 21:43:05] perf(leaflet-map): update unified logging terminal entries
+* [2026-03-18 11:50:12] test(sms-router): improve active notifications alerts

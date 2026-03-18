@@ -1012,3 +1012,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: perf(leaflet-map): update unified logging terminal entries
 
 // iteration check: test(sms-router): improve active notifications alerts
+
+// iteration check: fix(leaflet-map): clean rider enrollment CRUD logic

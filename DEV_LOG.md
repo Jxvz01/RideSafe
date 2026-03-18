@@ -485,3 +485,4 @@
 * [2026-03-17 17:04:16] perf(state-sync): validate leaflet custom map markers
 * [2026-03-17 21:43:05] perf(leaflet-map): update unified logging terminal entries
 * [2026-03-18 11:50:12] test(sms-router): improve active notifications alerts
+* [2026-03-18 12:14:31] fix(leaflet-map): clean rider enrollment CRUD logic

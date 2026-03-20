@@ -1014,3 +1014,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: test(sms-router): improve active notifications alerts
 
 // iteration check: fix(leaflet-map): clean rider enrollment CRUD logic
+
+// iteration check: chore(topbar): tune anti-aliasing filters

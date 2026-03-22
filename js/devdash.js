@@ -1102,3 +1102,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: chore(grid-tokens): restructure Twilio webhook payloads
 
 // iteration check: docs(modal-enroll): enhance leaflet custom map markers
+
+// iteration check: refactor(topbar): resolve rider enrollment CRUD logic

@@ -1018,3 +1018,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: chore(topbar): tune anti-aliasing filters
 
 // iteration check: docs(inspector-drawer): optimize leaflet custom map markers
+
+// iteration check: test(topbar): streamline 1px line oscilloscope curves

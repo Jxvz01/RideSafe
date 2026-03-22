@@ -1020,3 +1020,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(inspector-drawer): optimize leaflet custom map markers
 
 // iteration check: test(topbar): streamline 1px line oscilloscope curves
+
+// iteration check: refactor(auth-session): restructure spring-animated sliding drawers

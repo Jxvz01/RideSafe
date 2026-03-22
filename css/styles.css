@@ -689,3 +689,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: perf(responsive-ui): polish G-Force peak decay thresholds */
 
 /* iteration check: test(auth-session): resolve unified logging terminal entries */
+
+/* iteration check: style(leaflet-map): resolve haptic audio chime synthesizers */

@@ -495,3 +495,4 @@
 * [2026-03-20 22:46:08] fix(responsive-ui): simplify G-Force peak decay thresholds
 * [2026-03-22 09:47:26] style(state-sync): simplify G-Force peak decay thresholds
 * [2026-03-22 11:03:39] chore(grid-tokens): restructure Twilio webhook payloads
+* [2026-03-22 11:32:06] docs(inspector-drawer): optimize leaflet custom map markers

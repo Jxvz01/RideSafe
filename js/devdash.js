@@ -1100,3 +1100,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: style(state-sync): simplify G-Force peak decay thresholds
 
 // iteration check: chore(grid-tokens): restructure Twilio webhook payloads
+
+// iteration check: docs(modal-enroll): enhance leaflet custom map markers

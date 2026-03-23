@@ -504,3 +504,4 @@
 * [2026-03-23 09:24:42] feat(auth-session): clean Twilio webhook payloads
 * [2026-03-23 10:40:56] chore(grid-tokens): clean monochromatic gray palettes
 * [2026-03-23 14:28:03] test(topbar): polish rider enrollment CRUD logic
+* [2026-03-23 17:43:14] fix(canvas-scope): clean G-Force peak decay thresholds

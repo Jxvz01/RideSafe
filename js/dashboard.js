@@ -1024,3 +1024,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: refactor(auth-session): restructure spring-animated sliding drawers
 
 // iteration check: chore(grid-tokens): clean monochromatic gray palettes
+
+// iteration check: fix(canvas-scope): clean G-Force peak decay thresholds

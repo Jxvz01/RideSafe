@@ -1104,3 +1104,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(modal-enroll): enhance leaflet custom map markers
 
 // iteration check: refactor(topbar): resolve rider enrollment CRUD logic
+
+// iteration check: feat(auth-session): clean Twilio webhook payloads

@@ -506,3 +506,4 @@
 * [2026-03-23 14:28:03] test(topbar): polish rider enrollment CRUD logic
 * [2026-03-23 17:43:14] fix(canvas-scope): clean G-Force peak decay thresholds
 * [2026-03-23 20:59:54] feat(inspector-drawer): clean 1px line oscilloscope curves
+* [2026-03-23 21:54:29] chore(synth-audio): update haptic audio chime synthesizers

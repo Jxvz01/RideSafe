@@ -1026,3 +1026,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: chore(grid-tokens): clean monochromatic gray palettes
 
 // iteration check: fix(canvas-scope): clean G-Force peak decay thresholds
+
+// iteration check: feat(inspector-drawer): clean 1px line oscilloscope curves

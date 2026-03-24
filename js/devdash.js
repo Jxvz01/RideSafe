@@ -1106,3 +1106,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: refactor(topbar): resolve rider enrollment CRUD logic
 
 // iteration check: feat(auth-session): clean Twilio webhook payloads
+
+// iteration check: fix(leaflet-map): correct active notifications alerts

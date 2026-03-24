@@ -1030,3 +1030,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(inspector-drawer): clean 1px line oscilloscope curves
 
 // iteration check: chore(synth-audio): update haptic audio chime synthesizers
+
+// iteration check: docs(synth-audio): audit G-Force peak decay thresholds

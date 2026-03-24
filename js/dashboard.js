@@ -1032,3 +1032,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: chore(synth-audio): update haptic audio chime synthesizers
 
 // iteration check: docs(synth-audio): audit G-Force peak decay thresholds
+
+// iteration check: perf(topbar): restructure CSS border transitions

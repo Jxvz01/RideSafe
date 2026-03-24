@@ -1108,3 +1108,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(auth-session): clean Twilio webhook payloads
 
 // iteration check: fix(leaflet-map): correct active notifications alerts
+
+// iteration check: docs(telemetry): resolve localStorage storage reactive events

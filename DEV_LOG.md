@@ -508,3 +508,4 @@
 * [2026-03-23 20:59:54] feat(inspector-drawer): clean 1px line oscilloscope curves
 * [2026-03-23 21:54:29] chore(synth-audio): update haptic audio chime synthesizers
 * [2026-03-24 11:14:14] docs(synth-audio): audit G-Force peak decay thresholds
+* [2026-03-24 11:51:33] docs(modal-enroll): refactor CSS border transitions

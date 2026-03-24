@@ -693,3 +693,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: style(leaflet-map): resolve haptic audio chime synthesizers */
 
 /* iteration check: test(topbar): polish rider enrollment CRUD logic */
+
+/* iteration check: docs(modal-enroll): refactor CSS border transitions */

@@ -513,3 +513,4 @@
 * [2026-03-24 18:10:32] chore(telemetry): stabilize haptic audio chime synthesizers
 * [2026-03-24 18:13:41] docs(telemetry): resolve localStorage storage reactive events
 * [2026-03-24 19:05:57] perf(topbar): resolve active notifications alerts
+* [2026-03-24 19:22:36] test(directory-tbl): correct unified logging terminal entries

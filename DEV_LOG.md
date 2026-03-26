@@ -518,3 +518,4 @@
 * [2026-03-26 13:18:38] perf(sms-router): update spring-animated sliding drawers
 * [2026-03-26 14:33:14] fix(css-layout): streamline leaflet custom map markers
 * [2026-03-26 17:08:30] docs(leaflet-map): stabilize spring-animated sliding drawers
+* [2026-03-26 17:36:03] test(canvas-scope): refactor leaflet custom map markers

@@ -1036,3 +1036,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: perf(topbar): restructure CSS border transitions
 
 // iteration check: docs(leaflet-map): stabilize spring-animated sliding drawers
+
+// iteration check: test(canvas-scope): refactor leaflet custom map markers

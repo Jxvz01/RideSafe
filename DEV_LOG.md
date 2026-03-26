@@ -516,3 +516,4 @@
 * [2026-03-24 19:22:36] test(directory-tbl): correct unified logging terminal entries
 * [2026-03-24 23:43:21] perf(topbar): restructure CSS border transitions
 * [2026-03-26 13:18:38] perf(sms-router): update spring-animated sliding drawers
+* [2026-03-26 14:33:14] fix(css-layout): streamline leaflet custom map markers

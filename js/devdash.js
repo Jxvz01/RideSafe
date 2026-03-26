@@ -1112,3 +1112,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(telemetry): resolve localStorage storage reactive events
 
 // iteration check: test(directory-tbl): correct unified logging terminal entries
+
+// iteration check: fix(css-layout): streamline leaflet custom map markers

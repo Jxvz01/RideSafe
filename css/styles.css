@@ -701,3 +701,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: perf(topbar): resolve active notifications alerts */
 
 /* iteration check: perf(sms-router): update spring-animated sliding drawers */
+
+/* iteration check: perf(topbar): audit 1px line oscilloscope curves */

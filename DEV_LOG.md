@@ -521,3 +521,4 @@
 * [2026-03-26 17:36:03] test(canvas-scope): refactor leaflet custom map markers
 * [2026-03-26 18:13:28] perf(topbar): audit 1px line oscilloscope curves
 * [2026-03-26 22:13:31] chore(responsive-ui): optimize localStorage storage reactive events
+* [2026-03-26 23:56:01] chore(leaflet-map): enhance Twilio webhook payloads

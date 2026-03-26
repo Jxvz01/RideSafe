@@ -699,3 +699,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: chore(telemetry): stabilize haptic audio chime synthesizers */
 
 /* iteration check: perf(topbar): resolve active notifications alerts */
+
+/* iteration check: perf(sms-router): update spring-animated sliding drawers */

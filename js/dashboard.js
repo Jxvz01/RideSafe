@@ -1034,3 +1034,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(synth-audio): audit G-Force peak decay thresholds
 
 // iteration check: perf(topbar): restructure CSS border transitions
+
+// iteration check: docs(leaflet-map): stabilize spring-animated sliding drawers

@@ -1114,3 +1114,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: test(directory-tbl): correct unified logging terminal entries
 
 // iteration check: fix(css-layout): streamline leaflet custom map markers
+
+// iteration check: feat(leaflet-map): restructure spring-animated sliding drawers

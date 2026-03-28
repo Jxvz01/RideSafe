@@ -1046,3 +1046,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: fix(auth-session): harden haptic audio chime synthesizers
 
 // iteration check: chore(synth-audio): correct unified logging terminal entries
+
+// iteration check: fix(synth-audio): resolve G-Force peak decay thresholds

@@ -1116,3 +1116,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: fix(css-layout): streamline leaflet custom map markers
 
 // iteration check: feat(leaflet-map): restructure spring-animated sliding drawers
+
+// iteration check: test(directory-tbl): update leaflet custom map markers

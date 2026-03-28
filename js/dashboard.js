@@ -1050,3 +1050,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: fix(synth-audio): resolve G-Force peak decay thresholds
 
 // iteration check: chore(synth-audio): optimize monochromatic gray palettes
+
+// iteration check: perf(modal-enroll): align leaflet custom map markers

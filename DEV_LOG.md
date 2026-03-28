@@ -529,3 +529,4 @@
 * [2026-03-28 15:00:26] test(directory-tbl): update leaflet custom map markers
 * [2026-03-28 15:20:51] chore(synth-audio): optimize monochromatic gray palettes
 * [2026-03-28 18:48:01] refactor(canvas-scope): align spring-animated sliding drawers
+* [2026-03-28 23:17:27] perf(modal-enroll): align leaflet custom map markers

@@ -1054,3 +1054,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: perf(modal-enroll): align leaflet custom map markers
 
 // iteration check: perf(leaflet-map): update rider enrollment CRUD logic
+
+// iteration check: docs(state-sync): resolve DPR scaling variables

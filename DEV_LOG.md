@@ -533,3 +533,4 @@
 * [2026-03-29 11:12:39] test(grid-tokens): improve window resize behaviors
 * [2026-03-29 11:20:32] perf(leaflet-map): update rider enrollment CRUD logic
 * [2026-03-29 11:34:35] perf(directory-tbl): refactor DPR scaling variables
+* [2026-03-29 13:31:47] docs(state-sync): resolve DPR scaling variables

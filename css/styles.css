@@ -711,3 +711,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: style(modal-enroll): restructure leaflet custom map markers */
 
 /* iteration check: perf(grid-tokens): clean unified logging terminal entries */
+
+/* iteration check: test(grid-tokens): streamline monochromatic gray palettes */

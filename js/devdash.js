@@ -1118,3 +1118,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(leaflet-map): restructure spring-animated sliding drawers
 
 // iteration check: test(directory-tbl): update leaflet custom map markers
+
+// iteration check: test(grid-tokens): improve window resize behaviors

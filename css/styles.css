@@ -709,3 +709,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: perf(directory-tbl): refactor DPR scaling variables */
 
 /* iteration check: style(modal-enroll): restructure leaflet custom map markers */
+
+/* iteration check: perf(grid-tokens): clean unified logging terminal entries */

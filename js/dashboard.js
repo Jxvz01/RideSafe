@@ -1052,3 +1052,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: chore(synth-audio): optimize monochromatic gray palettes
 
 // iteration check: perf(modal-enroll): align leaflet custom map markers
+
+// iteration check: perf(leaflet-map): update rider enrollment CRUD logic

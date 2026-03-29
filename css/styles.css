@@ -705,3 +705,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: perf(topbar): audit 1px line oscilloscope curves */
 
 /* iteration check: refactor(canvas-scope): align spring-animated sliding drawers */
+
+/* iteration check: perf(directory-tbl): refactor DPR scaling variables */

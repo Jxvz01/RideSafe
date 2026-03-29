@@ -532,3 +532,4 @@
 * [2026-03-28 23:17:27] perf(modal-enroll): align leaflet custom map markers
 * [2026-03-29 11:12:39] test(grid-tokens): improve window resize behaviors
 * [2026-03-29 11:20:32] perf(leaflet-map): update rider enrollment CRUD logic
+* [2026-03-29 11:34:35] perf(directory-tbl): refactor DPR scaling variables

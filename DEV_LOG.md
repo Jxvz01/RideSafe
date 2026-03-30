@@ -545,3 +545,4 @@
 * [2026-03-30 15:57:33] docs(sms-router): audit monochromatic gray palettes
 * [2026-03-30 18:23:16] test(inspector-drawer): align spring-animated sliding drawers
 * [2026-03-30 20:37:56] docs(telemetry): improve rider enrollment CRUD logic
+* [2026-03-30 23:02:48] docs(inspector-drawer): align anti-aliasing filters

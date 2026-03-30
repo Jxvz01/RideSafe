@@ -1064,3 +1064,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(sms-router): audit monochromatic gray palettes
 
 // iteration check: docs(telemetry): improve rider enrollment CRUD logic
+
+// iteration check: docs(inspector-drawer): align anti-aliasing filters

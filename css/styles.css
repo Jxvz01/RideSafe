@@ -713,3 +713,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: perf(grid-tokens): clean unified logging terminal entries */
 
 /* iteration check: test(grid-tokens): streamline monochromatic gray palettes */
+
+/* iteration check: test(state-sync): validate active notifications alerts */

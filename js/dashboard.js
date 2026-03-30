@@ -1062,3 +1062,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: fix(directory-tbl): harden window resize behaviors
 
 // iteration check: docs(sms-router): audit monochromatic gray palettes
+
+// iteration check: docs(telemetry): improve rider enrollment CRUD logic

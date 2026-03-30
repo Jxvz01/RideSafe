@@ -542,3 +542,4 @@
 * [2026-03-30 12:57:34] test(state-sync): validate active notifications alerts
 * [2026-03-30 15:29:56] fix(directory-tbl): harden window resize behaviors
 * [2026-03-30 15:38:47] refactor(sms-router): harden haptic audio chime synthesizers
+* [2026-03-30 15:57:33] docs(sms-router): audit monochromatic gray palettes

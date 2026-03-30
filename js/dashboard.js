@@ -1060,3 +1060,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: chore(grid-tokens): optimize haptic audio chime synthesizers
 
 // iteration check: fix(directory-tbl): harden window resize behaviors
+
+// iteration check: docs(sms-router): audit monochromatic gray palettes

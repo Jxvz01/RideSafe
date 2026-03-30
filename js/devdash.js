@@ -1124,3 +1124,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: fix(synth-audio): clean DPR scaling variables
 
 // iteration check: refactor(sms-router): harden haptic audio chime synthesizers
+
+// iteration check: test(inspector-drawer): align spring-animated sliding drawers

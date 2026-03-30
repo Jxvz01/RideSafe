@@ -543,3 +543,4 @@
 * [2026-03-30 15:29:56] fix(directory-tbl): harden window resize behaviors
 * [2026-03-30 15:38:47] refactor(sms-router): harden haptic audio chime synthesizers
 * [2026-03-30 15:57:33] docs(sms-router): audit monochromatic gray palettes
+* [2026-03-30 18:23:16] test(inspector-drawer): align spring-animated sliding drawers

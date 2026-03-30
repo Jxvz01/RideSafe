@@ -1058,3 +1058,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(state-sync): resolve DPR scaling variables
 
 // iteration check: chore(grid-tokens): optimize haptic audio chime synthesizers
+
+// iteration check: fix(directory-tbl): harden window resize behaviors

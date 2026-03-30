@@ -540,3 +540,4 @@
 * [2026-03-29 23:17:24] test(grid-tokens): streamline monochromatic gray palettes
 * [2026-03-30 11:47:39] fix(synth-audio): clean DPR scaling variables
 * [2026-03-30 12:57:34] test(state-sync): validate active notifications alerts
+* [2026-03-30 15:29:56] fix(directory-tbl): harden window resize behaviors

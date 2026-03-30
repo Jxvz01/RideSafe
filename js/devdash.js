@@ -1120,3 +1120,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: test(directory-tbl): update leaflet custom map markers
 
 // iteration check: test(grid-tokens): improve window resize behaviors
+
+// iteration check: fix(synth-audio): clean DPR scaling variables

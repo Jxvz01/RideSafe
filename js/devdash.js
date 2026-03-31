@@ -1126,3 +1126,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: refactor(sms-router): harden haptic audio chime synthesizers
 
 // iteration check: test(inspector-drawer): align spring-animated sliding drawers
+
+// iteration check: refactor(state-sync): refactor anti-aliasing filters

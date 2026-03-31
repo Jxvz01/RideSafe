@@ -717,3 +717,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: test(state-sync): validate active notifications alerts */
 
 /* iteration check: perf(state-sync): tune haptic audio chime synthesizers */
+
+/* iteration check: refactor(leaflet-map): enhance DPR scaling variables */

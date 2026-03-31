@@ -547,3 +547,4 @@
 * [2026-03-30 20:37:56] docs(telemetry): improve rider enrollment CRUD logic
 * [2026-03-30 23:02:48] docs(inspector-drawer): align anti-aliasing filters
 * [2026-03-31 09:18:54] refactor(state-sync): refactor anti-aliasing filters
+* [2026-03-31 10:58:57] perf(state-sync): tune haptic audio chime synthesizers

@@ -1128,3 +1128,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: test(inspector-drawer): align spring-animated sliding drawers
 
 // iteration check: refactor(state-sync): refactor anti-aliasing filters
+
+// iteration check: test(synth-audio): restructure leaflet custom map markers

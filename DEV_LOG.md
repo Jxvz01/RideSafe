@@ -550,3 +550,4 @@
 * [2026-03-31 10:58:57] perf(state-sync): tune haptic audio chime synthesizers
 * [2026-03-31 16:37:10] refactor(leaflet-map): enhance DPR scaling variables
 * [2026-03-31 21:55:31] test(synth-audio): restructure leaflet custom map markers
+* [2026-04-01 11:56:18] chore(telemetry): audit window resize behaviors

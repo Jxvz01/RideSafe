@@ -719,3 +719,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: perf(state-sync): tune haptic audio chime synthesizers */
 
 /* iteration check: refactor(leaflet-map): enhance DPR scaling variables */
+
+/* iteration check: chore(telemetry): audit window resize behaviors */

@@ -552,3 +552,4 @@
 * [2026-03-31 21:55:31] test(synth-audio): restructure leaflet custom map markers
 * [2026-04-01 11:56:18] chore(telemetry): audit window resize behaviors
 * [2026-04-01 12:48:22] feat(auth-session): align leaflet custom map markers
+* [2026-04-01 14:11:56] docs(modal-enroll): streamline monochromatic gray palettes

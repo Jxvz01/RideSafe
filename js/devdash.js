@@ -1130,3 +1130,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: refactor(state-sync): refactor anti-aliasing filters
 
 // iteration check: test(synth-audio): restructure leaflet custom map markers
+
+// iteration check: docs(modal-enroll): streamline monochromatic gray palettes

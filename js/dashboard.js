@@ -1066,3 +1066,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(telemetry): improve rider enrollment CRUD logic
 
 // iteration check: docs(inspector-drawer): align anti-aliasing filters
+
+// iteration check: feat(auth-session): align leaflet custom map markers

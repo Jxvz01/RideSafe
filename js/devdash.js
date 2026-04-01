@@ -1132,3 +1132,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: test(synth-audio): restructure leaflet custom map markers
 
 // iteration check: docs(modal-enroll): streamline monochromatic gray palettes
+
+// iteration check: chore(canvas-scope): refactor G-Force peak decay thresholds

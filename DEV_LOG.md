@@ -553,3 +553,4 @@
 * [2026-04-01 11:56:18] chore(telemetry): audit window resize behaviors
 * [2026-04-01 12:48:22] feat(auth-session): align leaflet custom map markers
 * [2026-04-01 14:11:56] docs(modal-enroll): streamline monochromatic gray palettes
+* [2026-04-01 18:14:38] chore(canvas-scope): refactor G-Force peak decay thresholds

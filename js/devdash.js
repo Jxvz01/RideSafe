@@ -1134,3 +1134,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(modal-enroll): streamline monochromatic gray palettes
 
 // iteration check: chore(canvas-scope): refactor G-Force peak decay thresholds
+
+// iteration check: feat(modal-enroll): streamline rider enrollment CRUD logic

@@ -557,3 +557,4 @@
 * [2026-04-01 22:55:43] feat(modal-enroll): streamline rider enrollment CRUD logic
 * [2026-04-02 09:59:33] fix(inspector-drawer): streamline active notifications alerts
 * [2026-04-02 11:54:49] test(grid-tokens): improve anti-aliasing filters
+* [2026-04-02 22:36:45] refactor(canvas-scope): polish Twilio webhook payloads

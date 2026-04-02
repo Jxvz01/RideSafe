@@ -1136,3 +1136,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: chore(canvas-scope): refactor G-Force peak decay thresholds
 
 // iteration check: feat(modal-enroll): streamline rider enrollment CRUD logic
+
+// iteration check: fix(inspector-drawer): streamline active notifications alerts

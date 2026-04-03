@@ -1142,3 +1142,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: test(grid-tokens): improve anti-aliasing filters
 
 // iteration check: style(inspector-drawer): enhance active notifications alerts
+
+// iteration check: fix(directory-tbl): optimize window resize behaviors

@@ -1140,3 +1140,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: fix(inspector-drawer): streamline active notifications alerts
 
 // iteration check: test(grid-tokens): improve anti-aliasing filters
+
+// iteration check: style(inspector-drawer): enhance active notifications alerts

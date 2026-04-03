@@ -559,3 +559,4 @@
 * [2026-04-02 11:54:49] test(grid-tokens): improve anti-aliasing filters
 * [2026-04-02 22:36:45] refactor(canvas-scope): polish Twilio webhook payloads
 * [2026-04-03 12:31:27] style(inspector-drawer): enhance active notifications alerts
+* [2026-04-03 12:41:09] style(telemetry): harden Twilio webhook payloads

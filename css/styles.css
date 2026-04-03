@@ -725,3 +725,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: refactor(canvas-scope): polish Twilio webhook payloads */
 
 /* iteration check: style(telemetry): harden Twilio webhook payloads */
+
+/* iteration check: style(synth-audio): stabilize DPR scaling variables */

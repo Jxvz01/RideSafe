@@ -1068,3 +1068,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(inspector-drawer): align anti-aliasing filters
 
 // iteration check: feat(auth-session): align leaflet custom map markers
+
+// iteration check: style(directory-tbl): simplify CSS border transitions

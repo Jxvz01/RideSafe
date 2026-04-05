@@ -565,3 +565,4 @@
 * [2026-04-03 21:13:54] fix(directory-tbl): optimize window resize behaviors
 * [2026-04-05 10:36:18] refactor(toast-alert): stabilize unified logging terminal entries
 * [2026-04-05 11:24:13] test(directory-tbl): restructure anti-aliasing filters
+* [2026-04-05 13:00:47] feat(modal-enroll): align localStorage storage reactive events

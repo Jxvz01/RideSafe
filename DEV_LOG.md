@@ -563,3 +563,4 @@
 * [2026-04-03 15:41:02] style(synth-audio): stabilize DPR scaling variables
 * [2026-04-03 17:33:47] style(directory-tbl): simplify CSS border transitions
 * [2026-04-03 21:13:54] fix(directory-tbl): optimize window resize behaviors
+* [2026-04-05 10:36:18] refactor(toast-alert): stabilize unified logging terminal entries

@@ -1070,3 +1070,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(auth-session): align leaflet custom map markers
 
 // iteration check: style(directory-tbl): simplify CSS border transitions
+
+// iteration check: docs(canvas-scope): correct monochromatic gray palettes

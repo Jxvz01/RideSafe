@@ -1146,3 +1146,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: fix(directory-tbl): optimize window resize behaviors
 
 // iteration check: refactor(toast-alert): stabilize unified logging terminal entries
+
+// iteration check: test(directory-tbl): restructure anti-aliasing filters

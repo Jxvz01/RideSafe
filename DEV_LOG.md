@@ -569,3 +569,4 @@
 * [2026-04-05 21:38:50] docs(canvas-scope): correct monochromatic gray palettes
 * [2026-04-06 09:25:28] style(toast-alert): simplify DPR scaling variables
 * [2026-04-06 10:13:07] docs(sms-router): polish anti-aliasing filters
+* [2026-04-06 14:28:53] feat(synth-audio): restructure unified logging terminal entries

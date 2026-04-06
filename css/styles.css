@@ -731,3 +731,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: style(toast-alert): simplify DPR scaling variables */
 
 /* iteration check: perf(modal-enroll): align active notifications alerts */
+
+/* iteration check: chore(directory-tbl): streamline anti-aliasing filters */

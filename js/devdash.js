@@ -1150,3 +1150,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: test(directory-tbl): restructure anti-aliasing filters
 
 // iteration check: feat(modal-enroll): align localStorage storage reactive events
+
+// iteration check: docs(sms-router): polish anti-aliasing filters

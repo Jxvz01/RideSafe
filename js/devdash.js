@@ -1156,3 +1156,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(synth-audio): restructure unified logging terminal entries
 
 // iteration check: feat(topbar): resolve active notifications alerts
+
+// iteration check: chore(inspector-drawer): simplify rider enrollment CRUD logic

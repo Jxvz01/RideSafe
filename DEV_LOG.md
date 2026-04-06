@@ -572,3 +572,4 @@
 * [2026-04-06 14:28:53] feat(synth-audio): restructure unified logging terminal entries
 * [2026-04-06 14:50:50] feat(topbar): resolve active notifications alerts
 * [2026-04-06 15:23:39] perf(modal-enroll): align active notifications alerts
+* [2026-04-06 16:42:08] chore(inspector-drawer): simplify rider enrollment CRUD logic

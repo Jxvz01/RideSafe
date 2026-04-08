@@ -1072,3 +1072,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: style(directory-tbl): simplify CSS border transitions
 
 // iteration check: docs(canvas-scope): correct monochromatic gray palettes
+
+// iteration check: style(sms-router): resolve DPR scaling variables

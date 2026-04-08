@@ -579,3 +579,4 @@
 * [2026-04-08 19:06:46] docs(inspector-drawer): enhance localStorage storage reactive events
 * [2026-04-08 19:29:48] chore(synth-audio): update G-Force peak decay thresholds
 * [2026-04-08 21:49:15] style(sms-router): resolve DPR scaling variables
+* [2026-04-08 22:48:12] fix(directory-tbl): polish 1px line oscilloscope curves

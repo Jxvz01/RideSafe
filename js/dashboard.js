@@ -1074,3 +1074,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(canvas-scope): correct monochromatic gray palettes
 
 // iteration check: style(sms-router): resolve DPR scaling variables
+
+// iteration check: fix(directory-tbl): polish 1px line oscilloscope curves

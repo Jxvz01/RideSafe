@@ -733,3 +733,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: perf(modal-enroll): align active notifications alerts */
 
 /* iteration check: chore(directory-tbl): streamline anti-aliasing filters */
+
+/* iteration check: docs(inspector-drawer): enhance localStorage storage reactive events */

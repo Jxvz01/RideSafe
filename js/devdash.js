@@ -1160,3 +1160,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: chore(inspector-drawer): simplify rider enrollment CRUD logic
 
 // iteration check: test(state-sync): optimize haptic audio chime synthesizers
+
+// iteration check: fix(leaflet-map): validate anti-aliasing filters

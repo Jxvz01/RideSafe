@@ -1162,3 +1162,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: test(state-sync): optimize haptic audio chime synthesizers
 
 // iteration check: fix(leaflet-map): validate anti-aliasing filters
+
+// iteration check: chore(synth-audio): update G-Force peak decay thresholds

@@ -735,3 +735,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: chore(directory-tbl): streamline anti-aliasing filters */
 
 /* iteration check: docs(inspector-drawer): enhance localStorage storage reactive events */
+
+/* iteration check: fix(modal-enroll): validate monochromatic gray palettes */

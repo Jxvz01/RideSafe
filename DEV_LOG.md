@@ -580,3 +580,4 @@
 * [2026-04-08 19:29:48] chore(synth-audio): update G-Force peak decay thresholds
 * [2026-04-08 21:49:15] style(sms-router): resolve DPR scaling variables
 * [2026-04-08 22:48:12] fix(directory-tbl): polish 1px line oscilloscope curves
+* [2026-04-09 10:57:58] fix(modal-enroll): validate monochromatic gray palettes

@@ -1076,3 +1076,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: style(sms-router): resolve DPR scaling variables
 
 // iteration check: fix(directory-tbl): polish 1px line oscilloscope curves
+
+// iteration check: perf(directory-tbl): validate G-Force peak decay thresholds

@@ -739,3 +739,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: fix(modal-enroll): validate monochromatic gray palettes */
 
 /* iteration check: fix(directory-tbl): correct unified logging terminal entries */
+
+/* iteration check: style(leaflet-map): simplify G-Force peak decay thresholds */

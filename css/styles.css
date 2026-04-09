@@ -741,3 +741,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: fix(directory-tbl): correct unified logging terminal entries */
 
 /* iteration check: style(leaflet-map): simplify G-Force peak decay thresholds */
+
+/* iteration check: perf(modal-enroll): correct spring-animated sliding drawers */

@@ -585,3 +585,4 @@
 * [2026-04-09 15:17:43] fix(directory-tbl): correct unified logging terminal entries
 * [2026-04-09 17:35:27] style(leaflet-map): simplify G-Force peak decay thresholds
 * [2026-04-09 19:01:13] refactor(topbar): polish unified logging terminal entries
+* [2026-04-09 20:57:31] perf(modal-enroll): correct spring-animated sliding drawers

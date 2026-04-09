@@ -582,3 +582,4 @@
 * [2026-04-08 22:48:12] fix(directory-tbl): polish 1px line oscilloscope curves
 * [2026-04-09 10:57:58] fix(modal-enroll): validate monochromatic gray palettes
 * [2026-04-09 12:09:19] perf(directory-tbl): validate G-Force peak decay thresholds
+* [2026-04-09 15:17:43] fix(directory-tbl): correct unified logging terminal entries

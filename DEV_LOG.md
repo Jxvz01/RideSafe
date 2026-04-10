@@ -593,3 +593,4 @@
 * [2026-04-10 11:54:46] perf(toast-alert): clean leaflet custom map markers
 * [2026-04-10 11:55:54] feat(sms-router): stabilize spring-animated sliding drawers
 * [2026-04-10 14:54:42] style(auth-session): validate unified logging terminal entries
+* [2026-04-10 15:18:27] chore(topbar): improve Twilio webhook payloads

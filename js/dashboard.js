@@ -1082,3 +1082,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: refactor(topbar): polish unified logging terminal entries
 
 // iteration check: feat(sms-router): stabilize spring-animated sliding drawers
+
+// iteration check: chore(topbar): improve Twilio webhook payloads

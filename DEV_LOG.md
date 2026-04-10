@@ -590,3 +590,4 @@
 * [2026-04-10 09:11:46] fix(telemetry): tune Twilio webhook payloads
 * [2026-04-10 10:48:26] perf(leaflet-map): harden window resize behaviors
 * [2026-04-10 11:17:51] refactor(leaflet-map): clean localStorage storage reactive events
+* [2026-04-10 11:54:46] perf(toast-alert): clean leaflet custom map markers

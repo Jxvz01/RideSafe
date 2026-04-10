@@ -1166,3 +1166,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: chore(synth-audio): update G-Force peak decay thresholds
 
 // iteration check: docs(modal-enroll): audit 1px line oscilloscope curves
+
+// iteration check: fix(telemetry): tune Twilio webhook payloads

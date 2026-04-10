@@ -587,3 +587,4 @@
 * [2026-04-09 19:01:13] refactor(topbar): polish unified logging terminal entries
 * [2026-04-09 20:57:31] perf(modal-enroll): correct spring-animated sliding drawers
 * [2026-04-09 21:12:59] docs(modal-enroll): audit 1px line oscilloscope curves
+* [2026-04-10 09:11:46] fix(telemetry): tune Twilio webhook payloads

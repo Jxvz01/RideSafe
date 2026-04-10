@@ -1080,3 +1080,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: perf(directory-tbl): validate G-Force peak decay thresholds
 
 // iteration check: refactor(topbar): polish unified logging terminal entries
+
+// iteration check: feat(sms-router): stabilize spring-animated sliding drawers

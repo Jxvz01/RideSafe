@@ -1168,3 +1168,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(modal-enroll): audit 1px line oscilloscope curves
 
 // iteration check: fix(telemetry): tune Twilio webhook payloads
+
+// iteration check: refactor(leaflet-map): clean localStorage storage reactive events

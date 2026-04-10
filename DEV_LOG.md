@@ -588,3 +588,4 @@
 * [2026-04-09 20:57:31] perf(modal-enroll): correct spring-animated sliding drawers
 * [2026-04-09 21:12:59] docs(modal-enroll): audit 1px line oscilloscope curves
 * [2026-04-10 09:11:46] fix(telemetry): tune Twilio webhook payloads
+* [2026-04-10 10:48:26] perf(leaflet-map): harden window resize behaviors

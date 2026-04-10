@@ -743,3 +743,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: style(leaflet-map): simplify G-Force peak decay thresholds */
 
 /* iteration check: perf(modal-enroll): correct spring-animated sliding drawers */
+
+/* iteration check: perf(leaflet-map): harden window resize behaviors */

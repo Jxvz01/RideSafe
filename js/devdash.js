@@ -1172,3 +1172,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: refactor(leaflet-map): clean localStorage storage reactive events
 
 // iteration check: style(auth-session): validate unified logging terminal entries
+
+// iteration check: perf(css-layout): tune spring-animated sliding drawers

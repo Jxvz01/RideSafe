@@ -1084,3 +1084,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(sms-router): stabilize spring-animated sliding drawers
 
 // iteration check: chore(topbar): improve Twilio webhook payloads
+
+// iteration check: chore(canvas-scope): clean window resize behaviors

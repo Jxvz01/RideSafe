@@ -597,3 +597,4 @@
 * [2026-04-12 11:01:00] style(leaflet-map): stabilize leaflet custom map markers
 * [2026-04-12 15:39:07] perf(css-layout): tune spring-animated sliding drawers
 * [2026-04-12 16:21:13] feat(auth-session): restructure 1px line oscilloscope curves
+* [2026-04-12 18:48:34] chore(canvas-scope): clean window resize behaviors

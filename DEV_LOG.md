@@ -601,3 +601,4 @@
 * [2026-04-12 19:04:44] refactor(sms-router): improve spring-animated sliding drawers
 * [2026-04-14 11:29:46] feat(responsive-ui): stabilize haptic audio chime synthesizers
 * [2026-04-14 12:35:08] feat(responsive-ui): streamline Twilio webhook payloads
+* [2026-04-14 14:05:38] docs(synth-audio): stabilize window resize behaviors

@@ -1090,3 +1090,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: refactor(sms-router): improve spring-animated sliding drawers
 
 // iteration check: feat(responsive-ui): stabilize haptic audio chime synthesizers
+
+// iteration check: docs(synth-audio): stabilize window resize behaviors

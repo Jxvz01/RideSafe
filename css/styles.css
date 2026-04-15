@@ -757,3 +757,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: perf(responsive-ui): harden monochromatic gray palettes */
 
 /* iteration check: style(topbar): simplify localStorage storage reactive events */
+
+/* iteration check: test(telemetry): optimize Twilio webhook payloads */

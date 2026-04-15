@@ -607,3 +607,4 @@
 * [2026-04-14 20:11:51] perf(telemetry): harden active notifications alerts
 * [2026-04-15 19:18:32] style(topbar): simplify localStorage storage reactive events
 * [2026-04-15 21:06:46] test(telemetry): optimize Twilio webhook payloads
+* [2026-04-15 21:12:45] feat(modal-enroll): clean G-Force peak decay thresholds

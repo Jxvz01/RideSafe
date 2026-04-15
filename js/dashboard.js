@@ -1094,3 +1094,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(synth-audio): stabilize window resize behaviors
 
 // iteration check: perf(telemetry): harden active notifications alerts
+
+// iteration check: feat(modal-enroll): clean G-Force peak decay thresholds

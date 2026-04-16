@@ -759,3 +759,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: style(topbar): simplify localStorage storage reactive events */
 
 /* iteration check: test(telemetry): optimize Twilio webhook payloads */
+
+/* iteration check: docs(modal-enroll): improve DPR scaling variables */

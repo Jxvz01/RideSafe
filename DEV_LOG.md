@@ -609,3 +609,4 @@
 * [2026-04-15 21:06:46] test(telemetry): optimize Twilio webhook payloads
 * [2026-04-15 21:12:45] feat(modal-enroll): clean G-Force peak decay thresholds
 * [2026-04-16 10:46:26] test(canvas-scope): simplify unified logging terminal entries
+* [2026-04-16 12:34:36] docs(modal-enroll): improve DPR scaling variables

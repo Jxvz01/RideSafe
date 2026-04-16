@@ -1098,3 +1098,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(modal-enroll): clean G-Force peak decay thresholds
 
 // iteration check: docs(telemetry): optimize G-Force peak decay thresholds
+
+// iteration check: fix(grid-tokens): refactor monochromatic gray palettes

@@ -611,3 +611,4 @@
 * [2026-04-16 10:46:26] test(canvas-scope): simplify unified logging terminal entries
 * [2026-04-16 12:34:36] docs(modal-enroll): improve DPR scaling variables
 * [2026-04-16 18:14:37] docs(telemetry): optimize G-Force peak decay thresholds
+* [2026-04-16 21:23:53] docs(toast-alert): tune localStorage storage reactive events

@@ -1096,3 +1096,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: perf(telemetry): harden active notifications alerts
 
 // iteration check: feat(modal-enroll): clean G-Force peak decay thresholds
+
+// iteration check: docs(telemetry): optimize G-Force peak decay thresholds

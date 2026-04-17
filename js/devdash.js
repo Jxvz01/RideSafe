@@ -1180,3 +1180,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: test(canvas-scope): simplify unified logging terminal entries
 
 // iteration check: docs(toast-alert): tune localStorage storage reactive events
+
+// iteration check: test(sms-router): clean anti-aliasing filters

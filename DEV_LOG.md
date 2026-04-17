@@ -614,3 +614,4 @@
 * [2026-04-16 21:23:53] docs(toast-alert): tune localStorage storage reactive events
 * [2026-04-16 21:58:47] fix(grid-tokens): refactor monochromatic gray palettes
 * [2026-04-17 09:10:53] test(sms-router): clean anti-aliasing filters
+* [2026-04-17 09:24:51] refactor(auth-session): simplify G-Force peak decay thresholds

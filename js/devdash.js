@@ -1182,3 +1182,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(toast-alert): tune localStorage storage reactive events
 
 // iteration check: test(sms-router): clean anti-aliasing filters
+
+// iteration check: refactor(auth-session): simplify G-Force peak decay thresholds

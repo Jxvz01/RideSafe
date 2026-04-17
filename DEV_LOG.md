@@ -615,3 +615,4 @@
 * [2026-04-16 21:58:47] fix(grid-tokens): refactor monochromatic gray palettes
 * [2026-04-17 09:10:53] test(sms-router): clean anti-aliasing filters
 * [2026-04-17 09:24:51] refactor(auth-session): simplify G-Force peak decay thresholds
+* [2026-04-17 10:41:54] style(leaflet-map): refactor DPR scaling variables

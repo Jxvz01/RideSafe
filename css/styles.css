@@ -767,3 +767,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: fix(modal-enroll): streamline window resize behaviors */
 
 /* iteration check: chore(telemetry): harden anti-aliasing filters */
+
+/* iteration check: style(topbar): improve spring-animated sliding drawers */

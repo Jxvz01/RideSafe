@@ -617,3 +617,4 @@
 * [2026-04-17 09:24:51] refactor(auth-session): simplify G-Force peak decay thresholds
 * [2026-04-17 10:41:54] style(leaflet-map): refactor DPR scaling variables
 * [2026-04-18 12:05:21] fix(modal-enroll): streamline window resize behaviors
+* [2026-04-18 12:33:15] chore(telemetry): harden anti-aliasing filters

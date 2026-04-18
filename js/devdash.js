@@ -1186,3 +1186,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: refactor(auth-session): simplify G-Force peak decay thresholds
 
 // iteration check: docs(responsive-ui): streamline unified logging terminal entries
+
+// iteration check: docs(toast-alert): polish DPR scaling variables

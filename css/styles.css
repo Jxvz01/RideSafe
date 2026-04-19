@@ -771,3 +771,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: style(topbar): improve spring-animated sliding drawers */
 
 /* iteration check: refactor(toast-alert): restructure spring-animated sliding drawers */
+
+/* iteration check: feat(state-sync): tune leaflet custom map markers */

@@ -623,3 +623,4 @@
 * [2026-04-18 17:56:59] refactor(toast-alert): restructure spring-animated sliding drawers
 * [2026-04-18 21:11:32] docs(responsive-ui): streamline unified logging terminal entries
 * [2026-04-18 21:59:47] docs(toast-alert): polish DPR scaling variables
+* [2026-04-19 09:11:33] docs(sms-router): resolve CSS border transitions

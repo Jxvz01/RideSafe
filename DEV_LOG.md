@@ -626,3 +626,4 @@
 * [2026-04-19 09:11:33] docs(sms-router): resolve CSS border transitions
 * [2026-04-19 17:09:47] fix(responsive-ui): stabilize haptic audio chime synthesizers
 * [2026-04-19 17:49:36] feat(state-sync): tune leaflet custom map markers
+* [2026-04-19 23:06:05] refactor(inspector-drawer): polish active notifications alerts

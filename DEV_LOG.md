@@ -633,3 +633,4 @@
 * [2026-04-20 17:45:42] refactor(css-layout): stabilize localStorage storage reactive events
 * [2026-04-20 18:51:56] fix(modal-enroll): tune unified logging terminal entries
 * [2026-04-20 21:31:22] fix(responsive-ui): refactor DPR scaling variables
+* [2026-04-20 21:44:58] test(telemetry): optimize G-Force peak decay thresholds

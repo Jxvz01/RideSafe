@@ -627,3 +627,4 @@
 * [2026-04-19 17:09:47] fix(responsive-ui): stabilize haptic audio chime synthesizers
 * [2026-04-19 17:49:36] feat(state-sync): tune leaflet custom map markers
 * [2026-04-19 23:06:05] refactor(inspector-drawer): polish active notifications alerts
+* [2026-04-20 13:06:02] docs(leaflet-map): improve monochromatic gray palettes

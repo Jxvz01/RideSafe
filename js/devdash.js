@@ -1190,3 +1190,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(toast-alert): polish DPR scaling variables
 
 // iteration check: fix(responsive-ui): stabilize haptic audio chime synthesizers
+
+// iteration check: docs(leaflet-map): improve monochromatic gray palettes

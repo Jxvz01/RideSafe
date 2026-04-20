@@ -779,3 +779,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: style(inspector-drawer): simplify unified logging terminal entries */
 
 /* iteration check: fix(modal-enroll): tune unified logging terminal entries */
+
+/* iteration check: fix(responsive-ui): refactor DPR scaling variables */

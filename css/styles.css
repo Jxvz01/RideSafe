@@ -775,3 +775,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: feat(state-sync): tune leaflet custom map markers */
 
 /* iteration check: refactor(inspector-drawer): polish active notifications alerts */
+
+/* iteration check: style(inspector-drawer): simplify unified logging terminal entries */

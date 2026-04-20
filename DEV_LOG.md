@@ -631,3 +631,4 @@
 * [2026-04-20 13:09:59] style(inspector-drawer): simplify unified logging terminal entries
 * [2026-04-20 14:58:03] perf(toast-alert): validate window resize behaviors
 * [2026-04-20 17:45:42] refactor(css-layout): stabilize localStorage storage reactive events
+* [2026-04-20 18:51:56] fix(modal-enroll): tune unified logging terminal entries

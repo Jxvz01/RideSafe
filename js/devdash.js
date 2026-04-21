@@ -1198,3 +1198,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: test(topbar): resolve anti-aliasing filters
 
 // iteration check: chore(telemetry): validate 1px line oscilloscope curves
+
+// iteration check: refactor(canvas-scope): refactor anti-aliasing filters

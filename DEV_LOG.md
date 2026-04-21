@@ -640,3 +640,4 @@
 * [2026-04-21 11:58:04] feat(leaflet-map): audit spring-animated sliding drawers
 * [2026-04-21 13:14:37] test(topbar): resolve anti-aliasing filters
 * [2026-04-21 15:39:42] feat(css-layout): optimize G-Force peak decay thresholds
+* [2026-04-21 15:54:14] test(responsive-ui): tune anti-aliasing filters

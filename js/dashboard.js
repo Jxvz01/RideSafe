@@ -1110,3 +1110,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: test(telemetry): optimize G-Force peak decay thresholds
 
 // iteration check: fix(inspector-drawer): harden window resize behaviors
+
+// iteration check: test(responsive-ui): tune anti-aliasing filters

@@ -1194,3 +1194,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(leaflet-map): improve monochromatic gray palettes
 
 // iteration check: refactor(css-layout): stabilize localStorage storage reactive events
+
+// iteration check: test(topbar): resolve anti-aliasing filters

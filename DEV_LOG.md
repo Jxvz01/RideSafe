@@ -638,3 +638,4 @@
 * [2026-04-21 11:34:14] fix(sms-router): align Twilio webhook payloads
 * [2026-04-21 11:34:29] fix(inspector-drawer): harden window resize behaviors
 * [2026-04-21 11:58:04] feat(leaflet-map): audit spring-animated sliding drawers
+* [2026-04-21 13:14:37] test(topbar): resolve anti-aliasing filters

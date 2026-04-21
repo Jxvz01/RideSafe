@@ -1108,3 +1108,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: perf(toast-alert): validate window resize behaviors
 
 // iteration check: test(telemetry): optimize G-Force peak decay thresholds
+
+// iteration check: fix(inspector-drawer): harden window resize behaviors

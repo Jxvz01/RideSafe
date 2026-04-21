@@ -787,3 +787,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: fix(sms-router): align Twilio webhook payloads */
 
 /* iteration check: feat(leaflet-map): audit spring-animated sliding drawers */
+
+/* iteration check: feat(css-layout): optimize G-Force peak decay thresholds */

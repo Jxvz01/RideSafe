@@ -635,3 +635,4 @@
 * [2026-04-20 21:31:22] fix(responsive-ui): refactor DPR scaling variables
 * [2026-04-20 21:44:58] test(telemetry): optimize G-Force peak decay thresholds
 * [2026-04-20 23:26:37] perf(directory-tbl): tune window resize behaviors
+* [2026-04-21 11:34:14] fix(sms-router): align Twilio webhook payloads

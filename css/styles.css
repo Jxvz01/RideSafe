@@ -785,3 +785,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: perf(directory-tbl): tune window resize behaviors */
 
 /* iteration check: fix(sms-router): align Twilio webhook payloads */
+
+/* iteration check: feat(leaflet-map): audit spring-animated sliding drawers */

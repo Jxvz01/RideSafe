@@ -791,3 +791,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: feat(css-layout): optimize G-Force peak decay thresholds */
 
 /* iteration check: perf(inspector-drawer): restructure unified logging terminal entries */
+
+/* iteration check: chore(leaflet-map): align CSS border transitions */

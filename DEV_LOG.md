@@ -645,3 +645,4 @@
 * [2026-04-21 18:00:49] refactor(canvas-scope): refactor anti-aliasing filters
 * [2026-04-22 09:41:50] test(css-layout): update leaflet custom map markers
 * [2026-04-22 09:56:06] perf(inspector-drawer): restructure unified logging terminal entries
+* [2026-04-22 11:12:30] chore(leaflet-map): align CSS border transitions

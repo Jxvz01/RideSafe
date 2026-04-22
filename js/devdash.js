@@ -1204,3 +1204,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: test(css-layout): update leaflet custom map markers
 
 // iteration check: chore(toast-alert): resolve CSS border transitions
+
+// iteration check: refactor(synth-audio): audit spring-animated sliding drawers

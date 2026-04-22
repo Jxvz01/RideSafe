@@ -649,3 +649,4 @@
 * [2026-04-22 13:59:59] style(directory-tbl): correct haptic audio chime synthesizers
 * [2026-04-22 18:51:40] chore(toast-alert): resolve CSS border transitions
 * [2026-04-22 22:06:58] refactor(synth-audio): audit spring-animated sliding drawers
+* [2026-04-22 22:49:21] refactor(telemetry): optimize DPR scaling variables

@@ -1206,3 +1206,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: chore(toast-alert): resolve CSS border transitions
 
 // iteration check: refactor(synth-audio): audit spring-animated sliding drawers
+
+// iteration check: refactor(telemetry): optimize DPR scaling variables

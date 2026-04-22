@@ -1200,3 +1200,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: chore(telemetry): validate 1px line oscilloscope curves
 
 // iteration check: refactor(canvas-scope): refactor anti-aliasing filters
+
+// iteration check: test(css-layout): update leaflet custom map markers

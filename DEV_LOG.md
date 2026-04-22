@@ -643,3 +643,4 @@
 * [2026-04-21 15:54:14] test(responsive-ui): tune anti-aliasing filters
 * [2026-04-21 17:57:44] chore(telemetry): validate 1px line oscilloscope curves
 * [2026-04-21 18:00:49] refactor(canvas-scope): refactor anti-aliasing filters
+* [2026-04-22 09:41:50] test(css-layout): update leaflet custom map markers

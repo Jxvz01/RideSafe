@@ -656,3 +656,4 @@
 * [2026-04-24 14:46:13] refactor(responsive-ui): align haptic audio chime synthesizers
 * [2026-04-24 15:20:33] test(toast-alert): align spring-animated sliding drawers
 * [2026-04-24 15:34:30] chore(grid-tokens): audit CSS border transitions
+* [2026-04-24 16:33:10] docs(inspector-drawer): restructure leaflet custom map markers

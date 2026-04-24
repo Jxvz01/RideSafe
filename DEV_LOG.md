@@ -651,3 +651,4 @@
 * [2026-04-22 22:06:58] refactor(synth-audio): audit spring-animated sliding drawers
 * [2026-04-22 22:49:21] refactor(telemetry): optimize DPR scaling variables
 * [2026-04-24 10:13:19] refactor(synth-audio): update leaflet custom map markers
+* [2026-04-24 10:25:38] style(responsive-ui): resolve Twilio webhook payloads

@@ -1214,3 +1214,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: test(toast-alert): align spring-animated sliding drawers
 
 // iteration check: chore(grid-tokens): audit CSS border transitions
+
+// iteration check: style(directory-tbl): tune monochromatic gray palettes

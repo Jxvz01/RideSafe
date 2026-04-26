@@ -660,3 +660,4 @@
 * [2026-04-24 19:52:18] style(directory-tbl): tune monochromatic gray palettes
 * [2026-04-26 09:32:57] perf(directory-tbl): correct G-Force peak decay thresholds
 * [2026-04-26 13:56:59] style(directory-tbl): correct G-Force peak decay thresholds
+* [2026-04-26 14:21:13] docs(leaflet-map): enhance DPR scaling variables

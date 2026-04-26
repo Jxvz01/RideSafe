@@ -1118,3 +1118,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(inspector-drawer): restructure leaflet custom map markers
 
 // iteration check: perf(directory-tbl): correct G-Force peak decay thresholds
+
+// iteration check: docs(leaflet-map): enhance DPR scaling variables

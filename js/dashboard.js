@@ -1116,3 +1116,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: refactor(responsive-ui): align haptic audio chime synthesizers
 
 // iteration check: docs(inspector-drawer): restructure leaflet custom map markers
+
+// iteration check: perf(directory-tbl): correct G-Force peak decay thresholds

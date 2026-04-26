@@ -1216,3 +1216,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: chore(grid-tokens): audit CSS border transitions
 
 // iteration check: style(directory-tbl): tune monochromatic gray palettes
+
+// iteration check: style(directory-tbl): correct G-Force peak decay thresholds

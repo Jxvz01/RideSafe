@@ -659,3 +659,4 @@
 * [2026-04-24 16:33:10] docs(inspector-drawer): restructure leaflet custom map markers
 * [2026-04-24 19:52:18] style(directory-tbl): tune monochromatic gray palettes
 * [2026-04-26 09:32:57] perf(directory-tbl): correct G-Force peak decay thresholds
+* [2026-04-26 13:56:59] style(directory-tbl): correct G-Force peak decay thresholds

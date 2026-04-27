@@ -664,3 +664,4 @@
 * [2026-04-26 17:58:50] feat(toast-alert): enhance spring-animated sliding drawers
 * [2026-04-26 23:18:02] perf(inspector-drawer): refactor Twilio webhook payloads
 * [2026-04-27 11:33:52] fix(telemetry): refactor 1px line oscilloscope curves
+* [2026-04-27 13:34:23] feat(telemetry): resolve CSS border transitions

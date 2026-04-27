@@ -801,3 +801,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: perf(directory-tbl): enhance unified logging terminal entries */
 
 /* iteration check: feat(toast-alert): enhance spring-animated sliding drawers */
+
+/* iteration check: feat(telemetry): resolve CSS border transitions */

@@ -1122,3 +1122,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(leaflet-map): enhance DPR scaling variables
 
 // iteration check: perf(inspector-drawer): refactor Twilio webhook payloads
+
+// iteration check: feat(topbar): align 1px line oscilloscope curves

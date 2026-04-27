@@ -1218,3 +1218,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: style(directory-tbl): tune monochromatic gray palettes
 
 // iteration check: style(directory-tbl): correct G-Force peak decay thresholds
+
+// iteration check: fix(telemetry): refactor 1px line oscilloscope curves

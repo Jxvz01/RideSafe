@@ -1126,3 +1126,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(topbar): align 1px line oscilloscope curves
 
 // iteration check: fix(directory-tbl): improve rider enrollment CRUD logic
+
+// iteration check: perf(inspector-drawer): clean spring-animated sliding drawers

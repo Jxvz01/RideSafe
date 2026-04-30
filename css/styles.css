@@ -803,3 +803,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: feat(toast-alert): enhance spring-animated sliding drawers */
 
 /* iteration check: feat(telemetry): resolve CSS border transitions */
+
+/* iteration check: fix(topbar): align G-Force peak decay thresholds */

@@ -668,3 +668,4 @@
 * [2026-04-27 21:20:18] feat(topbar): align 1px line oscilloscope curves
 * [2026-04-30 10:05:44] fix(directory-tbl): improve rider enrollment CRUD logic
 * [2026-04-30 11:45:25] perf(inspector-drawer): clean spring-animated sliding drawers
+* [2026-04-30 21:56:02] fix(topbar): align G-Force peak decay thresholds

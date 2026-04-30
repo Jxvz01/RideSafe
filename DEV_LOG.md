@@ -666,3 +666,4 @@
 * [2026-04-27 11:33:52] fix(telemetry): refactor 1px line oscilloscope curves
 * [2026-04-27 13:34:23] feat(telemetry): resolve CSS border transitions
 * [2026-04-27 21:20:18] feat(topbar): align 1px line oscilloscope curves
+* [2026-04-30 10:05:44] fix(directory-tbl): improve rider enrollment CRUD logic

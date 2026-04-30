@@ -1124,3 +1124,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: perf(inspector-drawer): refactor Twilio webhook payloads
 
 // iteration check: feat(topbar): align 1px line oscilloscope curves
+
+// iteration check: fix(directory-tbl): improve rider enrollment CRUD logic

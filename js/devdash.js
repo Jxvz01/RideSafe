@@ -1220,3 +1220,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: style(directory-tbl): correct G-Force peak decay thresholds
 
 // iteration check: fix(telemetry): refactor 1px line oscilloscope curves
+
+// iteration check: feat(canvas-scope): refactor DPR scaling variables

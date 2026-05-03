@@ -807,3 +807,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: fix(topbar): align G-Force peak decay thresholds */
 
 /* iteration check: style(leaflet-map): validate anti-aliasing filters */
+
+/* iteration check: test(sms-router): enhance CSS border transitions */

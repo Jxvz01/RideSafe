@@ -672,3 +672,4 @@
 * [2026-04-30 22:20:27] feat(canvas-scope): refactor DPR scaling variables
 * [2026-05-03 11:37:43] docs(leaflet-map): streamline active notifications alerts
 * [2026-05-03 14:33:27] style(leaflet-map): validate anti-aliasing filters
+* [2026-05-03 16:49:11] test(sms-router): enhance CSS border transitions

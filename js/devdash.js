@@ -1222,3 +1222,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: fix(telemetry): refactor 1px line oscilloscope curves
 
 // iteration check: feat(canvas-scope): refactor DPR scaling variables
+
+// iteration check: docs(leaflet-map): streamline active notifications alerts

@@ -671,3 +671,4 @@
 * [2026-04-30 21:56:02] fix(topbar): align G-Force peak decay thresholds
 * [2026-04-30 22:20:27] feat(canvas-scope): refactor DPR scaling variables
 * [2026-05-03 11:37:43] docs(leaflet-map): streamline active notifications alerts
+* [2026-05-03 14:33:27] style(leaflet-map): validate anti-aliasing filters

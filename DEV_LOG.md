@@ -675,3 +675,4 @@
 * [2026-05-03 16:49:11] test(sms-router): enhance CSS border transitions
 * [2026-05-03 21:45:04] docs(auth-session): align monochromatic gray palettes
 * [2026-05-04 11:39:34] style(responsive-ui): correct haptic audio chime synthesizers
+* [2026-05-04 13:21:42] perf(state-sync): polish Twilio webhook payloads

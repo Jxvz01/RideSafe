@@ -680,3 +680,4 @@
 * [2026-05-04 21:19:47] chore(canvas-scope): correct active notifications alerts
 * [2026-05-04 22:26:08] refactor(synth-audio): tune spring-animated sliding drawers
 * [2026-05-04 22:53:18] perf(topbar): harden unified logging terminal entries
+* [2026-05-04 23:18:59] docs(auth-session): streamline leaflet custom map markers

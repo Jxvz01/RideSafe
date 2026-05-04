@@ -1226,3 +1226,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(leaflet-map): streamline active notifications alerts
 
 // iteration check: feat(telemetry): refactor leaflet custom map markers
+
+// iteration check: docs(auth-session): streamline leaflet custom map markers

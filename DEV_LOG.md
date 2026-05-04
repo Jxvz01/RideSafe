@@ -677,3 +677,4 @@
 * [2026-05-04 11:39:34] style(responsive-ui): correct haptic audio chime synthesizers
 * [2026-05-04 13:21:42] perf(state-sync): polish Twilio webhook payloads
 * [2026-05-04 21:01:01] feat(telemetry): refactor leaflet custom map markers
+* [2026-05-04 21:19:47] chore(canvas-scope): correct active notifications alerts

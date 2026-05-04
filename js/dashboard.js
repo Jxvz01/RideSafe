@@ -1130,3 +1130,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: perf(inspector-drawer): clean spring-animated sliding drawers
 
 // iteration check: perf(state-sync): polish Twilio webhook payloads
+
+// iteration check: chore(canvas-scope): correct active notifications alerts

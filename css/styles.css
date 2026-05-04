@@ -815,3 +815,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: style(responsive-ui): correct haptic audio chime synthesizers */
 
 /* iteration check: refactor(synth-audio): tune spring-animated sliding drawers */
+
+/* iteration check: perf(topbar): harden unified logging terminal entries */

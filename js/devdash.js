@@ -1224,3 +1224,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(canvas-scope): refactor DPR scaling variables
 
 // iteration check: docs(leaflet-map): streamline active notifications alerts
+
+// iteration check: feat(telemetry): refactor leaflet custom map markers

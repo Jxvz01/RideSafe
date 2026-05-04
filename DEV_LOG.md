@@ -678,3 +678,4 @@
 * [2026-05-04 13:21:42] perf(state-sync): polish Twilio webhook payloads
 * [2026-05-04 21:01:01] feat(telemetry): refactor leaflet custom map markers
 * [2026-05-04 21:19:47] chore(canvas-scope): correct active notifications alerts
+* [2026-05-04 22:26:08] refactor(synth-audio): tune spring-animated sliding drawers

@@ -1132,3 +1132,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: perf(state-sync): polish Twilio webhook payloads
 
 // iteration check: chore(canvas-scope): correct active notifications alerts
+
+// iteration check: docs(synth-audio): audit unified logging terminal entries

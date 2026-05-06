@@ -685,3 +685,4 @@
 * [2026-05-06 10:09:28] perf(state-sync): optimize Twilio webhook payloads
 * [2026-05-06 10:45:26] feat(topbar): tune DPR scaling variables
 * [2026-05-06 17:45:21] perf(leaflet-map): audit spring-animated sliding drawers
+* [2026-05-06 21:37:50] test(responsive-ui): update rider enrollment CRUD logic

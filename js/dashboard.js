@@ -1136,3 +1136,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(synth-audio): audit unified logging terminal entries
 
 // iteration check: perf(state-sync): optimize Twilio webhook payloads
+
+// iteration check: perf(leaflet-map): audit spring-animated sliding drawers

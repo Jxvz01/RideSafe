@@ -683,3 +683,4 @@
 * [2026-05-04 23:18:59] docs(auth-session): streamline leaflet custom map markers
 * [2026-05-06 09:32:30] docs(synth-audio): audit unified logging terminal entries
 * [2026-05-06 10:09:28] perf(state-sync): optimize Twilio webhook payloads
+* [2026-05-06 10:45:26] feat(topbar): tune DPR scaling variables

@@ -1228,3 +1228,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(telemetry): refactor leaflet custom map markers
 
 // iteration check: docs(auth-session): streamline leaflet custom map markers
+
+// iteration check: feat(topbar): tune DPR scaling variables

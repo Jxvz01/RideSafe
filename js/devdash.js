@@ -1230,3 +1230,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(auth-session): streamline leaflet custom map markers
 
 // iteration check: feat(topbar): tune DPR scaling variables
+
+// iteration check: test(css-layout): harden CSS border transitions

@@ -1140,3 +1140,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: perf(leaflet-map): audit spring-animated sliding drawers
 
 // iteration check: fix(leaflet-map): update Twilio webhook payloads
+
+// iteration check: test(toast-alert): stabilize CSS border transitions

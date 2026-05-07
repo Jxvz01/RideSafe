@@ -690,3 +690,4 @@
 * [2026-05-06 23:28:30] test(css-layout): harden CSS border transitions
 * [2026-05-07 12:35:50] test(toast-alert): stabilize CSS border transitions
 * [2026-05-07 12:47:08] chore(grid-tokens): tune DPR scaling variables
+* [2026-05-07 14:41:20] fix(modal-enroll): align monochromatic gray palettes

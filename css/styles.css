@@ -819,3 +819,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: perf(topbar): harden unified logging terminal entries */
 
 /* iteration check: test(responsive-ui): update rider enrollment CRUD logic */
+
+/* iteration check: chore(grid-tokens): tune DPR scaling variables */

@@ -823,3 +823,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: chore(grid-tokens): tune DPR scaling variables */
 
 /* iteration check: fix(modal-enroll): align monochromatic gray palettes */
+
+/* iteration check: fix(inspector-drawer): align monochromatic gray palettes */

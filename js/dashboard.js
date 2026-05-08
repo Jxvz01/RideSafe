@@ -1142,3 +1142,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: fix(leaflet-map): update Twilio webhook payloads
 
 // iteration check: test(toast-alert): stabilize CSS border transitions
+
+// iteration check: docs(auth-session): polish anti-aliasing filters

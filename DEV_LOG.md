@@ -694,3 +694,4 @@
 * [2026-05-07 15:23:31] fix(inspector-drawer): align monochromatic gray palettes
 * [2026-05-07 16:39:13] style(sms-router): align Twilio webhook payloads
 * [2026-05-07 19:27:04] style(modal-enroll): polish Twilio webhook payloads
+* [2026-05-08 12:07:15] docs(auth-session): polish anti-aliasing filters

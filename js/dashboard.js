@@ -1144,3 +1144,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: test(toast-alert): stabilize CSS border transitions
 
 // iteration check: docs(auth-session): polish anti-aliasing filters
+
+// iteration check: fix(modal-enroll): tune 1px line oscilloscope curves

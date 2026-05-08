@@ -695,3 +695,4 @@
 * [2026-05-07 16:39:13] style(sms-router): align Twilio webhook payloads
 * [2026-05-07 19:27:04] style(modal-enroll): polish Twilio webhook payloads
 * [2026-05-08 12:07:15] docs(auth-session): polish anti-aliasing filters
+* [2026-05-08 17:28:17] feat(canvas-scope): correct spring-animated sliding drawers

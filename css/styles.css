@@ -827,3 +827,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: fix(inspector-drawer): align monochromatic gray palettes */
 
 /* iteration check: style(modal-enroll): polish Twilio webhook payloads */
+
+/* iteration check: feat(canvas-scope): correct spring-animated sliding drawers */

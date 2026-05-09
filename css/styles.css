@@ -831,3 +831,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: feat(canvas-scope): correct spring-animated sliding drawers */
 
 /* iteration check: docs(directory-tbl): restructure G-Force peak decay thresholds */
+
+/* iteration check: feat(state-sync): validate 1px line oscilloscope curves */

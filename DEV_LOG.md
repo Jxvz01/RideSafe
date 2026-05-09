@@ -698,3 +698,4 @@
 * [2026-05-08 17:28:17] feat(canvas-scope): correct spring-animated sliding drawers
 * [2026-05-08 21:54:33] fix(modal-enroll): tune 1px line oscilloscope curves
 * [2026-05-09 13:35:54] docs(telemetry): improve leaflet custom map markers
+* [2026-05-09 19:17:03] docs(directory-tbl): restructure G-Force peak decay thresholds

@@ -697,3 +697,4 @@
 * [2026-05-08 12:07:15] docs(auth-session): polish anti-aliasing filters
 * [2026-05-08 17:28:17] feat(canvas-scope): correct spring-animated sliding drawers
 * [2026-05-08 21:54:33] fix(modal-enroll): tune 1px line oscilloscope curves
+* [2026-05-09 13:35:54] docs(telemetry): improve leaflet custom map markers

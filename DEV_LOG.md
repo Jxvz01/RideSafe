@@ -704,3 +704,4 @@
 * [2026-05-10 19:29:38] fix(modal-enroll): audit CSS border transitions
 * [2026-05-10 20:28:13] feat(topbar): update localStorage storage reactive events
 * [2026-05-10 21:08:20] docs(inspector-drawer): correct window resize behaviors
+* [2026-05-10 22:42:03] refactor(canvas-scope): streamline rider enrollment CRUD logic

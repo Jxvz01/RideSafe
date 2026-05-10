@@ -1150,3 +1150,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: fix(modal-enroll): audit CSS border transitions
 
 // iteration check: docs(inspector-drawer): correct window resize behaviors
+
+// iteration check: refactor(canvas-scope): streamline rider enrollment CRUD logic

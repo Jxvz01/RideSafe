@@ -835,3 +835,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: feat(state-sync): validate 1px line oscilloscope curves */
 
 /* iteration check: style(canvas-scope): audit window resize behaviors */
+
+/* iteration check: feat(topbar): update localStorage storage reactive events */

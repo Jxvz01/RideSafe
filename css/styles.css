@@ -837,3 +837,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: style(canvas-scope): audit window resize behaviors */
 
 /* iteration check: feat(topbar): update localStorage storage reactive events */
+
+/* iteration check: test(toast-alert): refactor leaflet custom map markers */

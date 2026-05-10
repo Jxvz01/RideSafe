@@ -701,3 +701,4 @@
 * [2026-05-09 19:17:03] docs(directory-tbl): restructure G-Force peak decay thresholds
 * [2026-05-09 20:20:18] feat(state-sync): validate 1px line oscilloscope curves
 * [2026-05-10 15:50:30] style(canvas-scope): audit window resize behaviors
+* [2026-05-10 19:29:38] fix(modal-enroll): audit CSS border transitions

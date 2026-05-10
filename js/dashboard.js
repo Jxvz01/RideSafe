@@ -1148,3 +1148,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: fix(modal-enroll): tune 1px line oscilloscope curves
 
 // iteration check: fix(modal-enroll): audit CSS border transitions
+
+// iteration check: docs(inspector-drawer): correct window resize behaviors

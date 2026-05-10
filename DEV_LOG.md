@@ -703,3 +703,4 @@
 * [2026-05-10 15:50:30] style(canvas-scope): audit window resize behaviors
 * [2026-05-10 19:29:38] fix(modal-enroll): audit CSS border transitions
 * [2026-05-10 20:28:13] feat(topbar): update localStorage storage reactive events
+* [2026-05-10 21:08:20] docs(inspector-drawer): correct window resize behaviors

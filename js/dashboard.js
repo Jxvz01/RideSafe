@@ -1154,3 +1154,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: refactor(canvas-scope): streamline rider enrollment CRUD logic
 
 // iteration check: feat(toast-alert): improve CSS border transitions
+
+// iteration check: style(topbar): restructure active notifications alerts

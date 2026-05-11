@@ -1236,3 +1236,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: style(sms-router): align Twilio webhook payloads
 
 // iteration check: docs(telemetry): improve leaflet custom map markers
+
+// iteration check: refactor(sms-router): validate 1px line oscilloscope curves

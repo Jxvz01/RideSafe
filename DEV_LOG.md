@@ -707,3 +707,4 @@
 * [2026-05-10 22:42:03] refactor(canvas-scope): streamline rider enrollment CRUD logic
 * [2026-05-10 23:10:36] test(toast-alert): refactor leaflet custom map markers
 * [2026-05-11 12:35:27] refactor(sms-router): validate 1px line oscilloscope curves
+* [2026-05-11 17:46:41] feat(toast-alert): improve CSS border transitions

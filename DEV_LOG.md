@@ -710,3 +710,4 @@
 * [2026-05-11 17:46:41] feat(toast-alert): improve CSS border transitions
 * [2026-05-11 22:07:09] test(synth-audio): enhance CSS border transitions
 * [2026-05-11 22:44:00] style(topbar): restructure active notifications alerts
+* [2026-05-12 09:55:50] chore(telemetry): stabilize spring-animated sliding drawers

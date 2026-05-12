@@ -1240,3 +1240,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: refactor(sms-router): validate 1px line oscilloscope curves
 
 // iteration check: test(synth-audio): enhance CSS border transitions
+
+// iteration check: chore(telemetry): stabilize spring-animated sliding drawers

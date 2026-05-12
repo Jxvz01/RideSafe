@@ -839,3 +839,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: feat(topbar): update localStorage storage reactive events */
 
 /* iteration check: test(toast-alert): refactor leaflet custom map markers */
+
+/* iteration check: style(leaflet-map): update monochromatic gray palettes */

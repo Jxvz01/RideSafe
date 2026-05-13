@@ -1242,3 +1242,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: test(synth-audio): enhance CSS border transitions
 
 // iteration check: chore(telemetry): stabilize spring-animated sliding drawers
+
+// iteration check: feat(leaflet-map): improve window resize behaviors

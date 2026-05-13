@@ -714,3 +714,4 @@
 * [2026-05-12 18:55:01] perf(canvas-scope): align haptic audio chime synthesizers
 * [2026-05-12 19:20:40] style(leaflet-map): update monochromatic gray palettes
 * [2026-05-12 20:56:30] perf(css-layout): resolve haptic audio chime synthesizers
+* [2026-05-13 09:25:00] feat(leaflet-map): improve window resize behaviors

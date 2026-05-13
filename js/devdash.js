@@ -1244,3 +1244,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: chore(telemetry): stabilize spring-animated sliding drawers
 
 // iteration check: feat(leaflet-map): improve window resize behaviors
+
+// iteration check: perf(auth-session): audit G-Force peak decay thresholds

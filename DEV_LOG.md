@@ -718,3 +718,4 @@
 * [2026-05-13 11:08:23] perf(telemetry): simplify unified logging terminal entries
 * [2026-05-13 13:49:17] feat(toast-alert): improve window resize behaviors
 * [2026-05-13 20:55:21] perf(auth-session): audit G-Force peak decay thresholds
+* [2026-05-13 23:28:58] fix(telemetry): stabilize window resize behaviors

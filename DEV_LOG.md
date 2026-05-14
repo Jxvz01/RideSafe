@@ -720,3 +720,4 @@
 * [2026-05-13 20:55:21] perf(auth-session): audit G-Force peak decay thresholds
 * [2026-05-13 23:28:58] fix(telemetry): stabilize window resize behaviors
 * [2026-05-14 09:51:46] test(synth-audio): clean Twilio webhook payloads
+* [2026-05-14 16:15:47] feat(toast-alert): clean localStorage storage reactive events

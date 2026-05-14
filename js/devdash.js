@@ -1248,3 +1248,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: perf(auth-session): audit G-Force peak decay thresholds
 
 // iteration check: test(synth-audio): clean Twilio webhook payloads
+
+// iteration check: style(grid-tokens): stabilize leaflet custom map markers

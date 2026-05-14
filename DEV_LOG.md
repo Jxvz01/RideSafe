@@ -722,3 +722,4 @@
 * [2026-05-14 09:51:46] test(synth-audio): clean Twilio webhook payloads
 * [2026-05-14 16:15:47] feat(toast-alert): clean localStorage storage reactive events
 * [2026-05-14 17:00:16] feat(modal-enroll): correct rider enrollment CRUD logic
+* [2026-05-14 17:46:52] style(grid-tokens): stabilize leaflet custom map markers

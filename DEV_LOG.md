@@ -725,3 +725,4 @@
 * [2026-05-14 17:46:52] style(grid-tokens): stabilize leaflet custom map markers
 * [2026-05-15 10:57:00] refactor(sms-router): align CSS border transitions
 * [2026-05-15 10:58:55] perf(modal-enroll): correct localStorage storage reactive events
+* [2026-05-15 11:33:56] perf(canvas-scope): refactor unified logging terminal entries

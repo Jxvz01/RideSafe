@@ -1166,3 +1166,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: fix(telemetry): stabilize window resize behaviors
 
 // iteration check: refactor(sms-router): align CSS border transitions
+
+// iteration check: test(leaflet-map): streamline 1px line oscilloscope curves

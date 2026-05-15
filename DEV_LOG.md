@@ -728,3 +728,4 @@
 * [2026-05-15 11:33:56] perf(canvas-scope): refactor unified logging terminal entries
 * [2026-05-15 13:56:22] style(directory-tbl): refactor unified logging terminal entries
 * [2026-05-15 15:47:55] style(auth-session): correct monochromatic gray palettes
+* [2026-05-15 15:58:33] test(leaflet-map): streamline 1px line oscilloscope curves

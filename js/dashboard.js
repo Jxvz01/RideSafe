@@ -1164,3 +1164,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(toast-alert): improve window resize behaviors
 
 // iteration check: fix(telemetry): stabilize window resize behaviors
+
+// iteration check: refactor(sms-router): align CSS border transitions

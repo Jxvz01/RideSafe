@@ -731,3 +731,4 @@
 * [2026-05-15 15:58:33] test(leaflet-map): streamline 1px line oscilloscope curves
 * [2026-05-16 09:26:20] docs(toast-alert): correct window resize behaviors
 * [2026-05-16 11:14:09] style(leaflet-map): optimize unified logging terminal entries
+* [2026-05-16 19:55:26] feat(sms-router): update leaflet custom map markers

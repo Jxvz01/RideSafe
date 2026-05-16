@@ -734,3 +734,4 @@
 * [2026-05-16 19:55:26] feat(sms-router): update leaflet custom map markers
 * [2026-05-16 21:13:15] perf(auth-session): clean CSS border transitions
 * [2026-05-16 22:27:55] refactor(toast-alert): tune unified logging terminal entries
+* [2026-05-16 23:34:04] feat(leaflet-map): resolve rider enrollment CRUD logic

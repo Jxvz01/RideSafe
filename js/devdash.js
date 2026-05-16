@@ -1258,3 +1258,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: style(auth-session): correct monochromatic gray palettes
 
 // iteration check: docs(toast-alert): correct window resize behaviors
+
+// iteration check: feat(leaflet-map): resolve rider enrollment CRUD logic

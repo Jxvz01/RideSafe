@@ -732,3 +732,4 @@
 * [2026-05-16 09:26:20] docs(toast-alert): correct window resize behaviors
 * [2026-05-16 11:14:09] style(leaflet-map): optimize unified logging terminal entries
 * [2026-05-16 19:55:26] feat(sms-router): update leaflet custom map markers
+* [2026-05-16 21:13:15] perf(auth-session): clean CSS border transitions

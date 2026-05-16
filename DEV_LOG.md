@@ -729,3 +729,4 @@
 * [2026-05-15 13:56:22] style(directory-tbl): refactor unified logging terminal entries
 * [2026-05-15 15:47:55] style(auth-session): correct monochromatic gray palettes
 * [2026-05-15 15:58:33] test(leaflet-map): streamline 1px line oscilloscope curves
+* [2026-05-16 09:26:20] docs(toast-alert): correct window resize behaviors

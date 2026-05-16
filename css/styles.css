@@ -849,3 +849,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: feat(modal-enroll): correct rider enrollment CRUD logic */
 
 /* iteration check: perf(modal-enroll): correct localStorage storage reactive events */
+
+/* iteration check: style(leaflet-map): optimize unified logging terminal entries */

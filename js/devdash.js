@@ -1262,3 +1262,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: feat(leaflet-map): resolve rider enrollment CRUD logic
 
 // iteration check: test(telemetry): validate monochromatic gray palettes
+
+// iteration check: test(modal-enroll): clean active notifications alerts

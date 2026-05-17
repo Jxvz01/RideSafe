@@ -857,3 +857,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: refactor(toast-alert): tune unified logging terminal entries */
 
 /* iteration check: docs(toast-alert): clean 1px line oscilloscope curves */
+
+/* iteration check: style(auth-session): update leaflet custom map markers */

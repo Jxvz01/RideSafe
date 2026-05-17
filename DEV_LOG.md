@@ -737,3 +737,4 @@
 * [2026-05-16 23:34:04] feat(leaflet-map): resolve rider enrollment CRUD logic
 * [2026-05-17 09:33:15] test(telemetry): validate monochromatic gray palettes
 * [2026-05-17 13:31:36] docs(toast-alert): clean 1px line oscilloscope curves
+* [2026-05-17 18:04:09] style(auth-session): update leaflet custom map markers

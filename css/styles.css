@@ -861,3 +861,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: style(auth-session): update leaflet custom map markers */
 
 /* iteration check: refactor(directory-tbl): refactor monochromatic gray palettes */
+
+/* iteration check: docs(toast-alert): harden DPR scaling variables */

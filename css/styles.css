@@ -865,3 +865,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: docs(toast-alert): harden DPR scaling variables */
 
 /* iteration check: test(synth-audio): update anti-aliasing filters */
+
+/* iteration check: refactor(css-layout): clean CSS border transitions */

@@ -745,3 +745,4 @@
 * [2026-05-18 14:37:33] chore(css-layout): enhance haptic audio chime synthesizers
 * [2026-05-18 17:56:33] test(synth-audio): update anti-aliasing filters
 * [2026-05-18 18:59:04] test(leaflet-map): clean leaflet custom map markers
+* [2026-05-18 19:57:41] refactor(css-layout): clean CSS border transitions

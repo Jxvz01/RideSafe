@@ -859,3 +859,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: docs(toast-alert): clean 1px line oscilloscope curves */
 
 /* iteration check: style(auth-session): update leaflet custom map markers */
+
+/* iteration check: refactor(directory-tbl): refactor monochromatic gray palettes */

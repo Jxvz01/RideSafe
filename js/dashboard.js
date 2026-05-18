@@ -1174,3 +1174,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: chore(modal-enroll): restructure DPR scaling variables
 
 // iteration check: chore(css-layout): enhance haptic audio chime synthesizers
+
+// iteration check: test(leaflet-map): clean leaflet custom map markers

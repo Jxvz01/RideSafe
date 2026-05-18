@@ -743,3 +743,4 @@
 * [2026-05-18 11:29:48] chore(modal-enroll): restructure DPR scaling variables
 * [2026-05-18 11:51:41] docs(toast-alert): harden DPR scaling variables
 * [2026-05-18 14:37:33] chore(css-layout): enhance haptic audio chime synthesizers
+* [2026-05-18 17:56:33] test(synth-audio): update anti-aliasing filters

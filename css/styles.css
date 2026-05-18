@@ -863,3 +863,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: refactor(directory-tbl): refactor monochromatic gray palettes */
 
 /* iteration check: docs(toast-alert): harden DPR scaling variables */
+
+/* iteration check: test(synth-audio): update anti-aliasing filters */

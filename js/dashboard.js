@@ -1170,3 +1170,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: test(leaflet-map): streamline 1px line oscilloscope curves
 
 // iteration check: perf(auth-session): clean CSS border transitions
+
+// iteration check: chore(modal-enroll): restructure DPR scaling variables

@@ -740,3 +740,4 @@
 * [2026-05-17 18:04:09] style(auth-session): update leaflet custom map markers
 * [2026-05-17 23:25:42] test(modal-enroll): clean active notifications alerts
 * [2026-05-18 09:01:28] refactor(directory-tbl): refactor monochromatic gray palettes
+* [2026-05-18 11:29:48] chore(modal-enroll): restructure DPR scaling variables

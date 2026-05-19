@@ -1182,3 +1182,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: style(grid-tokens): validate active notifications alerts
 
 // iteration check: style(canvas-scope): polish CSS border transitions
+
+// iteration check: refactor(modal-enroll): polish monochromatic gray palettes

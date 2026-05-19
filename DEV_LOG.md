@@ -754,3 +754,4 @@
 * [2026-05-19 15:43:08] style(canvas-scope): polish CSS border transitions
 * [2026-05-19 20:22:21] perf(leaflet-map): resolve spring-animated sliding drawers
 * [2026-05-19 22:13:05] feat(canvas-scope): clean 1px line oscilloscope curves
+* [2026-05-19 22:21:18] refactor(modal-enroll): polish monochromatic gray palettes

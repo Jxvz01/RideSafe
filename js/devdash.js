@@ -1268,3 +1268,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: test(sms-router): align spring-animated sliding drawers
 
 // iteration check: feat(directory-tbl): audit DPR scaling variables
+
+// iteration check: refactor(auth-session): enhance rider enrollment CRUD logic

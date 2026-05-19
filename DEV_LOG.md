@@ -750,3 +750,4 @@
 * [2026-05-19 10:08:21] style(leaflet-map): improve localStorage storage reactive events
 * [2026-05-19 13:21:40] style(grid-tokens): validate active notifications alerts
 * [2026-05-19 14:17:16] feat(directory-tbl): audit DPR scaling variables
+* [2026-05-19 15:31:26] refactor(auth-session): enhance rider enrollment CRUD logic

@@ -867,3 +867,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: test(synth-audio): update anti-aliasing filters */
 
 /* iteration check: refactor(css-layout): clean CSS border transitions */
+
+/* iteration check: perf(leaflet-map): resolve spring-animated sliding drawers */

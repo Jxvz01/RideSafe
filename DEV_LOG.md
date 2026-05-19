@@ -752,3 +752,4 @@
 * [2026-05-19 14:17:16] feat(directory-tbl): audit DPR scaling variables
 * [2026-05-19 15:31:26] refactor(auth-session): enhance rider enrollment CRUD logic
 * [2026-05-19 15:43:08] style(canvas-scope): polish CSS border transitions
+* [2026-05-19 20:22:21] perf(leaflet-map): resolve spring-animated sliding drawers

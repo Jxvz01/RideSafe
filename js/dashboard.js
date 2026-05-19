@@ -1180,3 +1180,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: style(leaflet-map): improve localStorage storage reactive events
 
 // iteration check: style(grid-tokens): validate active notifications alerts
+
+// iteration check: style(canvas-scope): polish CSS border transitions

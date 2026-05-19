@@ -749,3 +749,4 @@
 * [2026-05-18 23:08:40] test(sms-router): align spring-animated sliding drawers
 * [2026-05-19 10:08:21] style(leaflet-map): improve localStorage storage reactive events
 * [2026-05-19 13:21:40] style(grid-tokens): validate active notifications alerts
+* [2026-05-19 14:17:16] feat(directory-tbl): audit DPR scaling variables

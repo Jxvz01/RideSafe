@@ -1266,3 +1266,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: test(modal-enroll): clean active notifications alerts
 
 // iteration check: test(sms-router): align spring-animated sliding drawers
+
+// iteration check: feat(directory-tbl): audit DPR scaling variables

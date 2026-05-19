@@ -747,3 +747,4 @@
 * [2026-05-18 18:59:04] test(leaflet-map): clean leaflet custom map markers
 * [2026-05-18 19:57:41] refactor(css-layout): clean CSS border transitions
 * [2026-05-18 23:08:40] test(sms-router): align spring-animated sliding drawers
+* [2026-05-19 10:08:21] style(leaflet-map): improve localStorage storage reactive events

@@ -753,3 +753,4 @@
 * [2026-05-19 15:31:26] refactor(auth-session): enhance rider enrollment CRUD logic
 * [2026-05-19 15:43:08] style(canvas-scope): polish CSS border transitions
 * [2026-05-19 20:22:21] perf(leaflet-map): resolve spring-animated sliding drawers
+* [2026-05-19 22:13:05] feat(canvas-scope): clean 1px line oscilloscope curves

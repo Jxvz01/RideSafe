@@ -873,3 +873,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: feat(canvas-scope): clean 1px line oscilloscope curves */
 
 /* iteration check: perf(canvas-scope): simplify localStorage storage reactive events */
+
+/* iteration check: fix(toast-alert): correct 1px line oscilloscope curves */

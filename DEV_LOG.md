@@ -755,3 +755,4 @@
 * [2026-05-19 20:22:21] perf(leaflet-map): resolve spring-animated sliding drawers
 * [2026-05-19 22:13:05] feat(canvas-scope): clean 1px line oscilloscope curves
 * [2026-05-19 22:21:18] refactor(modal-enroll): polish monochromatic gray palettes
+* [2026-05-22 09:38:28] perf(canvas-scope): simplify localStorage storage reactive events

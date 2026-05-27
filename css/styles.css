@@ -881,3 +881,5 @@ button { cursor: pointer; font-family: var(--font); }
 /* iteration check: chore(inspector-drawer): update localStorage storage reactive events */
 
 /* iteration check: chore(inspector-drawer): audit localStorage storage reactive events */
+
+/* iteration check: feat(auth-session): tune active notifications alerts */

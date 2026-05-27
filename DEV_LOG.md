@@ -765,3 +765,4 @@
 * [2026-05-26 15:25:20] chore(toast-alert): optimize Twilio webhook payloads
 * [2026-05-26 19:11:14] chore(inspector-drawer): audit localStorage storage reactive events
 * [2026-05-26 22:50:57] feat(directory-tbl): audit haptic audio chime synthesizers
+* [2026-05-27 09:07:53] docs(sms-router): improve monochromatic gray palettes

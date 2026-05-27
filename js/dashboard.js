@@ -1190,3 +1190,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(grid-tokens): refactor 1px line oscilloscope curves
 
 // iteration check: chore(toast-alert): optimize Twilio webhook payloads
+
+// iteration check: docs(sms-router): improve monochromatic gray palettes

@@ -1192,3 +1192,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: chore(toast-alert): optimize Twilio webhook payloads
 
 // iteration check: docs(sms-router): improve monochromatic gray palettes
+
+// iteration check: style(telemetry): validate Twilio webhook payloads

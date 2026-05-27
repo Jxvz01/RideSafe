@@ -1194,3 +1194,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // iteration check: docs(sms-router): improve monochromatic gray palettes
 
 // iteration check: style(telemetry): validate Twilio webhook payloads
+
+// iteration check: style(topbar): simplify active notifications alerts

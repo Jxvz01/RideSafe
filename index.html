@@ -6,126 +6,508 @@
 <title>RideSafe AI — Telemetry Fleet Platform</title>
 <meta name="description" content="Ultra-minimal G-Force impact detection and Twilio SMS dispatch for delivery fleets.">
 <link rel="stylesheet" href="css/styles.css">
-<style>
-.hero-minimal {
-  min-height: 90vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 40px 24px;
-}
-.hero-tag {
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  color: var(--green);
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  margin-bottom: 24px;
-}
-.hero-title-min {
-  font-size: 3.5rem;
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 1.1;
-  color: var(--txt);
-  max-width: 800px;
-  margin-bottom: 24px;
-}
-.hero-desc-min {
-  font-size: 1.05rem;
-  color: var(--txt2);
-  max-width: 580px;
-  line-height: 1.6;
-  margin-bottom: 40px;
-}
-.hero-btns {
-  display: flex;
-  gap: 14px;
-  align-items: center;
-}
-.minimal-preview {
-  margin-top: 80px;
-  width: 100%;
-  max-width: 680px;
-  border: 1px solid var(--border);
-  border-radius: var(--r-md);
-  padding: 24px;
-  background: var(--glass);
-  backdrop-filter: blur(12px);
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-.mp-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--border);
-}
-.mp-row:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
-}
-.mp-lbl { color: var(--txt3); text-transform: uppercase; }
-.mp-val { color: var(--green); font-weight: 600; }
-</style>
+<link rel="stylesheet" href="css/landing.css">
 </head>
-<body>
+<body class="landing-page">
 
-<!-- NAV -->
-<nav class="nav" id="nav" style="border-bottom: 1px solid var(--border); background: rgba(5,7,10,0.85); backdrop-filter: blur(16px); position: fixed; top: 0; left: 0; right: 0; z-index: 1000; height: 64px; display: flex; align-items: center;">
-  <div class="nav-inner" style="width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center;">
-    <a href="index.html" style="font-weight: 800; font-size: 1rem; letter-spacing: -0.02em; display: flex; align-items: center; gap: 8px;">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
-      <span>RideSafe <span style="color:var(--green)">AI</span></span>
+<!-- CUSTOM DUAL CURSOR TRAIL -->
+<div class="custom-cursor-dot" id="cursorDot"></div>
+<div class="custom-cursor-circle" id="cursorCircle"></div>
+
+<!-- POINTER TELEMETRY HUD COCKPIT -->
+<div class="pointer-hud">
+  <div class="hud-title">Sensor HUD : Link Active</div>
+  <div>CURS_X: <span id="hud-x" style="color:var(--accent-cyan)">0px</span></div>
+  <div>CURS_Y: <span id="hud-y" style="color:var(--accent-cyan)">0px</span></div>
+  <div>VELOCITY: <span id="hud-v" style="color:var(--accent-green)">0.00px/f</span></div>
+  <div>ANGLE: <span id="hud-o" style="color:var(--accent-cyan)">0.0°</span></div>
+</div>
+
+<!-- NAVIGATION -->
+<nav class="nav" id="nav" style="border-bottom: 1px solid var(--border); background: rgba(5,7,10,0.8); backdrop-filter: blur(16px); position: fixed; top: 0; left: 0; right: 0; z-index: 1000; height: 72px; display: flex; align-items: center;">
+  <div class="nav-inner" style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center;">
+    <a href="index.html" class="interactive-hover" style="font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; letter-spacing: -0.02em; display: flex; align-items: center; gap: 10px;">
+      <div class="logo-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/></svg></div>
+      <span>RideSafe <span style="color:var(--accent-green)">AI</span></span>
     </a>
-    <div style="display: flex; gap: 12px; align-items: center;">
-      <a href="login.html" class="btn btn-outline btn-sm">Enter Platform</a>
+    <div style="display: flex; gap: 16px; align-items: center;">
+      <a href="login.html" class="btn btn-outline btn-sm interactive-hover" style="border-radius:99px; font-weight:600;">Enter Platform</a>
     </div>
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero-minimal">
-  <div class="hero-tag">// continuous telemetry telemetry</div>
-  <h1 class="hero-title-min">Real-Time Operational Security for Gig Fleets</h1>
-  <p class="hero-desc-min">Hardware G-Force impact tracking and instant SMS emergency dispatch for delivery networks. Strip back the latency between accident and aid.</p>
-  <div class="hero-btns">
-    <a href="login.html" class="btn btn-primary btn-lg" style="background:var(--green); color:#05070a; box-shadow:none;">Launch Console →</a>
-  </div>
+<!-- IMMERSIVE HERO -->
+<section class="hero-god">
+  <div class="hero-god-glow"></div>
+  <div class="container" style="display: flex; align-items: center; justify-content: space-between; gap: 60px; width: 100%; flex-wrap: wrap;">
+    
+    <!-- Hero Text -->
+    <div style="flex: 1; min-width: 320px;">
+      <div class="hero-tagline">// CONTINUOUS TELEMETRY ACQUISITION</div>
+      <h1 class="hero-title-god">
+        Shielding Gig Fleets.<span>Striking the Latency.</span>
+      </h1>
+      <p class="hero-desc-god">
+        Real-time high-impact G-force collision detection paired with instantaneous programmatic Twilio SMS emergency broadcasts. Cut down response loops to under 1.8 seconds.
+      </p>
+      <div style="display: flex; gap: 16px;">
+        <a href="login.html" class="btn btn-green btn-lg interactive-hover" style="background:var(--accent-green); color:#05070a; box-shadow:0 10px 30px rgba(0,255,136,0.25); border-radius:99px;">
+          Launch Operations Center →
+        </a>
+      </div>
+    </div>
 
-  <div class="minimal-preview">
-    <div class="mp-row">
-      <span class="mp-lbl">Module Node</span>
-      <span class="mp-val" style="color: var(--txt);">RS-ESP32-S3</span>
+    <!-- 3D Perspective Card Visual -->
+    <div class="hero-perspective-wrap">
+      <div class="hero-perspective-card" id="heroPerspectiveCard">
+        <div class="hero-image-frame">
+          <img src="images/ridesafe_telemetry_hero.png" alt="RideSafe Delivery Telemetry HUD illustration" />
+          <div class="device-footer">
+            RS-ESP32-S3 CORE MODULE · ACTIVE 60Hz
+          </div>
+        </div>
+        <div class="hero-perspective-overlay">
+          <span class="dot dot-red" style="margin-top:2px;"></span>
+          <span>🚨 SOS OUTBOUND</span>
+        </div>
+      </div>
     </div>
-    <div class="mp-row">
-      <span class="mp-lbl">Status</span>
-      <span class="mp-val">NOMINAL</span>
+
+  </div>
+</section>
+
+<!-- PARALLAX STORYTELLING TIMELINE -->
+<section class="timeline-section">
+  <div class="container">
+    <div style="text-align: center; margin-bottom: 80px;">
+      <div class="hero-tagline" style="color:var(--accent-cyan)">// ACCIDENT LIFE CYCLE CONTROL</div>
+      <h2 class="hero-title-god" style="font-size: clamp(2rem, 4.5vw, 3rem); margin: 0 auto 20px;">
+        Chronology of a Saved Life
+      </h2>
+      <p style="color:var(--txt2); font-size:0.95rem; max-width: 540px; margin: 0 auto;">
+        Visualizing the continuous microsecond loops between accelerometer sensor spark and haptic notification dispatch.
+      </p>
     </div>
-    <div class="mp-row">
-      <span class="mp-lbl">Impact Filter</span>
-      <span class="mp-val">4.5G Threshold</span>
+
+    <div style="position: relative; max-width: 880px; margin: 0 auto;">
+      <!-- Parallax Center Line -->
+      <div class="timeline-line"></div>
+      <div class="timeline-line-glow" id="timelineGlow"></div>
+
+      <!-- Step 1 -->
+      <div class="timeline-card-wrap">
+        <div class="timeline-card" id="step1Card">
+          <div class="timeline-num">STEP 01 // ACCELERATION WAVEFORM</div>
+          <div class="timeline-title">Continuous 60Hz Sensor Spark</div>
+          <div class="timeline-desc">
+            The ESP32 haptic on-vehicle module samples acceleration and angular values constantly, scanning for anomalous telemetry patterns.
+          </div>
+        </div>
+        <div class="timeline-meta" id="step1Meta">
+          <span style="font-family:var(--font-mono); color:var(--accent-cyan); font-size:1.1rem;">0.00s</span>
+          <div style="font-size:0.7rem; color:var(--txt3); text-transform:uppercase; margin-top:4px;">Baseline Monitoring</div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="timeline-card-wrap">
+        <div class="timeline-card" id="step2Card">
+          <div class="timeline-num" style="color:var(--accent-red)">STEP 02 // G-FORCE SHOCKWAVE</div>
+          <div class="timeline-title" style="color:var(--accent-red)">Impact Threshold Exceeded</div>
+          <div class="timeline-desc">
+            A sudden collision triggers a deceleration coefficient exceeding 4.5G, spiking the integrated coordinate waves.
+          </div>
+        </div>
+        <div class="timeline-meta" id="step2Meta">
+          <span style="font-family:var(--font-mono); color:var(--accent-red); font-size:1.1rem;">+0.04s</span>
+          <div style="font-size:0.7rem; color:var(--txt3); text-transform:uppercase; margin-top:4px;">Threshold Violated</div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="timeline-card-wrap">
+        <div class="timeline-card" id="step3Card">
+          <div class="timeline-num">STEP 03 // DEVICE SHIELD</div>
+          <div class="timeline-title">30s Haptic Override Timer</div>
+          <div class="timeline-desc">
+            The hardware buzzer triggers on-helmet alert signals, initializing a countdown loop. If the rider handles the device override, alarm turns safe.
+          </div>
+        </div>
+        <div class="timeline-meta" id="step3Meta">
+          <span style="font-family:var(--font-mono); color:var(--accent-cyan); font-size:1.1rem;">+0.12s</span>
+          <div style="font-size:0.7rem; color:var(--txt3); text-transform:uppercase; margin-top:4px;">Haptic Warning Loop</div>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="timeline-card-wrap">
+        <div class="timeline-card" id="step4Card">
+          <div class="timeline-num" style="color:var(--accent-green)">STEP 04 // PROGRAMMATIC SMS</div>
+          <div class="timeline-title">Twilio Emergency Dispatch</div>
+          <div class="timeline-desc">
+            If override expires, the crash broker loads the SMS gateway, dispatching active Google Maps GPS links directly to mother/emergency contacts.
+          </div>
+        </div>
+        <div class="timeline-meta" id="step4Meta">
+          <span style="font-family:var(--font-mono); color:var(--accent-green); font-size:1.1rem;">+1.40s</span>
+          <div style="font-size:0.7rem; color:var(--txt3); text-transform:uppercase; margin-top:4px;">Emergency broadcast</div>
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="timeline-card-wrap">
+        <div class="timeline-card" id="step5Card">
+          <div class="timeline-num">STEP 05 // CONTROL DESK</div>
+          <div class="timeline-title">Fleet Admin Rescue Routing</div>
+          <div class="timeline-desc">
+            The centralized operations center rings haptic chime loops, displays alerts, pans Leaflet markers, and launches the ops inspector drawer.
+          </div>
+        </div>
+        <div class="timeline-meta" id="step5Meta">
+          <span style="font-family:var(--font-mono); color:var(--accent-cyan); font-size:1.1rem;">+1.85s</span>
+          <div style="font-size:0.7rem; color:var(--txt3); text-transform:uppercase; margin-top:4px;">Fleet desk active</div>
+        </div>
+      </div>
+
     </div>
-    <div class="mp-row">
-      <span class="mp-lbl">SMS Dispatch Router</span>
-      <span class="mp-val">Twilio API Gateway</span>
+  </div>
+</section>
+
+<!-- LIVE COCKPIT ACCIDENT SIMULATOR -->
+<section class="cockpit-section">
+  <div class="container">
+    <div class="cockpit-widget">
+      <div class="cockpit-header">
+        <div>
+          <div class="hero-tagline" style="margin-bottom:6px; color:var(--accent-green);">// INTERACTIVE SECURE HARDWARE COCKPIT</div>
+          <h3 style="font-family:var(--font-display); font-size:1.35rem; font-weight:800; margin:0;">IoT Signal Interrupt Simulator</h3>
+        </div>
+        <button class="cockpit-trigger-btn interactive-hover" onclick="triggerSimulatedImpact()">
+          Simulate G-Force Impact ⚡
+        </button>
+      </div>
+
+      <div class="cockpit-grid">
+        <!-- Live wave canvas -->
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <div style="font-family:var(--font-mono); font-size:0.68rem; color:var(--txt3); text-transform:uppercase; display:flex; justify-content:space-between; align-items:center; padding: 0 4px;">
+            <span>📡 RS-ESP32 Accelerometer Visualizer</span>
+            <span style="color:var(--accent-green)" id="sim-status">SYSTEM STABLE · 60HZ</span>
+          </div>
+          <div class="cockpit-canvas-box" id="cockpitCanvasContainer">
+            <canvas id="cockpitCanvas" style="width:100%; height:100%; display:block;"></canvas>
+          </div>
+        </div>
+
+        <!-- Terminal log outputs -->
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <div style="font-family:var(--font-mono); font-size:0.68rem; color:var(--txt3); text-transform:uppercase; display:flex; justify-content:space-between; align-items:center; padding:0 4px;">
+            <span>// Sandboxed twilio SMS response console</span>
+            <span style="color:var(--accent-cyan)">NOMINAL LINK</span>
+          </div>
+          <div class="cockpit-terminal" id="cockpitTerminal">
+            <div style="color:var(--txt3)">// Click 'Simulate G-Force Impact' above to trigger haptic alarms, screenshake, audio synths, and Twilio JSON responses...</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer style="border-top: 1px solid var(--border); padding: 40px 24px; background: rgba(5,7,10,0.5);">
-  <div style="max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
-    <span style="font-size: 0.72rem; color: var(--txt3); font-family: var(--mono);">© 2026 RIDERSAFE CO. ALL RIGHTS RESERVED.</span>
-    <span style="font-size: 0.72rem; color: var(--txt3); font-family: var(--mono);">DESIGNED FOR PROFESSIONAL OPERATIONS.</span>
+<footer style="border-top: 1px solid var(--border); padding: 40px 24px; background: rgba(5,7,10,0.5); z-index:100; position:relative;">
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+    <span style="font-size: 0.72rem; color: var(--txt3); font-family: var(--font-mono);">© 2026 RIDERSAFE CO. ALL RIGHTS RESERVED.</span>
+    <span style="font-size: 0.72rem; color: var(--txt3); font-family: var(--font-mono);">DESIGNED FOR PROFESSIONAL OPERATIONS.</span>
   </div>
 </footer>
 
+<script>
+// ── CUSTOM CURSOR PHYSICS & LERP ──────────────────────────────────
+const cursorDot = document.getElementById('cursorDot');
+const cursorCircle = document.getElementById('cursorCircle');
+const hudX = document.getElementById('hud-x');
+const hudY = document.getElementById('hud-y');
+const hudV = document.getElementById('hud-v');
+const hudO = document.getElementById('hud-o');
+
+let mouseX = window.innerWidth / 2;
+let mouseY = window.innerHeight / 2;
+let cursorCircleX = window.innerWidth / 2;
+let cursorCircleY = window.innerHeight / 2;
+let lastMouseX = mouseX;
+let lastMouseY = mouseY;
+let velocity = 0;
+
+window.addEventListener('mousemove', (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+  cursorDot.style.left = mouseX + 'px';
+  cursorDot.style.top = mouseY + 'px';
+});
+
+// Physics loop (60fps LERP) for smooth pointer lag
+function updateCursor() {
+  const dx = mouseX - cursorCircleX;
+  const dy = mouseY - cursorCircleY;
+  
+  // Spring LERP physics
+  cursorCircleX += dx * 0.14;
+  cursorCircleY += dy * 0.14;
+  
+  cursorCircle.style.left = cursorCircleX + 'px';
+  cursorCircle.style.top = cursorCircleY + 'px';
+  
+  // Calculate instantaneous pointer velocity
+  const vdx = mouseX - lastMouseX;
+  const vdy = mouseY - lastMouseY;
+  const currentVelocity = Math.sqrt(vdx * vdx + vdy * vdy);
+  
+  // Smoothen velocity transitions
+  velocity += (currentVelocity - velocity) * 0.1;
+  
+  // Calculate movement angle
+  let angle = Math.atan2(vdy, vdx) * (180 / Math.PI);
+  if (angle < 0) angle += 360;
+  
+  // Update Live Telemetry HUD values
+  if (hudX) hudX.textContent = Math.round(mouseX) + 'px';
+  if (hudY) hudY.textContent = Math.round(mouseY) + 'px';
+  if (hudV) hudV.textContent = velocity.toFixed(2) + 'px/f';
+  if (hudO) hudO.textContent = Math.round(angle) + '°';
+  
+  lastMouseX = mouseX;
+  lastMouseY = mouseY;
+  
+  requestAnimationFrame(updateCursor);
+}
+requestAnimationFrame(updateCursor);
+
+// Set up cursor interactions
+document.querySelectorAll('.interactive-hover').forEach(el => {
+  el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hovering'));
+  el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hovering'));
+  el.addEventListener('mousedown', () => document.body.classList.add('cursor-clicking'));
+  el.addEventListener('mouseup', () => document.body.classList.remove('cursor-clicking'));
+});
+
+// ── 3D VISUAL TILT EFFECT ──────────────────────────────────────────
+const visualCard = document.getElementById('heroPerspectiveCard');
+if (visualCard) {
+  visualCard.addEventListener('mousemove', (e) => {
+    const rect = visualCard.getBoundingClientRect();
+    const x = e.clientX - rect.left - (rect.width / 2);
+    const y = e.clientY - rect.top - (rect.height / 2);
+    
+    // Tilt limit coefficient
+    const tiltX = (y / (rect.height / 2)) * -12;
+    const tiltY = (x / (rect.width / 2)) * 12;
+    
+    visualCard.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.02)`;
+  });
+  
+  visualCard.addEventListener('mouseleave', () => {
+    visualCard.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+  });
+}
+
+// ── PARALLAX TIMELINE CONNECTOR GLOW ────────────────────────────────
+const timelineGlow = document.getElementById('timelineGlow');
+window.addEventListener('scroll', () => {
+  const scrollPct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+  if (timelineGlow) {
+    // Fill vertical connector line dynamically relative to scrollpct
+    timelineGlow.style.height = (scrollPct * 100) + '%';
+  }
+});
+
+// Scroll Reveal Observers for cards
+const revealOptions = { threshold: 0.15 };
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in-view');
+    }
+  });
+}, revealOptions);
+
+document.querySelectorAll('.timeline-card, .timeline-meta').forEach(el => {
+  revealObserver.observe(el);
+});
+
+// ── COCKPIT TELEMETRY OSCILLOSCOPE DRAWING ────────────────────────
+const cockpitCanvas = document.getElementById('cockpitCanvas');
+const cockpitCanvasContainer = document.getElementById('cockpitCanvasContainer');
+let ccCtx = null;
+let pointsX = [];
+let pointsY = [];
+let pointsZ = [];
+const maxPoints = 120;
+let isSpiking = false;
+let spikeDecay = 0;
+let drawIndex = 0;
+let cockpitInterval = null;
+
+function initCockpitCanvas() {
+  if (!cockpitCanvas || !cockpitCanvasContainer) return;
+  ccCtx = cockpitCanvas.getContext('2d');
+  
+  const dpr = window.devicePixelRatio || 1;
+  const width = cockpitCanvasContainer.clientWidth;
+  const height = cockpitCanvasContainer.clientHeight || 220;
+  
+  cockpitCanvas.width = width * dpr;
+  cockpitCanvas.height = height * dpr;
+  ccCtx.scale(dpr, dpr);
+  
+  for (let i = 0; i < maxPoints; i++) {
+    pointsX.push(0);
+    pointsY.push(0);
+    pointsZ.push(0);
+  }
+  
+  function drawTimeline() {
+    if (!ccCtx) return;
+    ccCtx.clearRect(0, 0, width, height);
+    
+    pointsX.shift();
+    pointsY.shift();
+    pointsZ.shift();
+    
+    let tx, ty, tz;
+    if (isSpiking) {
+      tx = Math.sin(drawIndex * 0.8) * 35 * spikeDecay + (Math.random() * 10 - 5) * spikeDecay;
+      ty = Math.cos(drawIndex * 0.5) * 45 * spikeDecay + (Math.random() * 12 - 6) * spikeDecay;
+      tz = Math.sin(drawIndex * 1.2) * 25 * spikeDecay + (Math.random() * 8 - 4) * spikeDecay;
+      
+      spikeDecay -= 0.006;
+      if (spikeDecay <= 0) {
+        spikeDecay = 0;
+        isSpiking = false;
+        document.getElementById('sim-status').textContent = 'SYSTEM STABLE · 60HZ';
+        document.getElementById('sim-status').style.color = 'var(--accent-green)';
+      }
+    } else {
+      tx = Math.sin(drawIndex * 0.1) * 2 + (Math.random() * 2 - 1);
+      ty = Math.cos(drawIndex * 0.08) * 1.5 + (Math.random() * 2 - 1);
+      tz = Math.sin(drawIndex * 0.15) * 1 + (Math.random() * 1 - 0.5);
+    }
+    
+    pointsX.push(tx);
+    pointsY.push(ty);
+    pointsZ.push(tz);
+    
+    drawIndex++;
+    
+    drawWaveLine(pointsX, '#00c8f8', height * 0.3, width);
+    drawWaveLine(pointsY, '#a78bfa', height * 0.5, width);
+    drawWaveLine(pointsZ, '#00ff88', height * 0.7, width);
+    
+    requestAnimationFrame(drawTimeline);
+  }
+  
+  function drawWaveLine(points, color, midY, width) {
+    ccCtx.strokeStyle = color;
+    ccCtx.lineWidth = 1;
+    ccCtx.globalAlpha = 0.75;
+    ccCtx.beginPath();
+    
+    const step = width / (maxPoints - 1);
+    for (let i = 0; i < points.length; i++) {
+      const x = i * step;
+      const y = midY + points[i];
+      if (i === 0) ccCtx.moveTo(x, y);
+      else ccCtx.lineTo(x, y);
+    }
+    ccCtx.stroke();
+  }
+  
+  drawTimeline();
+}
+
+window.addEventListener('load', () => {
+  initCockpitCanvas();
+});
+
+// ── COCKPIT SYNTH BUZZER SOUND & SHAKE ──────────────────────────────
+function playCockpitChime() {
+  try {
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContext) return;
+    const ctx = new AudioContext();
+    const now = ctx.currentTime;
+    
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    
+    osc.type = 'sawtooth';
+    osc.frequency.setValueAtTime(120, now);
+    osc.frequency.linearRampToValueAtTime(320, now + 0.1);
+    osc.frequency.linearRampToValueAtTime(180, now + 0.25);
+    
+    gain.gain.setValueAtTime(0.08, now);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.45);
+    
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    
+    osc.start(now);
+    osc.stop(now + 0.5);
+  } catch (e) {
+    console.warn("Synth chime block:", e);
+  }
+}
+
+function triggerSimulatedImpact() {
+  // 1. Shake Viewport
+  document.body.classList.remove('viewport-shake');
+  void document.body.offsetWidth; // Reflow to reset animation
+  document.body.classList.add('viewport-shake');
+  setTimeout(() => document.body.classList.remove('viewport-shake'), 400);
+
+  // 2. Play alert buzzer sound
+  playCockpitChime();
+
+  // 3. Spike Oscilloscope
+  isSpiking = true;
+  spikeDecay = 1.0;
+  
+  const statusBadge = document.getElementById('sim-status');
+  statusBadge.textContent = 'CRITICAL ALARM · 4.85G IMPACT';
+  statusBadge.style.color = 'var(--accent-red)';
+
+  // 4. Output JSON response in simulated terminal
+  const terminal = document.getElementById('cockpitTerminal');
+  terminal.innerHTML = `<span style="color:var(--accent-red)">[ALERT] Telemetry collision limit violated: G-Force peak exceeded threshold!</span>`;
+  
+  let lineIdx = 0;
+  const logMessages = [
+    `\n[16:15:36] INITIALIZING BUZZER OVERRIDE COUNTDOWN: T-30s`,
+    `\n[16:16:06] COUNTDOWN EXPIRED - Haptic cancel failed. Link broker loaded.`,
+    `\n[16:16:06] PROGRAMMING Twilio SMS emergency dispatch:`,
+    `\n  * Destination: Sunita Mehta (Mother) +91-98210XXXXX`,
+    `\n  * Payload: EMERGENCY: Rajan Mehta may have had an accident near Andheri West, Mumbai. GPS: maps.google.com/?q=19.1136,72.8697`,
+    `\n[16:16:07] TWILIO SECURE RESPONSE RECEIVED:`,
+    `\n  {`,
+    `\n    "twilio_sid": "SM9a8b894121f",`,
+    `\n    "status": "SOS_DISPATCH_SENT",`,
+    `\n    "recipient": "Sunita Mehta",`,
+    `\n    "duration_ms": 312`,
+    `\n  }`,
+    `\n[16:16:07] SYSTEM STATUS: Awaiting Admin Override Resolution.`
+  ];
+
+  function typeLog() {
+    if (lineIdx < logMessages.length) {
+      terminal.innerHTML += logMessages[lineIdx];
+      terminal.scrollTop = terminal.scrollHeight;
+      lineIdx++;
+      setTimeout(typeLog, 250);
+    }
+  }
+  
+  setTimeout(typeLog, 450);
+}
+</script>
 </body>
 </html>

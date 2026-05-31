@@ -64,6 +64,20 @@ function loadState() {
   const data = localStorage.getItem(STATE_KEY);
   if (data) {
     appState = JSON.parse(data);
+    const hasMumbaiCoords = appState.riders && appState.riders.some(r => r.lat > 15);
+    if (hasMumbaiCoords) {
+      localStorage.removeItem(STATE_KEY);
+      localStorage.removeItem('ridesafe_state');
+      appState = {
+        riders: DEFAULT_RIDERS,
+        devices: DEFAULT_DEVICES,
+        history: DEFAULT_HISTORY,
+        sms_logs: DEFAULT_SMS_LOGS,
+        alerts: DEFAULT_ALERT_DATA,
+        sys_logs: DEFAULT_SYSTEM_LOGS
+      };
+      saveState();
+    }
   } else {
     appState = {
       riders: DEFAULT_RIDERS,

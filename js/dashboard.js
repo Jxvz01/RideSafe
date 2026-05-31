@@ -1,15 +1,15 @@
 // ── STATE MANAGEMENT & DATA SYNCING ────────────────────────────
-const STATE_KEY = 'ridesafe_state';
+const STATE_KEY = 'ridesafe_state_mysore';
 
 const DEFAULT_RIDERS = [
-  {id:'#1042',name:'Rajan Mehta',phone:'9821001042',status:'alert',loc:'Andheri West, Mumbai',device:'RSM-204',ping:'2m ago',emergency:'Sunita Mehta (Mother)',shift:'09:00–21:00',alerts:3,lat:19.1136,lon:72.8697,speed:0,signal:'-68dBm',battery:78},
-  {id:'#0988',name:'Priya Sharma',phone:'9944000988',status:'warning',loc:'Koramangala, Blr',device:'RSM-189',ping:'8m ago',emergency:'Raj Sharma (Brother)',shift:'10:00–22:00',alerts:1,lat:12.9352,lon:77.6245,speed:12,signal:'-72dBm',battery:54},
-  {id:'#1103',name:'Arjun Patel',phone:'9910001103',status:'warning',loc:'Connaught Pl, Delhi',device:'RSM-211',ping:'14m ago',emergency:'Geeta Patel (Spouse)',shift:'08:00–20:00',alerts:2,lat:28.6304,lon:77.2177,speed:8,signal:'-65dBm',battery:91},
-  {id:'#0741',name:'Kavya Nair',phone:'9632000741',status:'active',loc:'Indiranagar, Blr',device:'RSM-155',ping:'32s ago',emergency:'Suresh Nair (Father)',shift:'07:00–19:00',alerts:0,lat:12.9716,lon:77.5946,speed:28,signal:'-61dBm',battery:88},
-  {id:'#0855',name:'Deepak Singh',phone:'9711000855',status:'active',loc:'Bandra, Mumbai',device:'RSM-178',ping:'1m ago',emergency:'Anita Singh (Spouse)',shift:'08:00–20:00',alerts:0,lat:19.0596,lon:72.8295,speed:32,signal:'-70dBm',battery:63},
-  {id:'#0612',name:'Mohit Verma',phone:'9898000612',status:'offline',loc:'—',device:'RSM-121',ping:'4h ago',emergency:'Rakhi Verma (Sister)',shift:'Off',alerts:1,lat:19.1155,lon:72.8755,speed:0,signal:'N/A',battery:12},
-  {id:'#0924',name:'Swati Reddy',phone:'9900000924',status:'active',loc:'Hitech City, Hyd',device:'RSM-196',ping:'45s ago',emergency:'Ramesh Reddy (Father)',shift:'09:00–21:00',alerts:0,lat:17.4435,lon:78.3772,speed:24,signal:'-59dBm',battery:95},
-  {id:'#1001',name:'Rahul Gupta',phone:'9820001001',status:'active',loc:'Powai, Mumbai',device:'RSM-201',ping:'2m ago',emergency:'Meena Gupta (Mother)',shift:'10:00–22:00',alerts:0,lat:19.1176,lon:72.9060,speed:15,signal:'-66dBm',battery:72},
+  {id:'#1042',name:'Rajan Mehta',phone:'9821001042',status:'alert',loc:'Gokulam, Mysore',device:'RSM-204',ping:'2m ago',emergency:'Sunita Mehta (Mother)',shift:'09:00–21:00',alerts:3,lat:12.3243,lon:76.6273,speed:0,signal:'-68dBm',battery:78},
+  {id:'#0988',name:'Priya Sharma',phone:'9944000988',status:'warning',loc:'Saraswathipuram, Mysore',device:'RSM-189',ping:'8m ago',emergency:'Raj Sharma (Brother)',shift:'10:00–22:00',alerts:1,lat:12.3025,lon:76.6290,speed:12,signal:'-72dBm',battery:54},
+  {id:'#1103',name:'Arjun Patel',phone:'9910001103',status:'warning',loc:'Vijayanagar, Mysore',device:'RSM-211',ping:'14m ago',emergency:'Geeta Patel (Spouse)',shift:'08:00–20:00',alerts:2,lat:12.3385,lon:76.6080,speed:8,signal:'-65dBm',battery:91},
+  {id:'#0741',name:'Kavya Nair',phone:'9632000741',status:'active',loc:'Mandi Mohalla, Mysore',device:'RSM-155',ping:'32s ago',emergency:'Suresh Nair (Father)',shift:'07:00–19:00',alerts:0,lat:12.3160,lon:76.6530,speed:28,signal:'-61dBm',battery:88},
+  {id:'#0855',name:'Deepak Singh',phone:'9711000855',status:'active',loc:'Kuvempunagar, Mysore',device:'RSM-178',ping:'1m ago',emergency:'Anita Singh (Spouse)',shift:'08:00–20:00',alerts:0,lat:12.2858,lon:76.6200,speed:32,signal:'-70dBm',battery:63},
+  {id:'#0612',name:'Mohit Verma',phone:'9898000612',status:'offline',loc:'—',device:'RSM-121',ping:'4h ago',emergency:'Rakhi Verma (Sister)',shift:'Off',alerts:1,lat:12.2965,lon:76.6410,speed:0,signal:'N/A',battery:12},
+  {id:'#0924',name:'Swati Reddy',phone:'9900000924',status:'active',loc:'J.P. Nagar, Mysore',device:'RSM-196',ping:'45s ago',emergency:'Ramesh Reddy (Father)',shift:'09:00–21:00',alerts:0,lat:12.2690,lon:76.6450,speed:24,signal:'-59dBm',battery:95},
+  {id:'#1001',name:'Rahul Gupta',phone:'9820001001',status:'active',loc:'Jayalakshmipuram, Mysore',device:'RSM-201',ping:'2m ago',emergency:'Meena Gupta (Mother)',shift:'10:00–22:00',alerts:0,lat:12.3160,lon:76.6260,speed:15,signal:'-66dBm',battery:72},
 ];
 
 const DEFAULT_DEVICES = [
@@ -24,27 +24,27 @@ const DEFAULT_DEVICES = [
 ];
 
 const DEFAULT_HISTORY = [
-  {dt:'2025-06-15 14:32',rider:'Rajan Mehta #1042',type:'High Impact',loc:'Andheri W, Mumbai',sms:'Delivered',outcome:'Pending'},
-  {dt:'2025-06-15 11:18',rider:'Arjun Patel #1103',type:'G-Force Limit',loc:'CP, Delhi',sms:'Delivered',outcome:'Safe — Override'},
-  {dt:'2025-06-15 09:47',rider:'Priya Sharma #0988',type:'G-Force Limit',loc:'Koramangala',sms:'Delivered',outcome:'Safe — Override'},
-  {dt:'2025-06-14 22:11',rider:'Deepak Singh #0855',type:'Sudden Stop',loc:'Bandra, Mumbai',sms:'Delivered',outcome:'Safe — Override'},
+  {dt:'2025-06-15 14:32',rider:'Rajan Mehta #1042',type:'High Impact',loc:'Gokulam, Mysore',sms:'Delivered',outcome:'Pending'},
+  {dt:'2025-06-15 11:18',rider:'Arjun Patel #1103',type:'G-Force Limit',loc:'Vijayanagar, Mysore',sms:'Delivered',outcome:'Safe — Override'},
+  {dt:'2025-06-15 09:47',rider:'Priya Sharma #0988',type:'G-Force Limit',loc:'Saraswathipuram, Mysore',sms:'Delivered',outcome:'Safe — Override'},
+  {dt:'2025-06-14 22:11',rider:'Deepak Singh #0855',type:'Sudden Stop',loc:'Kuvempunagar, Mysore',sms:'Delivered',outcome:'Safe — Override'},
 ];
 
 const DEFAULT_SMS_LOGS = [
-  {time:'14:32:08',rider:'Rajan Mehta #1042',recipient:'Sunita Mehta',type:'SOS ALERT',status:'Delivered',msg:'EMERGENCY: Rajan Mehta may have had an accident near Andheri West. GPS: maps.google.com/?q=19.1136,72.8697'},
+  {time:'14:32:08',rider:'Rajan Mehta #1042',recipient:'Sunita Mehta',type:'SOS ALERT',status:'Delivered',msg:'EMERGENCY: Rajan Mehta may have had an accident near Gokulam. GPS: maps.google.com/?q=12.3243,76.6273'},
   {time:'11:19:01',rider:'Arjun Patel #1103',recipient:'Geeta Patel',type:'SAFE',status:'Delivered',msg:'UPDATE: Arjun Patel is safe. Nothing major — kill switch activated.'},
-  {time:'09:47:33',rider:'Priya Sharma #0988',recipient:'Raj Sharma',type:'SOS ALERT',status:'Delivered',msg:'EMERGENCY: Priya Sharma may have had an accident near Koramangala.'},
+  {time:'09:47:33',rider:'Priya Sharma #0988',recipient:'Raj Sharma',type:'SOS ALERT',status:'Delivered',msg:'EMERGENCY: Priya Sharma may have had an accident near Saraswathipuram, Mysore.'},
 ];
 
 const DEFAULT_ALERT_DATA = [
-  {time:'14:32',riderId:'#1042',cls:'badge-red',title:'🚨 CRITICAL: High-impact crash — Rajan Mehta #1042',detail:'Andheri West, Mumbai · SMS dispatched · SOS Active'},
-  {time:'14:24',riderId:'#0988',cls:'badge-orange',title:'⚠️ WARNING: Sudden tilt — Priya Sharma #0988',detail:'Koramangala, Bangalore · Awaiting override'},
-  {time:'14:18',riderId:'#1103',cls:'badge-orange',title:'⚠️ WARNING: Moderate G-force — Arjun Patel #1103',detail:'Connaught Place, Delhi · SMS dispatched'},
+  {time:'14:32',riderId:'#1042',cls:'badge-red',title:'🚨 CRITICAL: High-impact crash — Rajan Mehta #1042',detail:'Gokulam, Mysore · SMS dispatched · SOS Active'},
+  {time:'14:24',riderId:'#0988',cls:'badge-orange',title:'⚠️ WARNING: Sudden tilt — Priya Sharma #0988',detail:'Saraswathipuram, Mysore · Awaiting override'},
+  {time:'14:18',riderId:'#1103',cls:'badge-orange',title:'⚠️ WARNING: Moderate G-force — Arjun Patel #1103',detail:'Vijayanagar, Mysore · SMS dispatched'},
 ];
 
 const DEFAULT_SYSTEM_LOGS = [
   {ts:'14:32:08',lvl:'OK',msg:'Incident event received — device RSM-204 — rider #1042'},
-  {ts:'14:32:09',lvl:'OK',msg:'GPS coordinates acquired: 19.1136, 72.8697'},
+  {ts:'14:32:09',lvl:'OK',msg:'GPS coordinates acquired: 12.3243, 76.6273'},
   {ts:'14:32:09',lvl:'WARN',msg:'Kill switch NOT activated — starting countdown T-30s'},
   {ts:'14:32:39',lvl:'OK',msg:'Countdown expired — dispatching SOS SMS'},
   {ts:'14:32:40',lvl:'OK',msg:'SMS sent → Sunita Mehta (emergency contact)'},
@@ -292,7 +292,7 @@ function initMap() {
   map = L.map('liveMap', {
     zoomControl: false,
     attributionControl: false
-  }).setView([19.0760, 72.8777], 11);
+  }).setView([12.2958, 76.6394], 12);
 
   // CartoDB Dark Matter tile layer - strictly minimal black operations look
   L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
@@ -552,22 +552,22 @@ function saveRider() {
   if (!name || !phone || !emergency) return;
 
   const newId = '#' + (1000 + Math.floor(Math.random() * 9000));
-  const mumbaiLat = 19.0760 + (Math.random() * 0.08 - 0.04);
-  const mumbaiLon = 72.8777 + (Math.random() * 0.08 - 0.04);
+  const mysoreLat = 12.2958 + (Math.random() * 0.08 - 0.04);
+  const mysoreLon = 76.6394 + (Math.random() * 0.08 - 0.04);
 
   const newRider = {
     id: newId,
     name: name,
     phone: phone,
     status: 'active',
-    loc: 'Andheri West, Mumbai',
+    loc: 'Gokulam, Mysore',
     device: 'UNPROVISIONED',
     ping: 'Just now',
     emergency: emergency,
     shift: shift,
     alerts: 0,
-    lat: mumbaiLat,
-    lon: mumbaiLon,
+    lat: mysoreLat,
+    lon: mysoreLon,
     speed: 0,
     signal: 'N/A',
     battery: 100
@@ -697,7 +697,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="sb-avatar" style="background:linear-gradient(135deg,#0ea5e9,#10b981); color:#05070a; font-weight:800;">${user.initials}</div>
         <div>
           <div style="font-size:.82rem;font-weight:600; color:var(--txt);">${user.name}</div>
-          <div style="font-size:.7rem;color:var(--txt3)">${user.role} · Mumbai</div>
+          <div style="font-size:.7rem;color:var(--txt3)">${user.role} · Mysore</div>
         </div>
       `;
     }

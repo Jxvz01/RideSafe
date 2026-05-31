@@ -1,5 +1,5 @@
 // ── STATE MANAGEMENT & DATA SYNCING ────────────────────────────
-const STATE_KEY = 'ridesafe_state';
+const STATE_KEY = 'ridesafe_state_mysore';
 
 let appState = {
   riders: [],
@@ -18,11 +18,11 @@ function loadState() {
     // If somehow not initialized by admin console, load defaults
     appState = {
       riders: [
-        {id:'#1042',name:'Rajan Mehta',phone:'9821001042',status:'alert',loc:'Andheri West, Mumbai',device:'RSM-204',ping:'2m ago',emergency:'Sunita Mehta (Mother)',shift:'09:00–21:00',alerts:3,lat:19.1136,lon:72.8697,speed:0,signal:'-68dBm',battery:78},
-        {id:'#0988',name:'Priya Sharma',phone:'9944000988',status:'warning',loc:'Koramangala, Blr',device:'RSM-189',ping:'8m ago',emergency:'Raj Sharma (Brother)',shift:'10:00–22:00',alerts:1,lat:12.9352,lon:77.6245,speed:12,signal:'-72dBm',battery:54},
-        {id:'#1103',name:'Arjun Patel',phone:'9910001103',status:'warning',loc:'Connaught Pl, Delhi',device:'RSM-211',ping:'14m ago',emergency:'Geeta Patel (Spouse)',shift:'08:00–20:00',alerts:2,lat:28.6304,lon:77.2177,speed:8,signal:'-65dBm',battery:91},
-        {id:'#0741',name:'Kavya Nair',phone:'9632000741',status:'active',loc:'Indiranagar, Blr',device:'RSM-155',ping:'32s ago',emergency:'Suresh Nair (Father)',shift:'07:00–19:00',alerts:0,lat:12.9716,lon:77.5946,speed:28,signal:'-61dBm',battery:88},
-        {id:'#0855',name:'Deepak Singh',phone:'9711000855',status:'active',loc:'Bandra, Mumbai',device:'RSM-178',ping:'1m ago',emergency:'Anita Singh (Spouse)',shift:'08:00–20:00',alerts:0,lat:19.0596,lon:72.8295,speed:32,signal:'-70dBm',battery:63},
+        {id:'#1042',name:'Rajan Mehta',phone:'9821001042',status:'alert',loc:'Gokulam, Mysore',device:'RSM-204',ping:'2m ago',emergency:'Sunita Mehta (Mother)',shift:'09:00–21:00',alerts:3,lat:12.3243,lon:76.6273,speed:0,signal:'-68dBm',battery:78},
+        {id:'#0988',name:'Priya Sharma',phone:'9944000988',status:'warning',loc:'Saraswathipuram, Mysore',device:'RSM-189',ping:'8m ago',emergency:'Raj Sharma (Brother)',shift:'10:00–22:00',alerts:1,lat:12.3025,lon:76.6290,speed:12,signal:'-72dBm',battery:54},
+        {id:'#1103',name:'Arjun Patel',phone:'9910001103',status:'warning',loc:'Vijayanagar, Mysore',device:'RSM-211',ping:'14m ago',emergency:'Geeta Patel (Spouse)',shift:'08:00–20:00',alerts:2,lat:12.3385,lon:76.6080,speed:8,signal:'-65dBm',battery:91},
+        {id:'#0741',name:'Kavya Nair',phone:'9632000741',status:'active',loc:'Mandi Mohalla, Mysore',device:'RSM-155',ping:'32s ago',emergency:'Suresh Nair (Father)',shift:'07:00–19:00',alerts:0,lat:12.3160,lon:76.6530,speed:28,signal:'-61dBm',battery:88},
+        {id:'#0855',name:'Deepak Singh',phone:'9711000855',status:'active',loc:'Kuvempunagar, Mysore',device:'RSM-178',ping:'1m ago',emergency:'Anita Singh (Spouse)',shift:'08:00–20:00',alerts:0,lat:12.2858,lon:76.6200,speed:32,signal:'-70dBm',battery:63},
       ],
       devices: [
         {id:'RSM-204',rider:'Rajan Mehta #1042',fw:'v2.4.1',batt:'78%',signal:'-68dBm',seen:'2m ago',status:'alert'},
@@ -221,9 +221,9 @@ function populateGpsLogs() {
   if (!gt) return;
 
   const GPS_LOGS = [
-    {ts:'14:31:45',dev:'RSM-155',rider:'Kavya Nair #0741',lat:'12.9716',lon:'77.5946',acc:'±3m',event:'TELEMETRY'},
-    {ts:'14:31:22',dev:'RSM-178',rider:'Deepak Singh #0855',lat:'19.0596',lon:'72.8295',acc:'±5m',event:'TELEMETRY'},
-    {ts:'14:30:58',dev:'RSM-196',rider:'Swati Reddy #0924',lat:'17.4435',lon:'78.3772',acc:'±4m',event:'TELEMETRY'},
+    {ts:'14:31:45',dev:'RSM-155',rider:'Kavya Nair #0741',lat:'12.3160',lon:'76.6530',acc:'±3m',event:'TELEMETRY'},
+    {ts:'14:31:22',dev:'RSM-178',rider:'Deepak Singh #0855',lat:'12.2858',lon:'76.6200',acc:'±5m',event:'TELEMETRY'},
+    {ts:'14:30:58',dev:'RSM-196',rider:'Swati Reddy #0924',lat:'12.2690',lon:'76.6450',acc:'±4m',event:'TELEMETRY'},
   ];
 
   appState.riders.forEach(r => {
@@ -355,8 +355,8 @@ function startLiveStream() {
       <div class="sv-item"><div class="sv-key">gyro_x</div><div class="sv-val ${isSpiking ? 'spike' : ''}">${streamVals.gx}°/s</div></div>
       <div class="sv-item"><div class="sv-key">gyro_y</div><div class="sv-val ${isSpiking ? 'spike' : ''}">${streamVals.gy}°/s</div></div>
       <div class="sv-item"><div class="sv-key">gyro_z</div><div class="sv-val ${isSpiking ? 'spike' : ''}">${streamVals.gz}°/s</div></div>
-      <div class="sv-item"><div class="sv-key">gps_lat</div><div class="sv-val">19.1136</div></div>
-      <div class="sv-item"><div class="sv-key">gps_lon</div><div class="sv-val">72.8697</div></div>
+      <div class="sv-item"><div class="sv-key">gps_lat</div><div class="sv-val">12.3243</div></div>
+      <div class="sv-item"><div class="sv-key">gps_lon</div><div class="sv-val">76.6273</div></div>
       <div class="sv-item"><div class="sv-key">battery</div><div class="sv-val" style="color:var(--green)">78%</div></div>
     `;
 
@@ -556,8 +556,8 @@ function populateWebhookSelect() {
     const devId = select.value;
     const device = appState.devices.find(d => d.id === devId);
     let rId = '1042';
-    let lat = 19.1136;
-    let lon = 72.8697;
+    let lat = 12.3243;
+    let lon = 76.6273;
     
     if (device) {
       const riderName = device.rider.split(' #')[0];
@@ -615,22 +615,22 @@ function saveRider() {
   if (!name || !phone || !emergency) return;
 
   const newId = '#' + (1000 + Math.floor(Math.random() * 9000));
-  const mumbaiLat = 19.0760 + (Math.random() * 0.08 - 0.04);
-  const mumbaiLon = 72.8777 + (Math.random() * 0.08 - 0.04);
+  const mysoreLat = 12.2958 + (Math.random() * 0.08 - 0.04);
+  const mysoreLon = 76.6394 + (Math.random() * 0.08 - 0.04);
 
   const newRider = {
     id: newId,
     name: name,
     phone: phone,
     status: 'active',
-    loc: 'Andheri West, Mumbai',
+    loc: 'Gokulam, Mysore',
     device: 'UNPROVISIONED',
     ping: 'Just now',
     emergency: emergency,
     shift: shift,
     alerts: 0,
-    lat: mumbaiLat,
-    lon: mumbaiLon,
+    lat: mysoreLat,
+    lon: mysoreLon,
     speed: 0,
     signal: 'N/A',
     battery: 100

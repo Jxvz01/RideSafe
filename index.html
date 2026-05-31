@@ -5,39 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RideSafe AI — Smart Bike Crash Detection & SOS Module</title>
 <meta name="description" content="RideSafe AI is an IoT-powered crash detection system that detects bike accidents in real-time using G-force sensors and dispatches emergency SOS alerts with GPS location to save lives.">
-<link rel="stylesheet" href="css/styles.css">
 <link rel="stylesheet" href="css/landing.css">
 </head>
 <body class="landing-page">
 
-<!-- PARTICLE BACKGROUND CANVAS -->
-<canvas id="particleCanvas"></canvas>
-
-<!-- CUSTOM DUAL CURSOR TRAIL -->
-<div class="custom-cursor-dot" id="cursorDot"></div>
-<div class="custom-cursor-circle" id="cursorCircle"></div>
-
-<!-- POINTER TELEMETRY HUD COCKPIT -->
-<div class="pointer-hud">
-  <div class="hud-title">Sensor HUD : Link Active</div>
-  <div>CURS_X: <span id="hud-x" style="color:var(--accent-cyan)">0px</span></div>
-  <div>CURS_Y: <span id="hud-y" style="color:var(--accent-cyan)">0px</span></div>
-  <div>VELOCITY: <span id="hud-v" style="color:var(--accent-green)">0.00px/f</span></div>
-  <div>ANGLE: <span id="hud-o" style="color:var(--accent-cyan)">0.0°</span></div>
-</div>
-
 <!-- NAVIGATION -->
-<nav class="nav" id="nav" style="border-bottom: 1px solid var(--border); background: rgba(5,7,10,0.8); backdrop-filter: blur(16px); position: fixed; top: 0; left: 0; right: 0; z-index: 1000; height: 72px; display: flex; align-items: center;">
+<nav class="nav" id="nav">
   <div class="nav-inner" style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center;">
-    <a href="index.html" class="interactive-hover" style="font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; letter-spacing: -0.02em; display: flex; align-items: center; gap: 10px;">
-      <div class="logo-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/></svg></div>
-      <span>RideSafe <span style="color:var(--accent-green)">AI</span></span>
+    <a href="index.html" style="font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; letter-spacing: -0.02em; display: flex; align-items: center; gap: 10px; text-decoration: none;">
+      <div style="background: var(--txt-primary); color: white; width: 28px; height: 28px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.95rem;">RS</div>
+      <span style="font-family: var(--font-display); font-weight: 800; color: var(--txt-primary);">RideSafe <span style="color: var(--accent-blue);">AI</span></span>
     </a>
-    <div style="display: flex; gap: 16px; align-items: center;">
-      <a href="#how-it-works" class="interactive-hover" style="font-size:0.8rem; color:var(--txt2); font-weight:500; transition:color 0.2s;">How It Works</a>
-      <a href="#tech" class="interactive-hover" style="font-size:0.8rem; color:var(--txt2); font-weight:500; transition:color 0.2s;">Tech</a>
-      <a href="#dashboard" class="interactive-hover" style="font-size:0.8rem; color:var(--txt2); font-weight:500; transition:color 0.2s;">Dashboard</a>
-      <a href="login.html" class="btn btn-outline btn-sm interactive-hover" style="border-radius:99px; font-weight:600;">Enter Platform</a>
+    <div style="display: flex; gap: 24px; align-items: center;">
+      <a href="#problem" style="font-size: 0.85rem; color: var(--txt-secondary); font-weight: 500; text-decoration: none; transition: color 0.2s;">The Challenge</a>
+      <a href="#hardware" style="font-size: 0.85rem; color: var(--txt-secondary); font-weight: 500; text-decoration: none; transition: color 0.2s;">Hardware</a>
+      <a href="#how-it-works" style="font-size: 0.85rem; color: var(--txt-secondary); font-weight: 500; text-decoration: none; transition: color 0.2s;">How It Works</a>
+      <a href="#simulator" style="font-size: 0.85rem; color: var(--txt-secondary); font-weight: 500; text-decoration: none; transition: color 0.2s;">Demo</a>
+      <a href="login.html" class="btn btn-outline btn-sm" style="border-radius: 99px; font-weight: 600;">Enter Platform</a>
     </div>
   </div>
 </nav>
@@ -51,61 +35,49 @@
 
     <!-- Hero Text -->
     <div style="flex: 1; min-width: 320px;">
-      <div class="hero-tagline">// GAMMA MODULE — CRASH DETECTION SYSTEM</div>
+      <div class="hero-tagline">GAMMA MODULE — CRASH DETECTION SYSTEM</div>
       <h1 class="hero-title-god">
         Every Second Counts.<span>We Make Them All Count.</span>
       </h1>
       <p class="hero-desc-god">
-        An IoT-powered crash detection system that senses high-impact collisions in real-time, triggers haptic alerts, and dispatches emergency SOS with GPS coordinates — all within 1.8 seconds.
+        An IoT-powered crash detection system that senses high-impact collisions in real-time and dispatches emergency SOS with GPS coordinates — all within 1.8 seconds.
       </p>
-      <div style="display: flex; gap: 16px; opacity:0; animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;">
-        <a href="login.html" class="btn btn-green btn-lg interactive-hover" style="background:var(--accent-green); color:#05070a; box-shadow:0 10px 30px rgba(0,255,136,0.25); border-radius:99px;">
+      <div style="display: flex; gap: 16px;">
+        <a href="login.html" class="btn btn-primary btn-lg">
           Launch Operations Center →
         </a>
-        <a href="#how-it-works" class="btn btn-outline btn-lg interactive-hover" style="border-radius:99px;">
+        <a href="#how-it-works" class="btn btn-outline btn-lg">
           See How It Works
         </a>
       </div>
 
-      <!-- Hero Animated Stats -->
+      <!-- Hero Stats -->
       <div class="hero-stats">
         <div class="hero-stat">
-          <span class="hero-stat-value" id="stat-time">0.0s</span>
+          <span class="hero-stat-value" id="stat-time">1.8s</span>
           <span class="hero-stat-label">SOS Response Time</span>
         </div>
         <div class="hero-stat">
-          <span class="hero-stat-value" id="stat-hz">0Hz</span>
+          <span class="hero-stat-value" id="stat-hz">60Hz</span>
           <span class="hero-stat-label">Sensor Sample Rate</span>
         </div>
         <div class="hero-stat">
-          <span class="hero-stat-value" id="stat-g">0.0G</span>
+          <span class="hero-stat-value" id="stat-g">4.5G</span>
           <span class="hero-stat-label">Impact Threshold</span>
         </div>
       </div>
     </div>
 
-    <!-- 3D Perspective Hero Card -->
-    <div class="hero-perspective-wrap">
-      <div class="hero-perspective-card" id="heroPerspectiveCard">
-        <div class="hero-image-frame">
-          <img src="images/ridesafe_telemetry_hero.png" alt="RideSafe Delivery Telemetry HUD illustration showing a delivery rider with real-time G-force monitoring and speed data" />
-          <div class="device-footer">
-            RS-ESP32-S3 CORE MODULE · ACTIVE 60Hz
-          </div>
-        </div>
-        <div class="hero-perspective-overlay">
-          <span class="dot dot-red" style="margin-top:2px;"></span>
-          <span>🚨 SOS OUTBOUND</span>
+    <!-- Hero Mockup Card -->
+    <div style="flex: 0 0 460px; display: flex; justify-content: center; align-items: center; max-width: 100%;">
+      <div class="hero-image-frame" style="width: 100%; max-width: 440px;">
+        <img src="images/ridesafe_telemetry_hero.png" alt="RideSafe Delivery Telemetry HUD illustration showing a delivery rider with real-time G-force monitoring and speed data" />
+        <div class="device-footer">
+          RS-ESP32-S3 CORE MODULE · ACTIVE 60Hz
         </div>
       </div>
     </div>
 
-  </div>
-
-  <!-- Scroll Indicator -->
-  <div class="scroll-indicator">
-    <span>Scroll to Explore</span>
-    <div class="scroll-indicator-bar"></div>
   </div>
 </section>
 
@@ -114,8 +86,8 @@
      ════════════════════════════════════════════════ -->
 <section class="problem-section" id="problem">
   <div class="container">
-    <div class="problem-header reveal">
-      <div class="section-tagline" style="color:var(--accent-red);">// THE PROBLEM WE'RE SOLVING</div>
+    <div class="problem-header">
+      <div class="section-tagline" style="color: var(--accent-red);">THE PROBLEM WE'RE SOLVING</div>
       <h2 class="section-title">The Silent Epidemic on Indian Roads</h2>
       <p class="section-desc">
         India accounts for 11% of global road fatalities. Most delivery riders lack any crash detection or emergency alert system. Minutes lost waiting for help cost lives.
@@ -123,24 +95,24 @@
     </div>
 
     <div class="problem-stats-grid">
-      <div class="problem-stat-card reveal reveal-delay-1">
+      <div class="problem-stat-card">
         <span class="stat-icon">💀</span>
-        <span class="stat-number red" data-target="168000" data-suffix="+">0</span>
+        <span class="stat-number red">168,000+</span>
         <p class="stat-description">Annual road fatalities in India — one life lost every 3 minutes</p>
       </div>
-      <div class="problem-stat-card reveal reveal-delay-2">
+      <div class="problem-stat-card">
         <span class="stat-icon">🛵</span>
-        <span class="stat-number amber" data-target="44" data-suffix="%">0</span>
+        <span class="stat-number amber">44%</span>
         <p class="stat-description">Of all road deaths are two-wheeler riders — the most vulnerable group</p>
       </div>
-      <div class="problem-stat-card reveal reveal-delay-3">
+      <div class="problem-stat-card">
         <span class="stat-icon">⏱️</span>
-        <span class="stat-number cyan" data-target="45" data-suffix=" min">0</span>
+        <span class="stat-number cyan">45 min</span>
         <p class="stat-description">Average emergency response time in urban India — the golden hour is lost</p>
       </div>
     </div>
 
-    <p class="problem-cta-line reveal">
+    <p class="problem-cta-line">
       <strong>RideSafe AI</strong> compresses the response loop from <strong>45 minutes to under 2 seconds</strong> — turning silent crashes into instant SOS dispatches.
     </p>
   </div>
@@ -151,8 +123,8 @@
      ════════════════════════════════════════════════ -->
 <section class="hardware-section" id="hardware">
   <div class="container">
-    <div style="text-align: center; margin-bottom: 80px;" class="reveal">
-      <div class="section-tagline" style="color:var(--accent-cyan);">// HARDWARE ENGINEERING</div>
+    <div style="text-align: center; margin-bottom: 60px;">
+      <div class="section-tagline" style="color: var(--accent-cyan);">HARDWARE ENGINEERING</div>
       <h2 class="section-title">The Module That Saves Lives</h2>
       <p class="section-desc">
         A compact ESP32-based IoT sensor module integrating accelerometer, gyroscope, GPS, and cellular connectivity — engineered to detect and respond in milliseconds.
@@ -160,26 +132,25 @@
     </div>
 
     <div class="hardware-grid">
-      <div class="hardware-image-wrap reveal">
-        <div class="hardware-image-card" id="hardwareCard">
+      <div style="display: flex; justify-content: center;">
+        <div class="hardware-image-card" style="width: 100%; max-width: 440px;">
           <img src="images/esp32_hardware_module.png" alt="ESP32 crash detection IoT module mounted inside a motorcycle helmet with green LED indicators and sensor chips" />
         </div>
       </div>
 
-      <div class="reveal reveal-delay-2">
-        <div class="section-tagline" style="color:var(--accent-green); margin-bottom:16px;">// CORE SPECIFICATIONS</div>
-        <h3 style="font-family:var(--font-display); font-size:1.4rem; font-weight:800; margin-bottom:8px;">ESP32-S3 Crash Sensor Module</h3>
-        <p style="color:var(--txt2); font-size:0.88rem; line-height:1.7; margin-bottom:28px;">
+      <div>
+        <div class="section-tagline" style="color: var(--accent-blue); margin-bottom: 16px;">CORE SPECIFICATIONS</div>
+        <h3 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; color: var(--txt-primary); margin-bottom: 12px;">ESP32-S3 Crash Sensor Module</h3>
+        <p style="color: var(--txt-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;">
           Helmet-mounted hardware with continuous 60Hz telemetry acquisition, real-time G-force analysis, and Twilio-powered emergency dispatch capability.
         </p>
 
         <div class="spec-badges">
-          <div class="spec-badge"><span class="spec-badge-icon">🧠</span> ESP32-S3 MCU</div>
-          <div class="spec-badge"><span class="spec-badge-icon">📐</span> MPU6050 IMU</div>
-          <div class="spec-badge"><span class="spec-badge-icon">📡</span> GPS NEO-6M</div>
-          <div class="spec-badge"><span class="spec-badge-icon">🔊</span> Piezo Buzzer</div>
-          <div class="spec-badge"><span class="spec-badge-icon">📶</span> WiFi 802.11</div>
-          <div class="spec-badge"><span class="spec-badge-icon">⚡</span> 3.7V LiPo</div>
+          <div class="spec-badge">🧠 ESP32-S3 MCU</div>
+          <div class="spec-badge">📐 MPU6050 IMU</div>
+          <div class="spec-badge">📡 GPS NEO-6M</div>
+          <div class="spec-badge">📶 WiFi Core</div>
+          <div class="spec-badge">⚡ 3.7V LiPo</div>
         </div>
 
         <div class="hw-features">
@@ -188,11 +159,11 @@
             <div class="hw-feature-text"><strong>60Hz sampling rate</strong> — Continuous accelerometer + gyroscope data collection for precise impact detection</div>
           </div>
           <div class="hw-feature">
-            <div class="hw-feature-dot" style="background:var(--accent-green);box-shadow:0 0 12px rgba(0,255,136,0.5);"></div>
+            <div class="hw-feature-dot" style="background: var(--accent-green);"></div>
             <div class="hw-feature-text"><strong>4.5G threshold trigger</strong> — AI-calibrated impact detection with false positive suppression algorithm</div>
           </div>
           <div class="hw-feature">
-            <div class="hw-feature-dot" style="background:var(--accent-red);box-shadow:0 0 12px rgba(255,51,102,0.5);"></div>
+            <div class="hw-feature-dot" style="background: var(--accent-red);"></div>
             <div class="hw-feature-text"><strong>30-second cancel window</strong> — Haptic buzzer gives riders time to cancel false alarms before SOS triggers</div>
           </div>
         </div>
@@ -206,91 +177,72 @@
      ════════════════════════════════════════════════ -->
 <section class="timeline-section" id="how-it-works">
   <div class="container">
-    <div style="text-align: center; margin-bottom: 80px;" class="reveal">
-      <div class="section-tagline" style="color:var(--accent-cyan)">// ACCIDENT LIFE CYCLE CONTROL</div>
+    <div style="text-align: center; margin-bottom: 60px;">
+      <div class="section-tagline" style="color: var(--accent-cyan)">ACCIDENT LIFE CYCLE CONTROL</div>
       <h2 class="section-title">Chronology of a Saved Life</h2>
       <p class="section-desc">
         From impact detection to emergency dispatch — every microsecond is engineered to save a life. Here's how it works.
       </p>
     </div>
 
-    <div style="position: relative; max-width: 880px; margin: 0 auto;">
-      <!-- Timeline Center Line -->
-      <div class="timeline-line"></div>
-      <div class="timeline-line-glow" id="timelineGlow"></div>
-
+    <div style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px;">
       <!-- Step 1 -->
-      <div class="timeline-card-wrap">
-        <div class="timeline-card" id="step1Card">
-          <div class="timeline-num">STEP 01 // ACCELERATION WAVEFORM</div>
-          <div class="timeline-title">Continuous 60Hz Sensor Spark</div>
-          <div class="timeline-desc">
-            The ESP32 haptic on-vehicle module samples acceleration and angular velocity constantly at 60Hz, building a real-time telemetry baseline for anomaly detection.
-          </div>
+      <div class="timeline-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+          <div class="timeline-num">STEP 01 // ACCELERATION baseline</div>
+          <div style="font-family: var(--font-mono); color: var(--accent-blue); font-size: 0.85rem; font-weight: 700;">0.00s (Monitoring)</div>
         </div>
-        <div class="timeline-meta" id="step1Meta">
-          <span style="font-family:var(--font-mono); color:var(--accent-cyan); font-size:1.3rem; font-weight:700;">0.00s</span>
-          <div style="font-size:0.7rem; color:var(--txt3); text-transform:uppercase; margin-top:4px;">Baseline Monitoring</div>
+        <div class="timeline-title">Continuous 60Hz Sensor Spark</div>
+        <div class="timeline-desc">
+          The ESP32 haptic on-vehicle module samples acceleration and angular velocity constantly at 60Hz, building a real-time telemetry baseline for anomaly detection.
         </div>
       </div>
 
       <!-- Step 2 -->
-      <div class="timeline-card-wrap">
-        <div class="timeline-card" id="step2Card">
-          <div class="timeline-num" style="color:var(--accent-red)">STEP 02 // G-FORCE SHOCKWAVE</div>
-          <div class="timeline-title" style="color:var(--accent-red)">Impact Threshold Exceeded</div>
-          <div class="timeline-desc">
-            A sudden collision triggers a deceleration coefficient exceeding 4.5G on the MPU6050 sensor. The combined X/Y/Z vector spike immediately flags a crash event.
-          </div>
+      <div class="timeline-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+          <div class="timeline-num" style="color: var(--accent-red)">STEP 02 // G-FORCE SHOCKWAVE</div>
+          <div style="font-family: var(--font-mono); color: var(--accent-red); font-size: 0.85rem; font-weight: 700;">+0.04s (Crash Event)</div>
         </div>
-        <div class="timeline-meta" id="step2Meta">
-          <span style="font-family:var(--font-mono); color:var(--accent-red); font-size:1.3rem; font-weight:700;">+0.04s</span>
-          <div style="font-size:0.7rem; color:var(--txt3); text-transform:uppercase; margin-top:4px;">Threshold Violated</div>
+        <div class="timeline-title" style="color: var(--accent-red)">Impact Threshold Exceeded</div>
+        <div class="timeline-desc">
+          A sudden collision triggers a deceleration coefficient exceeding 4.5G on the MPU6050 sensor. The combined X/Y/Z vector spike immediately flags a crash event.
         </div>
       </div>
 
       <!-- Step 3 -->
-      <div class="timeline-card-wrap">
-        <div class="timeline-card" id="step3Card">
+      <div class="timeline-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
           <div class="timeline-num">STEP 03 // DEVICE SHIELD</div>
-          <div class="timeline-title">30-Second Haptic Override Timer</div>
-          <div class="timeline-desc">
-            The hardware buzzer triggers on-helmet alert signals, initializing a 30-second countdown. If the rider presses the override button, the alarm is cancelled as a false positive.
-          </div>
+          <div style="font-family: var(--font-mono); color: var(--accent-blue); font-size: 0.85rem; font-weight: 700;">+0.12s (Verification)</div>
         </div>
-        <div class="timeline-meta" id="step3Meta">
-          <span style="font-family:var(--font-mono); color:var(--accent-cyan); font-size:1.3rem; font-weight:700;">+0.12s</span>
-          <div style="font-size:0.7rem; color:var(--txt3); text-transform:uppercase; margin-top:4px;">Haptic Warning Loop</div>
+        <div class="timeline-title">30-Second Haptic Override Timer</div>
+        <div class="timeline-desc">
+          The hardware buzzer triggers on-helmet alert signals, initializing a 30-second countdown. If the rider presses the override button, the alarm is cancelled as a false positive.
         </div>
       </div>
 
       <!-- Step 4 -->
-      <div class="timeline-card-wrap">
-        <div class="timeline-card" id="step4Card">
-          <div class="timeline-num" style="color:var(--accent-green)">STEP 04 // PROGRAMMATIC SMS</div>
-          <div class="timeline-title">Twilio Emergency SOS Dispatch</div>
-          <div class="timeline-desc">
-            If the override expires, the crash broker activates the Twilio SMS gateway, dispatching an emergency message with live Google Maps GPS coordinates to all registered emergency contacts.
-          </div>
+      <div class="timeline-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+          <div class="timeline-num" style="color: var(--accent-green)">STEP 04 // PROGRAMMATIC SMS</div>
+          <div style="font-family: var(--font-mono); color: var(--accent-green); font-size: 0.85rem; font-weight: 700;">+1.40s (SOS Dispatch)</div>
         </div>
-        <div class="timeline-meta" id="step4Meta">
-          <span style="font-family:var(--font-mono); color:var(--accent-green); font-size:1.3rem; font-weight:700;">+1.40s</span>
-          <div style="font-size:0.7rem; color:var(--txt3); text-transform:uppercase; margin-top:4px;">Emergency Broadcast</div>
+        <div class="timeline-title">Twilio Emergency SOS Dispatch</div>
+        <div class="timeline-desc">
+          If the override expires, the crash broker activates the Twilio SMS gateway, dispatching an emergency message with live Google Maps GPS coordinates to all registered emergency contacts.
         </div>
       </div>
 
       <!-- Step 5 -->
-      <div class="timeline-card-wrap">
-        <div class="timeline-card" id="step5Card">
+      <div class="timeline-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
           <div class="timeline-num">STEP 05 // CONTROL DESK</div>
-          <div class="timeline-title">Fleet Admin Rescue Routing</div>
-          <div class="timeline-desc">
-            The centralized operations center receives the crash alert, displays it on the live Leaflet map, triggers desktop notifications, and enables the admin to coordinate rescue operations in real-time.
-          </div>
+          <div style="font-family: var(--font-mono); color: var(--accent-blue); font-size: 0.85rem; font-weight: 700;">+1.85s (Operations Center)</div>
         </div>
-        <div class="timeline-meta" id="step5Meta">
-          <span style="font-family:var(--font-mono); color:var(--accent-cyan); font-size:1.3rem; font-weight:700;">+1.85s</span>
-          <div style="font-size:0.7rem; color:var(--txt3); text-transform:uppercase; margin-top:4px;">Fleet Desk Active</div>
+        <div class="timeline-title">Fleet Admin Rescue Routing</div>
+        <div class="timeline-desc">
+          The centralized operations center receives the crash alert, displays it on the live map, triggers desktop notifications, and enables the admin to coordinate rescue operations in real-time.
         </div>
       </div>
 
@@ -299,38 +251,37 @@
 </section>
 
 <!-- ════════════════════════════════════════════════
-     CRASH IMPACT VISUAL — DRAMATIC SECTION
+     CRASH IMPACT VISUAL — CONCISE SECTION
      ════════════════════════════════════════════════ -->
-<section style="padding:100px 0; position:relative; z-index:1; overflow:hidden;">
-  <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,51,102,0.2),transparent);"></div>
+<section style="padding: 80px 0; background-color: var(--bg-secondary);">
   <div class="container">
-    <div class="reveal" style="display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 60px; align-items: center;">
       <div>
-        <div class="section-tagline" style="color:var(--accent-red); margin-bottom:16px;">// IMPACT DETECTION ENGINE</div>
-        <h2 style="font-family:var(--font-display); font-size:clamp(1.8rem,3.5vw,2.6rem); font-weight:800; margin-bottom:20px; line-height:1.1;">
-          Millisecond Precision.<br><span style="color:var(--accent-red);">Zero Missed Impacts.</span>
+        <div class="section-tagline" style="color: var(--accent-red); margin-bottom: 16px;">IMPACT DETECTION ENGINE</div>
+        <h2 style="font-family: var(--font-display); font-size: 2rem; font-weight: 800; color: var(--txt-primary); margin-bottom: 16px; line-height: 1.2;">
+          Millisecond Precision.<br><span style="color: var(--accent-red);">Zero Missed Impacts.</span>
         </h2>
-        <p style="color:var(--txt2); font-size:0.92rem; line-height:1.7; margin-bottom:28px;">
+        <p style="color: var(--txt-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;">
           The MPU6050 accelerometer captures 3-axis acceleration data at 60 samples per second. Our algorithm calculates the combined G-force vector magnitude and triggers when it exceeds the calibrated 4.5G threshold — distinguishing real crashes from speed bumps and potholes.
         </p>
-        <div style="display:flex; gap:24px; flex-wrap:wrap;">
-          <div style="background:rgba(255,51,102,0.06); border:1px solid rgba(255,51,102,0.12); border-radius:16px; padding:20px 24px; flex:1; min-width:140px;">
-            <div style="font-family:var(--font-display); font-size:1.6rem; font-weight:800; color:var(--accent-red);">4.5G</div>
-            <div style="font-family:var(--font-mono); font-size:0.62rem; color:var(--txt3); text-transform:uppercase; margin-top:4px;">Crash Threshold</div>
+        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+          <div style="background: var(--bg-tertiary); border: 1px solid var(--border-light); border-radius: 12px; padding: 16px 20px; flex: 1; min-width: 130px; text-align: center;">
+            <div style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; color: var(--accent-red);">4.5G</div>
+            <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--txt-muted); text-transform: uppercase; margin-top: 4px;">Crash Threshold</div>
           </div>
-          <div style="background:rgba(0,200,248,0.06); border:1px solid rgba(0,200,248,0.12); border-radius:16px; padding:20px 24px; flex:1; min-width:140px;">
-            <div style="font-family:var(--font-display); font-size:1.6rem; font-weight:800; color:var(--accent-cyan);">3-Axis</div>
-            <div style="font-family:var(--font-mono); font-size:0.62rem; color:var(--txt3); text-transform:uppercase; margin-top:4px;">Vector Analysis</div>
+          <div style="background: var(--bg-tertiary); border: 1px solid var(--border-light); border-radius: 12px; padding: 16px 20px; flex: 1; min-width: 130px; text-align: center;">
+            <div style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; color: var(--accent-blue);">3-Axis</div>
+            <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--txt-muted); text-transform: uppercase; margin-top: 4px;">Vector Analysis</div>
           </div>
-          <div style="background:rgba(0,255,136,0.06); border:1px solid rgba(0,255,136,0.12); border-radius:16px; padding:20px 24px; flex:1; min-width:140px;">
-            <div style="font-family:var(--font-display); font-size:1.6rem; font-weight:800; color:var(--accent-green);"><1%</div>
-            <div style="font-family:var(--font-mono); font-size:0.62rem; color:var(--txt3); text-transform:uppercase; margin-top:4px;">False Positive Rate</div>
+          <div style="background: var(--bg-tertiary); border: 1px solid var(--border-light); border-radius: 12px; padding: 16px 20px; flex: 1; min-width: 130px; text-align: center;">
+            <div style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; color: var(--accent-green);">&lt;1%</div>
+            <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--txt-muted); text-transform: uppercase; margin-top: 4px;">False Positives</div>
           </div>
         </div>
       </div>
-      <div style="display:flex; justify-content:center;">
-        <div style="background:var(--carbon-card); border:1px solid var(--carbon-border); border-radius:24px; padding:12px; box-shadow:0 40px 100px rgba(0,0,0,0.6), 0 0 60px rgba(255,51,102,0.04); overflow:hidden;">
-          <img src="images/crash_impact_visual.png" alt="Dramatic visualization of motorcycle crash impact with G-force shockwave data overlay" style="width:100%; border-radius:16px;" />
+      <div style="display: flex; justify-content: center;">
+        <div class="hardware-image-card" style="width: 100%; max-width: 440px;">
+          <img src="images/crash_impact_visual.png" alt="Dramatic visualization of motorcycle crash impact with G-force shockwave data overlay" />
         </div>
       </div>
     </div>
@@ -342,8 +293,8 @@
      ════════════════════════════════════════════════ -->
 <section class="tech-section" id="tech">
   <div class="container">
-    <div style="text-align: center; margin-bottom: 80px;" class="reveal">
-      <div class="section-tagline" style="color:#a78bfa;">// TECHNOLOGY STACK</div>
+    <div style="text-align: center; margin-bottom: 60px;">
+      <div class="section-tagline" style="color: var(--accent-blue);">TECHNOLOGY STACK</div>
       <h2 class="section-title">Built With Precision</h2>
       <p class="section-desc">
         Every component chosen for reliability, speed, and seamless integration — from sensor hardware to cloud services.
@@ -351,34 +302,34 @@
     </div>
 
     <div class="tech-grid">
-      <div class="tech-card reveal reveal-delay-1">
+      <div class="tech-card">
         <span class="tech-icon">🧠</span>
         <div class="tech-name">ESP32-S3</div>
         <div class="tech-role">Dual-core MCU for real-time sensor processing and WiFi connectivity</div>
       </div>
-      <div class="tech-card reveal reveal-delay-2">
+      <div class="tech-card">
         <span class="tech-icon">📐</span>
         <div class="tech-name">MPU6050</div>
         <div class="tech-role">6-axis IMU — 3-axis accelerometer + 3-axis gyroscope at 60Hz</div>
       </div>
-      <div class="tech-card reveal reveal-delay-3">
+      <div class="tech-card">
         <span class="tech-icon">📡</span>
         <div class="tech-name">GPS NEO-6M</div>
         <div class="tech-role">Satellite positioning for precise crash location coordinates</div>
       </div>
-      <div class="tech-card reveal reveal-delay-1">
+      <div class="tech-card">
         <span class="tech-icon">💬</span>
         <div class="tech-name">Twilio SMS</div>
         <div class="tech-role">Programmable SMS gateway for instant emergency SOS dispatch</div>
       </div>
-      <div class="tech-card reveal reveal-delay-2">
+      <div class="tech-card">
         <span class="tech-icon">🗺️</span>
         <div class="tech-name">Leaflet.js</div>
         <div class="tech-role">Interactive fleet map visualization with real-time rider tracking</div>
       </div>
-      <div class="tech-card reveal reveal-delay-3">
+      <div class="tech-card">
         <span class="tech-icon">🌐</span>
-        <div class="tech-name">Google Maps API</div>
+        <div class="tech-name">Google Maps</div>
         <div class="tech-role">GPS coordinate link generation for emergency contact messages</div>
       </div>
     </div>
@@ -390,46 +341,33 @@
      ════════════════════════════════════════════════ -->
 <section class="cockpit-section" id="simulator">
   <div class="container">
-    <div style="text-align:center; margin-bottom:56px;" class="reveal">
-      <div class="section-tagline" style="color:var(--accent-green);">// INTERACTIVE DEMO</div>
+    <div style="text-align: center; margin-bottom: 50px;">
+      <div class="section-tagline" style="color: var(--accent-green);">INTERACTIVE DEMO</div>
       <h2 class="section-title">Experience a Crash Event</h2>
       <p class="section-desc">
-        Click the button below to simulate a real crash impact — watch the accelerometer spike, hear the alert buzzer, and see the Twilio SMS response in real-time.
+        Click the button below to simulate a high-G crash impact — witness the automated telemetry log and the instant emergency SOS trigger sequence.
       </p>
     </div>
 
-    <div class="cockpit-widget reveal">
+    <div class="cockpit-widget">
       <div class="cockpit-header">
         <div>
-          <div class="hero-tagline" style="margin-bottom:6px; color:var(--accent-green); animation:none; opacity:1;">// INTERACTIVE SECURE HARDWARE COCKPIT</div>
-          <h3 style="font-family:var(--font-display); font-size:1.35rem; font-weight:800; margin:0;">IoT Signal Interrupt Simulator</h3>
+          <div class="hero-tagline" style="margin-bottom: 6px; color: var(--accent-green);">SECURE HARDWARE COCKPIT</div>
+          <h3 style="font-family: var(--font-display); font-size: 1.35rem; font-weight: 800; color: var(--txt-primary); margin: 0;">IoT Signal Interrupt Simulator</h3>
         </div>
-        <button class="cockpit-trigger-btn interactive-hover" onclick="triggerSimulatedImpact()">
+        <button class="cockpit-trigger-btn" onclick="triggerSimulatedImpact()">
           Simulate G-Force Impact ⚡
         </button>
       </div>
 
       <div class="cockpit-grid">
-        <!-- Live wave canvas -->
-        <div style="display:flex; flex-direction:column; gap:12px;">
-          <div style="font-family:var(--font-mono); font-size:0.68rem; color:var(--txt3); text-transform:uppercase; display:flex; justify-content:space-between; align-items:center; padding: 0 4px;">
-            <span>📡 RS-ESP32 Accelerometer Visualizer</span>
-            <span style="color:var(--accent-green)" id="sim-status">SYSTEM STABLE · 60HZ</span>
-          </div>
-          <div class="cockpit-canvas-box" id="cockpitCanvasContainer">
-            <canvas id="cockpitCanvas" style="width:100%; height:100%; display:block;"></canvas>
-          </div>
-        </div>
-
         <!-- Terminal log outputs -->
-        <div style="display:flex; flex-direction:column; gap:12px;">
-          <div style="font-family:var(--font-mono); font-size:0.68rem; color:var(--txt3); text-transform:uppercase; display:flex; justify-content:space-between; align-items:center; padding:0 4px;">
-            <span>// Sandboxed Twilio SMS Response Console</span>
-            <span style="color:var(--accent-cyan)">NOMINAL LINK</span>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--txt-muted); text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; padding: 0 4px;">
+            <span>Sandboxed Twilio SOS Response Console</span>
+            <span style="color: var(--accent-cyan); font-weight: 600;" id="sim-status">SYSTEM READY · PORT 8000</span>
           </div>
-          <div class="cockpit-terminal" id="cockpitTerminal">
-            <div style="color:var(--txt3)">// Click 'Simulate G-Force Impact' above to trigger haptic alarms, screenshake, audio synths, and Twilio JSON responses...</div>
-          </div>
+          <div class="cockpit-terminal" id="cockpitTerminal">// Click 'Simulate G-Force Impact' above to trigger safety protocol dispatches, haptic verification alerts, and Twilio emergency JSON responses...</div>
         </div>
       </div>
     </div>
@@ -442,36 +380,36 @@
 <section class="sms-section" id="sms">
   <div class="container">
     <div class="sms-grid">
-      <div class="phone-mockup-wrap reveal">
-        <div class="phone-mockup">
+      <div style="display: flex; justify-content: center;">
+        <div class="phone-mockup" style="width: 100%; max-width: 320px;">
           <img src="images/sos_phone_notification.png" alt="Smartphone showing emergency SOS text message notification with accident location and Google Maps link" />
         </div>
       </div>
 
-      <div class="sms-content reveal reveal-delay-2">
-        <div class="section-tagline" style="color:var(--accent-red); margin-bottom:16px;">// EMERGENCY SOS MESSAGE</div>
+      <div class="sms-content">
+        <div class="section-tagline" style="color: var(--accent-red); margin-bottom: 16px;">EMERGENCY SOS MESSAGE</div>
         <h3>What Your Family Receives</h3>
-        <p style="color:var(--txt2); font-size:0.88rem; line-height:1.7; margin-bottom:32px;">
+        <p style="color: var(--txt-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;">
           When a real crash is detected and the 30-second override expires, an SMS is instantly dispatched to all registered emergency contacts with precise location data.
         </p>
 
         <div class="sms-features">
           <div class="sms-feature">
-            <div class="sms-feature-icon red">📍</div>
+            <div class="sms-feature-icon">📍</div>
             <div class="sms-feature-text">
               <h4>Live GPS Coordinates</h4>
               <p>Exact crash location embedded as a clickable Google Maps link for immediate navigation</p>
             </div>
           </div>
           <div class="sms-feature">
-            <div class="sms-feature-icon green">👨‍👩‍👦</div>
+            <div class="sms-feature-icon">👨‍👩‍👦</div>
             <div class="sms-feature-text">
               <h4>Multi-Contact Dispatch</h4>
-              <p>Simultaneously alerts mother, father, and fleet manager — configurable per rider profile</p>
+              <p>Simultaneously alerts family members and the fleet manager per rider profile</p>
             </div>
           </div>
           <div class="sms-feature">
-            <div class="sms-feature-icon cyan">⚡</div>
+            <div class="sms-feature-icon">⚡</div>
             <div class="sms-feature-text">
               <h4>Sub-2 Second Delivery</h4>
               <p>Twilio programmable SMS ensures delivery within 312ms of trigger activation</p>
@@ -488,16 +426,16 @@
      ════════════════════════════════════════════════ -->
 <section class="dashboard-section" id="dashboard">
   <div class="container">
-    <div style="text-align:center;" class="reveal">
-      <div class="section-tagline" style="color:var(--accent-cyan);">// FLEET OPERATIONS CENTER</div>
+    <div style="text-align: center;">
+      <div class="section-tagline" style="color: var(--accent-cyan);">FLEET OPERATIONS CENTER</div>
       <h2 class="section-title">Command Your Fleet in Real-Time</h2>
       <p class="section-desc">
         A centralized operations dashboard with live rider tracking, crash alerts, telemetry data, and rescue coordination — everything a fleet manager needs at a glance.
       </p>
     </div>
 
-    <div class="dashboard-image-wrap reveal reveal-delay-2">
-      <div class="dashboard-image-card" id="dashboardCard">
+    <div class="dashboard-image-wrap">
+      <div class="dashboard-image-card">
         <img src="images/fleet_dashboard_monitor.png" alt="RideSafe fleet operations center dashboard showing live map with rider markers, telemetry graphs, and crash alert notifications" />
       </div>
     </div>
@@ -509,16 +447,14 @@
      ════════════════════════════════════════════════ -->
 <section class="team-section">
   <div class="container">
-    <div class="reveal">
-      <div class="team-badge">
-        <span class="team-badge-dot"></span>
-        PROJECT GAMMA · ACTIVE DEVELOPMENT
-      </div>
-      <h2 class="team-title">Built for the Road Ahead</h2>
-      <p class="team-desc">
-        RideSafe AI is an open innovation project designed to protect delivery riders and gig workers across India — because every life on the road matters.
-      </p>
+    <div class="team-badge">
+      <span class="team-badge-dot"></span>
+      PROJECT GAMMA · ACTIVE DEVELOPMENT
     </div>
+    <h2 class="team-title">Built for the Road Ahead</h2>
+    <p class="team-desc">
+      RideSafe AI is an open innovation project designed to protect delivery riders and gig workers across India — because every life on the road matters.
+    </p>
   </div>
 </section>
 
@@ -526,12 +462,12 @@
      FINAL CTA BANNER
      ════════════════════════════════════════════════ -->
 <section class="cta-banner">
-  <div class="container reveal">
+  <div class="container">
     <h2 class="cta-title">Ready to Make Roads <span>Safer</span>?</h2>
     <p class="cta-desc">
       Enter the operations center to explore the live fleet dashboard, manage rider profiles, and monitor crash events in real-time.
     </p>
-    <a href="login.html" class="btn btn-green btn-xl interactive-hover" style="background:var(--accent-green); color:#05070a; box-shadow:0 10px 40px rgba(0,255,136,0.3); border-radius:99px;">
+    <a href="login.html" class="btn btn-green btn-lg" style="padding: 14px 36px; font-size: 1rem;">
       Launch Operations Center →
     </a>
   </div>
@@ -549,315 +485,9 @@
 </footer>
 
 <!-- ════════════════════════════════════════════════
-     SCRIPTS — ANIMATIONS, CURSOR, SIMULATOR, PARTICLES
+     SCRIPTS
      ════════════════════════════════════════════════ -->
 <script>
-// ── PARTICLE FIELD BACKGROUND ────────────────────────────────────
-const particleCanvas = document.getElementById('particleCanvas');
-const pCtx = particleCanvas.getContext('2d');
-let particles = [];
-const PARTICLE_COUNT = 60;
-
-function initParticles() {
-  const dpr = window.devicePixelRatio || 1;
-  particleCanvas.width = window.innerWidth * dpr;
-  particleCanvas.height = window.innerHeight * dpr;
-  pCtx.scale(dpr, dpr);
-  particleCanvas.style.width = window.innerWidth + 'px';
-  particleCanvas.style.height = window.innerHeight + 'px';
-
-  particles = [];
-  for (let i = 0; i < PARTICLE_COUNT; i++) {
-    particles.push({
-      x: Math.random() * window.innerWidth,
-      y: Math.random() * window.innerHeight,
-      vx: (Math.random() - 0.5) * 0.3,
-      vy: (Math.random() - 0.5) * 0.3,
-      size: Math.random() * 1.5 + 0.5,
-      alpha: Math.random() * 0.3 + 0.1
-    });
-  }
-}
-
-function drawParticles() {
-  pCtx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-
-  particles.forEach((p, i) => {
-    p.x += p.vx;
-    p.y += p.vy;
-
-    if (p.x < 0) p.x = window.innerWidth;
-    if (p.x > window.innerWidth) p.x = 0;
-    if (p.y < 0) p.y = window.innerHeight;
-    if (p.y > window.innerHeight) p.y = 0;
-
-    pCtx.beginPath();
-    pCtx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-    pCtx.fillStyle = `rgba(0, 200, 248, ${p.alpha})`;
-    pCtx.fill();
-
-    // Draw connections
-    for (let j = i + 1; j < particles.length; j++) {
-      const dx = particles[j].x - p.x;
-      const dy = particles[j].y - p.y;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < 150) {
-        pCtx.beginPath();
-        pCtx.moveTo(p.x, p.y);
-        pCtx.lineTo(particles[j].x, particles[j].y);
-        pCtx.strokeStyle = `rgba(0, 200, 248, ${0.04 * (1 - dist / 150)})`;
-        pCtx.lineWidth = 0.5;
-        pCtx.stroke();
-      }
-    }
-  });
-
-  requestAnimationFrame(drawParticles);
-}
-
-initParticles();
-drawParticles();
-window.addEventListener('resize', initParticles);
-
-// ── CUSTOM CURSOR PHYSICS & LERP ──────────────────────────────────
-const cursorDot = document.getElementById('cursorDot');
-const cursorCircle = document.getElementById('cursorCircle');
-const hudX = document.getElementById('hud-x');
-const hudY = document.getElementById('hud-y');
-const hudV = document.getElementById('hud-v');
-const hudO = document.getElementById('hud-o');
-
-let mouseX = window.innerWidth / 2;
-let mouseY = window.innerHeight / 2;
-let cursorCircleX = window.innerWidth / 2;
-let cursorCircleY = window.innerHeight / 2;
-let lastMouseX = mouseX;
-let lastMouseY = mouseY;
-let velocity = 0;
-
-window.addEventListener('mousemove', (e) => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-  cursorDot.style.left = mouseX + 'px';
-  cursorDot.style.top = mouseY + 'px';
-});
-
-function updateCursor() {
-  const dx = mouseX - cursorCircleX;
-  const dy = mouseY - cursorCircleY;
-
-  cursorCircleX += dx * 0.14;
-  cursorCircleY += dy * 0.14;
-
-  cursorCircle.style.left = cursorCircleX + 'px';
-  cursorCircle.style.top = cursorCircleY + 'px';
-
-  const vdx = mouseX - lastMouseX;
-  const vdy = mouseY - lastMouseY;
-  const currentVelocity = Math.sqrt(vdx * vdx + vdy * vdy);
-  velocity += (currentVelocity - velocity) * 0.1;
-
-  let angle = Math.atan2(vdy, vdx) * (180 / Math.PI);
-  if (angle < 0) angle += 360;
-
-  if (hudX) hudX.textContent = Math.round(mouseX) + 'px';
-  if (hudY) hudY.textContent = Math.round(mouseY) + 'px';
-  if (hudV) hudV.textContent = velocity.toFixed(2) + 'px/f';
-  if (hudO) hudO.textContent = Math.round(angle) + '°';
-
-  lastMouseX = mouseX;
-  lastMouseY = mouseY;
-
-  requestAnimationFrame(updateCursor);
-}
-requestAnimationFrame(updateCursor);
-
-// Cursor interaction states
-document.querySelectorAll('.interactive-hover').forEach(el => {
-  el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hovering'));
-  el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hovering'));
-  el.addEventListener('mousedown', () => document.body.classList.add('cursor-clicking'));
-  el.addEventListener('mouseup', () => document.body.classList.remove('cursor-clicking'));
-});
-
-// ── 3D VISUAL TILT EFFECTS ──────────────────────────────────────────
-function addTiltEffect(elementId) {
-  const card = document.getElementById(elementId);
-  if (!card) return;
-  card.addEventListener('mousemove', (e) => {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left - (rect.width / 2);
-    const y = e.clientY - rect.top - (rect.height / 2);
-    const tiltX = (y / (rect.height / 2)) * -8;
-    const tiltY = (x / (rect.width / 2)) * 8;
-    card.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.02)`;
-  });
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
-  });
-}
-addTiltEffect('heroPerspectiveCard');
-addTiltEffect('hardwareCard');
-
-// ── ANIMATED HERO STATS COUNTER ─────────────────────────────────────
-function animateCounter(el, target, suffix, duration) {
-  const start = performance.now();
-  const isDecimal = target % 1 !== 0;
-
-  function tick(now) {
-    const elapsed = now - start;
-    const progress = Math.min(elapsed / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 4); // ease-out quart
-    const current = isDecimal ? (eased * target).toFixed(1) : Math.round(eased * target);
-    el.textContent = current + suffix;
-    if (progress < 1) requestAnimationFrame(tick);
-  }
-  requestAnimationFrame(tick);
-}
-
-// Trigger hero stat animations after page load
-setTimeout(() => {
-  animateCounter(document.getElementById('stat-time'), 1.8, 's', 2000);
-  animateCounter(document.getElementById('stat-hz'), 60, 'Hz', 2200);
-  animateCounter(document.getElementById('stat-g'), 4.5, 'G', 2400);
-}, 1200);
-
-// ── SCROLL REVEAL INTERSECTION OBSERVER ─────────────────────────────
-const revealOptions = { threshold: 0.12, rootMargin: '0px 0px -40px 0px' };
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('in-view');
-    }
-  });
-}, revealOptions);
-
-document.querySelectorAll('.reveal, .timeline-card, .timeline-meta, .problem-stat-card, .tech-card').forEach(el => {
-  revealObserver.observe(el);
-});
-
-// ── ANIMATED STAT COUNTERS (Problem Section) ────────────────────────
-const statObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const numEl = entry.target.querySelector('.stat-number');
-      if (numEl && !numEl.dataset.animated) {
-        numEl.dataset.animated = 'true';
-        const target = parseInt(numEl.dataset.target);
-        const suffix = numEl.dataset.suffix || '';
-        animateCounter(numEl, target, suffix, 2000);
-      }
-    }
-  });
-}, { threshold: 0.3 });
-
-document.querySelectorAll('.problem-stat-card').forEach(el => {
-  statObserver.observe(el);
-});
-
-// ── PARALLAX TIMELINE CONNECTOR GLOW ────────────────────────────────
-const timelineGlow = document.getElementById('timelineGlow');
-window.addEventListener('scroll', () => {
-  const scrollPct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
-  if (timelineGlow) {
-    timelineGlow.style.height = (scrollPct * 100) + '%';
-  }
-});
-
-// ── COCKPIT TELEMETRY OSCILLOSCOPE DRAWING ────────────────────────
-const cockpitCanvas = document.getElementById('cockpitCanvas');
-const cockpitCanvasContainer = document.getElementById('cockpitCanvasContainer');
-let ccCtx = null;
-let pointsX = [];
-let pointsY = [];
-let pointsZ = [];
-const maxPoints = 120;
-let isSpiking = false;
-let spikeDecay = 0;
-let drawIndex = 0;
-
-function initCockpitCanvas() {
-  if (!cockpitCanvas || !cockpitCanvasContainer) return;
-  ccCtx = cockpitCanvas.getContext('2d');
-
-  const dpr = window.devicePixelRatio || 1;
-  const width = cockpitCanvasContainer.clientWidth;
-  const height = cockpitCanvasContainer.clientHeight || 220;
-
-  cockpitCanvas.width = width * dpr;
-  cockpitCanvas.height = height * dpr;
-  ccCtx.scale(dpr, dpr);
-
-  for (let i = 0; i < maxPoints; i++) {
-    pointsX.push(0);
-    pointsY.push(0);
-    pointsZ.push(0);
-  }
-
-  function drawTimeline() {
-    if (!ccCtx) return;
-    ccCtx.clearRect(0, 0, width, height);
-
-    pointsX.shift();
-    pointsY.shift();
-    pointsZ.shift();
-
-    let tx, ty, tz;
-    if (isSpiking) {
-      tx = Math.sin(drawIndex * 0.8) * 35 * spikeDecay + (Math.random() * 10 - 5) * spikeDecay;
-      ty = Math.cos(drawIndex * 0.5) * 45 * spikeDecay + (Math.random() * 12 - 6) * spikeDecay;
-      tz = Math.sin(drawIndex * 1.2) * 25 * spikeDecay + (Math.random() * 8 - 4) * spikeDecay;
-
-      spikeDecay -= 0.006;
-      if (spikeDecay <= 0) {
-        spikeDecay = 0;
-        isSpiking = false;
-        document.getElementById('sim-status').textContent = 'SYSTEM STABLE · 60HZ';
-        document.getElementById('sim-status').style.color = 'var(--accent-green)';
-      }
-    } else {
-      tx = Math.sin(drawIndex * 0.1) * 2 + (Math.random() * 2 - 1);
-      ty = Math.cos(drawIndex * 0.08) * 1.5 + (Math.random() * 2 - 1);
-      tz = Math.sin(drawIndex * 0.15) * 1 + (Math.random() * 1 - 0.5);
-    }
-
-    pointsX.push(tx);
-    pointsY.push(ty);
-    pointsZ.push(tz);
-
-    drawIndex++;
-
-    drawWaveLine(pointsX, '#00c8f8', height * 0.3, width);
-    drawWaveLine(pointsY, '#a78bfa', height * 0.5, width);
-    drawWaveLine(pointsZ, '#00ff88', height * 0.7, width);
-
-    requestAnimationFrame(drawTimeline);
-  }
-
-  function drawWaveLine(points, color, midY, width) {
-    ccCtx.strokeStyle = color;
-    ccCtx.lineWidth = 1.5;
-    ccCtx.globalAlpha = 0.75;
-    ccCtx.beginPath();
-
-    const step = width / (maxPoints - 1);
-    for (let i = 0; i < points.length; i++) {
-      const x = i * step;
-      const y = midY + points[i];
-      if (i === 0) ccCtx.moveTo(x, y);
-      else ccCtx.lineTo(x, y);
-    }
-    ccCtx.stroke();
-    ccCtx.globalAlpha = 1;
-  }
-
-  drawTimeline();
-}
-
-window.addEventListener('load', () => {
-  initCockpitCanvas();
-});
-
 // ── COCKPIT SYNTH BUZZER SOUND & SHAKE ──────────────────────────────
 function playCockpitChime() {
   try {
@@ -869,12 +499,12 @@ function playCockpitChime() {
     const osc = ctx.createOscillator();
     const gain = ctx.createGain();
 
-    osc.type = 'sawtooth';
-    osc.frequency.setValueAtTime(120, now);
-    osc.frequency.linearRampToValueAtTime(320, now + 0.1);
-    osc.frequency.linearRampToValueAtTime(180, now + 0.25);
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(150, now);
+    osc.frequency.linearRampToValueAtTime(350, now + 0.1);
+    osc.frequency.linearRampToValueAtTime(200, now + 0.25);
 
-    gain.gain.setValueAtTime(0.08, now);
+    gain.gain.setValueAtTime(0.05, now);
     gain.gain.exponentialRampToValueAtTime(0.001, now + 0.45);
 
     osc.connect(gain);
@@ -897,15 +527,11 @@ function triggerSimulatedImpact() {
   // 2. Play alert buzzer sound
   playCockpitChime();
 
-  // 3. Spike Oscilloscope
-  isSpiking = true;
-  spikeDecay = 1.0;
-
   const statusBadge = document.getElementById('sim-status');
-  statusBadge.textContent = 'CRITICAL ALARM · 4.85G IMPACT';
+  statusBadge.textContent = 'CRITICAL ALARM · 4.85G Peak';
   statusBadge.style.color = 'var(--accent-red)';
 
-  // 4. Output JSON response in simulated terminal
+  // 3. Output JSON response in simulated terminal
   const terminal = document.getElementById('cockpitTerminal');
   terminal.innerHTML = `<span style="color:var(--accent-red)">[ALERT] Telemetry collision limit violated: G-Force peak exceeded threshold!</span>`;
 
@@ -931,11 +557,11 @@ function triggerSimulatedImpact() {
       terminal.innerHTML += logMessages[lineIdx];
       terminal.scrollTop = terminal.scrollHeight;
       lineIdx++;
-      setTimeout(typeLog, 250);
+      setTimeout(typeLog, 150);
     }
   }
 
-  setTimeout(typeLog, 450);
+  setTimeout(typeLog, 300);
 }
 
 // ── SMOOTH SCROLL FOR NAV LINKS ─────────────────────────────────────
@@ -952,12 +578,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // ── NAV BACKGROUND ON SCROLL ────────────────────────────────────────
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 80) {
-    nav.style.background = 'rgba(5,7,10,0.95)';
-    nav.style.borderBottomColor = 'rgba(255,255,255,0.06)';
-  } else {
-    nav.style.background = 'rgba(5,7,10,0.8)';
-    nav.style.borderBottomColor = 'rgba(255,255,255,0.04)';
+  if (nav) {
+    if (window.scrollY > 40) {
+      nav.style.boxShadow = 'var(--shadow-sm)';
+      nav.style.background = 'rgba(255, 255, 255, 0.95)';
+    } else {
+      nav.style.boxShadow = 'none';
+      nav.style.background = 'rgba(255, 255, 255, 0.8)';
+    }
   }
 });
 </script>

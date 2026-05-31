@@ -64,6 +64,20 @@ function loadState() {
     };
     saveState();
   }
+
+  // Strict Mysore geofencing: keep riders only inside Mysore boundaries and remove them if they are elsewhere
+  if (appState.riders) {
+    appState.riders = appState.riders.filter(r => {
+      return r.lat >= 12.2 && r.lat <= 12.4 && r.lon >= 76.5 && r.lon <= 76.8;
+    });
+  }
+
+  if (appState.devices && appState.riders) {
+    const activeRiderNames = new Set(appState.riders.map(r => `${r.name} ${r.id}`));
+    appState.devices = appState.devices.filter(d => activeRiderNames.has(d.rider));
+  }
+
+  saveState();
 }
 
 function saveState() {

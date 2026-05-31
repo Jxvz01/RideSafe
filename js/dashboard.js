@@ -125,25 +125,25 @@ function updateKpis() {
   const activeNow = appState.riders.filter(r => r.status === 'active' || r.status === 'warning').length;
   const activeAlerts = appState.riders.filter(r => r.status === 'alert').length;
 
-  setElementContentBySelector('.kpi-card:nth-child(1) .kpi-val', totalRiders);
-  setElementContentBySelector('.kpi-card:nth-child(2) .kpi-val', activeNow);
+  const kpiActive = document.getElementById('kpiActiveRiders');
+  if (kpiActive) kpiActive.textContent = `${activeNow} / ${totalRiders}`;
   
-  const alertsVal = document.querySelector('.kpi-card:nth-child(3) .kpi-val');
-  if (alertsVal) {
-    alertsVal.textContent = activeAlerts;
-    alertsVal.style.color = activeAlerts > 0 ? 'var(--red)' : '';
+  const kpiAlerts = document.getElementById('kpiActiveAlerts');
+  if (kpiAlerts) {
+    kpiAlerts.textContent = activeAlerts;
+    kpiAlerts.style.color = activeAlerts > 0 ? 'var(--color-emergency)' : '';
   }
 
   const alertBadge = document.getElementById('alertCountBadge');
   if (alertBadge) {
-    alertBadge.textContent = `${activeAlerts} active`;
+    alertBadge.textContent = `${activeAlerts} Active`;
     alertBadge.className = activeAlerts > 0 ? 'badge badge-red' : 'badge badge-gray';
   }
-}
 
-function setElementContentBySelector(selector, html) {
-  const el = document.querySelector(selector);
-  if (el) el.innerHTML = html;
+  const topbarAlert = document.getElementById('topbarAlertIndicator');
+  if (topbarAlert) {
+    topbarAlert.style.display = activeAlerts > 0 ? 'flex' : 'none';
+  }
 }
 
 function renderFullRidersTable() {
@@ -153,11 +153,11 @@ function renderFullRidersTable() {
   table.innerHTML = appState.riders.map(r => {
     const s = STATUS_MAP[r.status] || STATUS_MAP.active;
     return `<tr onclick="openInspectorDrawer('${r.id}')" style="cursor:pointer;">
-      <td style="font-weight:600; color: var(--txt);">${r.name}</td>
-      <td><span style="font-family:var(--mono);font-size:.78rem;color:var(--txt3)">${r.id}</span></td>
-      <td style="font-family:var(--mono);font-size:.78rem">${r.phone}</td>
-      <td style="font-size:.8rem;color:var(--txt2)">${r.emergency}</td>
-      <td style="font-size:.78rem;color:var(--txt3)">${r.shift}</td>
+      <td style="font-weight:600; color: var(--text-bright);">${r.name}</td>
+      <td><span style="font-family:var(--font-mono);font-size:.78rem;color:var(--text-dim)">${r.id}</span></td>
+      <td style="font-family:var(--font-mono);font-size:.78rem">${r.phone}</td>
+      <td style="font-size:.8rem;color:var(--text-muted)">${r.emergency}</td>
+      <td style="font-size:.78rem;color:var(--text-dim)">${r.shift}</td>
       <td style="text-align:center">${r.alerts > 0 ? `<span class="badge badge-red">${r.alerts}</span>` : `<span class="badge badge-green">0</span>`}</td>
       <td><span class="badge ${s.cls}">${s.label}</span></td>
     </tr>`;
@@ -172,10 +172,10 @@ function renderHistoryTable() {
     const outcomeClass = h.outcome.includes('Safe') ? 'badge-green' : h.outcome === 'Pending' ? 'badge-orange' : 'badge-red';
     const typeClass = h.type.includes('High') ? 'badge-red' : 'badge-orange';
     return `<tr>
-      <td><span style="font-family:var(--mono);font-size:.75rem;color:var(--txt3)">${h.dt}</span></td>
-      <td style="font-weight:600;font-size:.85rem">${h.rider}</td>
+      <td><span style="font-family:var(--font-mono);font-size:.75rem;color:var(--text-dim)">${h.dt}</span></td>
+      <td style="font-weight:600;font-size:.85rem;color:var(--text-bright);">${h.rider}</td>
       <td><span class="badge ${typeClass}">${h.type}</span></td>
-      <td style="font-size:.8rem;color:var(--txt2)">${h.loc}</td>
+      <td style="font-size:.8rem;color:var(--text-muted)">${h.loc}</td>
       <td><span class="badge badge-green">${h.sms}</span></td>
       <td><span class="badge ${outcomeClass}">${h.outcome}</span></td>
     </tr>`;
@@ -187,11 +187,11 @@ function renderSmsLogsTable() {
   if (!table) return;
 
   table.innerHTML = appState.sms_logs.map(s => `<tr>
-    <td><span style="font-family:var(--mono);font-size:.75rem;color:var(--txt3)">${s.time}</span></td>
-    <td style="font-weight:600;font-size:.82rem">${s.rider.split(' ')[0]}</td>
-    <td style="font-size:.82rem;color:var(--txt2)">${s.recipient}</td>
+    <td><span style="font-family:var(--font-mono);font-size:.75rem;color:var(--text-dim)">${s.time}</span></td>
+    <td style="font-weight:600;font-size:.82rem;color:var(--text-bright);">${s.rider.split(' ')[0]}</td>
+    <td style="font-size:.82rem;color:var(--text-muted)">${s.recipient}</td>
     <td><span class="badge ${s.type === 'SOS ALERT' ? 'badge-red' : 'badge-green'}">${s.type}</span></td>
-    <td style="font-size:.72rem;color:var(--txt2);max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${s.msg}">${s.msg}</td>
+    <td style="font-size:.72rem;color:var(--text-muted);max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${s.msg}">${s.msg}</td>
   </tr>`).join('');
 }
 
@@ -199,29 +199,32 @@ function renderAlertStream() {
   const stream = document.getElementById('alertStream');
   if (!stream) return;
 
-  const activeAlerts = appState.alerts.filter(a => {
-    const rId = a.riderId;
-    const rider = appState.riders.find(r => r.id === rId);
-    return rider && (rider.status === 'alert' || rider.status === 'warning');
-  });
+  const activeAlerts = appState.riders.filter(r => r.status === 'alert' || r.status === 'warning');
 
   if (activeAlerts.length === 0) {
-    stream.innerHTML = `<div style="font-family:var(--mono); font-size:0.7rem; color:var(--txt3); text-align:center; padding: 24px 0;">No active events reported.</div>`;
+    stream.innerHTML = `<div style="font-family:var(--font-mono); font-size:0.7rem; color:var(--text-dim); text-align:center; padding: 32px 0;">NO ACTIVE INCIDENTS</div>`;
     return;
   }
 
-  stream.innerHTML = activeAlerts.map(a => {
-    const isRed = a.cls.includes('red');
-    const isOrange = a.cls.includes('orange');
-    const typeLabel = isRed ? 'Alert' : 'Warning';
-    
-    return `<div class="as-item" onclick="openInspectorDrawer('${a.riderId}')" style="cursor:pointer; border-left: 2px solid ${isRed ? 'var(--red)' : 'var(--orange)'}; background:rgba(255,255,255,0.01); padding:10px 14px;">
-      <div class="as-time" style="font-size:0.65rem;">${a.time}</div>
-      <div class="as-content">
-        <div class="as-title" style="font-size:0.8rem; font-weight:700;">${a.title.split(' — ')[1] || a.title}</div>
-        <div class="as-detail" style="font-size:0.7rem; color:var(--txt2);">${a.detail.split(' · ')[0]}</div>
+  stream.innerHTML = activeAlerts.map(r => {
+    const isEmergency = r.status === 'alert';
+    const severityLabel = isEmergency ? 'Emergency' : 'Warning';
+    const borderLeftColor = isEmergency ? 'var(--color-emergency)' : 'var(--accent-gold)';
+
+    return `<div class="alert-item-card" onclick="openInspectorDrawer('${r.id}')" style="border-left: 3px solid ${borderLeftColor};">
+      <div class="alert-item-header">
+        <span class="alert-item-rider">${r.name}</span>
+        <span class="alert-severity-badge ${isEmergency ? 'emergency' : 'warning'}">${severityLabel}</span>
       </div>
-      <span class="badge ${a.cls}" style="font-size:0.55rem; padding: 2px 6px;">${typeLabel}</span>
+      <div class="alert-item-body">
+        <div>Device ID: <span style="font-family:var(--font-mono); color:var(--text-bright); font-size:0.75rem;">${r.device}</span></div>
+        <div class="alert-item-gps">📍 Coordinates: ${r.lat.toFixed(4)}, ${r.lon.toFixed(4)}</div>
+        <div style="font-size:0.72rem; color:var(--text-muted); margin-top:6px;">SMS Alert Track: <span style="color:var(--color-success)">Dispatched</span></div>
+      </div>
+      <div class="alert-item-actions" onclick="event.stopPropagation();">
+        <button class="btn btn-outline-titanium btn-sm" onclick="locateRiderOnMap('${r.id}')" style="padding: 4px 10px; font-size:0.65rem;">Track GPS</button>
+        <button class="btn btn-lime btn-sm" onclick="resolveRiderAlert('${r.id}')" style="padding: 4px 10px; font-size:0.65rem; background:var(--color-success); color:#000;">Resolve</button>
+      </div>
     </div>`;
   }).join('');
 }
@@ -244,7 +247,7 @@ function openInspectorDrawer(riderId) {
     <div style="display:flex; flex-direction:column; gap:6px;">
       <div class="id-section-title">Enrolled Registry</div>
       <div class="id-grid">
-        <div class="id-row"><span class="id-key">Rider ID</span><span class="id-val" style="color:var(--green)">${r.id}</span></div>
+        <div class="id-row"><span class="id-key">Rider ID</span><span class="id-val" style="color:var(--color-success)">${r.id}</span></div>
         <div class="id-row"><span class="id-key">Phone</span><span class="id-val">${r.phone}</span></div>
         <div class="id-row"><span class="id-key">Shift</span><span class="id-val">${r.shift}</span></div>
         <div class="id-row"><span class="id-key">Emergency</span><span class="id-val" style="font-size:0.7rem;">${r.emergency}</span></div>
@@ -254,8 +257,8 @@ function openInspectorDrawer(riderId) {
     <div style="display:flex; flex-direction:column; gap:6px;">
       <div class="id-section-title">Device Telemetry</div>
       <div class="id-grid">
-        <div class="id-row"><span class="id-key">Hardware ID</span><span class="id-val" style="color:var(--blue)">${r.device}</span></div>
-        <div class="id-row"><span class="id-key">Battery</span><span class="id-val" style="color:${r.battery < 20 ? 'var(--red)' : r.battery < 50 ? 'var(--yellow)' : 'var(--green)'}">${r.battery}%</span></div>
+        <div class="id-row"><span class="id-key">Hardware ID</span><span class="id-val" style="color:var(--accent-cyan)">${r.device}</span></div>
+        <div class="id-row"><span class="id-key">Battery</span><span class="id-val" style="color:${r.battery < 20 ? 'var(--color-emergency)' : r.battery < 50 ? 'var(--accent-gold)' : 'var(--color-success)'}">${r.battery}%</span></div>
         <div class="id-row"><span class="id-key">Signal</span><span class="id-val">${r.signal}</span></div>
         <div class="id-row"><span class="id-key">Velocity</span><span class="id-val">${r.speed} km/h</span></div>
         <div class="id-row"><span class="id-key">Coordinates</span><span class="id-val" style="font-size:0.7rem;">${r.lat}, ${r.lon}</span></div>
@@ -266,9 +269,9 @@ function openInspectorDrawer(riderId) {
 
     <div style="display:flex; flex-direction:column; gap:10px;">
       ${r.status === 'alert' || r.status === 'warning' ? `
-        <button class="btn btn-green" onclick="resolveRiderAlert('${r.id}'); closeInspectorDrawer();" style="width:100%; justify-content:center; background:var(--green); color:#05070a; font-weight:700;">Resolve Alarm Status</button>
+        <button class="btn btn-lime" onclick="resolveRiderAlert('${r.id}'); closeInspectorDrawer();" style="width:100%; justify-content:center; background:var(--color-success); color:#000; font-weight:700;">Resolve Alarm Status</button>
       ` : `
-        <button class="btn btn-outline" onclick="closeInspectorDrawer()" style="width:100%; justify-content:center; border-color:var(--border)">Close Inspector</button>
+        <button class="btn btn-outline-titanium" onclick="closeInspectorDrawer()" style="width:100%; justify-content:center; border-color:var(--border-hairline)">Close Inspector</button>
       `}
     </div>
   `;
@@ -284,6 +287,8 @@ function closeInspectorDrawer() {
 // ── LEAFLET GIS MAP DRIVER ────────────────────────────────────
 let map = null;
 let markers = {};
+let geofences = [];
+let routeLines = [];
 
 function initMap() {
   const mapElement = document.getElementById('liveMap');
@@ -300,6 +305,40 @@ function initMap() {
   }).addTo(map);
 
   L.control.zoom({ position: 'bottomright' }).addTo(map);
+
+  // Add Circular Geofencing overlays
+  const andheriBase = L.circle([19.1136, 72.8697], {
+    color: 'rgba(114, 246, 255, 0.18)',
+    fillColor: 'rgba(114, 246, 255, 0.02)',
+    fillOpacity: 0.2,
+    radius: 2000
+  }).addTo(map);
+
+  const bandraBase = L.circle([19.0596, 72.8295], {
+    color: 'rgba(231, 185, 76, 0.12)',
+    fillColor: 'rgba(231, 185, 76, 0.01)',
+    fillOpacity: 0.15,
+    radius: 2200
+  }).addTo(map);
+  
+  geofences.push(andheriBase, bandraBase);
+
+  // Draw emergency active routes (simulated path)
+  const routePoints = [
+    [19.1136, 72.8697],
+    [19.1105, 72.8750],
+    [19.1085, 72.8810],
+    [19.1120, 72.8900]
+  ];
+  const emergencyRoute = L.polyline(routePoints, {
+    color: 'var(--color-emergency)',
+    weight: 2,
+    dashArray: '5, 8',
+    opacity: 0.75
+  }).addTo(map);
+  
+  routeLines.push(emergencyRoute);
+
   updateMapMarkers();
 }
 
@@ -325,7 +364,6 @@ function updateMapMarkers() {
       iconAnchor: [8, 8]
     });
 
-    // Disable generic Leaflet popups. Instead, click markers to open side inspector!
     const marker = L.marker([r.lat, r.lon], { icon }).addTo(map);
     marker.on('click', () => {
       map.panTo([r.lat, r.lon]);
@@ -404,6 +442,36 @@ function resolveRiderAlert(riderId) {
   renderAll();
 }
 
+// ── REAL-TIME MOVEMENT & TELEMETRY SIMULATION ──────────────────
+function simulateRealTimeMovement() {
+  loadState();
+  if (appState.riders.length === 0) return;
+  
+  appState.riders.forEach(r => {
+    if (r.status === 'active' || r.status === 'warning') {
+      // Slightly shift coordinate parameters by a random offset
+      const latOffset = (Math.random() - 0.5) * 0.0004;
+      const lonOffset = (Math.random() - 0.5) * 0.0004;
+      r.lat += latOffset;
+      r.lon += lonOffset;
+      
+      // Fluctuated velocities
+      if (r.speed > 0) {
+        r.speed = Math.max(5, Math.min(65, r.speed + Math.floor(Math.random() * 5 - 2)));
+      }
+      r.ping = 'Just now';
+    }
+  });
+  
+  saveState();
+  updateKpis();
+  updateMapMarkers();
+  renderFullRidersTable();
+}
+
+// Run simulation loop every 4 seconds
+setInterval(simulateRealTimeMovement, 4000);
+
 // ── NOTIFICATION TOAST & SYNTH CHIMES ─────────────────────────
 function playChime(type) {
   try {
@@ -466,7 +534,7 @@ function showToast(title, msg, type = 'info') {
   toast.className = `toast toast-${type}`;
   toast.innerHTML = `
     <div class="toast-body">
-      <div class="toast-title" style="font-family:var(--mono); font-size: 0.72rem; text-transform:uppercase; letter-spacing:0.02em;">${title}</div>
+      <div class="toast-title" style="font-family:var(--font-mono); font-size: 0.72rem; text-transform:uppercase; letter-spacing:0.02em;">${title}</div>
       <div class="toast-msg">${msg}</div>
     </div>
     <div class="toast-close" onclick="this.parentElement.remove()">&times;</div>
@@ -481,48 +549,6 @@ function showToast(title, msg, type = 'info') {
 
   if (type === 'error' || type === 'critical') playChime('critical');
   else if (type === 'success') playChime('success');
-}
-
-// ── CHARTS DRAW ENGINE ────────────────────────────────────────
-function drawCharts() {
-  // Simplistic layout - no heavy library or huge graphics, pure clean drawing
-  const donutCanvas = document.getElementById('donutChart');
-  if (donutCanvas && donutCanvas.getContext) {
-    const ctx = donutCanvas.getContext('2d');
-    ctx.clearRect(0, 0, 160, 160);
-    const cx = 80, cy = 80, r = 60, w = 8; // Ultra thin donut ring
-    
-    const activeAlerts = appState.riders.filter(r => r.status === 'alert').length;
-    const activeWarnings = appState.riders.filter(r => r.status === 'warning').length;
-    const safeRiders = appState.riders.length - activeAlerts - activeWarnings;
-    
-    const total = appState.riders.length || 1;
-    const pSafe = safeRiders / total;
-    const pWarn = activeWarnings / total;
-    const pAlert = activeAlerts / total;
-    
-    const labelPct = document.querySelector('.donut-pct');
-    if (labelPct) labelPct.textContent = Math.round(pSafe * 100) + '%';
-    
-    const slices = [
-      { val: pSafe, color: '#10b981' },
-      { val: pWarn, color: '#f97316' },
-      { val: pAlert, color: '#f43f5e' }
-    ];
-    
-    let start = -Math.PI / 2;
-    slices.forEach(s => {
-      if (s.val === 0) return;
-      const angle = s.val * 2 * Math.PI;
-      ctx.beginPath();
-      ctx.arc(cx, cy, r, start, start + angle);
-      ctx.arc(cx, cy, r - w, start + angle, start, true);
-      ctx.closePath();
-      ctx.fillStyle = s.color;
-      ctx.fill();
-      start += angle;
-    });
-  }
 }
 
 // ── INTERACTIVE MODALS ────────────────────────────────────────
@@ -637,7 +663,7 @@ const sbLinks = document.querySelectorAll('.sb-link[data-page]');
 const pages = document.querySelectorAll('.page');
 const pageTitle = document.getElementById('pageTitle');
 const TITLES = {
-  ops: 'Operational Operations Center',
+  ops: 'Operations Center',
   directory: 'Fleet Directory Registry',
   journal: 'SMS Transmission Log'
 };
@@ -694,10 +720,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const sbUser = document.querySelector('.sb-user');
     if (sbUser) {
       sbUser.innerHTML = `
-        <div class="sb-avatar" style="background:linear-gradient(135deg,#0ea5e9,#10b981); color:#05070a; font-weight:800;">${user.initials}</div>
+        <div class="sb-avatar" style="background:linear-gradient(135deg,#E7B94C,#10b981); color:#05070a; font-weight:800;">${user.initials}</div>
         <div>
-          <div style="font-size:.82rem;font-weight:600; color:var(--txt);">${user.name}</div>
-          <div style="font-size:.7rem;color:var(--txt3)">${user.role} · Mumbai</div>
+          <div style="font-size:.82rem;font-weight:600; color:var(--text-bright);">${user.name}</div>
+          <div style="font-size:.7rem;color:var(--text-muted)">${user.role} · Mumbai</div>
         </div>
       `;
     }

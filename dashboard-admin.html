@@ -3,191 +3,218 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Admin Dashboard — RideSafe AI</title>
+<title>Fleet Operations Command — RideSafe</title>
 <link rel="stylesheet" href="css/styles.css">
 <link rel="stylesheet" href="css/dashboard.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
-<div class="bg-grid"></div>
-<div class="orb orb1"></div><div class="orb orb2"></div>
 <div class="mob-overlay" id="mobOverlay"></div>
 <div class="toast-container" id="toastContainer"></div>
 
 <div class="layout">
-<!-- SIDEBAR -->
-<aside class="sidebar" id="sidebar">
-  <div class="sb-logo">
-    <div class="logo-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.5C16.5 22.15 20 17.25 20 12V6l-8-4z" fill="url(#slg)"/><defs><linearGradient id="slg" x1="4" y1="2" x2="20" y2="22"><stop stop-color="#00d4ff"/><stop offset="1" stop-color="#00ff88"/></linearGradient></defs></svg></div>
-    <div><div style="font-weight:700;font-size:.95rem;letter-spacing:-.01em">RideSafe <span class="grad-blue">AI</span></div><div style="font-size:.65rem;color:var(--txt3);letter-spacing:.05em;text-transform:uppercase">Admin Console</div></div>
-  </div>
-  <nav class="sb-nav">
-    <div class="sb-section-label">Operations</div>
-    <a href="#" class="sb-link active" data-page="ops">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>Live Operations
-    </a>
-    <div class="sb-section-label">Registry</div>
-    <a href="#" class="sb-link" data-page="directory">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Fleet Directory
-    </a>
-    <a href="#" class="sb-link" data-page="journal">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Incident Journal
-    </a>
-    <div class="sb-section-label">System</div>
-    <a href="dashboard-dev.html" class="sb-link">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Dev Console
-    </a>
-    <a href="login.html" class="sb-link">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>Logout
-    </a>
-  </nav>
-  <div class="sb-footer">
-    <div class="sb-user">
-      <div class="sb-avatar">AM</div>
-      <div><div style="font-size:.82rem;font-weight:600">Admin Manager</div><div style="font-size:.7rem;color:var(--txt3)">Zepto Fleet · Mumbai</div></div>
+  <!-- SIDEBAR NAVIGATION -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sb-logo">
+      <div class="logo-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div>
+        <div style="font-weight:900; font-size:1rem; letter-spacing:-0.03em; color:var(--text-bright)">RideSafe</div>
+        <div class="text-mono" style="font-size:0.58rem; color:var(--text-dim); letter-spacing:0.05em;">FLEET COMMAND</div>
+      </div>
     </div>
-  </div>
-</aside>
+    
+    <nav class="sb-nav">
+      <div class="sb-section-label">Operations</div>
+      <a href="#" class="sb-link active" data-page="ops">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/><path d="M3 9h18"/></svg>Operations Center
+      </a>
+      <a href="#" class="sb-link" data-page="directory">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Fleet Directory
+      </a>
+      <a href="#" class="sb-link" data-page="journal">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>SMS Transmission Logs
+      </a>
+      
+      <div class="sb-section-label">System Console</div>
+      <a href="dashboard-dev.html" class="sb-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Developer Console
+      </a>
+      <a href="index.html" class="sb-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>Exit to Home
+      </a>
+    </nav>
 
-<!-- MAIN -->
-<div class="main-content">
-  <header class="topbar">
-    <button class="btn-icon mob-toggle" id="mobToggle">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-    </button>
-    <div class="topbar-title" id="pageTitle">Fleet Overview</div>
-    <div class="topbar-spacer"></div>
-    <div class="topbar-alert-chip"><span class="dot dot-red"></span> 3 Active Alerts</div>
-    <button class="btn-icon" title="Notifications">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-    </button>
-    <a href="index.html" class="btn btn-outline btn-sm">← Home</a>
-  </header>
-
-  <div class="page-body" id="pageBody">
-    <!-- LIVE OPERATIONS PAGE -->
-    <div class="page" id="page-ops" style="display: grid; grid-template-columns: 1fr 340px; gap: 20px; min-height: calc(100vh - 120px);">
-      <!-- Map Column -->
-      <div style="display: flex; flex-direction: column; gap: 16px; min-height: 520px;">
-        <div class="map-mock card" style="position:relative; flex: 1; min-height: 480px; overflow:hidden;">
-          <div class="map-overlay-label" style="z-index:1000; background:rgba(7,10,15,0.85); padding:6px 12px; border-radius:8px; border:1px solid var(--border)">FLEET MONITOR · MUMBAI REGION</div>
-          <div id="liveMap" class="live-map-container"></div>
-          <div class="map-legend" style="z-index:1000; background:rgba(7,10,15,0.85); border:1px solid var(--border)">
-            <span class="legend-dot" style="background:var(--green)"></span> Active
-            <span class="legend-dot" style="background:var(--red)"></span> Alert
-            <span class="legend-dot" style="background:var(--orange)"></span> Warning
-            <span class="legend-dot" style="background:var(--txt3)"></span> Offline
-          </div>
+    <div class="sb-footer">
+      <div class="sb-user">
+        <div class="sb-avatar">OPS</div>
+        <div>
+          <div style="font-size:0.8rem; font-weight:700; color:var(--text-bright)">Fleet Dispatcher</div>
+          <div class="text-mono" style="font-size:0.55rem; color:var(--text-dim);">Zepto India</div>
         </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN OPERATIONS DESK -->
+  <div class="main-content">
+    <header class="topbar">
+      <button class="mob-toggle" id="mobToggle" style="background:none; border:none; color:var(--text-muted);">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <div class="topbar-title" id="pageTitle">Operations Center</div>
+      <div class="topbar-spacer"></div>
+      
+      <div class="topbar-alert-chip" id="topbarAlertIndicator" style="display:none;">
+        <span style="display:inline-block; width:6px; height:6px; background:var(--color-emergency); border-radius:50%;"></span>
+        <span>CRITICAL INCIDENT ACTIVE</span>
       </div>
       
-      <!-- Live Alerts Column -->
-      <div style="display: flex; flex-direction: column; gap: 20px;">
-        <!-- Clean KPI Grid directly in live operational view -->
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-          <div class="kpi-card card card-p" style="padding: 16px;">
-            <div class="kpi-label" style="font-size:0.6rem; margin-bottom:4px;">Total Riders</div>
-            <div class="kpi-val" style="font-size:1.5rem; margin-bottom:0;">0</div>
-          </div>
-          <div class="kpi-card card card-p" style="padding: 16px;">
-            <div class="kpi-label" style="font-size:0.6rem; margin-bottom:4px;">Active Now</div>
-            <div class="kpi-val" style="font-size:1.5rem; margin-bottom:0; color:var(--green);">0</div>
-          </div>
-          <div class="kpi-card card card-p" style="padding: 16px; grid-column: span 2;">
-            <div class="kpi-label" style="font-size:0.6rem; margin-bottom:4px;">Active Incidents</div>
-            <div class="kpi-val" style="font-size:1.5rem; margin-bottom:0;">0</div>
-          </div>
-        </div>
-
-        <div class="card card-p" style="flex: 1; display:flex; flex-direction:column; gap:16px;">
-          <div style="display:flex; justify-content:space-between; align-items:center;">
-            <div style="font-family:var(--mono); font-size:0.75rem; letter-spacing:0.05em; color:var(--txt3); text-transform:uppercase;">🚨 Active Events</div>
-            <span class="badge badge-red" id="alertCountBadge" style="font-size:0.6rem;">0 active</span>
-          </div>
-          <div class="alerts-list" id="alertStream" style="display:flex; flex-direction:column; gap:10px; overflow-y:auto; max-height:360px;">
-            <!-- Dynamic alerts -->
-          </div>
-        </div>
+      <div style="font-family:var(--font-mono); font-size:0.7rem; color:var(--text-dim); display:flex; align-items:center; gap:8px;">
+        <span style="display:inline-block; width:6px; height:6px; background:var(--color-success); border-radius:50%;"></span>
+        <span>SECURE NODE</span>
       </div>
-    </div>
+    </header>
 
-    <!-- FLEET DIRECTORY PAGE -->
-    <div class="page hidden" id="page-directory">
-      <div class="dash-section">
-        <div class="dash-section-header">
-          <h3 class="dash-section-title">// Rider Fleet Directory</h3>
-          <button class="btn btn-outline btn-sm" onclick="openModal('addRiderModal')">+ Enroll Rider</button>
+    <div class="page-body" id="pageBody">
+      
+      <!-- LIVE OPERATIONS DESK PAGE -->
+      <div class="page" id="page-ops" style="display: grid; grid-template-columns: 1fr 360px; gap: 28px; min-height: calc(100vh - 140px);">
+        
+        <!-- Map Operations Column -->
+        <div style="display: flex; flex-direction: column; gap: 24px; min-height: 540px;">
+          
+          <!-- FLEET COMMAND BAR -->
+          <div class="fleet-command-bar">
+            <div class="command-bar-card">
+              <span class="command-bar-lbl">Active Riders</span>
+              <span class="command-bar-val" id="kpiActiveRiders" style="color:var(--color-success);">0</span>
+            </div>
+            <div class="command-bar-card">
+              <span class="command-bar-lbl">Emergency Incidents</span>
+              <span class="command-bar-val" id="kpiActiveAlerts">0</span>
+            </div>
+            <div class="command-bar-card">
+              <span class="command-bar-lbl">Response Efficiency</span>
+              <span class="command-bar-val" style="color:var(--accent-gold);">1.8s</span>
+            </div>
+            <div class="command-bar-card">
+              <span class="command-bar-lbl">System Uptime</span>
+              <span class="command-bar-val" style="font-family:var(--font-mono); font-size:1.3rem; margin-top:4px;">99.99%</span>
+            </div>
+          </div>
+
+          <!-- Leaflet GIS Map centerpiece -->
+          <div class="map-mock card" style="position:relative; flex:1; min-height: 480px; overflow:hidden;">
+            <div class="map-overlay-label">LIVE OPERATIONS MAP · MUMBAI METRO REGION</div>
+            <div id="liveMap" class="live-map-container"></div>
+            <div class="map-legend">
+              <span class="legend-dot" style="background:var(--color-success)"></span> Active
+              <span class="legend-dot" style="background:var(--color-emergency)"></span> Emergency
+              <span class="legend-dot" style="background:var(--accent-gold)"></span> Warning
+              <span class="legend-dot" style="background:var(--text-dim)"></span> Offline
+            </div>
+          </div>
         </div>
-        <div class="card" style="overflow:hidden">
-          <table class="tbl">
-            <thead>
-              <tr><th>Rider</th><th>ID</th><th>Phone</th><th>Emergency Contact</th><th>Shift</th><th>Active Alerts</th><th>Status</th></tr>
-            </thead>
-            <tbody id="ridersFullTable"></tbody>
-          </table>
+
+        <!-- Emergency Response Center Panel -->
+        <div style="display: flex; flex-direction: column; gap: 24px;">
+          <div class="card" style="flex:1; display:flex; flex-direction:column; gap:20px; overflow:hidden;">
+            <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border-hairline); padding-bottom:16px;">
+              <span class="text-mono" style="color:var(--text-bright); font-weight:700;">Emergency Response Center</span>
+              <span class="badge badge-gray" id="alertCountBadge">0 Active</span>
+            </div>
+            
+            <div class="alerts-list" id="alertStream" style="flex:1; overflow-y:auto; max-height:480px; display:flex; flex-direction:column; gap:12px;">
+              <!-- Dynamic alert cards will inject here -->
+            </div>
+          </div>
         </div>
+
       </div>
-    </div>
 
-    <!-- INCIDENT JOURNAL PAGE -->
-    <div class="page hidden" id="page-journal">
-      <div class="dash-section">
-        <div class="dash-section-header">
-          <h3 class="dash-section-title">// Incident Dispatch & SMS Logs</h3>
-          <button class="btn btn-outline btn-sm" onclick="openModal('registerDeviceModal')">+ Link IoT Device</button>
-        </div>
-        <div style="display: grid; grid-template-columns: 1.4fr 1fr; gap: 20px;">
-          <!-- Left: History -->
-          <div class="card" style="overflow:hidden">
-            <div style="padding:16px 20px; font-family:var(--mono); font-size:0.7rem; color:var(--txt3); text-transform:uppercase; border-bottom:1px solid var(--border)">Resolved Incidents Log</div>
+      <!-- FLEET DIRECTORY REGISTRY -->
+      <div class="page hidden" id="page-directory">
+        <div class="dash-section">
+          <div class="dash-section-header">
+            <h2 style="font-size:1.6rem; letter-spacing:-0.03em;">Fleet Directory Registry</h2>
+            <button class="btn btn-lime btn-sm" onclick="openModal('addRiderModal')">+ Enroll Rider</button>
+          </div>
+          <div class="card" style="overflow:hidden; border:1px solid var(--border-hairline);">
             <table class="tbl">
               <thead>
-                <tr><th>Timestamp</th><th>Rider</th><th>Incident Type</th><th>Location</th><th>SMS Status</th><th>Outcome</th></tr>
+                <tr><th>Rider</th><th>ID</th><th>Phone</th><th>Emergency Contact</th><th>Shift Details</th><th>Active Alerts</th><th>Operational Status</th></tr>
               </thead>
-              <tbody id="historyTable"></tbody>
-            </table>
-          </div>
-          <!-- Right: Twilio dispatches -->
-          <div class="card" style="overflow:hidden">
-            <div style="padding:16px 20px; font-family:var(--mono); font-size:0.7rem; color:var(--txt3); text-transform:uppercase; border-bottom:1px solid var(--border)">SMS Route Transmissions</div>
-            <table class="tbl">
-              <thead>
-                <tr><th>Time</th><th>Rider</th><th>Recipient</th><th>Route</th><th>Msg</th></tr>
-              </thead>
-              <tbody id="smsTable"></tbody>
+              <tbody id="ridersFullTable"></tbody>
             </table>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- SIDE INSPECTOR DRAWER -->
-    <div class="inspector-drawer" id="inspectorDrawer"></div>
+      <!-- INCIDENT TRANSMISSION JOURNAL -->
+      <div class="page hidden" id="page-journal">
+        <div class="dash-section">
+          <div class="dash-section-header">
+            <h2 style="font-size:1.6rem; letter-spacing:-0.03em;">SMS Transmission Logs</h2>
+            <button class="btn btn-outline-titanium btn-sm" onclick="openModal('registerDeviceModal')">+ Link IoT Module</button>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: 1.3fr 1fr; gap: 24px;">
+            <!-- Left: Resolved Incidents -->
+            <div class="card" style="overflow:hidden; padding:0 !important;">
+              <div style="padding:18px 24px; font-family:var(--font-mono); font-size:0.68rem; color:var(--text-dim); text-transform:uppercase; border-bottom:1px solid var(--border-hairline)">Resolved Emergency History</div>
+              <table class="tbl">
+                <thead>
+                  <tr><th>Timestamp</th><th>Rider</th><th>Incident Type</th><th>Location</th><th>SMS Dispatch</th><th>Resolution</th></tr>
+                </thead>
+                <tbody id="historyTable"></tbody>
+              </table>
+            </div>
+
+            <!-- Right: SMS Broadcast details -->
+            <div class="card" style="overflow:hidden; padding:0 !important;">
+              <div style="padding:18px 24px; font-family:var(--font-mono); font-size:0.68rem; color:var(--text-dim); text-transform:uppercase; border-bottom:1px solid var(--border-hairline)">SMS Transmissions</div>
+              <table class="tbl">
+                <thead>
+                  <tr><th>Timestamp</th><th>Rider</th><th>Emergency Contact</th><th>Type</th><th>Payload</th></tr>
+                </thead>
+                <tbody id="smsTable"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SIDE INSPECTOR DRAWER -->
+      <div class="inspector-drawer" id="inspectorDrawer"></div>
+
+    </div>
   </div>
 </div>
 
 <!-- ADD RIDER MODAL -->
 <div class="modal-overlay" id="addRiderModal">
   <div class="modal">
-    <div class="modal-title">Add Fleet Rider</div>
-    <div class="modal-sub">Register a new delivery rider in the Zepto Fleet registry.</div>
+    <div class="modal-title">Enroll Fleet Rider</div>
+    <div class="modal-sub">Add a new gig delivery rider to the operations database.</div>
     <form class="modal-form" id="addRiderForm" onsubmit="event.preventDefault(); saveRider();">
       <div class="modal-group">
         <label class="modal-label" for="riderName">Rider Name</label>
-        <input type="text" class="input" id="riderName" placeholder="e.g. Amit Kumar" required>
+        <input type="text" class="input" id="riderName" placeholder="Amit Kumar" required style="padding: 10px 14px;">
       </div>
       <div class="modal-group">
         <label class="modal-label" for="riderPhone">Phone Number</label>
-        <input type="tel" class="input" id="riderPhone" placeholder="e.g. 98200XXXXX" required pattern="[0-9]{10}">
+        <input type="tel" class="input" id="riderPhone" placeholder="98200XXXXX" required pattern="[0-9]{10}" style="padding: 10px 14px;">
       </div>
       <div class="modal-group">
         <label class="modal-label" for="riderEmergency">Emergency Contact</label>
-        <input type="text" class="input" id="riderEmergency" placeholder="e.g. Sunita Kumar (Mother)" required>
+        <input type="text" class="input" id="riderEmergency" placeholder="Sunita Kumar (Mother)" required style="padding: 10px 14px;">
       </div>
       <div class="modal-group">
         <label class="modal-label" for="riderShift">Shift Timings</label>
-        <select class="input" id="riderShift" style="background: rgba(255,255,255,.03); color: var(--txt); border: 1px solid var(--border); border-radius: var(--r-md); padding: 13px 18px;">
+        <select class="input" id="riderShift" style="background: rgba(255,255,255,.03); color: var(--text-bright); border: 1px solid var(--border-hairline); border-radius: 8px; padding: 10px 14px;">
           <option value="09:00–21:00">Day Shift (09:00 – 21:00)</option>
           <option value="10:00–22:00">Late Day Shift (10:00 – 22:00)</option>
           <option value="08:00–20:00">Early Shift (08:00 – 20:00)</option>
@@ -195,8 +222,8 @@
         </select>
       </div>
       <div class="modal-actions">
-        <button type="button" class="btn btn-outline btn-sm" onclick="closeModal('addRiderModal')">Cancel</button>
-        <button type="submit" class="btn btn-primary btn-sm">Add Rider</button>
+        <button type="button" class="btn btn-outline-titanium btn-sm" onclick="closeModal('addRiderModal')">Cancel</button>
+        <button type="submit" class="btn btn-lime btn-sm">Add Rider</button>
       </div>
     </form>
   </div>
@@ -205,30 +232,30 @@
 <!-- REGISTER DEVICE MODAL -->
 <div class="modal-overlay" id="registerDeviceModal">
   <div class="modal">
-    <div class="modal-title" style="color:var(--green)">Register IoT Device</div>
-    <div class="modal-sub">Provision and link a RideSafe hardware module to an active rider.</div>
+    <div class="modal-title" style="color:var(--color-success)">Link IoT Module</div>
+    <div class="modal-sub">Register a helmet hardware device and link it to an active rider profile.</div>
     <form class="modal-form" id="registerDeviceForm" onsubmit="event.preventDefault(); saveDevice();">
       <div class="modal-group">
-        <label class="modal-label" for="devId">Device Hardware ID</label>
-        <input type="text" class="input" id="devId" placeholder="e.g. RSM-215" style="border-color:rgba(0,255,136,.15); font-family:var(--mono);" required>
+        <label class="modal-label" for="devId">Hardware ID</label>
+        <input type="text" class="input" id="devId" placeholder="RSM-215" required style="padding: 10px 14px;">
       </div>
       <div class="modal-group">
-        <label class="modal-label" for="devRider">Assign to Rider</label>
-        <select class="input" id="devRider" style="background: rgba(255,255,255,.03); color: var(--txt); border: 1px solid var(--border); border-radius: var(--r-md); padding: 13px 18px;" required>
-          <!-- Will be dynamically populated -->
+        <label class="modal-label" for="devRider">Rider Link</label>
+        <select class="input" id="devRider" style="background: rgba(255,255,255,.03); color: var(--text-bright); border: 1px solid var(--border-hairline); border-radius: 8px; padding: 10px 14px;" required>
+          <!-- Dyn loaded options -->
         </select>
       </div>
       <div class="modal-group">
         <label class="modal-label" for="devFw">Firmware Version</label>
-        <input type="text" class="input" id="devFw" value="v2.4.1" style="font-family:var(--mono);" required>
+        <input type="text" class="input" id="devFw" value="v2.4.1" required style="padding: 10px 14px;">
       </div>
       <div class="modal-group">
         <label class="modal-label" for="devBatt">Initial Battery %</label>
-        <input type="number" class="input" id="devBatt" value="100" min="0" max="100" style="font-family:var(--mono);" required>
+        <input type="number" class="input" id="devBatt" value="100" min="0" max="100" required style="padding: 10px 14px;">
       </div>
       <div class="modal-actions">
-        <button type="button" class="btn btn-outline btn-sm" onclick="closeModal('registerDeviceModal')">Cancel</button>
-        <button type="submit" class="btn btn-green btn-sm">Provision</button>
+        <button type="button" class="btn btn-outline-titanium btn-sm" onclick="closeModal('registerDeviceModal')">Cancel</button>
+        <button type="submit" class="btn btn-lime btn-sm">Link Device</button>
       </div>
     </form>
   </div>

@@ -12,15 +12,15 @@
 <!-- NAVIGATION -->
 <nav class="nav" id="nav">
   <div class="container" style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
-    <a href="index.html" style="font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; letter-spacing: -0.02em; display: flex; align-items: center; gap: 10px; color: var(--text-bright);">
-      <div style="background: var(--text-bright); color: #000000; width: 26px; height: 26px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.9rem;">R</div>
+    <a href="index.html" style="font-family: var(--font-sans); font-weight: 900; font-size: 1.2rem; letter-spacing: -0.04em; display: flex; align-items: center; gap: 10px; color: var(--text-bright); text-decoration: none;">
+      <div style="background: var(--text-bright); color: #000000; width: 26px; height: 26px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.85rem;">RS</div>
       <span>RideSafe</span>
     </a>
-    <div style="display: flex; gap: 32px; align-items: center;">
-      <a href="#problem" style="font-size: 0.82rem; color: var(--text-muted); font-weight: 500; font-family: var(--font-display);">The Problem</a>
-      <a href="#how-it-works" style="font-size: 0.82rem; color: var(--text-muted); font-weight: 500; font-family: var(--font-display);">Infrastructure</a>
-      <a href="#reveal" style="font-size: 0.82rem; color: var(--text-muted); font-weight: 500; font-family: var(--font-display);">Device</a>
-      <a href="#operators" style="font-size: 0.82rem; color: var(--text-muted); font-weight: 500; font-family: var(--font-display);">Fleet Operators</a>
+    <div style="display: flex; gap: 36px; align-items: center;">
+      <a href="#problem" style="font-size: 0.82rem; color: var(--text-muted); font-weight: 500; font-family: var(--font-sans); text-decoration: none; transition: color 0.2s;">Challenge</a>
+      <a href="#how-it-works" style="font-size: 0.82rem; color: var(--text-muted); font-weight: 500; font-family: var(--font-sans); text-decoration: none; transition: color 0.2s;">Infrastructure</a>
+      <a href="#reveal" style="font-size: 0.82rem; color: var(--text-muted); font-weight: 500; font-family: var(--font-sans); text-decoration: none; transition: color 0.2s;">Hardware</a>
+      <a href="#operators" style="font-size: 0.82rem; color: var(--text-muted); font-weight: 500; font-family: var(--font-sans); text-decoration: none; transition: color 0.2s;">Operations</a>
       <a href="login.html" class="btn btn-outline-titanium btn-sm">Enter Platform</a>
     </div>
   </div>
@@ -31,11 +31,11 @@
      ════════════════════════════════════════════════ -->
 <section class="hero-god" id="hero">
   <div class="hero-god-glow"></div>
-  <div class="container" style="display: flex; align-items: center; justify-content: space-between; gap: 60px; width: 100%; flex-wrap: wrap; position: relative; z-index: 10;">
+  <div class="container" style="display: flex; align-items: center; justify-content: space-between; gap: 80px; width: 100%; flex-wrap: wrap; position: relative; z-index: 10;">
     
     <!-- Hero Copy -->
     <div style="flex: 1; min-width: 320px;">
-      <div class="hero-tagline">Safety Infrastructure for Gig Fleets</div>
+      <div class="hero-tagline">Safety Infrastructure for Last-Mile Fleets</div>
       <h1 class="hero-title-god">
         Every Minute<span>Matters.</span>
       </h1>
@@ -52,14 +52,14 @@
       </div>
 
       <!-- Live telemetry stats overlay -->
-      <div style="display: flex; gap: 32px; margin-top: 48px; border-top: 1px solid var(--border-light); padding-top: 32px; max-width: 480px;">
+      <div style="display: flex; gap: 40px; margin-top: 56px; border-top: 1px solid var(--border-hairline); padding-top: 40px; max-width: 500px;">
         <div>
-          <div style="font-family: var(--font-mono); color: var(--accent-cyan); font-size: 0.72rem; letter-spacing: 0.05em; margin-bottom: 4px;">SYSTEM METRICS</div>
-          <div style="font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; color: var(--text-bright);">1.8s <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 500;">Verify-to-SMS</span></div>
+          <div style="font-family: var(--font-mono); color: var(--text-dim); font-size: 0.65rem; letter-spacing: 0.15em; margin-bottom: 6px;">RESPONSE ROUTING</div>
+          <div style="font-family: var(--font-sans); font-weight: 800; font-size: 1.25rem; color: var(--text-bright); letter-spacing: -0.02em;">1.8s <span style="font-size: 0.82rem; color: var(--text-muted); font-weight: 400;">Latency</span></div>
         </div>
         <div>
-          <div style="font-family: var(--font-mono); color: var(--accent-cyan); font-size: 0.72rem; letter-spacing: 0.05em; margin-bottom: 4px;">ACTIVE DEPLOYMENT</div>
-          <div style="font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; color: var(--text-bright);">60Hz <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 500;">Telemetry Stream</span></div>
+          <div style="font-family: var(--font-mono); color: var(--text-dim); font-size: 0.65rem; letter-spacing: 0.15em; margin-bottom: 6px;">ACTIVE DATA STREAM</div>
+          <div style="font-family: var(--font-sans); font-weight: 800; font-size: 1.25rem; color: var(--text-bright); letter-spacing: -0.02em;">60Hz <span style="font-size: 0.82rem; color: var(--text-muted); font-weight: 400;">Sampling</span></div>
         </div>
       </div>
     </div>
@@ -85,9 +85,9 @@
 <section class="problem-section" id="problem">
   <div class="container">
     <div class="problem-header reveal">
-      <div class="section-tagline" style="color: var(--color-danger);">THE PROBLEM</div>
+      <div class="section-tagline" style="color: var(--color-danger);">THE RISK FACTOR</div>
       <h2 class="section-title">The Most Dangerous Employee Is Often The Most Invisible.</h2>
-      <p style="font-size: 1.1rem; color: var(--text-muted); max-width: 640px; line-height: 1.6;">
+      <p style="font-size: 1.15rem; color: var(--text-muted); max-width: 680px; line-height: 1.65;">
         Delivery riders spend thousands of hours on high-risk roads. When accidents occur, they frequently go unreported for critical minutes, causing life-threatening emergency response delays.
       </p>
     </div>
@@ -95,32 +95,29 @@
     <div class="problem-stats-grid">
       <div class="problem-stat-card reveal">
         <div class="stat-header">
-          <div class="text-mono">ROAD TOLL</div>
-          <div class="stat-icon">💀</div>
+          <div class="text-mono">// CRITICAL STATISTICS</div>
         </div>
-        <div class="stat-number">168k+</div>
-        <div style="height: 1px; background: var(--border-light); margin: 20px 0;"></div>
-        <p class="stat-description">Annual road fatalities in India — representing a critical safety failure every 3 minutes.</p>
+        <div class="stat-number" style="color: var(--color-danger);">168k+</div>
+        <div style="height: 1px; background: var(--border-hairline); margin: 24px 0;"></div>
+        <p class="stat-description">Annual road fatalities in India — representing an active public safety failure every three minutes.</p>
       </div>
 
       <div class="problem-stat-card reveal">
         <div class="stat-header">
-          <div class="text-mono">VULNERABILITY</div>
-          <div class="stat-icon" style="color: var(--accent-lime); background: rgba(200, 255, 77, 0.05);">🛵</div>
+          <div class="text-mono">// FLEET VULNERABILITY</div>
         </div>
         <div class="stat-number">44%</div>
-        <div style="height: 1px; background: var(--border-light); margin: 20px 0;"></div>
-        <p class="stat-description">Of road deaths involve two-wheelers. Gig fleet riders are heavily exposed on urban routes.</p>
+        <div style="height: 1px; background: var(--border-hairline); margin: 24px 0;"></div>
+        <p class="stat-description">Of all road deaths involve two-wheelers. Gig fleet riders represent the most heavily exposed transport vertical.</p>
       </div>
 
       <div class="problem-stat-card reveal">
         <div class="stat-header">
-          <div class="text-mono">RESPONSE DELAY</div>
-          <div class="stat-icon" style="color: var(--accent-cyan); background: rgba(114, 246, 255, 0.05);">⏱️</div>
+          <div class="text-mono">// AVERAGE LATENCY</div>
         </div>
-        <div class="stat-number">45m</div>
-        <div style="height: 1px; background: var(--border-light); margin: 20px 0;"></div>
-        <p class="stat-description">Average emergency response lag in urban areas — causing the golden hour to be lost completely.</p>
+        <div class="stat-number" style="color: var(--accent-cyan);">45m</div>
+        <div style="height: 1px; background: var(--border-hairline); margin: 24px 0;"></div>
+        <p class="stat-description">Average emergency response wait times in major urban centers — where crucial golden hours are lost entirely.</p>
       </div>
     </div>
   </div>
@@ -132,9 +129,9 @@
 <section class="timeline-section" id="how-it-works">
   <div class="container">
     <div style="max-width: 780px;" class="reveal">
-      <div class="section-tagline" style="color: var(--accent-cyan);">HOW RIDESAFE WORKS</div>
-      <h2 class="section-title">The Real-Time Emergency Pipeline</h2>
-      <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.6;">
+      <div class="section-tagline">PLATFORM ARCHITECTURE</div>
+      <h2 class="section-title">The Real-Time Emergency Pipeline.</h2>
+      <p style="font-size: 1.15rem; color: var(--text-muted); line-height: 1.65; max-width: 620px;">
         From hardware telemetry on the helmet to emergency routing, our platform operates automatically under 2 seconds.
       </p>
     </div>
@@ -144,26 +141,29 @@
       <div class="flow-step-card reveal">
         <div class="flow-step-num">01</div>
         <div class="flow-step-content">
-          <h3>Bike & Helmet Module</h3>
-          <p>An on-vehicle ESP32 module continually samples telemetry metrics at 60Hz, creating a baseline vector profile.</p>
+          <div class="text-mono" style="color: var(--accent-cyan); margin-bottom: 6px;">[ SENSOR STREAM ]</div>
+          <h3>Helmet Core Telemetry Module</h3>
+          <p>An on-vehicle ESP32 module continually samples telemetry metrics at 60Hz, building a highly localized normal-use vector profile.</p>
         </div>
       </div>
 
       <!-- Step 2 -->
       <div class="flow-step-card reveal">
-        <div class="flow-step-num" style="color: var(--accent-lime); background: rgba(200, 255, 77, 0.05)">02</div>
+        <div class="flow-step-num">02</div>
         <div class="flow-step-content">
-          <h3>Collision Detection Engine</h3>
-          <p>3-axis G-force analysis identifies high-impact crash signatures exceeding the 4.5G mathematical limit.</p>
+          <div class="text-mono" style="color: var(--accent-lime); margin-bottom: 6px;">[ IMPACT METRICS ]</div>
+          <h3>Collision Vector Analyzer</h3>
+          <p>3-axis G-force analysis identifies high-impact crash signatures exceeding the 4.5G mathematical safety limit.</p>
         </div>
       </div>
 
       <!-- Step 3 -->
       <div class="flow-step-card reveal">
-        <div class="flow-step-num" style="color: var(--accent-lime); background: rgba(200, 255, 77, 0.05)">03</div>
+        <div class="flow-step-num">03</div>
         <div class="flow-step-content">
-          <h3>Emergency Verification Loop</h3>
-          <p>A smart on-helmet haptic buzzer prompts the rider with a 30-second cancellation window to suppress false alarms.</p>
+          <div class="text-mono" style="color: var(--accent-lime); margin-bottom: 6px;">[ BUZZER SHIELD ]</div>
+          <h3>Haptic Override Protocol</h3>
+          <p>A secure haptic on-helmet buzzer triggers immediately, prompting the rider with a 30-second cancellation window to suppress false triggers.</p>
         </div>
       </div>
 
@@ -171,8 +171,9 @@
       <div class="flow-step-card reveal">
         <div class="flow-step-num">04</div>
         <div class="flow-step-content">
-          <h3>Cloud Router & Twilio Gateway</h3>
-          <p>Once the timer expires, the cloud coordinates live Google Maps GPS metrics and initiates Twilio emergency SOS dispatch.</p>
+          <div class="text-mono" style="color: var(--accent-cyan); margin-bottom: 6px;">[ TWILIO DEPLOY ]</div>
+          <h3>Cloud Infrastructure & Alert Dispatch</h3>
+          <p>Once the timer expires, the cloud coordinates live GPS location metrics and initiates immediate emergency SMS dispatch through Twilio.</p>
         </div>
       </div>
     </div>
@@ -184,11 +185,11 @@
      ════════════════════════════════════════════════ -->
 <section class="product-reveal-section" id="reveal">
   <div class="container">
-    <div style="text-align: center; max-width: 780px; margin: 0 auto;" class="reveal">
+    <div style="text-align: center; max-width: 800px; margin: 0 auto;" class="reveal">
       <div class="section-tagline" style="color: var(--accent-lime);">PRODUCT REVEAL</div>
-      <h2 class="section-title" style="font-size: clamp(2.4rem, 5vw, 3.8rem); line-height: 1.05;">Engineered to Protect. Built to Scale.</h2>
-      <p style="font-size: 1.1rem; color: var(--text-muted); margin-top: 16px;">
-        A compact safety module that fits seamlessly onto any standard helmet. Zero setup required for riders.
+      <h2 class="section-title" style="font-size: clamp(2.4rem, 5vw, 4.2rem); line-height: 1.05;">Engineered to Protect. Built to Scale.</h2>
+      <p style="font-size: 1.15rem; color: var(--text-muted); margin-top: 24px; max-width: 600px; margin-left: auto; margin-right: auto;">
+        A compact safety module that fits seamlessly onto any standard helmet. Zero configuration required for the active fleet.
       </p>
     </div>
 
@@ -199,22 +200,26 @@
 
       <div class="reveal-specs">
         <div class="reveal-spec-item reveal">
-          <h4>Accident Detection Engine</h4>
+          <div class="text-mono" style="margin-bottom: 8px;">01 // INCIDENT ANALYSIS</div>
+          <h4>Continuous Telemetry Stream</h4>
           <p>Calculates combined X/Y/Z accelerometer vectors at 60Hz to isolate collisions instantly.</p>
         </div>
 
         <div class="reveal-spec-item reveal">
-          <h4>Precision GPS Location</h4>
-          <p>Integrates NEO-6M satellite tracking to send precise coordination metrics with every alert.</p>
+          <div class="text-mono" style="margin-bottom: 8px;">02 // COGNITIVE TRACKING</div>
+          <h4>Satellite Coordinate Engine</h4>
+          <p>Integrates NEO-6M satellite tracking to send precise coordination metrics with every active alert.</p>
         </div>
 
         <div class="reveal-spec-item reveal">
-          <h4>Sub-Second SMS Dispatch</h4>
+          <div class="text-mono" style="margin-bottom: 8px;">03 // DISPATCH LAYER</div>
+          <h4>Emergency SOS Routings</h4>
           <p>Twilio gateway provides highly reliable programmable emergency dispatch under 312ms.</p>
         </div>
 
         <div class="reveal-spec-item reveal">
-          <h4>Robust Battery Architecture</h4>
+          <div class="text-mono" style="margin-bottom: 8px;">04 // POWER CORE</div>
+          <h4>Industrial Battery Design</h4>
           <p>Low-draw 3.7V lithium core keeps the device operational on full shifts without recharging.</p>
         </div>
       </div>
@@ -231,24 +236,27 @@
       
       <div class="fleet-features">
         <div class="reveal">
-          <div class="section-tagline" style="color: var(--accent-cyan);">FLEET DESK</div>
+          <div class="section-tagline" style="color: var(--accent-cyan);">FLEET INTEGRATIONS</div>
           <h2 class="section-title" style="margin-bottom: 24px;">Protect Every Rider. From One Dashboard.</h2>
-          <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 40px;">
+          <p style="font-size: 1.15rem; color: var(--text-muted); margin-bottom: 48px;">
             Coordinate logistics safety, review real-time rider tracking, and manage emergency incident alerts effortlessly at scale.
           </p>
         </div>
 
         <div class="fleet-feature-item reveal">
+          <div class="text-mono" style="margin-bottom: 8px;">// MONITORING CHANNEL</div>
           <h3>Live Telemetry Maps</h3>
           <p>Track delivery agents dynamically using high-fidelity Leaflet routing overlays.</p>
         </div>
 
         <div class="fleet-feature-item reveal">
-          <h3>Unified Incident Logs</h3>
+          <div class="text-mono" style="margin-bottom: 8px;">// RECONSTRUCTION LOGS</div>
+          <h3>Unified Incident Management</h3>
           <p>Gain absolute clarity on emergency dispatches, response status, and rider check-ins.</p>
         </div>
 
         <div class="fleet-feature-item reveal">
+          <div class="text-mono" style="margin-bottom: 8px;">// PREDICTIVE AUDITS</div>
           <h3>Safety Analytics</h3>
           <p>Analyze route hazards, identify near-miss patterns, and track fleet safety index ratings.</p>
         </div>
@@ -267,10 +275,10 @@
      ════════════════════════════════════════════════ -->
 <section class="cockpit-section" id="simulator">
   <div class="container">
-    <div style="text-align: center; max-width: 780px; margin: 0 auto 60px;" class="reveal">
+    <div style="text-align: center; max-width: 780px; margin: 0 auto 80px;" class="reveal">
       <div class="section-tagline" style="color: var(--accent-lime);">INTERACTIVE SANDBOX</div>
       <h2 class="section-title">Test The Response Loop</h2>
-      <p style="font-size: 1.1rem; color: var(--text-muted);">
+      <p style="font-size: 1.15rem; color: var(--text-muted);">
         Experience the transition from G-Force shockwave to Twilio dispatch in real-time.
       </p>
     </div>
@@ -278,19 +286,19 @@
     <div class="cockpit-widget reveal">
       <div class="cockpit-header">
         <div>
-          <div class="text-mono" style="color: var(--accent-lime); font-weight: 600; margin-bottom: 6px;">TELEMETRY CONTROL PANEL</div>
-          <h3 style="font-family: var(--font-display); font-size: 1.35rem; font-weight: 800; color: var(--text-bright); margin: 0;">Automated Emergency Routing Sandbox</h3>
+          <div class="text-mono" style="color: var(--text-dim); margin-bottom: 8px;">TELEMETRY CONTROL PANEL</div>
+          <h3 style="font-family: var(--font-sans); font-size: 1.35rem; font-weight: 800; color: var(--text-bright); margin: 0; letter-spacing: -0.03em;">Automated Emergency Routing Sandbox</h3>
         </div>
-        <button class="btn btn-lime btn-sm" onclick="triggerSimulatedImpact()" style="font-weight: 700; font-family: var(--font-display);">
+        <button class="btn btn-lime btn-sm" onclick="triggerSimulatedImpact()" style="font-weight: 700; font-family: var(--font-sans);">
           Simulate G-Force Impact ⚡
         </button>
       </div>
 
       <div class="cockpit-grid">
         <div style="display: flex; flex-direction: column; gap: 12px;">
-          <div class="text-mono" style="color: var(--text-muted); display: flex; justify-content: space-between; align-items: center; padding: 0 4px;">
+          <div class="text-mono" style="color: var(--text-dim); display: flex; justify-content: space-between; align-items: center; padding: 0 4px;">
             <span>Twilio Operations Dispatch Console</span>
-            <span style="color: var(--accent-cyan); font-weight: 600;" id="sim-status">SYSTEM IDLE · PORT 8000</span>
+            <span style="color: var(--text-muted); font-weight: 600;" id="sim-status">SYSTEM READY // LINK DEPLOYED</span>
           </div>
           <div class="cockpit-terminal" id="cockpitTerminal">// Standing by. Click 'Simulate G-Force Impact' above to verify the G-force trigger pipeline...</div>
         </div>
@@ -300,14 +308,14 @@
 </section>
 
 <!-- ════════════════════════════════════════════════
-     SECTION 6: WHY IT MATTERS (CRISIS -> CARE)
+     SECTION 6: WHY IT MATTERS (EMOTIONAL TIMELINE)
      ════════════════════════════════════════════════ -->
 <section class="why-matters-section">
   <div class="container">
-    <div class="reveal">
+    <div class="reveal" style="text-align: center;">
       <div class="section-tagline" style="color: var(--accent-lime);">THE CRITICAL GAP</div>
-      <h2 class="section-title" style="max-width: 780px; margin: 0 auto 20px;">Reducing The Distance Between Crisis And Care.</h2>
-      <p style="font-size: 1.1rem; color: var(--text-muted); max-width: 600px; margin: 0 auto;">
+      <h2 class="section-title" style="max-width: 800px; margin: 0 auto 24px;">Reducing The Distance Between Crisis And Care.</h2>
+      <p style="font-size: 1.15rem; color: var(--text-muted); max-width: 620px; margin: 0 auto;">
         Time elapsed translates directly to recovery success. Our infrastructure bridge eliminates manual call latency.
       </p>
     </div>
@@ -315,7 +323,7 @@
     <div class="matters-timeline">
       <!-- Node 1 -->
       <div class="matters-node reveal">
-        <div class="node-icon-box">💥</div>
+        <div class="node-icon-box" style="font-size: 1.25rem; font-weight: 700; color: var(--color-danger);">01</div>
         <div class="node-time">0.00s</div>
         <div class="node-label">Accident</div>
         <p class="node-desc">G-force decelerates at high speed, violating threshold limit.</p>
@@ -323,7 +331,7 @@
 
       <!-- Node 2 -->
       <div class="matters-node reveal">
-        <div class="node-icon-box" style="border-color: var(--accent-cyan);">🧠</div>
+        <div class="node-icon-box" style="font-size: 1.25rem; font-weight: 700; color: var(--accent-cyan);">02</div>
         <div class="node-time">+0.04s</div>
         <div class="node-label">Detection</div>
         <p class="node-desc">ESP32 registers impact parameters, launching countdown.</p>
@@ -331,7 +339,7 @@
 
       <!-- Node 3 -->
       <div class="matters-node reveal">
-        <div class="node-icon-box" style="border-color: var(--accent-lime);">🚨</div>
+        <div class="node-icon-box" style="font-size: 1.25rem; font-weight: 700; color: var(--accent-lime);">03</div>
         <div class="node-time">+1.40s</div>
         <div class="node-label">Alert</div>
         <p class="node-desc">Emergency SMS and dashboard location tracks go live.</p>
@@ -339,7 +347,7 @@
 
       <!-- Node 4 -->
       <div class="matters-node reveal">
-        <div class="node-icon-box">🚑</div>
+        <div class="node-icon-box" style="font-size: 1.25rem; font-weight: 700; color: var(--text-bright);">04</div>
         <div class="node-time">+1.85s</div>
         <div class="node-label">Response</div>
         <p class="node-desc">Fleet dispatch routes rescue vehicles to precise coordinates.</p>
@@ -353,35 +361,35 @@
      ════════════════════════════════════════════════ -->
 <section class="vision-section">
   <div class="container">
-    <div style="text-align: center; max-width: 780px; margin: 0 auto;" class="reveal">
+    <div style="text-align: center; max-width: 800px; margin: 0 auto;" class="reveal">
       <div class="section-tagline" style="color: var(--accent-cyan);">FUTURE INITIATIVES</div>
       <h2 class="section-title">Building The Emergency Layer For Urban Mobility.</h2>
-      <p style="font-size: 1.1rem; color: var(--text-muted);">
+      <p style="font-size: 1.15rem; color: var(--text-muted); max-width: 600px; margin-left: auto; margin-right: auto;">
         Our mission extends beyond gig fleets. We are scale-ready safety architects.
       </p>
     </div>
 
     <div class="vision-grid">
       <div class="vision-card reveal">
-        <span class="vision-icon">📦</span>
+        <span class="vision-icon-tag">// STAGE A</span>
         <h3>Delivery Fleets</h3>
         <p>Providing seamless active hardware support to protect thousands of gig riders across last-mile networks.</p>
       </div>
 
       <div class="vision-card reveal">
-        <span class="vision-icon">🚲</span>
+        <span class="vision-icon-tag">// STAGE B</span>
         <h3>Micromobility Rentals</h3>
         <p>Integrating compact safety sensors into smart bike and rental scooter portfolios.</p>
       </div>
 
       <div class="vision-card reveal">
-        <span class="vision-icon">🚛</span>
+        <span class="vision-icon-tag">// STAGE C</span>
         <h3>Enterprise Logistics</h3>
         <p>Expanding emergency detection support to logistics networks and regional transport fleets.</p>
       </div>
 
       <div class="vision-card reveal">
-        <span class="vision-icon">🏙️</span>
+        <span class="vision-icon-tag">// STAGE D</span>
         <h3>Smart Cities Layer</h3>
         <p>Serving as the centralized automated incident routing layer to support emergency infrastructure grids.</p>
       </div>
@@ -459,7 +467,7 @@ function triggerSimulatedImpact() {
   playCockpitChime();
 
   const statusBadge = document.getElementById('sim-status');
-  statusBadge.textContent = 'INCIDENT DETECTED · 4.85G';
+  statusBadge.textContent = 'INCIDENT DETECTED // G-FORCE PEAK 4.85G';
   statusBadge.style.color = 'var(--color-danger)';
 
   // 3. Output JSON response in simulated terminal
@@ -525,9 +533,9 @@ const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   if (nav) {
     if (window.scrollY > 40) {
-      nav.style.background = 'rgba(15, 17, 21, 0.95)';
+      nav.style.background = 'rgba(9, 11, 14, 0.95)';
     } else {
-      nav.style.background = 'rgba(15, 17, 21, 0.8)';
+      nav.style.background = 'rgba(9, 11, 14, 0.8)';
     }
   }
 });

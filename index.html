@@ -9,18 +9,26 @@
 </head>
 <body class="landing-page">
 
+<!-- BLUEPRINT BACKGROUND GRID SYSTEM -->
+<div class="blueprint-grid-system">
+  <div class="blueprint-col"></div>
+  <div class="blueprint-col"></div>
+  <div class="blueprint-col"></div>
+  <div class="blueprint-col"></div>
+</div>
+
 <!-- NAVIGATION -->
 <nav class="nav" id="nav">
-  <div class="container" style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
+  <div class="container" style="width: 100%; display: flex; justify-content: space-between; align-items: center; z-index: 100;">
     <a href="index.html" style="font-family: var(--font-sans); font-weight: 900; font-size: 1.2rem; letter-spacing: -0.04em; display: flex; align-items: center; gap: 10px; color: var(--text-bright); text-decoration: none;">
       <div style="background: var(--text-bright); color: #000000; width: 26px; height: 26px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.85rem;">RS</div>
       <span>RideSafe</span>
     </a>
     <div style="display: flex; gap: 36px; align-items: center;">
-      <a href="#problem" style="font-size: 0.82rem; color: var(--text-muted); font-weight: 500; font-family: var(--font-sans); text-decoration: none; transition: color 0.2s;">Challenge</a>
-      <a href="#how-it-works" style="font-size: 0.82rem; color: var(--text-muted); font-weight: 500; font-family: var(--font-sans); text-decoration: none; transition: color 0.2s;">Infrastructure</a>
-      <a href="#reveal" style="font-size: 0.82rem; color: var(--text-muted); font-weight: 500; font-family: var(--font-sans); text-decoration: none; transition: color 0.2s;">Hardware</a>
-      <a href="#operators" style="font-size: 0.82rem; color: var(--text-muted); font-weight: 500; font-family: var(--font-sans); text-decoration: none; transition: color 0.2s;">Operations</a>
+      <a href="#problem" style="font-size: 0.82rem; color: var(--text-muted); font-weight: 500; font-family: var(--font-sans); text-decoration: none;">Challenge</a>
+      <a href="#how-it-works" style="font-size: 0.82rem; color: var(--text-muted); font-weight: 500; font-family: var(--font-sans); text-decoration: none;">Infrastructure</a>
+      <a href="#reveal" style="font-size: 0.82rem; color: var(--text-muted); font-weight: 500; font-family: var(--font-sans); text-decoration: none;">Hardware</a>
+      <a href="#operators" style="font-size: 0.82rem; color: var(--text-muted); font-weight: 500; font-family: var(--font-sans); text-decoration: none;">Operations</a>
       <a href="login.html" class="btn btn-outline-titanium btn-sm">Enter Platform</a>
     </div>
   </div>
@@ -52,13 +60,13 @@
       </div>
 
       <!-- Live telemetry stats overlay -->
-      <div style="display: flex; gap: 40px; margin-top: 56px; border-top: 1px solid var(--border-hairline); padding-top: 40px; max-width: 500px;">
+      <div style="display: flex; gap: 40px; margin-top: 56px; border-top: 1px solid var(--border-light); padding-top: 40px; max-width: 500px;">
         <div>
-          <div style="font-family: var(--font-mono); color: var(--text-dim); font-size: 0.65rem; letter-spacing: 0.15em; margin-bottom: 6px;">RESPONSE ROUTING</div>
+          <div class="text-mono" style="margin-bottom: 6px;">RESPONSE ROUTING</div>
           <div style="font-family: var(--font-sans); font-weight: 800; font-size: 1.25rem; color: var(--text-bright); letter-spacing: -0.02em;">1.8s <span style="font-size: 0.82rem; color: var(--text-muted); font-weight: 400;">Latency</span></div>
         </div>
         <div>
-          <div style="font-family: var(--font-mono); color: var(--text-dim); font-size: 0.65rem; letter-spacing: 0.15em; margin-bottom: 6px;">ACTIVE DATA STREAM</div>
+          <div class="text-mono" style="margin-bottom: 6px;">ACTIVE DATA STREAM</div>
           <div style="font-family: var(--font-sans); font-weight: 800; font-size: 1.25rem; color: var(--text-bright); letter-spacing: -0.02em;">60Hz <span style="font-size: 0.82rem; color: var(--text-muted); font-weight: 400;">Sampling</span></div>
         </div>
       </div>
@@ -93,30 +101,30 @@
     </div>
 
     <div class="problem-stats-grid">
-      <div class="problem-stat-card reveal">
+      <div class="premium-card reveal">
         <div class="stat-header">
           <div class="text-mono">// CRITICAL STATISTICS</div>
         </div>
         <div class="stat-number" style="color: var(--color-danger);">168k+</div>
-        <div style="height: 1px; background: var(--border-hairline); margin: 24px 0;"></div>
+        <div style="height: 1px; background: var(--border-light); margin: 24px 0;"></div>
         <p class="stat-description">Annual road fatalities in India — representing an active public safety failure every three minutes.</p>
       </div>
 
-      <div class="problem-stat-card reveal">
+      <div class="premium-card reveal">
         <div class="stat-header">
           <div class="text-mono">// FLEET VULNERABILITY</div>
         </div>
         <div class="stat-number">44%</div>
-        <div style="height: 1px; background: var(--border-hairline); margin: 24px 0;"></div>
+        <div style="height: 1px; background: var(--border-light); margin: 24px 0;"></div>
         <p class="stat-description">Of all road deaths involve two-wheelers. Gig fleet riders represent the most heavily exposed transport vertical.</p>
       </div>
 
-      <div class="problem-stat-card reveal">
+      <div class="premium-card reveal">
         <div class="stat-header">
           <div class="text-mono">// AVERAGE LATENCY</div>
         </div>
         <div class="stat-number" style="color: var(--accent-cyan);">45m</div>
-        <div style="height: 1px; background: var(--border-hairline); margin: 24px 0;"></div>
+        <div style="height: 1px; background: var(--border-light); margin: 24px 0;"></div>
         <p class="stat-description">Average emergency response wait times in major urban centers — where crucial golden hours are lost entirely.</p>
       </div>
     </div>
@@ -271,7 +279,7 @@
 </section>
 
 <!-- ════════════════════════════════════════════════
-     INTERACTIVE SIMULATOR WIDGET
+     INTERACTIVE SHOCKWAVE SANDBOX WIDGET
      ════════════════════════════════════════════════ -->
 <section class="cockpit-section" id="simulator">
   <div class="container">
@@ -296,10 +304,16 @@
 
       <div class="cockpit-grid">
         <div style="display: flex; flex-direction: column; gap: 12px;">
-          <div class="text-mono" style="color: var(--text-dim); display: flex; justify-content: space-between; align-items: center; padding: 0 4px;">
+          <div class="text-mono" style="color: var(--text-dim); display: flex; justify-content: space-between; align-items: center; padding: 0 4px; margin-bottom: 8px;">
             <span>Twilio Operations Dispatch Console</span>
             <span style="color: var(--text-muted); font-weight: 600;" id="sim-status">SYSTEM READY // LINK DEPLOYED</span>
           </div>
+          
+          <!-- SOPHISTICATED SVG WAVEFORM COMPONENT -->
+          <svg class="waveform-svg" viewBox="0 0 800 80 animate">
+            <path class="waveform-path" id="simWaveform" d="M 0,40 L 100,40 L 200,40 L 300,40 L 400,40 L 500,40 L 600,40 L 700,40 L 800,40" />
+          </svg>
+
           <div class="cockpit-terminal" id="cockpitTerminal">// Standing by. Click 'Simulate G-Force Impact' above to verify the G-force trigger pipeline...</div>
         </div>
       </div>
@@ -427,6 +441,21 @@
      SCRIPTS
      ════════════════════════════════════════════════ -->
 <script>
+// ── APPLE-STYLE HOVER SPOTLIGHT TRACKER ────────────────────────────
+function initCardHoverSpotlight() {
+  const cards = document.querySelectorAll('.premium-card, .flow-step-card, .vision-card, .cockpit-widget');
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--hover-x', `${x}px`);
+      card.style.setProperty('--hover-y', `${y}px`);
+    });
+  });
+}
+window.addEventListener('DOMContentLoaded', initCardHoverSpotlight);
+
 // ── COCKPIT SYNTH BUZZER SOUND & SHAKE ──────────────────────────────
 function playCockpitChime() {
   try {
@@ -456,6 +485,7 @@ function playCockpitChime() {
   }
 }
 
+// ── SVG PATH MORPH SHOCKWAVE TRIGGER ────────────────────────────────
 function triggerSimulatedImpact() {
   // 1. Shake Viewport
   document.body.classList.remove('viewport-shake');
@@ -470,7 +500,27 @@ function triggerSimulatedImpact() {
   statusBadge.textContent = 'INCIDENT DETECTED // G-FORCE PEAK 4.85G';
   statusBadge.style.color = 'var(--color-danger)';
 
-  // 3. Output JSON response in simulated terminal
+  // 3. SVG Path Animate-Morph to Spike Waveform
+  const simWaveform = document.getElementById('simWaveform');
+  if (simWaveform) {
+    // stable baseline
+    const baseline = "M 0,40 L 100,40 L 200,40 L 300,40 L 400,40 L 500,40 L 600,40 L 700,40 L 800,40";
+    // sudden high-G vector spike
+    const spike = "M 0,40 L 150,40 L 280,38 L 350,42 L 390,5 L 415,75 L 435,28 L 470,45 L 800,40";
+    
+    simWaveform.setAttribute('d', spike);
+    simWaveform.style.stroke = 'var(--color-danger)';
+    
+    // Decay back to baseline wave after 1.8 seconds
+    setTimeout(() => {
+      simWaveform.setAttribute('d', baseline);
+      simWaveform.style.stroke = 'var(--accent-cyan)';
+      statusBadge.textContent = 'SYSTEM ACTIVE // MONITORING LINK';
+      statusBadge.style.color = 'var(--text-muted)';
+    }, 1800);
+  }
+
+  // 4. Output JSON response in simulated terminal
   const terminal = document.getElementById('cockpitTerminal');
   terminal.innerHTML = `<span style="color:var(--color-danger)">[ALERT] Critical threshold exceeded: high-G telemetry spike!</span>`;
 
@@ -533,9 +583,9 @@ const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   if (nav) {
     if (window.scrollY > 40) {
-      nav.style.background = 'rgba(9, 11, 14, 0.95)';
+      nav.style.background = 'rgba(6, 8, 10, 0.95)';
     } else {
-      nav.style.background = 'rgba(9, 11, 14, 0.8)';
+      nav.style.background = 'rgba(6, 8, 10, 0.8)';
     }
   }
 });

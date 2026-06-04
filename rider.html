@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RideSafe Companion — Rider Portal</title>
+  
+  <!-- Global & Dashboard CSS Sheets -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/companion.css">
+  
+  <!-- Leaflet GIS Map Assets -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <style>
+    /* Inline helper overrides */
+    #companionMap {
+      width: 100%;
+      height: 100%;
+      background: #0C0D10;
+    }
+    .btn-spinner {
+      width: 12px;
+      height: 12px;
+      border: 2px solid rgba(12,13,16,0.3);
+      border-radius: 50%;
+      border-top-color: var(--comp-txt);
+      animation: spin 0.8s linear infinite;
+      display: inline-block;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body class="rider-dashboard-body">
+
+  <div class="bg-grid"></div>
+  <div class="orb orb1"></div><div class="orb orb2"></div>
+
+  <!-- Dashboard Shell -->
+  <div class="dashboard-wrapper">
+    
+    <!-- Top Navigation HUD Bar -->
+    <nav class="dashboard-nav">
+      <div class="nav-brand">
+        <div class="logo-box">🛡️</div>
+        <div>
+          <div style="font-size: 1.05rem; font-weight: 800;">RideSafe <span class="grad-blue">Companion</span></div>
+          <div style="font-size: 0.6rem; color: var(--comp-muted); font-family: monospace; letter-spacing: 0.05em; text-transform: uppercase;">Rider Safety Hub</div>
+        </div>
+      </div>
+      <div class="nav-status-group">
+        <!-- Active Profile Dropdown -->
+        <div class="companion-select-wrapper" style="min-width: 240px;">
+          <select id="riderProfileSelect">
+            <!-- Populated via JS -->
+          </select>
+        </div>
+        <button id="soundToggleBtn" class="btn btn-outline btn-sm active" style="font-size:0.75rem; border-radius:10px;">🔊 Sound On</button>
+        <a href="index.html" class="btn btn-outline btn-sm" style="font-size:0.75rem; border-radius:10px; border-color: rgba(255,255,255,0.06)">← Home Portal</a>
+      </div>
+    </nav>
+
+    <!-- Main Dashboard Container -->
+    <main class="dashboard-container">
+
+      <!-- LEFT COLUMN: Status, Telemetry widgets, diagnostics -->
+      <div class="col-hero">
+        
+        <!-- Safety hero circular indicators -->
+        <section class="dashboard-card">
+          <div class="card-title-row">
+            <span class="card-label">🛡️ Security Status</span>
+            <span id="statusBarTime" style="font-family: monospace; font-size: 0.72rem; color: var(--comp-muted);">08:00 PM</span>
+          </div>
+          
+          <div class="safety-ring-container">
+            <div id="statusHeroRing" class="status-circle-outer state-monitoring">
+              <div class="status-circle-inner">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span id="statusHeroLabel" style="font-size: 0.95rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 8px;">Monitoring</span>
+                <span id="statusHeroDesc" style="font-size: 0.6rem; color: var(--comp-muted); text-align: center; max-width: 120px; line-height: 1.3; margin-top: 6px;">Sensors waiting for BLE link</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mini diagnostics grid -->
+          <div class="telemetry-dashboard-grid" style="margin-top: 10px;">
+            <div class="telemetry-widget-card">
+              <div class="widget-icon-box">🔌</div>
+              <div class="widget-details-box">
+                <div>Device</div>
+                <div id="heroMiniDevice" style="color:var(--comp-danger)">Unpaired</div>
+              </div>
+            </div>
+            <div class="telemetry-widget-card">
+              <div class="widget-icon-box">📡</div>
+              <div class="widget-details-box">
+                <div>GPS Status</div>
+                <div id="heroMiniLocation" style="color:var(--comp-muted)">Disabled</div>
+              </div>
+            </div>
+            <div class="telemetry-widget-card">
+              <div class="widget-icon-box">👥</div>
+              <div class="widget-details-box">
+                <div>Contacts</div>
+                <div id="heroMiniContacts" style="color:var(--comp-muted)">Ready</div>
+              </div>
+            </div>
+            <div class="telemetry-widget-card">
+              <div class="widget-icon-box">🔋</div>
+              <div class="widget-details-box">
+                <div>IoT Battery</div>
+                <div id="heroMiniBattery">—</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Device pairing & Calibration diagnostic -->
+        <section class="dashboard-card">
+          <div class="card-title-row">
+            <span class="card-label">⚙️ Hardware Diagnostics</span>
+            <span class="badge badge-blue" style="font-size: 0.58rem;">BLE Beacon</span>
+          </div>
+          
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <div style="display: flex; gap: 14px; align-items: center;">
+              <div class="dev-avatar" style="width: 44px; height: 44px; border-radius: 12px; background: rgba(231,185,76,0.06); display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">🏍️</div>
+              <div>
+                <h4 id="companionDeviceId" style="font-size: 0.9rem; font-weight: 700;">No hardware paired</h4>
+                <p id="companionDeviceStatus" style="font-size: 0.72rem; color: var(--comp-danger);">Disconnected</p>
+              </div>
+            </div>
+
+            <div id="companionDeviceAlertMsg" class="badge badge-green" style="display:none; width:100%; box-sizing:border-box; text-align:center; font-size:0.62rem; justify-content:center; padding:6px 12px;">
+              Device connected & actively monitoring.
+            </div>
+
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 4px;">
+              <button id="connectDeviceBtn" class="btn btn-primary" style="background:var(--comp-accent); color:#000; font-weight:800; border:none; padding:12px; border-radius:12px; font-size:0.78rem;">Connect Device</button>
+              <button id="simAccidentBtn" class="btn-sim-trigger" style="width:100%; font-size:0.75rem; border-radius:12px;">💥 Test SOS Beacon</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Safety activity timeline logs -->
+        <section class="dashboard-card">
+          <div class="card-title-row">
+            <span class="card-label">📋 Diagnostic Log</span>
+          </div>
+          <div class="activity-timeline" id="recentActivityTimeline">
+            <!-- Filled via JS -->
+          </div>
+        </section>
+
+      </div><!-- End col-hero -->
+
+      <!-- RIGHT COLUMN: Telemetry graphs, Map overlays, Contacts, pipeline -->
+      <div class="col-main">
+        
+        <!-- Live G-Force oscilloscope graphs -->
+        <section class="dashboard-card">
+          <div class="card-title-row">
+            <span class="card-label">📈 Real-time Accelerometer Telemetry</span>
+            <span class="badge badge-green" style="font-size:0.58rem; font-family:monospace;">60 FPS active</span>
+          </div>
+          
+          <div class="oscilloscope-canvas-container">
+            <canvas id="companionOscilloscope"></canvas>
+          </div>
+
+          <div class="oscilloscope-stats-row">
+            <div class="oscilloscope-stat-col">
+              <label>Axis AX</label>
+              <span id="scopeValAX" style="color: #00d4ff;">0.00 g</span>
+            </div>
+            <div class="oscilloscope-stat-col">
+              <label>Axis AY</label>
+              <span id="scopeValAY" style="color: #a78bfa;">9.81 g</span>
+            </div>
+            <div class="oscilloscope-stat-col">
+              <label>Axis AZ</label>
+              <span id="scopeValAZ" style="color: #48d597;">0.00 g</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Live geofenced maps widget -->
+        <section class="dashboard-card">
+          <div class="card-title-row">
+            <span class="card-label">🗺️ Geolocation Uplink</span>
+            <button id="enableLocationBtn" class="btn btn-outline btn-sm" style="font-size:0.7rem; padding:6px 12px; border-radius:10px;">Enable GPS</button>
+          </div>
+          
+          <div class="map-panel-container">
+            <div id="companionMap"></div>
+          </div>
+
+          <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:var(--comp-muted); margin-top:12px; font-family:monospace;">
+            <div>GPS Lock: <span id="gpsCoordsText" style="color:var(--comp-txt)">—</span></div>
+            <div>Accuracy: <span id="gpsAccuracyText" style="color:var(--comp-success)">N/A</span></div>
+            <div>Sync: <span id="gpsLastUpdatedText" style="color:var(--comp-txt)">Never</span></div>
+          </div>
+        </section>
+
+        <!-- Emergency contact priority profiles -->
+        <section class="dashboard-card">
+          <div class="card-title-row">
+            <span class="card-label">🚨 Priority Emergency Contacts</span>
+            <button id="addContactBtn" class="btn btn-outline btn-sm" style="font-size:0.7rem; border-radius:8px;">+ Add Contact</button>
+          </div>
+          <div class="contact-grid" id="emergencyContactsList">
+            <!-- Filled via JS -->
+          </div>
+        </section>
+
+        <!-- Action sequences pipeline -->
+        <section class="dashboard-card">
+          <div class="card-title-row">
+            <span class="card-label">⚙️ Safety Sequence Chain</span>
+          </div>
+          <div class="timeline-pipeline">
+            <div class="timeline-step-node">
+              <div class="timeline-circle">1</div>
+              <div class="timeline-label-text">Accident Signature Captured</div>
+            </div>
+            <div class="timeline-step-node">
+              <div class="timeline-circle">2</div>
+              <div class="timeline-label-text">Rider Verification Window</div>
+            </div>
+            <div class="timeline-step-node">
+              <div class="timeline-circle">3</div>
+              <div class="timeline-label-text">GPS Coordinate Lock</div>
+            </div>
+            <div class="timeline-step-node">
+              <div class="timeline-circle">4</div>
+              <div class="timeline-label-text">SOS Payload Assembled</div>
+            </div>
+            <div class="timeline-step-node">
+              <div class="timeline-circle">5</div>
+              <div class="timeline-label-text">SMS Alert Dispatched</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Shift profile details card -->
+        <section class="dashboard-card" style="border-color: rgba(231,185,76,0.1);">
+          <div class="card-title-row" style="margin-bottom:14px;">
+            <span class="card-label">👤 Shift Registry Account</span>
+          </div>
+          <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap: 16px; font-size: 0.8rem;">
+            <div>
+              <span style="color:var(--comp-muted); font-size:0.6rem; display:block; text-transform:uppercase;">Shift Rider</span>
+              <strong id="infoRiderName">Swati Reddy</strong>
+            </div>
+            <div>
+              <span style="color:var(--comp-muted); font-size:0.6rem; display:block; text-transform:uppercase;">Rider ID</span>
+              <strong id="infoRiderId" style="font-family:monospace">#0924</strong>
+            </div>
+            <div>
+              <span style="color:var(--comp-muted); font-size:0.6rem; display:block; text-transform:uppercase;">Assigned Bike</span>
+              <strong id="infoAssignedBike" style="font-family:monospace">KA-09-EW-0924</strong>
+            </div>
+            <div>
+              <span style="color:var(--comp-muted); font-size:0.6rem; display:block; text-transform:uppercase;">Fleet Branch</span>
+              <strong id="infoFleetName">Zepto Mysore West</strong>
+            </div>
+          </div>
+          <div style="border-top:1px solid var(--comp-border); padding-top:10px; margin-top:10px; font-size:0.8rem; display:flex; justify-content:space-between;">
+            <div>Rider Contact Phone: <strong id="infoContactNumber" style="font-family:monospace">9900000924</strong></div>
+            <div style="color:var(--comp-muted); font-size:0.75rem;">Status: <span class="badge badge-green" style="font-size:0.6rem; padding:2px 6px;">ON DUTY</span></div>
+          </div>
+        </section>
+
+      </div><!-- End col-main -->
+
+    </main>
+
+  </div><!-- End dashboard-wrapper -->
+
+  <!-- EMERGENCY OVERLAY WINDOW -->
+  <div class="emergency-fullscreen-overlay" id="emergencyOverlay">
+    <div class="emergency-header" style="text-align:center;">
+      <div class="overlay-beacon-ring">🚨</div>
+      <h2>Possible Incident Detected</h2>
+      <p id="emergencyOverlaySubtitle" style="font-size: 0.9rem; color: var(--comp-muted); margin-top: 6px;">The RideSafe IoT sensors have registered a critical impact signature.</p>
+    </div>
+
+    <!-- Circular countdown clock -->
+    <div class="overlay-timer-circle" id="emergencyTimerWrapper">
+      <svg viewBox="0 0 160 160">
+        <circle cx="80" cy="80" r="70" />
+        <circle id="countdownFill" cx="80" cy="80" r="70" class="overlay-timer-fill" />
+      </svg>
+      <div class="overlay-timer-num" id="countdownNumber">10</div>
+    </div>
+
+    <div class="overlay-button-group" id="emergencyOverlayActions">
+      <button class="btn-emergency-cancel" onclick="riderConfirmSafe()">I'm Safe (Cancel Alert)</button>
+      <button class="btn-emergency-confirm" onclick="triggerSOSImmediately()">Trigger SOS Now</button>
+    </div>
+  </div>
+
+  <!-- ADD EMERGENCY CONTACT MODAL -->
+  <div class="rider-modal-backdrop" id="contactModalOverlay">
+    <div class="rider-modal-content">
+      <h4 style="font-weight: 800; font-size: 1rem; letter-spacing: -0.01em;">Add Emergency Contact</h4>
+      <p style="font-size: 0.75rem; color: var(--comp-muted); margin-top: -6px;">Specify a priority recipient to receive geolocation dispatches during incidents.</p>
+      
+      <form class="companion-modal-form" id="contactForm" style="display:flex; flex-direction:column; gap:12px;">
+        <div>
+          <label style="font-size: 0.65rem; color: var(--comp-muted); text-transform: uppercase; font-weight: 600; display: block; margin-bottom: 4px;" for="contactName">Full Name</label>
+          <input type="text" id="contactName" class="input" style="padding:10px 14px; background:rgba(0,0,0,0.3);" placeholder="e.g. Ramesh Reddy" required>
+        </div>
+        <div>
+          <label style="font-size: 0.65rem; color: var(--comp-muted); text-transform: uppercase; font-weight: 600; display: block; margin-bottom: 4px;" for="contactRel">Relationship</label>
+          <input type="text" id="contactRel" class="input" style="padding:10px 14px; background:rgba(0,0,0,0.3);" placeholder="e.g. Father" required>
+        </div>
+        <div>
+          <label style="font-size: 0.65rem; color: var(--comp-muted); text-transform: uppercase; font-weight: 600; display: block; margin-bottom: 4px;" for="contactPhone">Phone Number</label>
+          <input type="tel" id="contactPhone" class="input" style="padding:10px 14px; background:rgba(0,0,0,0.3);" placeholder="e.g. 990011XXXX" required pattern="[0-9]{10}">
+        </div>
+        <div>
+          <label style="font-size: 0.65rem; color: var(--comp-muted); text-transform: uppercase; font-weight: 600; display: block; margin-bottom: 4px;" for="contactPriority">Priority Level</label>
+          <select id="contactPriority" class="input" style="padding:10px 14px; background:rgba(0,0,0,0.3); color:var(--comp-txt);">
+            <option value="primary">Primary (Priority 1)</option>
+            <option value="secondary">Secondary (Priority 2)</option>
+          </select>
+        </div>
+        
+        <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:14px;">
+          <button type="button" id="cancelContactBtn" class="btn btn-outline btn-sm" style="font-size:0.75rem;">Cancel</button>
+          <button type="submit" class="btn btn-primary btn-sm" style="background:var(--comp-accent); color:#000; font-size:0.75rem; border:none;">Save Contact</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Companion Business Script -->
+  <script src="js/companion.js"></script>
+</body>
+</html>

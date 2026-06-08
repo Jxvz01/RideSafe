@@ -802,3 +802,4 @@
 * [2026-06-08 06:49:57] fix(gps): optimize battery level notification - incremental checkpoint #29
 * [2026-06-08 06:50:57] refactor(telemetry): improve reconnection handler - incremental checkpoint #30
 * [2026-06-08 06:51:57] style(overlay): polish coordinates overlay rendering - incremental checkpoint #31
+* [2026-06-08 06:52:57] docs(sync): harden storage reactive event listener - incremental checkpoint #32

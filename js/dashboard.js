@@ -552,38 +552,59 @@ function initMap() {
 function updateMapMarkers() {
   if (!map) return;
 
-  // Clear previous
-  Object.values(markers).forEach(m => map.removeLayer(m));
-  markers = {};
+  const updatedRiderIds = new Set();
 
   appState.riders.forEach(r => {
     if (!r.lat || !r.lon) return;
+    updatedRiderIds.add(r.id);
 
     let markerClass = 'marker-dot-active';
     if (r.status === 'alert') markerClass = 'marker-dot-alert';
     else if (r.status === 'warning') markerClass = 'marker-dot-warning';
     else if (r.status === 'offline') markerClass = 'marker-dot-offline';
 
-    const icon = L.divIcon({
-      className: 'custom-map-marker',
-      html: `<div class="marker-dot ${markerClass}"></div>`,
-      iconSize: [16, 16],
-      iconAnchor: [8, 8]
-    });
+    const iconHtml = `<div class="marker-dot ${markerClass}"></div>`;
 
-    // Disable generic Leaflet popups. Instead, click markers to open side inspector!
-    const marker = L.marker([r.lat, r.lon], { icon }).addTo(map);
-    marker.on('click', () => {
-      map.panTo([r.lat, r.lon]);
-      openInspectorDrawer(r.id);
-    });
-    
-    markers[r.id] = marker;
+    let marker = markers[r.id];
+    if (marker) {
+      marker.setLatLng([r.lat, r.lon]);
+      const currentIcon = marker.options.icon;
+      if (!currentIcon || currentIcon.options.html !== iconHtml) {
+        marker.setIcon(L.divIcon({
+          className: 'custom-map-marker',
+          html: iconHtml,
+          iconSize: [16, 16],
+          iconAnchor: [8, 8]
+        }));
+      }
+    } else {
+      const icon = L.divIcon({
+        className: 'custom-map-marker',
+        html: iconHtml,
+        iconSize: [16, 16],
+        iconAnchor: [8, 8]
+      });
+
+      marker = L.marker([r.lat, r.lon], { icon }).addTo(map);
+      marker.on('click', () => {
+        map.panTo([r.lat, r.lon]);
+        openInspectorDrawer(r.id);
+      });
+      markers[r.id] = marker;
+    }
 
     // Pan map to active high G crash incidents
     if (r.status === 'alert' && r.ping.includes('Just')) {
       map.setView([r.lat, r.lon], 13);
       openInspectorDrawer(r.id);
+    }
+  });
+
+  // Clean up markers for offline/removed riders
+  Object.keys(markers).forEach(riderId => {
+    if (!updatedRiderIds.has(riderId)) {
+      map.removeLayer(markers[riderId]);
+      delete markers[riderId];
     }
   });
 }

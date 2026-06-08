@@ -64,6 +64,164 @@ let streamVals = { ax: 0, ay: 9.81, az: 0 };
 let soundEnabled = true;
 let audioCtx = null;
 
+// MQTT Cloud Sync Configuration
+const MQTT_BROKER = 'broker.emqx.io';
+const MQTT_PORT = 8084;
+const MQTT_PATH = '/mqtt';
+const MQTT_TOPIC_PREFIX = 'ridesafe/7fd793ee-62c8-47a4-985a-e9e89f947b44/rider';
+const MQTT_DEVICE_TOPIC_PREFIX = 'ridesafe/7fd793ee-62c8-47a4-985a-e9e89f947b44/device';
+
+let mqttClient = null;
+let isMqttPublishing = false;
+
+function initMqtt() {
+  if (typeof Paho === 'undefined') {
+    console.warn('Paho MQTT library not loaded');
+    return;
+  }
+  const clientId = 'rider_companion_' + Math.random().toString(16).substr(2, 8);
+  mqttClient = new Paho.MQTT.Client(MQTT_BROKER, MQTT_PORT, MQTT_PATH, clientId);
+
+  mqttClient.onConnectionLost = (responseObject) => {
+    if (responseObject.errorCode !== 0) {
+      console.warn('MQTT Connection Lost:', responseObject.errorMessage);
+      logActivity('Cloud sync offline. Reconnecting...');
+    }
+  };
+
+  mqttClient.onMessageArrived = (message) => {
+    if (isMqttPublishing) return;
+    try {
+      const topic = message.destinationName;
+      const payload = JSON.parse(message.payloadString);
+
+      if (topic.startsWith(MQTT_TOPIC_PREFIX + '/')) {
+        const riderId = topic.split('/').pop();
+        
+        loadDbState();
+        const rDb = appState.riders.find(r => r.id === riderId);
+        if (rDb) {
+          // If active rider resolved by Admin
+          if (activeRider && riderId === activeRider.id) {
+            if ((activeRider.status === 'alert' || activeRider.status === 'warning') && payload.status === 'active') {
+              logActivity('Safety status resolved externally by Fleet Admin', true);
+              cancelEmergencyWorkflow(false);
+            }
+          }
+
+          rDb.name = payload.name;
+          rDb.status = payload.status;
+          rDb.lat = payload.lat;
+          rDb.lon = payload.lon;
+          rDb.ping = payload.ping;
+          rDb.loc = payload.loc;
+          rDb.alerts = payload.alerts;
+          rDb.device = payload.device;
+          rDb.battery = payload.battery;
+          rDb.signal = payload.signal;
+          rDb.speed = payload.speed;
+          rDb.emergency = payload.emergency;
+
+          if (activeRider && riderId === activeRider.id) {
+            activeRider = rDb;
+          }
+
+          saveDbState();
+          populateRiderDropdown();
+          renderAll();
+        }
+      } else if (topic.startsWith(MQTT_DEVICE_TOPIC_PREFIX + '/')) {
+        const devId = topic.split('/').pop();
+        loadDbState();
+        let devObj = appState.devices.find(d => d.id === devId);
+        if (!devObj) {
+          devObj = { id: devId, ...payload };
+          appState.devices.push(devObj);
+        } else {
+          Object.assign(devObj, payload);
+        }
+        saveDbState();
+        renderAll();
+      }
+    } catch (e) {
+      console.error('MQTT parse error:', e);
+    }
+  };
+
+  mqttClient.connect({
+    useSSL: true,
+    onSuccess: () => {
+      console.log('MQTT Connected');
+      mqttClient.subscribe(MQTT_TOPIC_PREFIX + '/+');
+      mqttClient.subscribe(MQTT_DEVICE_TOPIC_PREFIX + '/+');
+      logActivity('Cloud sync online (Real-time telemetry)', true);
+      if (activeRider) {
+        publishRiderState(activeRider);
+      }
+    },
+    onFailure: (err) => {
+      console.error('MQTT Connect Failed:', err);
+    },
+    reconnect: true
+  });
+}
+
+function publishRiderState(rider) {
+  if (mqttClient && mqttClient.isConnected()) {
+    isMqttPublishing = true;
+    try {
+      const topic = `${MQTT_TOPIC_PREFIX}/${rider.id}`;
+      const payload = JSON.stringify({
+        name: rider.name,
+        status: rider.status,
+        lat: rider.lat,
+        lon: rider.lon,
+        ping: rider.ping,
+        loc: rider.loc,
+        alerts: rider.alerts,
+        device: rider.device,
+        battery: rider.battery,
+        signal: rider.signal,
+        speed: rider.speed,
+        emergency: rider.emergency
+      });
+      const message = new Paho.MQTT.Message(payload);
+      message.destinationName = topic;
+      message.retained = true;
+      mqttClient.send(message);
+    } catch (e) {
+      console.error('MQTT publish error:', e);
+    } finally {
+      isMqttPublishing = false;
+    }
+  }
+}
+
+function publishDeviceState(dev) {
+  if (mqttClient && mqttClient.isConnected()) {
+    isMqttPublishing = true;
+    try {
+      const topic = `${MQTT_DEVICE_TOPIC_PREFIX}/${dev.id}`;
+      const payload = JSON.stringify({
+        rider: dev.rider,
+        fw: dev.fw,
+        batt: dev.batt,
+        signal: dev.signal,
+        seen: dev.seen,
+        status: dev.status
+      });
+      const message = new Paho.MQTT.Message(payload);
+      message.destinationName = topic;
+      message.retained = true;
+      mqttClient.send(message);
+    } catch (e) {
+      console.error('MQTT publish error:', e);
+    } finally {
+      isMqttPublishing = false;
+    }
+  }
+}
+
 function initAudioContext() {
   if (!audioCtx) {
     const AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -237,6 +395,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initEventListeners();
   initMapLeaflet();
   initOscilloscope();
+  initMqtt();
 
   // Listen for state changes from Fleet Admin in other tabs
   window.addEventListener('storage', (e) => {
@@ -335,6 +494,7 @@ function saveUsername() {
     });
 
     saveDbState();
+    publishRiderState(rDb);
     populateRiderDropdown();
     renderAll();
 
@@ -597,6 +757,9 @@ function connectDevice() {
       }
 
       saveDbState();
+      publishDeviceState(devObj);
+      const rDb = appState.riders.find(r => r.id === activeRider.id);
+      if (rDb) publishRiderState(rDb);
       
       renderAll();
     })
@@ -624,7 +787,14 @@ function disconnectDevice() {
       lvl: 'INFO',
       msg: `[BLE DISCONNECTED] Unlinked simulated device`
     });
+    // Set the device status to offline
+    let devObj = appState.devices.find(d => d.rider.includes(activeRider.id));
+    if (devObj) {
+      devObj.status = 'offline';
+      devObj.seen = '5m ago';
+    }
     saveDbState();
+    if (devObj) publishDeviceState(devObj);
     
     renderAll();
   } else {
@@ -710,6 +880,9 @@ function processIncomingBlePayload(payload) {
   }
   
   saveDbState();
+  if (devObj) publishDeviceState(devObj);
+  const rDb = appState.riders.find(r => r.id === activeRider.id);
+  if (rDb) publishRiderState(rDb);
 
   if (status === 'crash') {
     logActivity(`[CRASH DETECTED] BLE crash beacon event received from ${deviceId}!`, true);
@@ -819,6 +992,7 @@ function enableLocationServices() {
       }
     });
     saveDbState();
+    appState.riders.forEach(r => publishRiderState(r));
   }
   
   logActivity('Continuous GPS mapping socket established', true);
@@ -900,6 +1074,7 @@ function updateGPSPosition(lat, lon, accuracy = 3) {
     });
     
     saveDbState();
+    appState.riders.forEach(r => publishRiderState(r));
   }
 
   renderAll();
@@ -1384,6 +1559,7 @@ function cancelEmergencyWorkflow(updateDb = true) {
       }
       saveDbState();
       activeRider = rDb;
+      publishRiderState(rDb);
     }
   }
 
@@ -1448,6 +1624,7 @@ function dispatchSOSAlert() {
 
         saveDbState();
         activeRider = rDb;
+        publishRiderState(rDb);
       }
     }
 

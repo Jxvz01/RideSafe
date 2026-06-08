@@ -60,6 +60,150 @@ let appState = {
   sys_logs: []
 };
 
+// MQTT Cloud Sync Configuration
+const MQTT_BROKER = 'broker.emqx.io';
+const MQTT_PORT = 8084;
+const MQTT_PATH = '/mqtt';
+const MQTT_TOPIC_PREFIX = 'ridesafe/7fd793ee-62c8-47a4-985a-e9e89f947b44/rider';
+const MQTT_DEVICE_TOPIC_PREFIX = 'ridesafe/7fd793ee-62c8-47a4-985a-e9e89f947b44/device';
+
+let mqttClient = null;
+let isMqttPublishing = false;
+
+function initMqtt() {
+  if (typeof Paho === 'undefined') {
+    console.warn('Paho MQTT library not loaded');
+    return;
+  }
+  const clientId = 'admin_dashboard_' + Math.random().toString(16).substr(2, 8);
+  mqttClient = new Paho.MQTT.Client(MQTT_BROKER, MQTT_PORT, MQTT_PATH, clientId);
+
+  mqttClient.onConnectionLost = (responseObject) => {
+    if (responseObject.errorCode !== 0) {
+      console.warn('MQTT Connection Lost:', responseObject.errorMessage);
+    }
+  };
+
+  mqttClient.onMessageArrived = (message) => {
+    if (isMqttPublishing) return;
+    try {
+      const topic = message.destinationName;
+      const payload = JSON.parse(message.payloadString);
+
+      if (topic.startsWith(MQTT_TOPIC_PREFIX + '/')) {
+        const riderId = topic.split('/').pop();
+        loadState();
+        
+        let rDb = appState.riders.find(r => r.id === riderId);
+        if (!rDb) {
+          rDb = { id: riderId };
+          appState.riders.push(rDb);
+        }
+        
+        const oldStatus = rDb.status;
+
+        Object.assign(rDb, payload);
+        saveState();
+        
+        if (oldStatus !== 'alert' && rDb.status === 'alert') {
+          showToast('🚨 CRITICAL ALERT', `${rDb.name} (${rDb.id}) · ${rDb.loc}`, 'error');
+          if (map && rDb.lat && rDb.lon) {
+            map.setView([rDb.lat, rDb.lon], 14);
+            openInspectorDrawer(rDb.id);
+          }
+        } else if (oldStatus === 'alert' && rDb.status === 'active') {
+          showToast('Alert Cleared', 'Rider marked safe. Transmissions shut.', 'success');
+        }
+
+        renderAll();
+      } else if (topic.startsWith(MQTT_DEVICE_TOPIC_PREFIX + '/')) {
+        const devId = topic.split('/').pop();
+        loadState();
+        let devObj = appState.devices.find(d => d.id === devId);
+        if (!devObj) {
+          devObj = { id: devId, ...payload };
+          appState.devices.push(devObj);
+        } else {
+          Object.assign(devObj, payload);
+        }
+        saveState();
+        renderAll();
+      }
+    } catch (e) {
+      console.error('MQTT parse error:', e);
+    }
+  };
+
+  mqttClient.connect({
+    useSSL: true,
+    onSuccess: () => {
+      console.log('MQTT Connected (Admin)');
+      mqttClient.subscribe(MQTT_TOPIC_PREFIX + '/+');
+      mqttClient.subscribe(MQTT_DEVICE_TOPIC_PREFIX + '/+');
+    },
+    onFailure: (err) => {
+      console.error('MQTT Connect Failed (Admin):', err);
+    },
+    reconnect: true
+  });
+}
+
+function publishRiderState(rider) {
+  if (mqttClient && mqttClient.isConnected()) {
+    isMqttPublishing = true;
+    try {
+      const topic = `${MQTT_TOPIC_PREFIX}/${rider.id}`;
+      const payload = JSON.stringify({
+        name: rider.name,
+        status: rider.status,
+        lat: rider.lat,
+        lon: rider.lon,
+        ping: rider.ping,
+        loc: rider.loc,
+        alerts: rider.alerts,
+        device: rider.device,
+        battery: rider.battery,
+        signal: rider.signal,
+        speed: rider.speed,
+        emergency: rider.emergency
+      });
+      const message = new Paho.MQTT.Message(payload);
+      message.destinationName = topic;
+      message.retained = true;
+      mqttClient.send(message);
+    } catch (e) {
+      console.error('MQTT publish error:', e);
+    } finally {
+      isMqttPublishing = false;
+    }
+  }
+}
+
+function publishDeviceState(dev) {
+  if (mqttClient && mqttClient.isConnected()) {
+    isMqttPublishing = true;
+    try {
+      const topic = `${MQTT_DEVICE_TOPIC_PREFIX}/${dev.id}`;
+      const payload = JSON.stringify({
+        rider: dev.rider,
+        fw: dev.fw,
+        batt: dev.batt,
+        signal: dev.signal,
+        seen: dev.seen,
+        status: dev.status
+      });
+      const message = new Paho.MQTT.Message(payload);
+      message.destinationName = topic;
+      message.retained = true;
+      mqttClient.send(message);
+    } catch (e) {
+      console.error('MQTT publish error:', e);
+    } finally {
+      isMqttPublishing = false;
+    }
+  }
+}
+
 function loadState() {
   const data = localStorage.getItem(STATE_KEY);
   if (data) {
@@ -502,6 +646,7 @@ function resolveRiderAlert(riderId) {
   });
 
   saveState();
+  publishRiderState(rider);
   showToast('Alarm Resolved', `Operational security status reset to active for ${rider.name}.`, 'success');
   renderAll();
 }
@@ -677,6 +822,7 @@ function saveRider() {
 
   appState.riders.push(newRider);
   saveState();
+  publishRiderState(newRider);
   closeModal('addRiderModal');
   showToast('Enrolled successfully', `${name} linked in registry.`, 'success');
   
@@ -717,6 +863,10 @@ function saveDevice() {
   });
 
   saveState();
+  const devObj = appState.devices.find(d => d.id === devId);
+  if (devObj) publishDeviceState(devObj);
+  publishRiderState(rider);
+
   closeModal('registerDeviceModal');
   showToast('Device Provisioned', `IoT device ${devId} linked to rider.`, 'success');
   
@@ -788,6 +938,7 @@ document.getElementById('mobOverlay')?.addEventListener('click', () => {
 document.addEventListener('DOMContentLoaded', () => {
   loadState();
   renderAll();
+  initMqtt();
   
   // Custom user session load
   const sessionUser = localStorage.getItem('ridesafe_session');

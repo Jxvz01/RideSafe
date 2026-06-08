@@ -64,6 +64,20 @@ let streamVals = { ax: 0, ay: 9.81, az: 0 };
 let soundEnabled = true;
 let audioCtx = null;
 
+function escapeHtml(str) {
+  if (typeof str !== 'string') return str;
+  return str.replace(/[&<>"']/g, (m) => {
+    switch (m) {
+      case '&': return '&amp;';
+      case '<': return '&lt;';
+      case '>': return '&gt;';
+      case '"': return '&quot;';
+      case "'": return '&#039;';
+      default: return m;
+    }
+  });
+}
+
 // MQTT Cloud Sync Configuration
 const MQTT_BROKER = 'broker.emqx.io';
 const MQTT_PORT = 8084;
@@ -1376,15 +1390,19 @@ function submitAddContactForm(e) {
 function deleteEmergencyContact(idx) {
   playCompanionChime('click');
   const list = loadEmergencyContacts();
-  const deleted = list[idx];
-  list.splice(idx, 1);
+  const numIdx = Number(idx);
+  if (isNaN(numIdx) || numIdx < 0 || numIdx >= list.length) return;
+  const deleted = list.find((_, i) => i === numIdx);
+  list.splice(numIdx, 1);
 
-  if (deleted.priority === 'primary' && list.length > 0) {
+  if (deleted && deleted.priority === 'primary' && list.length > 0) {
     list[0].priority = 'primary';
   }
 
   saveEmergencyContacts(list);
-  logActivity(`Removed emergency contact: ${deleted.name}`);
+  if (deleted) {
+    logActivity(`Removed emergency contact: ${deleted.name}`);
+  }
   renderAll();
 }
 
@@ -1396,7 +1414,15 @@ function renderEmergencyContactsUI() {
   container.innerHTML = '';
 
   if (list.length === 0) {
-    container.innerHTML = `<div style="grid-column:span 3; font-size:0.75rem; color:var(--comp-muted); text-align:center; padding:20px 0;">No priority emergency contacts registered.</div>`;
+    const emptyDiv = document.createElement('div');
+    emptyDiv.style.gridColumn = 'span 3';
+    emptyDiv.style.fontSize = '0.75rem';
+    emptyDiv.style.color = 'var(--comp-muted)';
+    emptyDiv.style.textAlign = 'center';
+    emptyDiv.style.padding = '20px 0';
+    emptyDiv.textContent = 'No priority emergency contacts registered.';
+    container.appendChild(emptyDiv);
+
     const iconEl = document.getElementById('heroMiniContacts');
     if (iconEl) {
       iconEl.textContent = 'None Ready';
@@ -1409,16 +1435,61 @@ function renderEmergencyContactsUI() {
     const card = document.createElement('div');
     card.className = 'contact-card-item';
 
-    card.innerHTML = `
-      <div class="contact-card-top">
-        <span class="contact-p-badge" style="${c.priority === 'primary' ? 'background:rgba(72,213,151,0.08); border-color:rgba(72,213,151,0.2); color:var(--comp-success);' : ''}">${c.priority}</span>
-        <button class="btn-delete-contact" onclick="deleteEmergencyContact(${idx})" style="background:none; border:none; color:var(--comp-danger); cursor:pointer; font-size:1.1rem; opacity:0.6; transition:0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.6">×</button>
-      </div>
-      <div class="contact-card-bottom">
-        <h5>${c.name}</h5>
-        <p>${c.relationship} · <span style="font-family:monospace">${c.phone}</span></p>
-      </div>
-    `;
+    const topDiv = document.createElement('div');
+    topDiv.className = 'contact-card-top';
+
+    const badgeSpan = document.createElement('span');
+    badgeSpan.className = 'contact-p-badge';
+    badgeSpan.textContent = c.priority;
+    if (c.priority === 'primary') {
+      badgeSpan.style.background = 'rgba(72,213,151,0.08)';
+      badgeSpan.style.borderColor = 'rgba(72,213,151,0.2)';
+      badgeSpan.style.color = 'var(--comp-success)';
+    }
+
+    const deleteBtn = document.createElement('button');
+    deleteBtn.className = 'btn-delete-contact';
+    deleteBtn.textContent = '×';
+    deleteBtn.style.background = 'none';
+    deleteBtn.style.border = 'none';
+    deleteBtn.style.color = 'var(--comp-danger)';
+    deleteBtn.style.cursor = 'pointer';
+    deleteBtn.style.fontSize = '1.1rem';
+    deleteBtn.style.opacity = '0.6';
+    deleteBtn.style.transition = '0.2s';
+    
+    deleteBtn.addEventListener('click', () => {
+      deleteEmergencyContact(idx);
+    });
+    deleteBtn.addEventListener('mouseover', () => {
+      deleteBtn.style.opacity = '1';
+    });
+    deleteBtn.addEventListener('mouseout', () => {
+      deleteBtn.style.opacity = '0.6';
+    });
+
+    topDiv.appendChild(badgeSpan);
+    topDiv.appendChild(deleteBtn);
+
+    const bottomDiv = document.createElement('div');
+    bottomDiv.className = 'contact-card-bottom';
+
+    const nameH5 = document.createElement('h5');
+    nameH5.textContent = c.name;
+
+    const descP = document.createElement('p');
+    descP.textContent = `${c.relationship} · `;
+    
+    const phoneSpan = document.createElement('span');
+    phoneSpan.style.fontFamily = 'monospace';
+    phoneSpan.textContent = c.phone;
+    
+    descP.appendChild(phoneSpan);
+    bottomDiv.appendChild(nameH5);
+    bottomDiv.appendChild(descP);
+
+    card.appendChild(topDiv);
+    card.appendChild(bottomDiv);
     container.appendChild(card);
   });
 
@@ -1842,17 +1913,29 @@ function renderActivityLog() {
 
   container.innerHTML = '';
   if (localActivities.length === 0) {
-    container.innerHTML = `<div style="font-size:0.7rem; color:var(--comp-muted); padding:8px 0;">No activities logged. Pair device to begin.</div>`;
+    const emptyDiv = document.createElement('div');
+    emptyDiv.style.fontSize = '0.7rem';
+    emptyDiv.style.color = 'var(--comp-muted)';
+    emptyDiv.style.padding = '8px 0';
+    emptyDiv.textContent = 'No activities logged. Pair device to begin.';
+    container.appendChild(emptyDiv);
     return;
   }
 
   localActivities.forEach(act => {
     const item = document.createElement('div');
     item.className = act.highlight ? 'activity-item highlight' : 'activity-item';
-    item.innerHTML = `
-      <div class="activity-item-time">${act.time}</div>
-      <div class="activity-item-text">${act.text}</div>
-    `;
+    
+    const timeDiv = document.createElement('div');
+    timeDiv.className = 'activity-item-time';
+    timeDiv.textContent = act.time;
+    
+    const textDiv = document.createElement('div');
+    textDiv.className = 'activity-item-text';
+    textDiv.textContent = act.text;
+    
+    item.appendChild(timeDiv);
+    item.appendChild(textDiv);
     container.appendChild(item);
   });
 }

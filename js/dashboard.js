@@ -60,6 +60,20 @@ let appState = {
   sys_logs: []
 };
 
+function escapeHtml(str) {
+  if (typeof str !== 'string') return str;
+  return str.replace(/[&<>"']/g, (m) => {
+    switch (m) {
+      case '&': return '&amp;';
+      case '<': return '&lt;';
+      case '>': return '&gt;';
+      case '"': return '&quot;';
+      case "'": return '&#039;';
+      default: return m;
+    }
+  });
+}
+
 // MQTT Cloud Sync Configuration
 const MQTT_BROKER = 'broker.emqx.io';
 const MQTT_PORT = 8084;
@@ -295,7 +309,8 @@ window.addEventListener('storage', (e) => {
     
     if (newAlertCount > oldAlertCount) {
       const activeAlerts = appState.riders.filter(r => r.status === 'alert');
-      const latest = activeAlerts[activeAlerts.length - 1];
+      const numIdx = activeAlerts.length - 1;
+      const latest = (numIdx >= 0) ? activeAlerts.find((_, i) => i === numIdx) : null;
       if (latest) {
         showToast('🚨 CRITICAL ALERT', `${latest.name} (${latest.id}) · ${latest.loc}`, 'error');
         // Center the map on active crash coordinate immediately
@@ -386,58 +401,205 @@ function updateKpis() {
   }
 }
 
-function setElementContentBySelector(selector, html) {
+function setElementContentBySelector(selector, text) {
   const el = document.querySelector(selector);
-  if (el) el.innerHTML = html;
+  if (el) el.textContent = text;
 }
 
 function renderFullRidersTable() {
   const table = document.getElementById('ridersFullTable');
   if (!table) return;
 
-  table.innerHTML = appState.riders.map(r => {
-    const s = STATUS_MAP[r.status] || STATUS_MAP.active;
-    return `<tr onclick="openInspectorDrawer('${r.id}')" style="cursor:pointer;">
-      <td style="font-weight:600; color: var(--txt);">${r.name}</td>
-      <td><span style="font-family:var(--mono);font-size:.78rem;color:var(--txt3)">${r.id}</span></td>
-      <td style="font-family:var(--mono);font-size:.78rem">${r.phone}</td>
-      <td style="font-size:.8rem;color:var(--txt2)">${r.emergency}</td>
-      <td style="font-size:.78rem;color:var(--txt3)">${r.shift}</td>
-      <td style="text-align:center">${r.alerts > 0 ? `<span class="badge badge-red">${r.alerts}</span>` : `<span class="badge badge-green">0</span>`}</td>
-      <td><span class="badge ${s.cls}">${s.label}</span></td>
-    </tr>`;
-  }).join('');
+  table.innerHTML = '';
+  appState.riders.forEach(r => {
+    let s;
+    switch (r.status) {
+      case 'active':
+        s = STATUS_MAP.active;
+        break;
+      case 'alert':
+        s = STATUS_MAP.alert;
+        break;
+      case 'warning':
+        s = STATUS_MAP.warning;
+        break;
+      case 'offline':
+        s = STATUS_MAP.offline;
+        break;
+      default:
+        s = STATUS_MAP.active;
+    }
+
+    const tr = document.createElement('tr');
+    tr.style.cursor = 'pointer';
+    tr.addEventListener('click', () => openInspectorDrawer(r.id));
+
+    const tdName = document.createElement('td');
+    tdName.style.fontWeight = '600';
+    tdName.style.color = 'var(--txt)';
+    tdName.textContent = r.name;
+
+    const tdId = document.createElement('td');
+    const spanId = document.createElement('span');
+    spanId.style.fontFamily = 'var(--mono)';
+    spanId.style.fontSize = '.78rem';
+    spanId.style.color = 'var(--txt3)';
+    spanId.textContent = r.id;
+    tdId.appendChild(spanId);
+
+    const tdPhone = document.createElement('td');
+    tdPhone.style.fontFamily = 'var(--mono)';
+    tdPhone.style.fontSize = '.78rem';
+    tdPhone.textContent = r.phone;
+
+    const tdEmergency = document.createElement('td');
+    tdEmergency.style.fontSize = '.8rem';
+    tdEmergency.style.color = 'var(--txt2)';
+    tdEmergency.textContent = r.emergency;
+
+    const tdShift = document.createElement('td');
+    tdShift.style.fontSize = '.78rem';
+    tdShift.style.color = 'var(--txt3)';
+    tdShift.textContent = r.shift;
+
+    const tdAlerts = document.createElement('td');
+    tdAlerts.style.textAlign = 'center';
+    const spanAlerts = document.createElement('span');
+    if (r.alerts > 0) {
+      spanAlerts.className = 'badge badge-red';
+      spanAlerts.textContent = r.alerts;
+    } else {
+      spanAlerts.className = 'badge badge-green';
+      spanAlerts.textContent = '0';
+    }
+    tdAlerts.appendChild(spanAlerts);
+
+    const tdStatus = document.createElement('td');
+    const spanStatus = document.createElement('span');
+    spanStatus.className = `badge ${s.cls}`;
+    spanStatus.textContent = s.label;
+    tdStatus.appendChild(spanStatus);
+
+    tr.appendChild(tdName);
+    tr.appendChild(tdId);
+    tr.appendChild(tdPhone);
+    tr.appendChild(tdEmergency);
+    tr.appendChild(tdShift);
+    tr.appendChild(tdAlerts);
+    tr.appendChild(tdStatus);
+
+    table.appendChild(tr);
+  });
 }
 
 function renderHistoryTable() {
   const table = document.getElementById('historyTable');
   if (!table) return;
 
-  table.innerHTML = appState.history.map(h => {
+  table.innerHTML = '';
+  appState.history.forEach(h => {
     const outcomeClass = (h.outcome.includes('Safe') || h.outcome.includes('Cancelled') || h.outcome.includes('False') || h.outcome.includes('Alarm') || h.outcome.includes('Rider')) ? 'badge-green' : h.outcome === 'Pending' ? 'badge-orange' : 'badge-red';
     const typeClass = h.type.includes('High') ? 'badge-red' : 'badge-orange';
-    return `<tr>
-      <td><span style="font-family:var(--mono);font-size:.75rem;color:var(--txt3)">${h.dt}</span></td>
-      <td style="font-weight:600;font-size:.85rem">${h.rider}</td>
-      <td><span class="badge ${typeClass}">${h.type}</span></td>
-      <td style="font-size:.8rem;color:var(--txt2)">${h.loc}</td>
-      <td><span class="badge badge-green">${h.sms}</span></td>
-      <td><span class="badge ${outcomeClass}">${h.outcome}</span></td>
-    </tr>`;
-  }).join('');
+
+    const tr = document.createElement('tr');
+
+    const tdDt = document.createElement('td');
+    const spanDt = document.createElement('span');
+    spanDt.style.fontFamily = 'var(--mono)';
+    spanDt.style.fontSize = '.75rem';
+    spanDt.style.color = 'var(--txt3)';
+    spanDt.textContent = h.dt;
+    tdDt.appendChild(spanDt);
+
+    const tdRider = document.createElement('td');
+    tdRider.style.fontWeight = '600';
+    tdRider.style.fontSize = '.85rem';
+    tdRider.textContent = h.rider;
+
+    const tdType = document.createElement('td');
+    const spanType = document.createElement('span');
+    spanType.className = `badge ${typeClass}`;
+    spanType.textContent = h.type;
+    tdType.appendChild(spanType);
+
+    const tdLoc = document.createElement('td');
+    tdLoc.style.fontSize = '.8rem';
+    tdLoc.style.color = 'var(--txt2)';
+    tdLoc.textContent = h.loc;
+
+    const tdSms = document.createElement('td');
+    const spanSms = document.createElement('span');
+    spanSms.className = 'badge badge-green';
+    spanSms.textContent = h.sms;
+    tdSms.appendChild(spanSms);
+
+    const tdOutcome = document.createElement('td');
+    const spanOutcome = document.createElement('span');
+    spanOutcome.className = `badge ${outcomeClass}`;
+    spanOutcome.textContent = h.outcome;
+    tdOutcome.appendChild(spanOutcome);
+
+    tr.appendChild(tdDt);
+    tr.appendChild(tdRider);
+    tr.appendChild(tdType);
+    tr.appendChild(tdLoc);
+    tr.appendChild(tdSms);
+    tr.appendChild(tdOutcome);
+
+    table.appendChild(tr);
+  });
 }
 
 function renderSmsLogsTable() {
   const table = document.getElementById('smsTable');
   if (!table) return;
 
-  table.innerHTML = appState.sms_logs.map(s => `<tr>
-    <td><span style="font-family:var(--mono);font-size:.75rem;color:var(--txt3)">${s.time}</span></td>
-    <td style="font-weight:600;font-size:.82rem">${s.rider.split(' ')[0]}</td>
-    <td style="font-size:.82rem;color:var(--txt2)">${s.recipient}</td>
-    <td><span class="badge ${s.type === 'SOS ALERT' ? 'badge-red' : 'badge-green'}">${s.type}</span></td>
-    <td style="font-size:.72rem;color:var(--txt2);max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${s.msg}">${s.msg}</td>
-  </tr>`).join('');
+  table.innerHTML = '';
+  appState.sms_logs.forEach(s => {
+    const tr = document.createElement('tr');
+
+    const tdTime = document.createElement('td');
+    const spanTime = document.createElement('span');
+    spanTime.style.fontFamily = 'var(--mono)';
+    spanTime.style.fontSize = '.75rem';
+    spanTime.style.color = 'var(--txt3)';
+    spanTime.textContent = s.time;
+    tdTime.appendChild(spanTime);
+
+    const tdRider = document.createElement('td');
+    tdRider.style.fontWeight = '600';
+    tdRider.style.fontSize = '.82rem';
+    tdRider.textContent = s.rider.split(' ')[0];
+    
+    const tdRecipient = document.createElement('td');
+    tdRecipient.style.fontSize = '.82rem';
+    tdRecipient.style.color = 'var(--txt2)';
+    tdRecipient.textContent = s.recipient;
+
+    const tdType = document.createElement('td');
+    const spanType = document.createElement('span');
+    spanType.className = `badge ${s.type === 'SOS ALERT' ? 'badge-red' : 'badge-green'}`;
+    spanType.textContent = s.type;
+    tdType.appendChild(spanType);
+
+    const tdMsg = document.createElement('td');
+    tdMsg.style.fontSize = '.72rem';
+    tdMsg.style.color = 'var(--txt2)';
+    tdMsg.style.maxWidth = '180px';
+    tdMsg.style.overflow = 'hidden';
+    tdMsg.style.textOverflow = 'ellipsis';
+    tdMsg.style.whiteSpace = 'nowrap';
+    tdMsg.title = s.msg;
+    tdMsg.textContent = s.msg;
+
+    tr.appendChild(tdTime);
+    tr.appendChild(tdRider);
+    tr.appendChild(tdRecipient);
+    tr.appendChild(tdType);
+    tr.appendChild(tdMsg);
+
+    table.appendChild(tr);
+  });
 }
 
 function renderAlertStream() {
@@ -450,44 +612,123 @@ function renderAlertStream() {
     return rider && (rider.status === 'alert' || rider.status === 'warning');
   });
 
+  stream.innerHTML = '';
   if (activeAlerts.length === 0) {
-    stream.innerHTML = `<div style="font-family:var(--mono); font-size:0.7rem; color:var(--txt3); text-align:center; padding: 24px 0;">No active events reported.</div>`;
+    const emptyDiv = document.createElement('div');
+    emptyDiv.style.fontFamily = 'var(--mono)';
+    emptyDiv.style.fontSize = '0.7rem';
+    emptyDiv.style.color = 'var(--txt3)';
+    emptyDiv.style.textAlign = 'center';
+    emptyDiv.style.padding = '24px 0';
+    emptyDiv.textContent = 'No active events reported.';
+    stream.appendChild(emptyDiv);
     return;
   }
 
-  stream.innerHTML = activeAlerts.map(a => {
+  activeAlerts.forEach(a => {
     const rId = a.riderId;
     const rider = appState.riders.find(r => r.id === rId);
     
     const isRed = rider ? (rider.status === 'alert') : a.cls.includes('red');
-    const isOrange = rider ? (rider.status === 'warning') : a.cls.includes('orange');
     const severityLabel = isRed ? '🚨 CRITICAL ALERT' : '⚠️ WARNING';
     const statusLabel = isRed ? 'SOS DISPATCHED' : 'AWAITING OVERRIDE';
     
     const smsLog = appState.sms_logs.find(s => s.rider.includes(rId));
     const smsState = smsLog ? smsLog.status : 'Delivered';
 
-    return `<div class="as-item" onclick="openInspectorDrawer('${a.riderId}')" style="cursor:pointer; border-left: 3px solid ${isRed ? 'var(--red)' : 'var(--orange)'}; background:rgba(255,255,255,0.015); padding:14px; border-radius:12px; margin-bottom:8px; display:flex; flex-direction:column; gap:8px;">
-      <div style="display:flex; justify-content:space-between; align-items:center;">
-        <span style="font-weight:800; font-size:0.75rem; color:${isRed ? 'var(--red)' : 'var(--orange)'};">${severityLabel}</span>
-        <span class="as-time" style="font-size:0.65rem; color:var(--txt3);">${a.time}</span>
-      </div>
-      <div style="font-size:0.85rem; font-weight:700; color:var(--txt);">${rider ? rider.name : 'Unknown Rider'} (${rId})</div>
-      <div style="font-size:0.75rem; color:var(--txt2);">
-        <strong>Device ID:</strong> <span style="font-family:monospace; color:var(--blue);">${rider ? rider.device : '—'}</span>
-      </div>
-      <div style="font-size:0.75rem; color:var(--txt2);">
-        <strong>Location:</strong> ${rider ? rider.loc : '—'} (${rider ? rider.lat : '—'}, ${rider ? rider.lon : '—'})
-      </div>
-      <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border); padding-top:8px; margin-top:4px;">
-        <span style="font-size:0.68rem; color:var(--txt3);">Response: <strong style="color:${isRed ? 'var(--red)' : 'var(--orange)'};">${statusLabel}</strong></span>
-        <span style="font-size:0.68rem; color:var(--txt3);">SMS: <strong style="color:var(--green);">${smsState}</strong></span>
-      </div>
-    </div>`;
-  }).join('');
+    const item = document.createElement('div');
+    item.className = 'as-item';
+    item.style.borderLeft = `3px solid ${isRed ? 'var(--red)' : 'var(--orange)'}`;
+    item.style.background = 'rgba(255,255,255,0.015)';
+    item.style.padding = '14px';
+    item.style.borderRadius = '12px';
+    item.style.marginBottom = '8px';
+    item.style.display = 'flex';
+    item.style.flexDirection = 'column';
+    item.style.gap = '8px';
+    item.style.cursor = 'pointer';
+    item.addEventListener('click', () => openInspectorDrawer(a.riderId));
+
+    const topRow = document.createElement('div');
+    topRow.style.display = 'flex';
+    topRow.style.justifyContent = 'space-between';
+    topRow.style.alignItems = 'center';
+
+    const labelSpan = document.createElement('span');
+    labelSpan.style.fontWeight = '800';
+    labelSpan.style.fontSize = '0.75rem';
+    labelSpan.style.color = isRed ? 'var(--red)' : 'var(--orange)';
+    labelSpan.textContent = severityLabel;
+
+    const timeSpan = document.createElement('span');
+    timeSpan.className = 'as-time';
+    timeSpan.style.fontSize = '0.65rem';
+    timeSpan.style.color = 'var(--txt3)';
+    timeSpan.textContent = a.time;
+
+    topRow.appendChild(labelSpan);
+    topRow.appendChild(timeSpan);
+
+    const title = document.createElement('div');
+    title.style.fontSize = '0.85rem';
+    title.style.fontWeight = '700';
+    title.style.color = 'var(--txt)';
+    title.textContent = `${rider ? rider.name : 'Unknown Rider'} (${rId})`;
+
+    const devDetails = document.createElement('div');
+    devDetails.style.fontSize = '0.75rem';
+    devDetails.style.color = 'var(--txt2)';
+    devDetails.textContent = 'Device ID: ';
+    const devSpan = document.createElement('span');
+    devSpan.style.fontFamily = 'monospace';
+    devSpan.style.color = 'var(--blue)';
+    devSpan.textContent = rider ? rider.device : '—';
+    devDetails.appendChild(devSpan);
+
+    const locDetails = document.createElement('div');
+    locDetails.style.fontSize = '0.75rem';
+    locDetails.style.color = 'var(--txt2)';
+    locDetails.textContent = `Location: ${rider ? rider.loc : '—'} (${rider ? rider.lat : '—'}, ${rider ? rider.lon : '—'})`;
+
+    const bottomRow = document.createElement('div');
+    bottomRow.style.display = 'flex';
+    bottomRow.style.justifyContent = 'space-between';
+    bottomRow.style.alignItems = 'center';
+    bottomRow.style.borderTop = '1px solid var(--border)';
+    bottomRow.style.paddingTop = '8px';
+    bottomRow.style.marginTop = '4px';
+
+    const responseSpan = document.createElement('span');
+    responseSpan.style.fontSize = '0.68rem';
+    responseSpan.style.color = 'var(--txt3)';
+    responseSpan.textContent = 'Response: ';
+    const respStrong = document.createElement('strong');
+    respStrong.style.color = isRed ? 'var(--red)' : 'var(--orange)';
+    respStrong.textContent = statusLabel;
+    responseSpan.appendChild(respStrong);
+
+    const smsSpan = document.createElement('span');
+    smsSpan.style.fontSize = '0.68rem';
+    smsSpan.style.color = 'var(--txt3)';
+    smsSpan.textContent = 'SMS: ';
+    const smsStrong = document.createElement('strong');
+    smsStrong.style.color = 'var(--green)';
+    smsStrong.textContent = smsState;
+    smsSpan.appendChild(smsStrong);
+
+    bottomRow.appendChild(responseSpan);
+    bottomRow.appendChild(smsSpan);
+
+    item.appendChild(topRow);
+    item.appendChild(title);
+    item.appendChild(devDetails);
+    item.appendChild(locDetails);
+    item.appendChild(bottomRow);
+
+    stream.appendChild(item);
+  });
 }
 
-// ── CUSTOM OPERATIONAL DRAWER INSPECTOR ───────────────────────
 function openInspectorDrawer(riderId) {
   loadState();
   const r = appState.riders.find(rider => rider.id === riderId);
@@ -496,43 +737,119 @@ function openInspectorDrawer(riderId) {
   const drawer = document.getElementById('inspectorDrawer');
   if (!drawer) return;
 
-  drawer.innerHTML = `
-    <div class="id-header">
-      <div class="id-title">${r.name}</div>
-      <div class="id-close" onclick="closeInspectorDrawer()">&times;</div>
-    </div>
-    
-    <div style="display:flex; flex-direction:column; gap:6px;">
-      <div class="id-section-title">Enrolled Registry</div>
-      <div class="id-grid">
-        <div class="id-row"><span class="id-key">Rider ID</span><span class="id-val" style="color:var(--green)">${r.id}</span></div>
-        <div class="id-row"><span class="id-key">Phone</span><span class="id-val">${r.phone}</span></div>
-        <div class="id-row"><span class="id-key">Shift</span><span class="id-val">${r.shift}</span></div>
-        <div class="id-row"><span class="id-key">Emergency</span><span class="id-val" style="font-size:0.7rem;">${r.emergency}</span></div>
-      </div>
-    </div>
+  drawer.innerHTML = '';
 
-    <div style="display:flex; flex-direction:column; gap:6px;">
-      <div class="id-section-title">Device Telemetry</div>
-      <div class="id-grid">
-        <div class="id-row"><span class="id-key">Hardware ID</span><span class="id-val" style="color:var(--blue)">${r.device}</span></div>
-        <div class="id-row"><span class="id-key">Battery</span><span class="id-val" style="color:${r.battery < 20 ? 'var(--red)' : r.battery < 50 ? 'var(--yellow)' : 'var(--green)'}">${r.battery}%</span></div>
-        <div class="id-row"><span class="id-key">Signal</span><span class="id-val">${r.signal}</span></div>
-        <div class="id-row"><span class="id-key">Velocity</span><span class="id-val">${r.speed} km/h</span></div>
-        <div class="id-row"><span class="id-key">Coordinates</span><span class="id-val" style="font-size:0.7rem;">${r.lat}, ${r.lon}</span></div>
-      </div>
-    </div>
+  const header = document.createElement('div');
+  header.className = 'id-header';
+  
+  const title = document.createElement('div');
+  title.className = 'id-title';
+  title.textContent = r.name;
+  
+  const closeBtn = document.createElement('div');
+  closeBtn.className = 'id-close';
+  closeBtn.innerHTML = '&times;';
+  closeBtn.addEventListener('click', closeInspectorDrawer);
+  
+  header.appendChild(title);
+  header.appendChild(closeBtn);
+  drawer.appendChild(header);
 
-    <div style="flex:1;"></div>
+  function createRow(key, val, valStyle = {}) {
+    const row = document.createElement('div');
+    row.className = 'id-row';
+    const keySpan = document.createElement('span');
+    keySpan.className = 'id-key';
+    keySpan.textContent = key;
+    const valSpan = document.createElement('span');
+    valSpan.className = 'id-val';
+    valSpan.textContent = val;
+    Object.assign(valSpan.style, valStyle);
+    row.appendChild(keySpan);
+    row.appendChild(valSpan);
+    return row;
+  }
 
-    <div style="display:flex; flex-direction:column; gap:10px;">
-      ${r.status === 'alert' || r.status === 'warning' ? `
-        <button class="btn btn-green" onclick="resolveRiderAlert('${r.id}'); closeInspectorDrawer();" style="width:100%; justify-content:center; background:var(--green); color:#05070a; font-weight:700;">Resolve Alarm Status</button>
-      ` : `
-        <button class="btn btn-outline" onclick="closeInspectorDrawer()" style="width:100%; justify-content:center; border-color:var(--border)">Close Inspector</button>
-      `}
-    </div>
-  `;
+  const registryGroup = document.createElement('div');
+  registryGroup.style.display = 'flex';
+  registryGroup.style.flexDirection = 'column';
+  registryGroup.style.gap = '6px';
+
+  const regTitle = document.createElement('div');
+  regTitle.className = 'id-section-title';
+  regTitle.textContent = 'Enrolled Registry';
+  registryGroup.appendChild(regTitle);
+
+  const regGrid = document.createElement('div');
+  regGrid.className = 'id-grid';
+  regGrid.appendChild(createRow('Rider ID', r.id, { color: 'var(--green)' }));
+  regGrid.appendChild(createRow('Phone', r.phone));
+  regGrid.appendChild(createRow('Shift', r.shift));
+  regGrid.appendChild(createRow('Emergency', r.emergency, { fontSize: '0.7rem' }));
+  registryGroup.appendChild(regGrid);
+  
+  drawer.appendChild(registryGroup);
+
+  const telemetryGroup = document.createElement('div');
+  telemetryGroup.style.display = 'flex';
+  telemetryGroup.style.flexDirection = 'column';
+  telemetryGroup.style.gap = '6px';
+
+  const telTitle = document.createElement('div');
+  telTitle.className = 'id-section-title';
+  telTitle.textContent = 'Device Telemetry';
+  telemetryGroup.appendChild(telTitle);
+
+  const telGrid = document.createElement('div');
+  telGrid.className = 'id-grid';
+  telGrid.appendChild(createRow('Hardware ID', r.device, { color: 'var(--blue)' }));
+  
+  const battColor = r.battery < 20 ? 'var(--red)' : r.battery < 50 ? 'var(--yellow)' : 'var(--green)';
+  telGrid.appendChild(createRow('Battery', `${r.battery}%`, { color: battColor }));
+  telGrid.appendChild(createRow('Signal', r.signal));
+  telGrid.appendChild(createRow('Velocity', `${r.speed} km/h`));
+  telGrid.appendChild(createRow('Coordinates', `${r.lat}, ${r.lon}`, { fontSize: '0.7rem' }));
+  telemetryGroup.appendChild(telGrid);
+
+  drawer.appendChild(telemetryGroup);
+
+  const spacer = document.createElement('div');
+  spacer.style.flex = '1';
+  drawer.appendChild(spacer);
+
+  const actionsGroup = document.createElement('div');
+  actionsGroup.style.display = 'flex';
+  actionsGroup.style.flexDirection = 'column';
+  actionsGroup.style.gap = '10px';
+
+  if (r.status === 'alert' || r.status === 'warning') {
+    const resolveBtn = document.createElement('button');
+    resolveBtn.className = 'btn btn-green';
+    resolveBtn.style.width = '100%';
+    resolveBtn.style.justifyContent = 'center';
+    resolveBtn.style.background = 'var(--green)';
+    resolveBtn.style.color = '#05070a';
+    resolveBtn.style.fontWeight = '700';
+    resolveBtn.textContent = 'Resolve Alarm Status';
+    resolveBtn.addEventListener('click', () => {
+      resolveRiderAlert(r.id);
+      closeInspectorDrawer();
+    });
+    actionsGroup.appendChild(resolveBtn);
+  } else {
+    const closeInspectorBtn = document.createElement('button');
+    closeInspectorBtn.className = 'btn btn-outline';
+    closeInspectorBtn.style.width = '100%';
+    closeInspectorBtn.style.justifyContent = 'center';
+    closeInspectorBtn.style.borderColor = 'var(--border)';
+    closeInspectorBtn.textContent = 'Close Inspector';
+    closeInspectorBtn.addEventListener('click', closeInspectorDrawer);
+    actionsGroup.appendChild(closeInspectorBtn);
+  }
+
+  drawer.appendChild(actionsGroup);
+  drawer.classList.add('open');
+}
 
   drawer.classList.add('open');
 }
@@ -544,7 +861,7 @@ function closeInspectorDrawer() {
 
 // ── LEAFLET GIS MAP DRIVER ────────────────────────────────────
 let map = null;
-let markers = {};
+const markers = new Map();
 
 function initMap() {
   if (typeof L === 'undefined') return;
@@ -582,7 +899,7 @@ function updateMapMarkers() {
 
     const iconHtml = `<div class="marker-dot ${markerClass}"></div>`;
 
-    let marker = markers[r.id];
+    let marker = markers.get(r.id);
     if (marker) {
       marker.setLatLng([r.lat, r.lon]);
       const currentIcon = marker.options.icon;
@@ -607,7 +924,7 @@ function updateMapMarkers() {
         map.panTo([r.lat, r.lon]);
         openInspectorDrawer(r.id);
       });
-      markers[r.id] = marker;
+      markers.set(r.id, marker);
     }
 
     // Pan map to active high G crash incidents
@@ -618,10 +935,10 @@ function updateMapMarkers() {
   });
 
   // Clean up markers for offline/removed riders
-  Object.keys(markers).forEach(riderId => {
+  markers.forEach((marker, riderId) => {
     if (!updatedRiderIds.has(riderId)) {
-      map.removeLayer(markers[riderId]);
-      delete markers[riderId];
+      map.removeLayer(marker);
+      markers.delete(riderId);
     }
   });
 }
@@ -749,13 +1066,34 @@ function showToast(title, msg, type = 'info') {
 
   const toast = document.createElement('div');
   toast.className = `toast toast-${type}`;
-  toast.innerHTML = `
-    <div class="toast-body">
-      <div class="toast-title" style="font-family:var(--mono); font-size: 0.72rem; text-transform:uppercase; letter-spacing:0.02em;">${title}</div>
-      <div class="toast-msg">${msg}</div>
-    </div>
-    <div class="toast-close" onclick="this.parentElement.remove()">&times;</div>
-  `;
+
+  const body = document.createElement('div');
+  body.className = 'toast-body';
+
+  const titleEl = document.createElement('div');
+  titleEl.className = 'toast-title';
+  titleEl.style.fontFamily = 'var(--mono)';
+  titleEl.style.fontSize = '0.72rem';
+  titleEl.style.textTransform = 'uppercase';
+  titleEl.style.letterSpacing = '0.02em';
+  titleEl.textContent = title;
+
+  const msgEl = document.createElement('div');
+  msgEl.className = 'toast-msg';
+  msgEl.textContent = msg;
+
+  body.appendChild(titleEl);
+  body.appendChild(msgEl);
+
+  const closeEl = document.createElement('div');
+  closeEl.className = 'toast-close';
+  closeEl.innerHTML = '&times;';
+  closeEl.addEventListener('click', () => {
+    toast.remove();
+  });
+
+  toast.appendChild(body);
+  toast.appendChild(closeEl);
   container.appendChild(toast);
 
   setTimeout(() => {
@@ -824,8 +1162,22 @@ function closeModal(id) {
 function populateRidersSelect() {
   const select = document.getElementById('devRider');
   if (!select) return;
-  select.innerHTML = '<option value="" disabled selected>Select a rider...</option>' + 
-    appState.riders.map(r => `<option value="${r.id}">${r.name} (${r.id})</option>`).join('');
+
+  select.innerHTML = '';
+  
+  const defaultOpt = document.createElement('option');
+  defaultOpt.value = '';
+  defaultOpt.disabled = true;
+  defaultOpt.selected = true;
+  defaultOpt.textContent = 'Select a rider...';
+  select.appendChild(defaultOpt);
+
+  appState.riders.forEach(r => {
+    const opt = document.createElement('option');
+    opt.value = r.id;
+    opt.textContent = `${r.name} (${r.id})`;
+    select.appendChild(opt);
+  });
 }
 
 function saveRider() {
@@ -926,11 +1278,6 @@ window.closeInspectorDrawer = closeInspectorDrawer;
 const sbLinks = document.querySelectorAll('.sb-link[data-page]');
 const pages = document.querySelectorAll('.page');
 const pageTitle = document.getElementById('pageTitle');
-const TITLES = {
-  ops: 'Operational Operations Center',
-  directory: 'Fleet Directory Registry',
-  journal: 'SMS Transmission Log'
-};
 
 sbLinks.forEach(link => {
   link.addEventListener('click', (e) => {
@@ -944,7 +1291,20 @@ sbLinks.forEach(link => {
     pages.forEach(p => p.classList.add('hidden'));
     const target = document.getElementById('page-' + pg);
     if (target) target.classList.remove('hidden');
-    if (pageTitle) pageTitle.textContent = TITLES[pg] || pg;
+    
+    let titleText = pg;
+    switch (pg) {
+      case 'ops':
+        titleText = 'Operational Operations Center';
+        break;
+      case 'directory':
+        titleText = 'Fleet Directory Registry';
+        break;
+      case 'journal':
+        titleText = 'SMS Transmission Log';
+        break;
+    }
+    if (pageTitle) pageTitle.textContent = titleText;
     
     document.getElementById('mobOverlay')?.classList.remove('show');
     document.getElementById('sidebar')?.classList.remove('open');
@@ -984,13 +1344,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const user = JSON.parse(sessionUser);
     const sbUser = document.querySelector('.sb-user');
     if (sbUser) {
-      sbUser.innerHTML = `
-        <div class="sb-avatar" style="background:linear-gradient(135deg,#0ea5e9,#10b981); color:#05070a; font-weight:800;">${user.initials}</div>
-        <div>
-          <div style="font-size:.82rem;font-weight:600; color:var(--txt);">${user.name}</div>
-          <div style="font-size:.7rem;color:var(--txt3)">${user.role} · Mysore</div>
-        </div>
-      `;
+      sbUser.innerHTML = '';
+      
+      const avatar = document.createElement('div');
+      avatar.className = 'sb-avatar';
+      avatar.style.background = 'linear-gradient(135deg,#0ea5e9,#10b981)';
+      avatar.style.color = '#05070a';
+      avatar.style.fontWeight = '800';
+      avatar.textContent = user.initials;
+      
+      const details = document.createElement('div');
+      
+      const nameEl = document.createElement('div');
+      nameEl.style.fontSize = '.82rem';
+      nameEl.style.fontWeight = '600';
+      nameEl.style.color = 'var(--txt)';
+      nameEl.textContent = user.name;
+      
+      const roleEl = document.createElement('div');
+      roleEl.style.fontSize = '.7rem';
+      roleEl.style.color = 'var(--txt3)';
+      roleEl.textContent = `${user.role} · Mysore`;
+      
+      details.appendChild(nameEl);
+      details.appendChild(roleEl);
+      
+      sbUser.appendChild(avatar);
+      sbUser.appendChild(details);
     }
   }
   

@@ -532,6 +532,7 @@ let map = null;
 let markers = {};
 
 function initMap() {
+  if (map) return;
   const mapElement = document.getElementById('liveMap');
   if (!mapElement) return;
 
@@ -594,7 +595,7 @@ function updateMapMarkers() {
     }
 
     // Pan map to active high G crash incidents
-    if (r.status === 'alert' && r.ping.includes('Just')) {
+    if (r.status === 'alert' && r.ping && typeof r.ping === 'string' && r.ping.includes('Just')) {
       map.setView([r.lat, r.lon], 13);
       openInspectorDrawer(r.id);
     }

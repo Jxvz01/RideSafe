@@ -340,7 +340,22 @@ const DEFAULT_RIDERS = [
 function loadDbState() {
   const data = localStorage.getItem(STATE_KEY);
   if (data) {
-    appState = JSON.parse(data);
+    try {
+      appState = JSON.parse(data);
+    } catch (e) {
+      console.warn("Error parsing localStorage state, resetting...", e);
+      appState = {
+        riders: DEFAULT_RIDERS,
+        devices: [],
+        history: [],
+        sms_logs: [],
+        alerts: [],
+        sys_logs: [],
+        version: 2
+      };
+      saveDbState();
+      return;
+    }
     if (!appState.version || appState.version < 2 || !appState.riders || appState.riders.length === 0) {
       appState = {
         riders: DEFAULT_RIDERS,
@@ -393,7 +408,14 @@ document.addEventListener('DOMContentLoaded', () => {
   loadDbState();
   initActiveRider();
   initEventListeners();
-  initMapLeaflet();
+  
+  // Auto load Leaflet map with safe polling
+  let mapInitTimer = setInterval(() => {
+    if (typeof L !== 'undefined') {
+      clearInterval(mapInitTimer);
+      initMapLeaflet();
+    }
+  }, 50);
   initOscilloscope();
   initMqtt();
 
@@ -534,6 +556,9 @@ function changeRiderProfile(riderId) {
 
 // ── LEAFLET MAP DRIVER ────────────────────────────────────────
 function initMapLeaflet() {
+  if (typeof L === 'undefined') return;
+  if (localMap) return;
+
   const mapEl = document.getElementById('companionMap');
   if (!mapEl) return;
 

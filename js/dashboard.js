@@ -207,7 +207,22 @@ function publishDeviceState(dev) {
 function loadState() {
   const data = localStorage.getItem(STATE_KEY);
   if (data) {
-    appState = JSON.parse(data);
+    try {
+      appState = JSON.parse(data);
+    } catch (e) {
+      console.warn("Error parsing localStorage state, resetting...", e);
+      appState = {
+        riders: DEFAULT_RIDERS,
+        devices: DEFAULT_DEVICES,
+        history: DEFAULT_HISTORY,
+        sms_logs: DEFAULT_SMS_LOGS,
+        alerts: DEFAULT_ALERT_DATA,
+        sys_logs: DEFAULT_SYSTEM_LOGS,
+        version: 2
+      };
+      saveState();
+      return;
+    }
     
     // Automatically migrate/reset state if loading old version format (fixes cached "6 active" issues)
     if (!appState.version || appState.version < 2) {
@@ -532,6 +547,7 @@ let map = null;
 let markers = {};
 
 function initMap() {
+  if (typeof L === 'undefined') return;
   if (map) return;
   const mapElement = document.getElementById('liveMap');
   if (!mapElement) return;
@@ -978,8 +994,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
   
-  // Auto load map
-  setTimeout(() => {
-    initMap();
-  }, 200);
+  // Auto load map with safe polling
+  let mapInitTimer = setInterval(() => {
+    if (typeof L !== 'undefined') {
+      clearInterval(mapInitTimer);
+      initMap();
+    }
+  }, 50);
 });

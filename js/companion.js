@@ -1491,6 +1491,17 @@ function renderDeviceSection() {
 
   const heroMiniDev = document.getElementById('heroMiniDevice');
   const heroMiniBatt = document.getElementById('heroMiniBattery');
+  const heroMiniLoc = document.getElementById('heroMiniLocation');
+
+  if (heroMiniLoc) {
+    if (isLocationEnabled) {
+      heroMiniLoc.textContent = 'Active';
+      heroMiniLoc.style.color = 'var(--comp-success)';
+    } else {
+      heroMiniLoc.textContent = 'Disabled';
+      heroMiniLoc.style.color = 'var(--comp-muted)';
+    }
+  }
 
   // Disable/enable buttons appropriately based on scanning and connection status
   if (isScanning) {

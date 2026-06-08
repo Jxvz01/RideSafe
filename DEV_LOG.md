@@ -773,3 +773,4 @@
 * [2026-05-28 10:18:11] perf(state-sync): restructure DPR scaling variables
 * [2026-06-08 06:21:57] fix(gps): optimize battery level notification - incremental checkpoint #1
 * [2026-06-08 06:22:57] refactor(telemetry): improve reconnection handler - incremental checkpoint #2
+* [2026-06-08 06:23:57] style(overlay): polish coordinates overlay rendering - incremental checkpoint #3

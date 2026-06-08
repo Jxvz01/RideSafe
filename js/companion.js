@@ -168,10 +168,44 @@ function stopAlarmSiren() {
   }
 }
 
+const DEFAULT_RIDERS = [
+  {id:'#1042',name:'Rajan Mehta',phone:'9821001042',status:'alert',loc:'Gokulam, Mysore',device:'RSM-204',ping:'2m ago',emergency:'Sunita Mehta (Mother)',shift:'09:00–21:00',alerts:3,lat:12.3243,lon:76.6273,speed:0,signal:'-68dBm',battery:78},
+  {id:'#0988',name:'Priya Sharma',phone:'9944000988',status:'warning',loc:'Saraswathipuram, Mysore',device:'RSM-189',ping:'8m ago',emergency:'Raj Sharma (Brother)',shift:'10:00–22:00',alerts:1,lat:12.3025,lon:76.6290,speed:12,signal:'-72dBm',battery:54},
+  {id:'#1103',name:'Arjun Patel',phone:'9910001103',status:'warning',loc:'Vijayanagar, Mysore',device:'RSM-211',ping:'14m ago',emergency:'Geeta Patel (Spouse)',shift:'08:00–20:00',alerts:2,lat:12.3385,lon:76.6080,speed:8,signal:'-65dBm',battery:91},
+  {id:'#0741',name:'Kavya Nair',phone:'9632000741',status:'active',loc:'Mandi Mohalla, Mysore',device:'RSM-155',ping:'32s ago',emergency:'Suresh Nair (Father)',shift:'07:00–19:00',alerts:0,lat:12.3160,lon:76.6530,speed:28,signal:'-61dBm',battery:88},
+  {id:'#0855',name:'Deepak Singh',phone:'9711000855',status:'active',loc:'Kuvempunagar, Mysore',device:'RSM-178',ping:'1m ago',emergency:'Anita Singh (Spouse)',shift:'08:00–20:00',alerts:0,lat:12.2858,lon:76.6200,speed:32,signal:'-70dBm',battery:63},
+  {id:'#0612',name:'Mohit Verma',phone:'9898000612',status:'offline',loc:'—',device:'RSM-121',ping:'4h ago',emergency:'Rakhi Verma (Sister)',shift:'Off',alerts:1,lat:12.2965,lon:76.6410,speed:0,signal:'N/A',battery:12},
+  {id:'#0924',name:'Swati Reddy',phone:'9900000924',status:'active',loc:'J.P. Nagar, Mysore',device:'RSM-196',ping:'45s ago',emergency:'Ramesh Reddy (Father)',shift:'09:00–21:00',alerts:0,lat:12.2690,lon:76.6450,speed:24,signal:'-59dBm',battery:95},
+  {id:'#1001',name:'Rahul Gupta',phone:'9820001001',status:'active',loc:'Jayalakshmipuram, Mysore',device:'RSM-201',ping:'2m ago',emergency:'Meena Gupta (Mother)',shift:'10:00–22:00',alerts:0,lat:12.3160,lon:76.6260,speed:15,signal:'-66dBm',battery:72},
+];
+
 function loadDbState() {
   const data = localStorage.getItem(STATE_KEY);
   if (data) {
     appState = JSON.parse(data);
+    if (!appState.version || appState.version < 2 || !appState.riders || appState.riders.length === 0) {
+      appState = {
+        riders: DEFAULT_RIDERS,
+        devices: appState.devices || [],
+        history: appState.history || [],
+        sms_logs: appState.sms_logs || [],
+        alerts: appState.alerts || [],
+        sys_logs: appState.sys_logs || [],
+        version: 2
+      };
+      saveDbState();
+    }
+  } else {
+    appState = {
+      riders: DEFAULT_RIDERS,
+      devices: [],
+      history: [],
+      sms_logs: [],
+      alerts: [],
+      sys_logs: [],
+      version: 2
+    };
+    saveDbState();
   }
 }
 

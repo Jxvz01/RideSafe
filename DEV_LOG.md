@@ -808,3 +808,4 @@
 * [2026-06-08 06:55:57] feat(ble): integrate sensor data pipeline - incremental checkpoint #35
 * [2026-06-08 06:56:57] fix(gps): optimize battery level notification - incremental checkpoint #36
 * [2026-06-08 06:57:57] refactor(telemetry): improve reconnection handler - incremental checkpoint #37
+* [2026-06-08 06:58:57] style(overlay): polish coordinates overlay rendering - incremental checkpoint #38

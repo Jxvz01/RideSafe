@@ -84,11 +84,65 @@ function saveState() {
   localStorage.setItem(STATE_KEY, JSON.stringify(appState));
 }
 
+let lastRenderedLogIndex = -1;
+
+function appendNewLogsToTerminal() {
+  const streamTerminal = document.getElementById('streamTerminal');
+  if (!streamTerminal) return;
+
+  if (lastRenderedLogIndex === -1) {
+    lastRenderedLogIndex = Math.max(0, appState.sys_logs.length - 15);
+  }
+
+  for (let i = lastRenderedLogIndex; i < appState.sys_logs.length; i++) {
+    const log = appState.sys_logs[i];
+    const line = document.createElement('div');
+    line.className = 'term-line';
+    
+    let tag = '[TELEMETRY]';
+    let tagColor = 'rgba(0,255,136,0.6)';
+    
+    if (log.msg.includes('[BLE CONNECTED]')) {
+      tag = '[BLE CONNECTED]';
+      tagColor = '#00ff88';
+    } else if (log.msg.includes('[GPS UPDATED]')) {
+      tag = '[GPS UPDATED]';
+      tagColor = '#0ea5e9';
+    } else if (log.msg.includes('[CRASH DETECTED]')) {
+      tag = '[CRASH DETECTED]';
+      tagColor = '#f43f5e';
+    } else if (log.msg.includes('[SOS GENERATED]')) {
+      tag = '[SOS GENERATED]';
+      tagColor = '#f43f5e';
+    } else if (log.msg.includes('[FLEET SYNCED]')) {
+      tag = '[FLEET SYNCED]';
+      tagColor = '#e7b94c';
+    } else if (log.msg.includes('[BLE PAYLOAD]')) {
+      tag = '[PAYLOAD RECEIVED]';
+      tagColor = '#a78bfa';
+    } else if (log.msg.includes('[BLE DISCONNECTED]')) {
+      tag = '[BLE DISCONNECTED]';
+      tagColor = '#ff5d5d';
+    }
+
+    line.innerHTML = `<span class="term-ts">[${log.ts}]</span><span style="color:${tagColor}; font-weight:bold; flex-shrink:0;">${tag}</span><span class="term-msg">${log.msg.replace(/\[[A-Z0-9\s_]+\]\s*/g, '')}</span>`;
+    streamTerminal.appendChild(line);
+    streamTerminal.scrollTop = streamTerminal.scrollHeight;
+    
+    if (streamTerminal.children.length > 50) {
+      streamTerminal.removeChild(streamTerminal.firstChild);
+    }
+  }
+  
+  lastRenderedLogIndex = appState.sys_logs.length;
+}
+
 // Storage Listener
 window.addEventListener('storage', (e) => {
   if (e.key === STATE_KEY) {
     loadState();
     renderDevConsole();
+    appendNewLogsToTerminal();
   }
 });
 
@@ -150,6 +204,7 @@ function renderDevConsole() {
   renderDeviceTable();
   populateWebhookSelect();
   populateRidersSelect();
+  updateBleTelemetryPanel();
 }
 
 function updateKpiChips() {
@@ -410,6 +465,7 @@ function startLiveStream() {
       streamTerminal.scrollTop = streamTerminal.scrollHeight;
       if (streamTerminal.children.length > 30) streamTerminal.removeChild(streamTerminal.firstChild);
     }
+    appendNewLogsToTerminal();
   }, 1000);
 
   // 60FPS Draw Loop
@@ -787,6 +843,89 @@ setInterval(() => {
   
   msgIdx++;
 }, 4000);
+
+function updateBleTelemetryPanel() {
+  const connDevicesEl = document.getElementById('bleConnectedDevices');
+  const connStateEl = document.getElementById('bleConnectionState');
+  const connBadge = document.getElementById('bleConnectionBadge');
+  
+  const connectedDevices = appState.devices.filter(d => d.status === 'active' && d.seen === 'Just now');
+  
+  if (connDevicesEl) {
+    connDevicesEl.textContent = connectedDevices.length > 0 ? `${connectedDevices.length} Active` : '0 Active';
+  }
+  
+  if (connStateEl) {
+    if (connectedDevices.length > 0) {
+      connStateEl.textContent = 'Connected';
+      connStateEl.style.color = 'var(--green)';
+    } else {
+      connStateEl.textContent = 'Disconnected';
+      connStateEl.style.color = 'var(--red)';
+    }
+  }
+
+  if (connBadge) {
+    if (connectedDevices.length > 0) {
+      connBadge.className = 'badge badge-green';
+      connBadge.innerHTML = `<span class="dot dot-green"></span> Link Active`;
+    } else {
+      connBadge.className = 'badge badge-gray';
+      connBadge.innerHTML = `<span class="dot dot-gray"></span> Link Standby`;
+    }
+  }
+
+  const blePayloads = JSON.parse(localStorage.getItem('ridesafe_ble_payloads') || '[]');
+  const payloadsTerminal = document.getElementById('blePayloadsTerminal');
+  if (payloadsTerminal) {
+    if (blePayloads.length === 0) {
+      payloadsTerminal.innerHTML = '<div class="term-line" style="color:rgba(255,255,255,0.25)">// Awaiting BLE telemetry packets...</div>';
+    } else {
+      payloadsTerminal.innerHTML = blePayloads.slice(0, 10).map(p => `
+        <div class="term-line">
+          <span class="term-ts">[${p.ts}]</span>
+          <span class="term-msg" style="color:rgba(255,255,255,0.75)">${p.raw}</span>
+        </div>
+      `).join('');
+    }
+  }
+
+  const crashLog = document.getElementById('bleCrashLog');
+  if (crashLog) {
+    const crashEvents = appState.sys_logs.filter(log => log.msg.includes('CRASH') || log.msg.includes('Crash') || log.msg.includes('SOS') || log.lvl === 'ERROR');
+    if (crashEvents.length === 0) {
+      crashLog.innerHTML = '<div>No incidents recorded.</div>';
+    } else {
+      crashLog.innerHTML = crashEvents.slice(-3).reverse().map(e => `
+        <div style="color:var(--red)">[${e.ts}] ${e.msg.replace(/\[[A-Z0-9\s_]+\]\s*/g, '')}</div>
+      `).join('');
+    }
+  }
+
+  const gpsLog = document.getElementById('bleGpsLog');
+  if (gpsLog) {
+    const gpsEvents = appState.sys_logs.filter(log => log.msg.includes('GPS') || log.msg.includes('Coords'));
+    if (gpsEvents.length === 0) {
+      gpsLog.innerHTML = '<div>No GPS packets received.</div>';
+    } else {
+      gpsLog.innerHTML = gpsEvents.slice(-3).reverse().map(e => `
+        <div style="color:var(--blue)">[${e.ts}] ${e.msg.replace(/\[[A-Z0-9\s_]+\]\s*/g, '')}</div>
+      `).join('');
+    }
+  }
+
+  const syncLog = document.getElementById('bleSyncLog');
+  if (syncLog) {
+    const syncEvents = appState.sys_logs.filter(log => log.msg.includes('SYNCED') || log.msg.includes('sync') || log.msg.includes('State'));
+    if (syncEvents.length === 0) {
+      syncLog.innerHTML = `<div>[${new Date().toLocaleTimeString('en-GB')}] Storage syncing online.</div>`;
+    } else {
+      syncLog.innerHTML = syncEvents.slice(-3).reverse().map(e => `
+        <div style="color:var(--green)">[${e.ts}] ${e.msg.replace(/\[[A-Z0-9\s_]+\]\s*/g, '')}</div>
+      `).join('');
+    }
+  }
+}
 
 // Global exposes for html inline calls
 window.openModal = openModal;

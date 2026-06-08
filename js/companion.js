@@ -13,6 +13,23 @@ let appState = {
   sys_logs: []
 };
 
+// BLE state
+let bluetoothDevice = null;
+let statusCharacteristic = null;
+let batteryCharacteristic = null;
+let isScanning = false;
+let isMockBLE = false;
+let mockBleInterval = null;
+let bleSignalStrength = '—';
+let bleBatteryStatus = '—';
+let bleLastSyncTime = 'Never';
+
+// BLE Constants
+const RIDESAFE_SERVICE_UUID = '4acc5500-eb40-4cf0-bee7-c3db1e08922c';
+const RIDESAFE_CHAR_UUID = '4acc5501-eb40-4cf0-bee7-c3db1e08922c';
+const BATTERY_SERVICE_UUID = 'battery_service';
+const BATTERY_CHAR_UUID = 'battery_level';
+
 // Local UI state
 let activeRider = null;
 let isConnected = false;
@@ -336,48 +353,332 @@ function initMapLeaflet() {
   });
 }
 
-// ── BLUETOOTH pairing SIMULATOR ──────────────────────────────
-function connectDevice() {
-  const btn = document.getElementById('connectDeviceBtn');
-  if (!btn) return;
+// ── BLUETOOTH pairing SIMULATOR & WEB BLUETOOTH ──────────────
+function scanForDevice() {
+  if (isConnected || isScanning) return;
+  
+  playCompanionChime('click');
+  isScanning = true;
+  renderAll();
+  logActivity('Scanning for RideSafe BLE Beacons...');
 
-  if (isConnected) {
-    disconnectDevice();
+  if (navigator.bluetooth) {
+    navigator.bluetooth.requestDevice({
+      filters: [
+        { namePrefix: 'RideSafe' },
+        { namePrefix: 'ESP32' }
+      ],
+      optionalServices: [RIDESAFE_SERVICE_UUID, BATTERY_SERVICE_UUID]
+    })
+    .then(device => {
+      bluetoothDevice = device;
+      isMockBLE = false;
+      isScanning = false;
+      logActivity(`BLE Beacon Found: ${device.name}. Ready to connect.`, true);
+      playCompanionChime('success');
+      
+      if (activeRider) {
+        loadDbState();
+        const rDb = appState.riders.find(r => r.id === activeRider.id);
+        if (rDb) {
+          rDb.device = device.name;
+          saveDbState();
+          activeRider = rDb;
+        }
+      }
+      renderAll();
+    })
+    .catch(err => {
+      isScanning = false;
+      logActivity(`BLE Scan cancelled or failed: ${err.message}`);
+      renderAll();
+    });
+  } else {
+    setTimeout(() => {
+      isScanning = false;
+      isMockBLE = true;
+      bluetoothDevice = {
+        name: 'RideSafe-ESP32-RS001',
+        id: 'mock-ble-id'
+      };
+      logActivity(`[FALLBACK] Web Bluetooth unsupported. Found Mock BLE: ${bluetoothDevice.name}`, true);
+      playCompanionChime('success');
+      
+      if (activeRider) {
+        loadDbState();
+        const rDb = appState.riders.find(r => r.id === activeRider.id);
+        if (rDb) {
+          rDb.device = bluetoothDevice.name;
+          saveDbState();
+          activeRider = rDb;
+        }
+      }
+      renderAll();
+    }, 1500);
+  }
+}
+
+function connectDevice() {
+  if (isConnected) return;
+
+  if (!bluetoothDevice) {
+    logActivity('No device paired. Initializing BLE scan first...');
+    scanForDevice();
     return;
   }
 
   playCompanionChime('click');
-  btn.innerHTML = `<span>Searching BLE beacons...</span> <div class="btn-spinner"></div>`;
-  btn.disabled = true;
-  logActivity('Scanning for hardware exceptions via BLE...');
+  logActivity(`Connecting to GATT server on ${bluetoothDevice.name}...`);
 
-  setTimeout(() => {
-    isConnected = true;
-    btn.innerHTML = 'Disconnect Device';
-    btn.disabled = false;
-    btn.style.background = 'rgba(255,255,255,0.02)';
-    btn.style.border = '1px solid var(--comp-border)';
-    btn.style.color = 'var(--comp-txt)';
-    
-    logActivity(`Linked with RideSafe telemetry module ${activeRider.device || 'RSM-201'}`, true);
-    playCompanionChime('success');
-    renderAll();
-  }, 1200);
+  if (isMockBLE) {
+    setTimeout(() => {
+      isConnected = true;
+      logActivity(`[BLE CONNECTED] Paired with simulated ${bluetoothDevice.name}`, true);
+      playCompanionChime('success');
+      
+      loadDbState();
+      const ts = new Date().toLocaleTimeString('en-GB');
+      appState.sys_logs.push({
+        ts: ts,
+        lvl: 'OK',
+        msg: `[BLE CONNECTED] Linked with ${bluetoothDevice.name}`
+      });
+      let devObj = appState.devices.find(d => d.id === 'RS001' || d.rider.includes(activeRider.id));
+      if (!devObj) {
+        devObj = { id: 'RS001', rider: `${activeRider.name} ${activeRider.id}`, fw: 'v2.4.1', batt: '85%', signal: '-58dBm', seen: 'Just now', status: 'active' };
+        appState.devices.push(devObj);
+      } else {
+        devObj.seen = 'Just now';
+        devObj.status = 'active';
+      }
+      saveDbState();
+
+      bleSignalStrength = '-58 dBm';
+      bleBatteryStatus = '85%';
+      bleLastSyncTime = new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true });
+
+      startMockTelemetryInterval();
+      renderAll();
+    }, 1200);
+  } else {
+    bluetoothDevice.addEventListener('gattserverdisconnected', onBleDisconnected);
+
+    bluetoothDevice.gatt.connect()
+    .then(server => {
+      logActivity('GATT server connected. Discovering services...');
+      return server.getPrimaryServices();
+    })
+    .then(services => {
+      let statusPromise = null;
+      let batteryPromise = null;
+
+      services.forEach(service => {
+        if (service.uuid === RIDESAFE_SERVICE_UUID) {
+          statusPromise = service.getCharacteristic(RIDESAFE_CHAR_UUID)
+            .then(char => {
+              statusCharacteristic = char;
+              return char.startNotifications().then(() => {
+                char.addEventListener('characteristicvaluechanged', handleBleStatusNotification);
+                logActivity('Subscribed to RideSafe status notifications.');
+              });
+            });
+        }
+        if (service.uuid === '0000180f-0000-1000-8000-00805f9b34fb' || service.uuid === BATTERY_SERVICE_UUID) {
+          batteryPromise = service.getCharacteristic('00002a19-0000-1000-8000-00805f9b34fb' || BATTERY_CHAR_UUID)
+            .then(char => {
+              batteryCharacteristic = char;
+              return char.readValue().then(val => {
+                const batt = val.getUint8(0);
+                bleBatteryStatus = `${batt}%`;
+                return char.startNotifications()
+                  .then(() => char.addEventListener('characteristicvaluechanged', handleBatteryNotification))
+                  .catch(() => {});
+              });
+            });
+        }
+      });
+
+      return Promise.all([statusPromise, batteryPromise]);
+    })
+    .then(() => {
+      isConnected = true;
+      logActivity(`[BLE CONNECTED] Paired with ${bluetoothDevice.name} successfully`, true);
+      playCompanionChime('success');
+
+      bleLastSyncTime = new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true });
+      bleSignalStrength = '-62 dBm';
+
+      loadDbState();
+      const ts = new Date().toLocaleTimeString('en-GB');
+      appState.sys_logs.push({
+        ts: ts,
+        lvl: 'OK',
+        msg: `[BLE CONNECTED] Linked with ${bluetoothDevice.name}`
+      });
+      saveDbState();
+      
+      renderAll();
+    })
+    .catch(err => {
+      logActivity(`BLE Connection failed: ${err.message}`);
+    });
+  }
 }
 
 function disconnectDevice() {
-  isConnected = false;
-  const btn = document.getElementById('connectDeviceBtn');
-  if (btn) {
-    btn.innerHTML = 'Connect Device';
-    btn.disabled = false;
-    btn.style.background = 'var(--comp-accent)';
-    btn.style.color = '#000';
-    btn.style.border = 'none';
+  if (!isConnected) return;
+
+  playCompanionChime('click');
+  
+  if (isMockBLE) {
+    isConnected = false;
+    stopMockTelemetryInterval();
+    logActivity('BLE connection closed');
+    playCompanionChime('warning');
+    
+    loadDbState();
+    const ts = new Date().toLocaleTimeString('en-GB');
+    appState.sys_logs.push({
+      ts: ts,
+      lvl: 'INFO',
+      msg: `[BLE DISCONNECTED] Unlinked simulated device`
+    });
+    saveDbState();
+    
+    renderAll();
+  } else {
+    if (bluetoothDevice && bluetoothDevice.gatt.connected) {
+      bluetoothDevice.gatt.disconnect();
+    }
   }
-  logActivity('BLE connection closed');
+}
+
+function onBleDisconnected(event) {
+  isConnected = false;
+  logActivity(`[BLE DISCONNECTED] Connection lost with ${event.target.name}. Reconnecting in 3s...`, true);
   playCompanionChime('warning');
+
+  loadDbState();
+  const ts = new Date().toLocaleTimeString('en-GB');
+  appState.sys_logs.push({
+    ts: ts,
+    lvl: 'WARN',
+    msg: `[BLE DISCONNECTED] Lost connection with ${event.target.name}`
+  });
+  saveDbState();
+
   renderAll();
+
+  setTimeout(() => {
+    if (bluetoothDevice && !isConnected) {
+      logActivity(`Auto-reconnecting to BLE device: ${bluetoothDevice.name}...`);
+      connectDevice();
+    }
+  }, 3000);
+}
+
+function handleBatteryNotification(event) {
+  const batt = event.target.value.getUint8(0);
+  bleBatteryStatus = `${batt}%`;
+  renderAll();
+}
+
+function handleBleStatusNotification(event) {
+  const decoder = new TextDecoder('utf-8');
+  const rawData = decoder.decode(event.target.value);
+  bleLastSyncTime = new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true });
+  bleSignalStrength = `${-55 - Math.floor(Math.random() * 14)} dBm`;
+
+  try {
+    const payload = JSON.parse(rawData);
+    processIncomingBlePayload(payload);
+  } catch (err) {
+    const cleanStr = rawData.trim().toLowerCase();
+    if (['normal', 'warning', 'crash', 'safe'].includes(cleanStr)) {
+      processIncomingBlePayload({ deviceId: bluetoothDevice.name, status: cleanStr });
+    } else {
+      console.warn('Unknown BLE raw message:', rawData);
+    }
+  }
+}
+
+function processIncomingBlePayload(payload) {
+  const deviceId = payload.deviceId || 'RS001';
+  const status = payload.status || 'normal';
+
+  loadDbState();
+  const ts = new Date().toLocaleTimeString('en-GB');
+  const payloadStr = JSON.stringify(payload);
+  
+  appState.sys_logs.push({
+    ts: ts,
+    lvl: status === 'crash' ? 'ERROR' : status === 'warning' ? 'WARN' : 'OK',
+    msg: `[BLE PAYLOAD] Received from ${deviceId}: ${payloadStr}`
+  });
+  
+  let blePayloads = JSON.parse(localStorage.getItem('ridesafe_ble_payloads') || '[]');
+  blePayloads.unshift({ ts, deviceId, status, raw: payloadStr });
+  if (blePayloads.length > 15) blePayloads.pop();
+  localStorage.setItem('ridesafe_ble_payloads', JSON.stringify(blePayloads));
+  
+  saveDbState();
+
+  if (status === 'crash') {
+    logActivity(`[CRASH DETECTED] BLE crash beacon event received from ${deviceId}!`, true);
+    triggerBleAccident();
+  } else if (status === 'safe') {
+    logActivity(`[SAFE OVERRIDE] BLE safe status event received from ${deviceId}.`, true);
+    cancelEmergencyWorkflow(true);
+  } else if (status === 'warning') {
+    logActivity(`[WARNING DETECTED] BLE warning state received from ${deviceId}.`);
+    if (activeRider) {
+      loadDbState();
+      const rDb = appState.riders.find(r => r.id === activeRider.id);
+      if (rDb) {
+        rDb.status = 'warning';
+        saveDbState();
+        activeRider = rDb;
+      }
+      renderAll();
+    }
+  } else if (status === 'normal') {
+    if (activeRider && activeRider.status !== 'active') {
+      loadDbState();
+      const rDb = appState.riders.find(r => r.id === activeRider.id);
+      if (rDb && rDb.status !== 'alert') {
+        rDb.status = 'active';
+        saveDbState();
+        activeRider = rDb;
+      }
+      renderAll();
+    }
+  }
+}
+
+function startMockTelemetryInterval() {
+  stopMockTelemetryInterval();
+  let battNum = 85;
+  mockBleInterval = setInterval(() => {
+    battNum -= (Math.random() > 0.8 ? 1 : 0);
+    if (battNum < 10) battNum = 100;
+    bleBatteryStatus = `${battNum}%`;
+    bleSignalStrength = `${-55 - Math.floor(Math.random() * 12)} dBm`;
+    bleLastSyncTime = new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true });
+
+    const heartbeatPayload = {
+      deviceId: bluetoothDevice.name,
+      status: activeRider ? (activeRider.status === 'alert' ? 'crash' : activeRider.status === 'warning' ? 'warning' : 'normal') : 'normal'
+    };
+    processIncomingBlePayload(heartbeatPayload);
+    renderAll();
+  }, 3000);
+}
+
+function stopMockTelemetryInterval() {
+  if (mockBleInterval) {
+    clearInterval(mockBleInterval);
+    mockBleInterval = null;
+  }
 }
 
 // ── GEOLOCATION INFRASTRUCTURE ────────────────────────────────
@@ -457,17 +758,6 @@ function updateGPSPosition(lat, lon, accuracy = 3) {
     if (geofenceCircle) geofenceCircle.setLatLng([lat, lon]);
   }
 
-  // Sync to database
-  loadDbState();
-  const rDb = appState.riders.find(r => r.id === activeRider.id);
-  if (rDb) {
-    rDb.lat = Number(lat.toFixed(5));
-    rDb.lon = Number(lon.toFixed(5));
-    rDb.ping = 'Just now';
-    rDb.loc = getLocAddressDescription(lat, lon);
-    saveDbState();
-  }
-
   // Update DOM coords
   const coordsEl = document.getElementById('gpsCoordsText');
   const accuracyEl = document.getElementById('gpsAccuracyText');
@@ -476,6 +766,30 @@ function updateGPSPosition(lat, lon, accuracy = 3) {
   if (coordsEl) coordsEl.textContent = `${lat.toFixed(5)}, ${lon.toFixed(5)}`;
   if (accuracyEl) accuracyEl.textContent = `${accuracy.toFixed(0)}m (High Accuracy)`;
   if (syncEl) syncEl.textContent = 'Just now';
+
+  const overlayCoordsEl = document.getElementById('emergencyCoordsDisplay');
+  if (overlayCoordsEl) {
+    overlayCoordsEl.textContent = `GPS Coordinates: ${lat.toFixed(5)}, ${lon.toFixed(5)} (±${accuracy.toFixed(0)}m)`;
+  }
+
+  // Sync to database
+  loadDbState();
+  const rDb = appState.riders.find(r => r.id === activeRider.id);
+  if (rDb) {
+    rDb.lat = Number(lat.toFixed(5));
+    rDb.lon = Number(lon.toFixed(5));
+    rDb.ping = 'Just now';
+    rDb.loc = getLocAddressDescription(lat, lon);
+    
+    const timeStr = new Date().toLocaleTimeString('en-GB');
+    appState.sys_logs.push({
+      ts: timeStr,
+      lvl: 'OK',
+      msg: `[GPS UPDATED] Coords: ${rDb.lat}, ${rDb.lon} | Acc: ${accuracy.toFixed(0)}m`
+    });
+    
+    saveDbState();
+  }
 
   renderAll();
 }
@@ -812,19 +1126,59 @@ function triggerSimulatedAccident() {
   }
   
   playCompanionChime('click');
-  logActivity('⚡ ACCELEROMETER VECTOR CRITICAL: High-G impact signature captured!', true);
+  logActivity('⚡ Test SOS Beacon clicked: Simulating BLE crash payload...');
+
+  const crashPayload = {
+    deviceId: bluetoothDevice ? bluetoothDevice.name : 'RS001',
+    status: 'crash'
+  };
+  processIncomingBlePayload(crashPayload);
+}
+
+function triggerBleAccident() {
+  playCompanionChime('click');
+  logActivity('⚡ ACCELEROMETER CRITICAL: High-G impact signature received via BLE!', true);
 
   isSpiking = true;
   spikeDecay = 1.0;
 
-  document.getElementById('emergencyOverlay').classList.add('show');
+  // Reset and display overlay
+  const overlay = document.getElementById('emergencyOverlay');
+  if (overlay) overlay.classList.add('show');
+  
+  const headline = document.getElementById('emergencyOverlayHeadline');
+  if (headline) headline.textContent = 'Possible Incident Detected';
+  const timerWrap = document.getElementById('emergencyTimerWrapper');
+  if (timerWrap) timerWrap.style.display = 'flex';
+  const subtitle = document.getElementById('emergencyOverlaySubtitle');
+  if (subtitle) {
+    subtitle.innerHTML = 'The RideSafe IoT sensors have registered a critical impact signature.';
+  }
+  const actionGroup = document.getElementById('emergencyOverlayActions');
+  if (actionGroup) {
+    actionGroup.innerHTML = `
+      <button class="btn-emergency-cancel" onclick="riderConfirmSafe()">I'm Safe (Cancel Alert)</button>
+      <button class="btn-emergency-confirm" onclick="triggerSOSImmediately()">Trigger SOS Now</button>
+    `;
+  }
+
   startAlarmSiren();
 
-  simulationStep = 1; // Accident Detected
+  simulationStep = 1;
   updateWorkflowTimeline();
 
   countdownVal = 10;
   updateCountdownTimerUI();
+
+  // Retrieve smartphone GPS coordinates
+  if (!isLocationEnabled) {
+    enableLocationServices();
+  } else {
+    const overlayCoordsEl = document.getElementById('emergencyCoordsDisplay');
+    if (overlayCoordsEl && currentCoords) {
+      overlayCoordsEl.textContent = `GPS Coordinates: ${currentCoords.lat.toFixed(5)}, ${currentCoords.lon.toFixed(5)}`;
+    }
+  }
 
   if (countdownTimer) clearInterval(countdownTimer);
   countdownTimer = setInterval(() => {
@@ -896,7 +1250,7 @@ function cancelEmergencyWorkflow(updateDb = true) {
           type: 'G-Force Limit',
           loc: rDb.loc || 'Saraswathipuram, Mysore',
           sms: 'Delivered',
-          outcome: 'Safe — Override'
+          outcome: 'False Alarm'
         });
 
         const contacts = loadEmergencyContacts();
@@ -914,7 +1268,7 @@ function cancelEmergencyWorkflow(updateDb = true) {
         appState.sys_logs.push({
           ts: timeStr,
           lvl: 'OK',
-          msg: `Accident countdown cancelled by rider ${rDb.id} using manual override.`
+          msg: `[FLEET SYNCED] Accident countdown cancelled by rider ${rDb.id} using manual override. False Alarm logged.`
         });
       }
       saveDbState();
@@ -978,7 +1332,7 @@ function dispatchSOSAlert() {
         appState.sys_logs.push({
           ts: timeStr,
           lvl: 'ERROR',
-          msg: `Crash incident triggered — device ${rDb.device} assigned to ${rDb.name} (${rDb.id}).`
+          msg: `[SOS GENERATED] Crash incident triggered — device ${rDb.device} assigned to ${rDb.name} (${rDb.id}).`
         });
 
         saveDbState();
@@ -1054,45 +1408,67 @@ function renderDeviceSection() {
   const devLastSyncEl = document.getElementById('companionDeviceLastSync');
   const devMsgEl = document.getElementById('companionDeviceAlertMsg');
 
+  const scanBtn = document.getElementById('scanDeviceBtn');
+  const connectBtn = document.getElementById('connectDeviceBtn');
+  const disconnectBtn = document.getElementById('disconnectDeviceBtn');
+
   const heroMiniDev = document.getElementById('heroMiniDevice');
   const heroMiniBatt = document.getElementById('heroMiniBattery');
 
+  // Disable/enable buttons appropriately based on scanning and connection status
+  if (isScanning) {
+    if (scanBtn) { scanBtn.disabled = true; scanBtn.textContent = 'Scanning...'; }
+    if (connectBtn) { connectBtn.disabled = true; }
+    if (disconnectBtn) { disconnectBtn.disabled = true; }
+  } else if (isConnected) {
+    if (scanBtn) { scanBtn.disabled = true; }
+    if (connectBtn) { connectBtn.disabled = true; connectBtn.textContent = 'Connect Device'; }
+    if (disconnectBtn) { disconnectBtn.disabled = false; }
+  } else {
+    if (scanBtn) { scanBtn.disabled = false; scanBtn.textContent = 'Scan For Device'; }
+    if (connectBtn) {
+      connectBtn.disabled = !bluetoothDevice;
+      connectBtn.textContent = 'Connect Device';
+    }
+    if (disconnectBtn) { disconnectBtn.disabled = true; }
+  }
+
   if (isConnected) {
-    if (devIdEl) devIdEl.textContent = activeRider.device && activeRider.device !== 'UNPROVISIONED' ? activeRider.device : 'RSM-201';
+    if (devIdEl) devIdEl.textContent = (bluetoothDevice && bluetoothDevice.name) ? bluetoothDevice.name : (activeRider.device || 'RSM-201');
     if (devStatusEl) {
-      devStatusEl.textContent = 'Operational';
+      devStatusEl.textContent = 'Connected';
       devStatusEl.style.color = 'var(--comp-success)';
     }
-    if (devSignalEl) devSignalEl.textContent = '-58 dBm';
+    if (devSignalEl) devSignalEl.textContent = bleSignalStrength;
     if (devBatteryEl) {
-      devBatteryEl.textContent = `${activeRider.battery || 85}%`;
+      devBatteryEl.textContent = bleBatteryStatus;
       devBatteryEl.style.color = 'var(--comp-success)';
     }
-    if (devLastSyncEl) devLastSyncEl.textContent = 'Just now';
+    if (devLastSyncEl) devLastSyncEl.textContent = bleLastSyncTime;
     if (devMsgEl) {
       devMsgEl.style.display = 'block';
       devMsgEl.textContent = 'Device connected & actively monitoring.';
     }
 
     if (heroMiniDev) {
-      heroMiniDev.textContent = activeRider.device && activeRider.device !== 'UNPROVISIONED' ? activeRider.device : 'RSM-201';
+      heroMiniDev.textContent = (bluetoothDevice && bluetoothDevice.name) ? bluetoothDevice.name : (activeRider.device || 'RSM-201');
       heroMiniDev.style.color = 'var(--comp-success)';
     }
     if (heroMiniBatt) {
-      heroMiniBatt.textContent = `${activeRider.battery || 85}%`;
+      heroMiniBatt.textContent = bleBatteryStatus;
     }
   } else {
-    if (devIdEl) devIdEl.textContent = 'No hardware paired';
+    if (devIdEl) devIdEl.textContent = bluetoothDevice ? bluetoothDevice.name : 'No hardware paired';
     if (devStatusEl) {
-      devStatusEl.textContent = 'Disconnected';
-      devStatusEl.style.color = 'var(--comp-danger)';
+      devStatusEl.textContent = bluetoothDevice ? 'Ready to Connect' : 'Disconnected';
+      devStatusEl.style.color = bluetoothDevice ? 'var(--comp-accent)' : 'var(--comp-danger)';
     }
     if (devSignalEl) devSignalEl.textContent = '—';
     if (devBatteryEl) {
       devBatteryEl.textContent = '—';
       devBatteryEl.style.color = '';
     }
-    if (devLastSyncEl) devLastSyncEl.textContent = 'Never';
+    if (devLastSyncEl) devLastSyncEl.textContent = bleLastSyncTime || 'Never';
     if (devMsgEl) devMsgEl.style.display = 'none';
 
     if (heroMiniDev) {
@@ -1163,8 +1539,14 @@ function initEventListeners() {
     profileSelect.addEventListener('change', (e) => changeRiderProfile(e.target.value));
   }
 
+  const scanBtn = document.getElementById('scanDeviceBtn');
+  if (scanBtn) scanBtn.addEventListener('click', scanForDevice);
+
   const connectBtn = document.getElementById('connectDeviceBtn');
   if (connectBtn) connectBtn.addEventListener('click', connectDevice);
+
+  const disconnectBtn = document.getElementById('disconnectDeviceBtn');
+  if (disconnectBtn) disconnectBtn.addEventListener('click', disconnectDevice);
 
   const locationBtn = document.getElementById('enableLocationBtn');
   if (locationBtn) locationBtn.addEventListener('click', toggleLocationServices);

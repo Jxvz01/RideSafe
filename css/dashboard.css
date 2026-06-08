@@ -390,7 +390,19 @@
   animation: pulse-ring 2.2s ease-out infinite;
 }
 .marker-dot-active { background: var(--green); } .marker-dot-active::after { background: rgba(0, 232, 122, 0.35); }
-.marker-dot-alert { background: var(--red); } .marker-dot-alert::after { background: rgba(244, 63, 94, 0.45); animation-duration: 1.2s; }
+.marker-dot-alert {
+  background: var(--red);
+  box-shadow: 0 0 12px var(--red), 0 0 24px var(--red);
+  animation: flash-red 0.8s infinite alternate !important;
+}
+.marker-dot-alert::after {
+  background: rgba(244, 63, 94, 0.65);
+  animation-duration: 1.0s;
+}
+@keyframes flash-red {
+  0% { transform: scale(1); filter: brightness(1.2); }
+  100% { transform: scale(1.5); filter: brightness(1.8); }
+}
 .marker-dot-warning { background: var(--orange); } .marker-dot-warning::after { background: rgba(249, 115, 22, 0.35); }
 .marker-dot-offline { background: var(--txt3); } .marker-dot-offline::after { display: none; }
 

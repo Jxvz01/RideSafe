@@ -121,6 +121,11 @@ window.addEventListener('storage', (e) => {
       const latest = activeAlerts[activeAlerts.length - 1];
       if (latest) {
         showToast('🚨 CRITICAL ALERT', `${latest.name} (${latest.id}) · ${latest.loc}`, 'error');
+        // Center the map on active crash coordinate immediately
+        if (map && latest.lat && latest.lon) {
+          map.setView([latest.lat, latest.lon], 14);
+          openInspectorDrawer(latest.id);
+        }
       }
     } else if (newAlertCount < oldAlertCount) {
       showToast('Alert Cleared', 'Rider marked safe. Transmissions shut.', 'success');
@@ -197,7 +202,7 @@ function renderHistoryTable() {
   if (!table) return;
 
   table.innerHTML = appState.history.map(h => {
-    const outcomeClass = h.outcome.includes('Safe') ? 'badge-green' : h.outcome === 'Pending' ? 'badge-orange' : 'badge-red';
+    const outcomeClass = (h.outcome.includes('Safe') || h.outcome.includes('Cancelled') || h.outcome.includes('False') || h.outcome.includes('Alarm') || h.outcome.includes('Rider')) ? 'badge-green' : h.outcome === 'Pending' ? 'badge-orange' : 'badge-red';
     const typeClass = h.type.includes('High') ? 'badge-red' : 'badge-orange';
     return `<tr>
       <td><span style="font-family:var(--mono);font-size:.75rem;color:var(--txt3)">${h.dt}</span></td>
@@ -239,17 +244,33 @@ function renderAlertStream() {
   }
 
   stream.innerHTML = activeAlerts.map(a => {
-    const isRed = a.cls.includes('red');
-    const isOrange = a.cls.includes('orange');
-    const typeLabel = isRed ? 'Alert' : 'Warning';
+    const rId = a.riderId;
+    const rider = appState.riders.find(r => r.id === rId);
     
-    return `<div class="as-item" onclick="openInspectorDrawer('${a.riderId}')" style="cursor:pointer; border-left: 2px solid ${isRed ? 'var(--red)' : 'var(--orange)'}; background:rgba(255,255,255,0.01); padding:10px 14px;">
-      <div class="as-time" style="font-size:0.65rem;">${a.time}</div>
-      <div class="as-content">
-        <div class="as-title" style="font-size:0.8rem; font-weight:700;">${a.title.split(' — ')[1] || a.title}</div>
-        <div class="as-detail" style="font-size:0.7rem; color:var(--txt2);">${a.detail.split(' · ')[0]}</div>
+    const isRed = rider ? (rider.status === 'alert') : a.cls.includes('red');
+    const isOrange = rider ? (rider.status === 'warning') : a.cls.includes('orange');
+    const severityLabel = isRed ? '🚨 CRITICAL ALERT' : '⚠️ WARNING';
+    const statusLabel = isRed ? 'SOS DISPATCHED' : 'AWAITING OVERRIDE';
+    
+    const smsLog = appState.sms_logs.find(s => s.rider.includes(rId));
+    const smsState = smsLog ? smsLog.status : 'Delivered';
+
+    return `<div class="as-item" onclick="openInspectorDrawer('${a.riderId}')" style="cursor:pointer; border-left: 3px solid ${isRed ? 'var(--red)' : 'var(--orange)'}; background:rgba(255,255,255,0.015); padding:14px; border-radius:12px; margin-bottom:8px; display:flex; flex-direction:column; gap:8px;">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <span style="font-weight:800; font-size:0.75rem; color:${isRed ? 'var(--red)' : 'var(--orange)'};">${severityLabel}</span>
+        <span class="as-time" style="font-size:0.65rem; color:var(--txt3);">${a.time}</span>
       </div>
-      <span class="badge ${a.cls}" style="font-size:0.55rem; padding: 2px 6px;">${typeLabel}</span>
+      <div style="font-size:0.85rem; font-weight:700; color:var(--txt);">${rider ? rider.name : 'Unknown Rider'} (${rId})</div>
+      <div style="font-size:0.75rem; color:var(--txt2);">
+        <strong>Device ID:</strong> <span style="font-family:monospace; color:var(--blue);">${rider ? rider.device : '—'}</span>
+      </div>
+      <div style="font-size:0.75rem; color:var(--txt2);">
+        <strong>Location:</strong> ${rider ? rider.loc : '—'} (${rider ? rider.lat : '—'}, ${rider ? rider.lon : '—'})
+      </div>
+      <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border); padding-top:8px; margin-top:4px;">
+        <span style="font-size:0.68rem; color:var(--txt3);">Response: <strong style="color:${isRed ? 'var(--red)' : 'var(--orange)'};">${statusLabel}</strong></span>
+        <span style="font-size:0.68rem; color:var(--txt3);">SMS: <strong style="color:var(--green);">${smsState}</strong></span>
+      </div>
     </div>`;
   }).join('');
 }

@@ -64,7 +64,7 @@
   <div class="page-body" id="devPageBody">
     <!-- CONSOLE STREAM PAGE -->
     <div class="page" id="devpage-stream">
-      <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 20px; min-height: calc(100vh - 120px);">
+      <div style="display: grid; grid-template-columns: 1.2fr 1.2fr 1fr; gap: 20px; min-height: calc(100vh - 120px);">
         <!-- Telemetry Graph -->
         <div class="card card-p" style="display:flex; flex-direction:column; gap:16px;">
           <div style="display:flex; justify-content:space-between; align-items:center;">
@@ -79,6 +79,53 @@
           <!-- Quick Telemetry Readouts -->
           <div class="stream-values" id="streamValues" style="display:grid; grid-template-columns: repeat(3, 1fr); gap:8px;">
             <!-- Numeric values -->
+          </div>
+        </div>
+
+        <!-- BLE Telemetry Panel -->
+        <div class="card card-p" style="display:flex; flex-direction:column; gap:16px; border-color: rgba(0,255,136,0.12)">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div style="font-family:var(--mono); font-size:0.75rem; letter-spacing:0.05em; color:var(--green); text-transform:uppercase;">📶 RideSafe BLE Telemetry</div>
+            <span class="badge badge-green" id="bleConnectionBadge" style="font-size:0.68rem;"><span class="dot dot-green"></span> Link Standby</span>
+          </div>
+
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size:0.75rem; border-bottom:1px solid var(--border); padding-bottom:12px;">
+            <div>
+              <span style="color:var(--txt3); font-size:0.6rem; display:block; text-transform:uppercase; font-family:var(--mono);">Connected Devices</span>
+              <strong id="bleConnectedDevices" style="color:var(--green); font-family:var(--mono);">0 Active</strong>
+            </div>
+            <div>
+              <span style="color:var(--txt3); font-size:0.6rem; display:block; text-transform:uppercase; font-family:var(--mono);">Connection State</span>
+              <strong id="bleConnectionState" style="font-family:var(--mono);">Disconnected</strong>
+            </div>
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:8px; flex:1;">
+            <span style="color:var(--txt3); font-size:0.6rem; text-transform:uppercase; font-family:var(--mono);">Incoming Payloads (Raw JSON)</span>
+            <div class="terminal" id="blePayloadsTerminal" style="height: 100px; font-size: 0.65rem; background:#020408; border-color:rgba(0,255,136,0.1); padding:8px 12px;">
+              <!-- Raw JSON payloads stream -->
+            </div>
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:12px; border-top:1px solid var(--border); padding-top:12px;">
+            <div>
+              <span style="color:var(--txt3); font-size:0.6rem; text-transform:uppercase; font-family:var(--mono); display:block; margin-bottom:4px;">Crash Events</span>
+              <div id="bleCrashLog" style="font-size:0.65rem; color:var(--red); font-family:var(--mono); max-height:50px; overflow-y:auto; display:flex; flex-direction:column; gap:2px;">
+                No incidents recorded.
+              </div>
+            </div>
+            <div>
+              <span style="color:var(--txt3); font-size:0.6rem; text-transform:uppercase; font-family:var(--mono); display:block; margin-bottom:4px;">GPS Updates</span>
+              <div id="bleGpsLog" style="font-size:0.65rem; color:var(--blue); font-family:var(--mono); max-height:50px; overflow-y:auto; display:flex; flex-direction:column; gap:2px;">
+                No GPS packets received.
+              </div>
+            </div>
+            <div>
+              <span style="color:var(--txt3); font-size:0.6rem; text-transform:uppercase; font-family:var(--mono); display:block; margin-bottom:4px;">Synchronization Logs</span>
+              <div id="bleSyncLog" style="font-size:0.65rem; color:var(--green); font-family:var(--mono); max-height:50px; overflow-y:auto; display:flex; flex-direction:column; gap:2px;">
+                Storage syncing online.
+              </div>
+            </div>
           </div>
         </div>
 

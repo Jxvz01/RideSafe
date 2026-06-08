@@ -119,19 +119,35 @@
           </div>
         </section>
 
-        <!-- Device pairing & Calibration diagnostic -->
-        <section class="dashboard-card">
+        <!-- RideSafe Device Connection -->
+        <section class="dashboard-card" id="bleDeviceSection">
           <div class="card-title-row">
-            <span class="card-label">⚙️ Hardware Diagnostics</span>
+            <span class="card-label">📶 RideSafe Device Connection</span>
             <span class="badge badge-blue" style="font-size: 0.58rem;">BLE Beacon</span>
           </div>
           
           <div style="display: flex; flex-direction: column; gap: 14px;">
             <div style="display: flex; gap: 14px; align-items: center;">
-              <div class="dev-avatar" style="width: 44px; height: 44px; border-radius: 12px; background: rgba(231,185,76,0.06); display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">🏍️</div>
+              <div id="deviceIconBox" class="dev-avatar" style="width: 44px; height: 44px; border-radius: 12px; background: rgba(231,185,76,0.06); display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">🏍️</div>
               <div>
-                <h4 id="companionDeviceId" style="font-size: 0.9rem; font-weight: 700;">No hardware paired</h4>
-                <p id="companionDeviceStatus" style="font-size: 0.72rem; color: var(--comp-danger);">Disconnected</p>
+                <h4 id="companionDeviceId" style="font-size: 0.9rem; font-weight: 700; margin: 0;">No Hardware Paired</h4>
+                <p id="companionDeviceStatus" style="font-size: 0.72rem; color: var(--comp-danger); margin: 2px 0 0 0;">Disconnected</p>
+              </div>
+            </div>
+
+            <!-- Premium indicators grid -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 0.78rem; border-top: 1px solid var(--comp-border); padding-top: 12px;">
+              <div>
+                <span style="color:var(--comp-muted); font-size:0.6rem; display:block; text-transform:uppercase;">Signal Strength</span>
+                <strong id="companionDeviceSignal">—</strong>
+              </div>
+              <div>
+                <span style="color:var(--comp-muted); font-size:0.6rem; display:block; text-transform:uppercase;">Battery Status</span>
+                <strong id="companionDeviceBattery">—</strong>
+              </div>
+              <div style="grid-column: span 2;">
+                <span style="color:var(--comp-muted); font-size:0.6rem; display:block; text-transform:uppercase;">Last Sync Time</span>
+                <strong id="companionDeviceLastSync">Never</strong>
               </div>
             </div>
 
@@ -139,9 +155,11 @@
               Device connected & actively monitoring.
             </div>
 
-            <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 4px;">
-              <button id="connectDeviceBtn" class="btn btn-primary" style="background:var(--comp-accent); color:#000; font-weight:800; border:none; padding:12px; border-radius:12px; font-size:0.78rem;">Connect Device</button>
-              <button id="simAccidentBtn" class="btn-sim-trigger" style="width:100%; font-size:0.75rem; border-radius:12px;">💥 Test SOS Beacon</button>
+            <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 4px;">
+              <button id="scanDeviceBtn" class="btn btn-outline" style="font-size:0.72rem; border-radius:12px; padding:10px 4px;">Scan For Device</button>
+              <button id="connectDeviceBtn" class="btn btn-primary" style="background:var(--comp-accent); color:#000; font-weight:800; border:none; padding:10px 4px; border-radius:12px; font-size:0.72rem;">Connect Device</button>
+              <button id="disconnectDeviceBtn" class="btn btn-outline" style="font-size:0.72rem; border-radius:12px; padding:10px 4px;" disabled>Disconnect Device</button>
+              <button id="simAccidentBtn" class="btn-sim-trigger" style="grid-column: span 3; font-size:0.75rem; border-radius:12px; margin-top: 4px; padding: 10px;">💥 Test SOS Beacon</button>
             </div>
           </div>
         </section>
@@ -285,8 +303,9 @@
   <div class="emergency-fullscreen-overlay" id="emergencyOverlay">
     <div class="emergency-header" style="text-align:center;">
       <div class="overlay-beacon-ring">🚨</div>
-      <h2>Possible Incident Detected</h2>
+      <h2 id="emergencyOverlayHeadline">Possible Incident Detected</h2>
       <p id="emergencyOverlaySubtitle" style="font-size: 0.9rem; color: var(--comp-muted); margin-top: 6px;">The RideSafe IoT sensors have registered a critical impact signature.</p>
+      <div id="emergencyCoordsDisplay" style="font-family: monospace; font-size: 0.88rem; color: var(--comp-danger); margin-top: 10px; background: rgba(255,93,93,0.1); padding: 8px 16px; border-radius: 8px; border: 1px solid rgba(255,93,93,0.2); display: inline-block;">GPS Coordinates: Loading...</div>
     </div>
 
     <!-- Circular countdown clock -->

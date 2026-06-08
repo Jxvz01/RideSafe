@@ -618,6 +618,20 @@ function initMapLeaflet() {
     logActivity(`GPS anchor point set to: ${e.latlng.lat.toFixed(5)}, ${e.latlng.lng.toFixed(5)}`);
     playCompanionChime('click');
   });
+
+  // Force Leaflet recalculation on container resize / display toggle (resolves standard grey Leaflet rendering glitch)
+  setTimeout(() => {
+    if (localMap) localMap.invalidateSize();
+  }, 100);
+
+  try {
+    const resizeObserver = new ResizeObserver(() => {
+      if (localMap) localMap.invalidateSize();
+    });
+    resizeObserver.observe(mapEl);
+  } catch (e) {
+    console.warn("ResizeObserver not supported or failed to bind on companionMap:", e);
+  }
 }
 
 // ── BLUETOOTH pairing SIMULATOR & WEB BLUETOOTH ──────────────

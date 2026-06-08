@@ -881,6 +881,20 @@ function initMap() {
 
   L.control.zoom({ position: 'bottomright' }).addTo(map);
   updateMapMarkers();
+
+  // Force Leaflet recalculation on container resize / display toggle (resolves standard grey Leaflet rendering glitch)
+  setTimeout(() => {
+    if (map) map.invalidateSize();
+  }, 100);
+
+  try {
+    const resizeObserver = new ResizeObserver(() => {
+      if (map) map.invalidateSize();
+    });
+    resizeObserver.observe(mapElement);
+  } catch (e) {
+    console.warn("ResizeObserver not supported or failed to bind on liveMap:", e);
+  }
 }
 
 function updateMapMarkers() {

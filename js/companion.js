@@ -276,6 +276,40 @@ function populateRiderDropdown() {
   });
 }
 
+function saveUsername() {
+  const input = document.getElementById('usernameInput');
+  if (!input || !activeRider) return;
+
+  const newName = input.value.trim();
+  if (!newName) {
+    logActivity('Username cannot be empty');
+    return;
+  }
+
+  loadDbState();
+  const rDb = appState.riders.find(r => r.id === activeRider.id);
+  if (rDb) {
+    const oldName = rDb.name;
+    rDb.name = newName;
+    activeRider.name = newName;
+
+    // Update devices mapping
+    appState.devices.forEach(d => {
+      if (d.rider.includes(rDb.id)) {
+        d.rider = `${newName} ${rDb.id}`;
+      }
+    });
+
+    saveDbState();
+    populateRiderDropdown();
+    renderAll();
+
+    logActivity(`Username updated from "${oldName}" to "${newName}"`, true);
+    playCompanionChime('success');
+    input.value = '';
+  }
+}
+
 function changeRiderProfile(riderId) {
   loadDbState();
   const selected = appState.riders.find(r => r.id === riderId);
@@ -515,6 +549,19 @@ function connectDevice() {
         lvl: 'OK',
         msg: `[BLE CONNECTED] Linked with ${bluetoothDevice.name}`
       });
+
+      // Update devices registry
+      let devName = bluetoothDevice.name || 'RS001';
+      let devObj = appState.devices.find(d => d.id === devName || d.rider.includes(activeRider.id));
+      if (!devObj) {
+        devObj = { id: devName, rider: `${activeRider.name} ${activeRider.id}`, fw: 'v2.4.1', batt: '100%', signal: '-62dBm', seen: 'Just now', status: 'active' };
+        appState.devices.push(devObj);
+      } else {
+        devObj.seen = 'Just now';
+        devObj.status = 'active';
+        devObj.id = devName;
+      }
+
       saveDbState();
       
       renderAll();
@@ -620,6 +667,13 @@ function processIncomingBlePayload(payload) {
   blePayloads.unshift({ ts, deviceId, status, raw: payloadStr });
   if (blePayloads.length > 15) blePayloads.pop();
   localStorage.setItem('ridesafe_ble_payloads', JSON.stringify(blePayloads));
+
+  // Sync device state in database
+  let devObj = appState.devices.find(d => d.id === deviceId || d.rider.includes(activeRider.id));
+  if (devObj) {
+    devObj.seen = 'Just now';
+    devObj.status = (status === 'crash') ? 'alert' : (status === 'warning') ? 'warning' : 'active';
+  }
   
   saveDbState();
 
@@ -718,6 +772,20 @@ function enableLocationServices() {
   btn.style.background = 'rgba(255,255,255,0.02)';
   btn.style.border = '1px solid var(--comp-border)';
   btn.style.color = 'var(--comp-txt)';
+
+  // Sync active status on location activation
+  loadDbState();
+  const rDb = appState.riders.find(r => r.id === activeRider.id);
+  if (rDb) {
+    rDb.status = 'active';
+    activeRider.status = 'active';
+    appState.riders.forEach(r => {
+      if (r.id !== activeRider.id) {
+        r.status = 'offline';
+      }
+    });
+    saveDbState();
+  }
   
   logActivity('Continuous GPS mapping socket established', true);
   renderAll();
@@ -780,6 +848,15 @@ function updateGPSPosition(lat, lon, accuracy = 3) {
     rDb.lon = Number(lon.toFixed(5));
     rDb.ping = 'Just now';
     rDb.loc = getLocAddressDescription(lat, lon);
+    
+    // Set current rider to active status, and deactivate others
+    rDb.status = 'active';
+    activeRider.status = 'active';
+    appState.riders.forEach(r => {
+      if (r.id !== activeRider.id) {
+        r.status = 'offline';
+      }
+    });
     
     const timeStr = new Date().toLocaleTimeString('en-GB');
     appState.sys_logs.push({
@@ -1537,6 +1614,18 @@ function initEventListeners() {
   const profileSelect = document.getElementById('riderProfileSelect');
   if (profileSelect) {
     profileSelect.addEventListener('change', (e) => changeRiderProfile(e.target.value));
+  }
+
+  const saveUsernameBtn = document.getElementById('saveUsernameBtn');
+  if (saveUsernameBtn) saveUsernameBtn.addEventListener('click', saveUsername);
+
+  const usernameInput = document.getElementById('usernameInput');
+  if (usernameInput) {
+    usernameInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        saveUsername();
+      }
+    });
   }
 
   const scanBtn = document.getElementById('scanDeviceBtn');

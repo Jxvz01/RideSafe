@@ -268,6 +268,10 @@
         <section class="dashboard-card" style="border-color: rgba(231,185,76,0.1);">
           <div class="card-title-row" style="margin-bottom:14px;">
             <span class="card-label">👤 Shift Registry Account</span>
+            <div style="display: flex; gap: 8px; align-items: center;">
+              <input type="text" id="usernameInput" placeholder="Update Name" style="background: rgba(0,0,0,0.3); border: 1px solid var(--comp-border); border-radius: 8px; padding: 6px 12px; color: var(--comp-txt); font-size: 0.75rem; width: 130px; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--comp-accent)'" onblur="this.style.borderColor='var(--comp-border)'">
+              <button id="saveUsernameBtn" class="btn btn-outline btn-sm" style="font-size:0.75rem; padding:6px 12px; border-radius:8px;">Save</button>
+            </div>
           </div>
           <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap: 16px; font-size: 0.8rem;">
             <div>

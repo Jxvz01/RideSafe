@@ -151,6 +151,41 @@ function renderAll() {
   renderAlertStream();
   updateMapMarkers();
   populateRidersSelect();
+  updateActiveFleetSession();
+}
+
+function updateActiveFleetSession() {
+  const nameEl = document.getElementById('opsActiveRiderName');
+  const countEl = document.getElementById('opsActiveConnectedCount');
+  if (!nameEl && !countEl) return;
+
+  const activeRiders = appState.riders.filter(r => r.status === 'active' || r.status === 'warning' || r.status === 'alert');
+  
+  if (nameEl) {
+    if (activeRiders.length > 0) {
+      nameEl.textContent = activeRiders.map(r => r.name).join(', ');
+      nameEl.style.color = 'var(--green)';
+    } else {
+      nameEl.textContent = 'None';
+      nameEl.style.color = 'var(--txt3)';
+    }
+  }
+  
+  if (countEl) {
+    let connectedCount = 0;
+    activeRiders.forEach(r => {
+      const dev = appState.devices.find(d => d.rider.includes(r.id) && d.status !== 'offline');
+      if (dev) {
+        connectedCount++;
+      }
+    });
+    countEl.textContent = `${connectedCount} connected`;
+    if (connectedCount > 0) {
+      countEl.style.color = 'var(--blue)';
+    } else {
+      countEl.style.color = 'var(--txt3)';
+    }
+  }
 }
 
 function updateKpis() {

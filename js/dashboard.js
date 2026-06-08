@@ -83,10 +83,43 @@ const MQTT_DEVICE_TOPIC_PREFIX = 'ridesafe/7fd793ee-62c8-47a4-985a-e9e89f947b44/
 
 let mqttClient = null;
 let isMqttPublishing = false;
+let mqttReconnectDelay = 1000;
+let mqttReconnectTimer = null;
+
+function mqttDoConnect() {
+  if (!mqttClient) return;
+  mqttClient.connect({
+    useSSL: true,
+    keepAliveInterval: 30,
+    cleanSession: true,
+    timeout: 10,
+    onSuccess: () => {
+      console.log('MQTT Connected (Admin)');
+      mqttReconnectDelay = 1000; // Reset backoff on success
+      mqttClient.subscribe(MQTT_TOPIC_PREFIX + '/+');
+      mqttClient.subscribe(MQTT_DEVICE_TOPIC_PREFIX + '/+');
+    },
+    onFailure: (err) => {
+      console.warn('MQTT Connect Failed (Admin):', err.errorMessage || err);
+      scheduleMqttReconnect();
+    }
+  });
+}
+
+function scheduleMqttReconnect() {
+  if (mqttReconnectTimer) clearTimeout(mqttReconnectTimer);
+  const delay = Math.min(mqttReconnectDelay, 30000);
+  console.log('MQTT reconnecting in ' + delay + 'ms...');
+  mqttReconnectTimer = setTimeout(() => {
+    mqttReconnectDelay = Math.min(mqttReconnectDelay * 1.5, 30000);
+    mqttDoConnect();
+  }, delay);
+}
 
 function initMqtt() {
   if (typeof Paho === 'undefined') {
-    console.warn('Paho MQTT library not loaded');
+    console.warn('Paho MQTT library not loaded — retrying in 1s');
+    setTimeout(initMqtt, 1000);
     return;
   }
   const clientId = 'admin_dashboard_' + Math.random().toString(16).substr(2, 8);
@@ -95,11 +128,11 @@ function initMqtt() {
   mqttClient.onConnectionLost = (responseObject) => {
     if (responseObject.errorCode !== 0) {
       console.warn('MQTT Connection Lost:', responseObject.errorMessage);
+      scheduleMqttReconnect();
     }
   };
 
   mqttClient.onMessageArrived = (message) => {
-    if (isMqttPublishing) return;
     try {
       const topic = message.destinationName;
       const payload = JSON.parse(message.payloadString);
@@ -148,23 +181,11 @@ function initMqtt() {
     }
   };
 
-  mqttClient.connect({
-    useSSL: true,
-    onSuccess: () => {
-      console.log('MQTT Connected (Admin)');
-      mqttClient.subscribe(MQTT_TOPIC_PREFIX + '/+');
-      mqttClient.subscribe(MQTT_DEVICE_TOPIC_PREFIX + '/+');
-    },
-    onFailure: (err) => {
-      console.error('MQTT Connect Failed (Admin):', err);
-    },
-    reconnect: true
-  });
+  mqttDoConnect();
 }
 
 function publishRiderState(rider) {
   if (mqttClient && mqttClient.isConnected()) {
-    isMqttPublishing = true;
     try {
       const topic = `${MQTT_TOPIC_PREFIX}/${rider.id}`;
       const payload = JSON.stringify({
@@ -187,15 +208,13 @@ function publishRiderState(rider) {
       mqttClient.send(message);
     } catch (e) {
       console.error('MQTT publish error:', e);
-    } finally {
-      isMqttPublishing = false;
+      scheduleMqttReconnect();
     }
   }
 }
 
 function publishDeviceState(dev) {
   if (mqttClient && mqttClient.isConnected()) {
-    isMqttPublishing = true;
     try {
       const topic = `${MQTT_DEVICE_TOPIC_PREFIX}/${dev.id}`;
       const payload = JSON.stringify({
@@ -212,8 +231,7 @@ function publishDeviceState(dev) {
       mqttClient.send(message);
     } catch (e) {
       console.error('MQTT publish error:', e);
-    } finally {
-      isMqttPublishing = false;
+      scheduleMqttReconnect();
     }
   }
 }

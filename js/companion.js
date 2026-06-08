@@ -87,10 +87,48 @@ const MQTT_DEVICE_TOPIC_PREFIX = 'ridesafe/7fd793ee-62c8-47a4-985a-e9e89f947b44/
 
 let mqttClient = null;
 let isMqttPublishing = false;
+let mqttReconnectDelay = 1000;
+let mqttReconnectTimer = null;
+
+function mqttDoConnect() {
+  if (!mqttClient) return;
+  mqttClient.connect({
+    useSSL: true,
+    keepAliveInterval: 30,
+    cleanSession: true,
+    timeout: 10,
+    onSuccess: () => {
+      console.log('MQTT Connected (Companion)');
+      mqttReconnectDelay = 1000; // Reset backoff on success
+      mqttClient.subscribe(MQTT_TOPIC_PREFIX + '/+');
+      mqttClient.subscribe(MQTT_DEVICE_TOPIC_PREFIX + '/+');
+      logActivity('Cloud sync online (Real-time telemetry)', true);
+      if (activeRider) {
+        publishRiderState(activeRider);
+      }
+    },
+    onFailure: (err) => {
+      console.warn('MQTT Connect Failed (Companion):', err.errorMessage || err);
+      scheduleMqttReconnect();
+    }
+  });
+}
+
+function scheduleMqttReconnect() {
+  if (mqttReconnectTimer) clearTimeout(mqttReconnectTimer);
+  const delay = Math.min(mqttReconnectDelay, 30000);
+  console.log('MQTT reconnecting in ' + delay + 'ms...');
+  logActivity('Cloud sync offline. Reconnecting in ' + Math.round(delay / 1000) + 's...');
+  mqttReconnectTimer = setTimeout(() => {
+    mqttReconnectDelay = Math.min(mqttReconnectDelay * 1.5, 30000);
+    mqttDoConnect();
+  }, delay);
+}
 
 function initMqtt() {
   if (typeof Paho === 'undefined') {
-    console.warn('Paho MQTT library not loaded');
+    console.warn('Paho MQTT library not loaded — retrying in 1s');
+    setTimeout(initMqtt, 1000);
     return;
   }
   const clientId = 'rider_companion_' + Math.random().toString(16).substr(2, 8);
@@ -99,12 +137,11 @@ function initMqtt() {
   mqttClient.onConnectionLost = (responseObject) => {
     if (responseObject.errorCode !== 0) {
       console.warn('MQTT Connection Lost:', responseObject.errorMessage);
-      logActivity('Cloud sync offline. Reconnecting...');
+      scheduleMqttReconnect();
     }
   };
 
   mqttClient.onMessageArrived = (message) => {
-    if (isMqttPublishing) return;
     try {
       const topic = message.destinationName;
       const payload = JSON.parse(message.payloadString);
@@ -162,27 +199,11 @@ function initMqtt() {
     }
   };
 
-  mqttClient.connect({
-    useSSL: true,
-    onSuccess: () => {
-      console.log('MQTT Connected');
-      mqttClient.subscribe(MQTT_TOPIC_PREFIX + '/+');
-      mqttClient.subscribe(MQTT_DEVICE_TOPIC_PREFIX + '/+');
-      logActivity('Cloud sync online (Real-time telemetry)', true);
-      if (activeRider) {
-        publishRiderState(activeRider);
-      }
-    },
-    onFailure: (err) => {
-      console.error('MQTT Connect Failed:', err);
-    },
-    reconnect: true
-  });
+  mqttDoConnect();
 }
 
 function publishRiderState(rider) {
   if (mqttClient && mqttClient.isConnected()) {
-    isMqttPublishing = true;
     try {
       const topic = `${MQTT_TOPIC_PREFIX}/${rider.id}`;
       const payload = JSON.stringify({
@@ -205,15 +226,14 @@ function publishRiderState(rider) {
       mqttClient.send(message);
     } catch (e) {
       console.error('MQTT publish error:', e);
-    } finally {
-      isMqttPublishing = false;
+      // Connection may have dropped — trigger reconnect
+      scheduleMqttReconnect();
     }
   }
 }
 
 function publishDeviceState(dev) {
   if (mqttClient && mqttClient.isConnected()) {
-    isMqttPublishing = true;
     try {
       const topic = `${MQTT_DEVICE_TOPIC_PREFIX}/${dev.id}`;
       const payload = JSON.stringify({
@@ -230,8 +250,7 @@ function publishDeviceState(dev) {
       mqttClient.send(message);
     } catch (e) {
       console.error('MQTT publish error:', e);
-    } finally {
-      isMqttPublishing = false;
+      scheduleMqttReconnect();
     }
   }
 }
@@ -411,7 +430,7 @@ function toggleSound() {
   soundEnabled = !soundEnabled;
   const btn = document.getElementById('soundToggleBtn');
   if (btn) {
-    btn.innerHTML = soundEnabled ? '🔊 Sound On' : '🔇 Muted';
+    btn.textContent = soundEnabled ? '🔊 Sound On' : '🔇 Muted';
     btn.classList.toggle('active', soundEnabled);
   }
   playCompanionChime('click');
@@ -1028,7 +1047,7 @@ function enableLocationServices() {
   }
 
   isLocationEnabled = true;
-  btn.innerHTML = 'Disable GPS';
+  btn.textContent = 'Disable GPS';
   btn.style.background = 'rgba(255,255,255,0.02)';
   btn.style.border = '1px solid var(--comp-border)';
   btn.style.color = 'var(--comp-txt)';
@@ -1067,7 +1086,7 @@ function disableLocationServices() {
 
   const btn = document.getElementById('enableLocationBtn');
   if (btn) {
-    btn.innerHTML = 'Enable Location';
+    btn.textContent = 'Enable Location';
     btn.style.background = 'var(--comp-accent)';
     btn.style.color = '#000';
     btn.style.border = 'none';

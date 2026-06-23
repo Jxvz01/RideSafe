@@ -806,15 +806,15 @@ function showToast(title, msg, type = 'info') {
 
 // ── TERMINAL LOG HEARTBEATS ───────────────────────────────────
 window.clearTerminal = function() {
-  const term = document.getElementById('terminal');
+  const term = document.getElementById('streamTerminal');
   if (term) term.innerHTML = '<div class="term-line" style="color:rgba(255,255,255,.2)">// System terminal cleared</div>';
 };
 
-const terminal = document.getElementById('terminal');
+const terminal = document.getElementById('streamTerminal');
 let msgIdx = 0;
 
 setInterval(() => {
-  if (!terminal || document.getElementById('devpage-overview')?.classList.contains('hidden')) return;
+  if (!terminal || document.getElementById('devpage-stream')?.classList.contains('hidden')) return;
 
   loadState();
   const activeRiders = appState.riders.filter(r => r.status === 'active');

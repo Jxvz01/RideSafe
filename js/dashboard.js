@@ -869,9 +869,6 @@ function openInspectorDrawer(riderId) {
   drawer.classList.add('open');
 }
 
-  drawer.classList.add('open');
-}
-
 function closeInspectorDrawer() {
   const drawer = document.getElementById('inspectorDrawer');
   if (drawer) drawer.classList.remove('open');
